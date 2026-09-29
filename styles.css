@@ -135,7 +135,7 @@ h3 { font-size: 1.3rem; letter-spacing: -.015em; }
   background: linear-gradient(rgba(255,255,255,.55), rgba(255,255,255,0)); filter: blur(2px); pointer-events: none;
 }
 .tile-body svg { width: 46%; height: 46%; color: var(--glyph); }
-.tile.sat { --s: clamp(36px, 5.6vmin, 60px); }
+.tile.sat { --s: clamp(36px, 5.6vmin, 60px); z-index: 1; }
 .tile.mini { position: relative; --s: 84px; margin: 0; }
 html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 

@@ -80,6 +80,21 @@
   tilts.forEach(function (el) { el._cur = { rx: 0, ry: 0 }; });
   var needTilt = false;
 
+  // Sanftes Treiben und Mitreagieren der Satelliten (nur in der verstreuten Phase)
+  var DRIFT = { raf: 0, visible: true, ps: { x: 0, y: 0 }, t1: 0, t2: 0 };
+  function driftAllowed() {
+    return hero.classList.contains('pinned') && !reduce.matches && DRIFT.visible && !document.hidden && DRIFT.t2 < 1;
+  }
+  function driftFrame() {
+    DRIFT.raf = 0;
+    if (!driftAllowed()) return;
+    DRIFT.ps.x = lerp(DRIFT.ps.x, pointer.x, 0.05);
+    DRIFT.ps.y = lerp(DRIFT.ps.y, pointer.y, 0.05);
+    setStage(DRIFT.t1, DRIFT.t2);
+    DRIFT.raf = requestAnimationFrame(driftFrame);
+  }
+  function driftKick() { if (!DRIFT.raf && driftAllowed()) DRIFT.raf = requestAnimationFrame(driftFrame); }
+
   function setStage(t1, t2) {
     var pinned = hero.classList.contains('pinned');
     bigs.forEach(function (el) {
@@ -91,7 +106,10 @@
     });
     if (!pinned) return;
     var order = { st: 0, am: 1, hn: 2 };
-    sats.forEach(function (el) {
+    var T = performance.now() / 1000;
+    var still = reduce.matches;
+    var A = clamp(Math.min(W, H) * 0.018, 8, 16);
+    sats.forEach(function (el, idx) {
       var a = anchors[el.dataset.kind]; if (!a) return;
       var i = +el.dataset.i;
       var sx = W / 2 + parseFloat(el.dataset.sx) * W * 0.95;
@@ -105,6 +123,15 @@
       var y = lerp(lerp(sy, cy, e1), a.y, e2);
       var rot = lerp(parseFloat(el.dataset.sr), 0, e1);
       var sc = lerp(1, 0.25, e2);
+      // Treiben: 9 bis 16 s je Zyklus, klingt mit der Sortierung ab
+      var calm = 1 - e1;
+      var period = 9 + ((idx * 5) % 8), w = 6.2832 / period, ph = idx * 1.9;
+      var dx = still ? 0 : calm * A * Math.sin(T * w + ph);
+      var dy = still ? 0 : calm * A * Math.cos(T * w * 0.8 + ph * 1.3);
+      var dr = still ? 0 : calm * 4 * Math.sin(T * w * 0.6 + ph * 0.7);
+      // Mitreagieren mit der Maus: 10 bis 20 px, endet mit dem Verschmelzen
+      var pf = still ? 0 : (1 - e2) * (10 + (idx % 3) * 5);
+      x += dx + DRIFT.ps.x * pf; y += dy + DRIFT.ps.y * pf; rot += dr;
       el.style.opacity = 1 - smooth(0.5, 1, t2);
       el.style.setProperty('--g', (1 - e1).toFixed(3));
       el.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0) rotate(' + rot + 'deg) scale(' + sc + ')';
@@ -136,8 +163,10 @@
     } else {
       [h1a, h1b, more, hint, win].forEach(function (el) { el.style.opacity = ''; el.style.pointerEvents = ''; });
     }
+    DRIFT.t1 = t1; DRIFT.t2 = t2;
     setStage(t1, t2);
     updateTilt();
+    driftKick();
   }
 
   // ---------- Kachel-Neigung (Maus + Scroll) ----------
@@ -183,6 +212,11 @@
   reduce.addEventListener && reduce.addEventListener('change', schedule);
   narrow.addEventListener && narrow.addEventListener('change', schedule);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { measure(); schedule(); });
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (en) { DRIFT.visible = en[0].isIntersecting; driftKick(); }).observe(hero);
+  }
+  document.addEventListener('visibilitychange', driftKick);
 
   hero.classList.toggle('pinned', animated());
   measure();
