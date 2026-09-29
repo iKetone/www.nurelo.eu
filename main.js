@@ -16,6 +16,15 @@
   links.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
 
+  // ---------- Sprachwähler ----------
+  var langBox = document.querySelector('details.lang');
+  if (langBox) {
+    document.addEventListener('click', function (e) { if (!langBox.contains(e.target)) langBox.open = false; });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && langBox.open) { langBox.open = false; langBox.querySelector('summary').focus(); }
+    });
+  }
+
   // ---------- Reveal ----------
   var items = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
