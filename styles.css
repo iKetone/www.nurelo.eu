@@ -166,8 +166,8 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .scroll-hint { display: none; align-self: start; font-size: .8rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-2); }
 .scroll-hint::after { content: ""; display: block; width: 2px; height: 22px; margin: .35rem auto 0; background: var(--ink-2); opacity: .6; }
 
-.hero.pinned { height: 300vh; }
-.hero.pinned .stage-pin { position: sticky; top: 0; height: calc(100vh - 20px); min-height: 0; margin-top: 10px; }
+.hero.pinned { height: 300vh; height: 300svh; }
+.hero.pinned .stage-pin { position: sticky; top: 0; height: calc(100vh - 20px); height: calc(100svh - 20px); min-height: 0; margin-top: 10px; }
 .hero.pinned .h1-a { display: block; }
 .hero.pinned .scroll-hint { display: block; }
 .hero:not(.pinned) .sat { display: none; }
@@ -361,6 +361,7 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
   .stage-pin { padding-top: 96px; gap: 3rem; }
   .win-wrap { margin-top: 3.5rem; }
   .tile { --s: 78px; }
+  .tile.big { --s: 68px; }
   .track { height: 88px; }
 }
 @media (max-width: 560px) {
