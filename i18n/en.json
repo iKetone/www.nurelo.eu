@@ -15,6 +15,7 @@
   "cta_demo": "Request a demo",
   "lang_aria": "Choose language",
   "top_btn": "Back to top",
+  "more": "Learn more",
   "h1_a": "Scattered. Confusing. Time-consuming.",
   "h1_b": "Clear. Connected. <em>Nurelo.</em>",
   "hero_lead": "Nurelo brings home care, residential care and emergency call services together on one platform, with route planning, documentation, billing and TI-KIM connection.",
@@ -65,7 +66,7 @@
 
   "pf_kicker": "One platform",
   "pf_h2": "Three worlds. One system.",
-  "pf_lead": "All care settings share master data, billing and permissions. What is recorded in one area is available everywhere.",
+  "pf_lead": "Each product works with its own master data and its own modules by default. On request, several products can share one database.",
   "f1_h": "AI-assisted documentation",
   "f1_p": "Voice input and text suggestions reduce documentation effort. Nurelo learns from your patterns.",
   "f2_h": "Integrated billing",

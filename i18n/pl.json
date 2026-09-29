@@ -15,6 +15,7 @@
   "cta_demo": "Poproś o demo",
   "lang_aria": "Wybierz język",
   "top_btn": "Do góry",
+  "more": "Dowiedz się więcej",
   "h1_a": "Rozproszone. Niejasne. Czasochłonne.",
   "h1_b": "Jasno. Spójnie. <em>Nurelo.</em>",
   "hero_lead": "Nurelo łączy opiekę domową, domy opieki i teleopiekę na jednej platformie, z planowaniem tras, dokumentacją, rozliczeniami i połączeniem TI-KIM.",
@@ -65,7 +66,7 @@
 
   "pf_kicker": "Jedna platforma",
   "pf_h2": "Trzy światy. Jeden system.",
-  "pf_lead": "Wszystkie obszary korzystają ze wspólnych danych podstawowych, rozliczeń i uprawnień. To, co zapisano w jednym miejscu, jest dostępne wszędzie.",
+  "pf_lead": "Każdy produkt domyślnie działa z własnymi danymi podstawowymi i własnymi modułami. Na życzenie kilka produktów może korzystać ze wspólnej bazy danych.",
   "f1_h": "Dokumentacja wspierana przez AI",
   "f1_p": "Wprowadzanie głosowe i podpowiedzi tekstowe skracają czas dokumentowania. Nurelo uczy się na Państwa wzorcach.",
   "f2_h": "Zintegrowane rozliczenia",

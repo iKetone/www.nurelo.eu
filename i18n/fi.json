@@ -15,6 +15,7 @@
   "cta_demo": "Pyydä esittely",
   "lang_aria": "Valitse kieli",
   "top_btn": "Takaisin ylös",
+  "more": "Lue lisää",
   "h1_a": "Hajallaan. Sekavaa. Aikaa vievää.",
   "h1_b": "Selkeää. Yhdistettyä. <em>Nurelo.</em>",
   "hero_lead": "Nurelo yhdistää kotihoidon, hoivakodit ja turvapuhelinpalvelut yhteen alustaan reittisuunnittelun, dokumentoinnin, laskutuksen ja TI-KIM-yhteyden kanssa.",
@@ -65,7 +66,7 @@
 
   "pf_kicker": "Yksi alusta",
   "pf_h2": "Kolme maailmaa. Yksi järjestelmä.",
-  "pf_lead": "Kaikki toimintamuodot jakavat perustiedot, laskutuksen ja käyttöoikeudet. Yhteen alueeseen tallennettu tieto on käytettävissä kaikkialla.",
+  "pf_lead": "Jokainen tuote toimii oletuksena omilla perustiedoillaan ja omilla moduuleillaan. Pyynnöstä useat tuotteet voivat jakaa yhteisen tietokannan.",
   "f1_h": "Tekoälyä hyödyntävä dokumentointi",
   "f1_p": "Puhesyöttö ja tekstiehdotukset vähentävät dokumentoinnin työmäärää. Nurelo oppii tavoistanne.",
   "f2_h": "Integroitu laskutus",

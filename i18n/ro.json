@@ -15,6 +15,7 @@
   "cta_demo": "Solicită o demonstrație",
   "lang_aria": "Alege limba",
   "top_btn": "Înapoi sus",
+  "more": "Aflați mai multe",
   "h1_a": "Împrăștiat. Neclar. Consumă timp.",
   "h1_b": "Clar. Conectat. <em>Nurelo.</em>",
   "hero_lead": "Nurelo reunește îngrijirea la domiciliu, căminele și teleasistența pe o singură platformă, cu planificarea traseelor, documentare, facturare și conexiune TI-KIM.",
@@ -65,7 +66,7 @@
 
   "pf_kicker": "O platformă",
   "pf_h2": "Trei lumi. Un singur sistem.",
-  "pf_lead": "Toate domeniile folosesc aceleași date de bază, aceeași facturare și aceleași drepturi de acces. Ce este înregistrat într-un domeniu este disponibil peste tot.",
+  "pf_lead": "Fiecare produs funcționează implicit cu date de bază proprii și module proprii. La cerere, mai multe produse pot folosi o bază de date comună.",
   "f1_h": "Documentare asistată de IA",
   "f1_p": "Introducerea vocală și sugestiile de text reduc efortul de documentare. Nurelo învață din obiceiurile dumneavoastră.",
   "f2_h": "Facturare integrată",

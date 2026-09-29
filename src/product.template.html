@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{P:pg_title}}</title>
+  <meta name="description" content="{{aP:pg_desc}}" />
+  <!-- TODO: noindex vor dem Live-Gang entfernen -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#241B14" />
+  <link rel="canonical" href="{{url}}" />
+{{hreflang}}
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="{{locale}}" />
+  <meta property="og:title" content="{{aP:pg_title}}" />
+  <meta property="og:description" content="{{aP:pg_desc}}" />
+  <meta property="og:url" content="{{url}}" />
+  <meta property="og:image" content="https://www.nurelo.eu/logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Nurelo {{pnav}}",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "{{jP:pg_desc}}",
+    "url": "{{url}}",
+    "inLanguage": "{{lang}}"
+  }
+  </script>
+</head>
+<body class="pg pg-{{pid}}">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="g-st" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2.6" fill="currentColor"/><rect x="13" y="3" width="8" height="8" rx="2.6" fill="currentColor" opacity=".55"/><rect x="3" y="13" width="8" height="8" rx="2.6" fill="currentColor" opacity=".55"/><rect x="13" y="13" width="8" height="8" rx="2.6" fill="currentColor"/></symbol>
+      <symbol id="g-am" viewBox="0 0 24 24"><path d="M6 19h9a3.5 3.5 0 000-7H9a3.5 3.5 0 010-7h9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="5" cy="19" r="2.6" fill="currentColor"/><circle cx="19" cy="5" r="2.6" fill="currentColor"/></symbol>
+      <symbol id="g-hn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.8" fill="currentColor"/><path d="M8 8a5.7 5.7 0 000 8M16 8a5.7 5.7 0 010 8M4.6 4.6a10.5 10.5 0 000 14.8M19.4 4.6a10.5 10.5 0 010 14.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">{{skip}}</a>
+
+  <header class="nav">
+    <div class="pill nav-left">
+      <a class="brand" href="{{home}}" aria-label="{{a:brand_aria}}">
+        <img src="/logo.png" width="30" height="30" alt="" />
+        <span>Nurelo</span>
+      </a>
+      <nav aria-label="{{a:nav_aria}}">
+        <ul class="nav-links" id="nav-links">
+{{nav_links}}
+        </ul>
+      </nav>
+{{switcher}}
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="{{a:menu}}" aria-expanded="false" aria-controls="nav-links">{{menu}}</button>
+    </div>
+    <div class="pill nav-right">
+      <a class="btn btn-dark btn-sm" href="#kontakt">{{cta_demo}}</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Kopf -->
+    <section class="chapter page-hero {{pcls}}" id="top">
+      <div class="wrap chapter-grid">
+        <div class="chapter-text">
+          <p class="kicker"><span>{{pnum}}</span> Nurelo {{pnav}}</p>
+          <h1>{{P:h2}}</h1>
+          <p class="chapter-lead">{{P:lead}}</p>
+          <div class="page-actions">
+            <a class="btn btn-cream" href="#kontakt">{{cta_demo}}</a>
+            <a class="btn btn-line" href="{{home}}">{{pg_back}}</a>
+          </div>
+        </div>
+        <div class="chapter-visual">
+          {{include-P:mock}}
+          <div class="tile chap {{pid}}" data-depth="{{pdepth}}" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#{{pglyph}}"/></svg></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Funktionen -->
+    <section class="pg-section" id="funktionen">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker dark">{{pg_feat_kicker}}</p>
+          <h2>{{P:pg_feat_h2}}</h2>
+        </div>
+        <ol class="pg-feats">
+          <li class="reveal"><span>01</span><h3>{{P:pg_f1_h}}</h3><p>{{P:pg_f1_p}}</p></li>
+          <li class="reveal"><span>02</span><h3>{{P:pg_f2_h}}</h3><p>{{P:pg_f2_p}}</p></li>
+          <li class="reveal"><span>03</span><h3>{{P:pg_f3_h}}</h3><p>{{P:pg_f3_p}}</p></li>
+          <li class="reveal"><span>04</span><h3>{{P:pg_f4_h}}</h3><p>{{P:pg_f4_p}}</p></li>
+          <li class="reveal"><span>05</span><h3>{{P:pg_f5_h}}</h3><p>{{P:pg_f5_p}}</p></li>
+          <li class="reveal"><span>06</span><h3>{{P:pg_f6_h}}</h3><p>{{P:pg_f6_p}}</p></li>
+          <li class="reveal"><span>07</span><h3>{{P:pg_f7_h}}</h3><p>{{P:pg_f7_p}}</p></li>
+          <li class="reveal"><span>08</span><h3>{{P:pg_f8_h}}</h3><p>{{P:pg_f8_p}}</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Stammdaten und Module -->
+    <section class="pg-section pg-data" id="stammdaten">
+      <div class="wrap price-grid">
+        <div class="reveal">
+          <p class="kicker dark">{{pg_data_kicker}}</p>
+          <h2>{{pg_data_h2}}</h2>
+          <p class="lead">{{pg_data_lead}}</p>
+        </div>
+        <dl class="price-factors reveal">
+          <div><dt>{{pg_data_r1_dt}}</dt><dd>{{pg_data_r1_dd}}</dd></div>
+          <div><dt>{{pg_data_r2_dt}}</dt><dd>{{pg_data_r2_dd}}</dd></div>
+          <div><dt>{{pg_data_r3_dt}}</dt><dd>{{pg_data_r3_dd}}</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Ablauf -->
+    <section class="steps-sec pg-steps" id="ablauf">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker dark">{{on_kicker}}</p>
+          <h2>{{on_h2}}</h2>
+          <p class="lead">{{on_lead}}</p>
+        </div>
+        <ol class="steps">
+          <li class="reveal"><h3>{{s1_h}}</h3><p>{{s1_p}}</p></li>
+          <li class="reveal"><h3>{{s2_h}}</h3><p>{{s2_p}}</p></li>
+          <li class="reveal"><h3>{{s3_h}}</h3><p>{{s3_p}}</p></li>
+          <li class="reveal"><h3>{{s4_h}}</h3><p>{{s4_p}}</p></li>
+        </ol>
+        <ul class="trust reveal">
+          <li>{{tr1}}</li><li>{{tr2}}</li><li>{{tr3}}</li><li>{{tr4}}</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Die anderen Produkte -->
+    <section class="pg-section pg-others" id="produkte">
+      <div class="wrap">
+        <h2 class="reveal">{{pg_others_h}}</h2>
+        <ul class="other-list">
+{{others}}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section class="contact" id="kontakt">
+      <div class="wrap">
+        <div class="cta-box reveal">
+          <div class="cta-tiles" aria-hidden="true">
+            <div class="tile mini st"><div class="tile-body"><svg><use href="#g-st"/></svg></div></div>
+            <div class="tile mini am"><div class="tile-body"><svg><use href="#g-am"/></svg></div></div>
+            <div class="tile mini hn"><div class="tile-body"><svg><use href="#g-hn"/></svg></div></div>
+          </div>
+          <h2>{{ct_h2}}</h2>
+          <p class="lead">{{ct_lead}}</p>
+          <div class="cta-actions">
+            <a class="btn btn-terra" href="mailto:contact@nurelo.eu?subject={{u:ct_subj_start}}">{{ct_start}}</a>
+            <a class="btn btn-ghost-light" href="mailto:contact@nurelo.eu?subject={{u:ct_subj_demo}}">{{ct_demo}}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a class="brand" href="{{home}}"><img src="/logo.png" width="30" height="30" alt="" /><span>Nurelo</span></a>
+          <p>{{ft_desc}}</p>
+        </div>
+        <nav aria-label="{{a:ft_products}}">
+          <h2>{{ft_products}}</h2>
+          <ul>
+            <li><a href="{{href_st}}">Nurelo {{nav_st}}</a></li>
+            <li><a href="{{href_am}}">Nurelo {{nav_am}}</a></li>
+            <li><a href="{{href_hn}}">Nurelo {{nav_hn}}</a></li>
+            <li><a href="{{home}}#plattform">{{nav_pf}}</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="{{a:ft_company}}">
+          <h2>{{ft_company}}</h2>
+          <ul>
+            <li><a href="#kontakt">{{ft_contact}}</a></li>
+            <li><a href="#ablauf">{{on_kicker}}</a></li>
+            <li><a href="{{home}}#preise">{{nav_pr}}</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="{{a:ft_legal}}">
+          <h2>{{ft_legal}}</h2>
+          <ul>
+            <li><a href="/datenschutz.html" hreflang="de">{{ft_privacy}}</a></li>
+            <li><a href="/impressum.html" hreflang="de">{{ft_imprint}}</a></li>
+            <li><a href="/agb.html" hreflang="de">{{ft_terms}}</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="foot-bottom">
+        <span>{{ft_copy}}</span>
+        <span>{{ft_made}}</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="to-top" href="#top" aria-label="{{a:top_btn}}" title="{{a:top_btn}}"><span aria-hidden="true"></span></a>
+
+  <script src="/main.js" defer></script>
+</body>
+</html>

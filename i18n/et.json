@@ -15,6 +15,7 @@
   "cta_demo": "Küsi demot",
   "lang_aria": "Vali keel",
   "top_btn": "Tagasi üles",
+  "more": "Loe lähemalt",
   "h1_a": "Laiali. Ülevaatamatu. Aeganõudev.",
   "h1_b": "Selge. Ühendatud. <em>Nurelo.</em>",
   "hero_lead": "Nurelo ühendab koduhoolduse, hooldekodud ja hädaabikutsete teenuse ühel platvormil, koos marsruudi planeerimise, dokumenteerimise, arvelduse ja TI-KIM-ühendusega.",
@@ -65,7 +66,7 @@
 
   "pf_kicker": "Üks platvorm",
   "pf_h2": "Kolm maailma. Üks süsteem.",
-  "pf_lead": "Kõik valdkonnad jagavad põhiandmeid, arveldust ja õigusi. Mis ühes valdkonnas registreeritakse, on kättesaadav kõikjal.",
+  "pf_lead": "Iga toode töötab vaikimisi oma põhiandmete ja oma moodulitega. Soovi korral võivad mitu toodet kasutada ühist andmebaasi.",
   "f1_h": "Tehisintellektiga toetatud dokumenteerimine",
   "f1_p": "Häälsisestus ja tekstisoovitused vähendavad dokumenteerimise koormust. Nurelo õpib teie harjumustest.",
   "f2_h": "Integreeritud arveldus",

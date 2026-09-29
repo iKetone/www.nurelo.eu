@@ -15,6 +15,7 @@
   "cta_demo": "Bestil en demo",
   "lang_aria": "Vælg sprog",
   "top_btn": "Til toppen",
+  "more": "Læs mere",
   "h1_a": "Spredt. Uoverskueligt. Tidskrævende.",
   "h1_b": "Klart. Forbundet. <em>Nurelo.</em>",
   "hero_lead": "Nurelo samler hjemmepleje, plejecentre og nødkald på én platform, med ruteplanlægning, dokumentation, fakturering og TI-KIM-forbindelse.",
@@ -65,7 +66,7 @@
 
   "pf_kicker": "Én platform",
   "pf_h2": "Tre verdener. Ét system.",
-  "pf_lead": "Alle plejeformer deler stamdata, fakturering og rettigheder. Det, der registreres ét sted, er tilgængeligt overalt.",
+  "pf_lead": "Hvert produkt arbejder som standard med egne stamdata og egne moduler. På ønske kan flere produkter dele en fælles database.",
   "f1_h": "AI-understøttet dokumentation",
   "f1_p": "Stemmeindtastning og tekstforslag mindsker dokumentationsarbejdet. Nurelo lærer af jeres mønstre.",
   "f2_h": "Integreret fakturering",

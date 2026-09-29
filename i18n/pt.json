@@ -15,6 +15,7 @@
   "cta_demo": "Pedir demonstração",
   "lang_aria": "Escolher idioma",
   "top_btn": "Voltar ao topo",
+  "more": "Saber mais",
   "h1_a": "Disperso. Confuso. Uma perda de tempo.",
   "h1_b": "Claro. Ligado. <em>Nurelo.</em>",
   "hero_lead": "A Nurelo reúne o apoio domiciliário, os lares e a teleassistência numa única plataforma, com planeamento de rotas, documentação, faturação e ligação TI-KIM.",
@@ -65,7 +66,7 @@
 
   "pf_kicker": "Uma plataforma",
   "pf_h2": "Três mundos. Um sistema.",
-  "pf_lead": "Todas as áreas partilham dados mestre, faturação e permissões. O que é registado numa área fica disponível em todas.",
+  "pf_lead": "Cada produto funciona por defeito com dados mestre e módulos próprios. Mediante pedido, vários produtos podem partilhar uma base de dados comum.",
   "f1_h": "Documentação assistida por IA",
   "f1_p": "A entrada por voz e as sugestões de texto reduzem o esforço de documentação. A Nurelo aprende com os seus padrões.",
   "f2_h": "Faturação integrada",

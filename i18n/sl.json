@@ -15,6 +15,7 @@
   "cta_demo": "Zahtevaj predstavitev",
   "lang_aria": "Izberi jezik",
   "top_btn": "Na vrh",
+  "more": "Več o tem",
   "h1_a": "Razpršeno. Nepregledno. Zamudno.",
   "h1_b": "Jasno. Povezano. <em>Nurelo.</em>",
   "hero_lead": "Nurelo združuje oskrbo na domu, domove za starejše in varovanje z alarmom na eni platformi, z načrtovanjem poti, dokumentacijo, obračunavanjem in povezavo TI-KIM.",
@@ -65,7 +66,7 @@
 
   "pf_kicker": "Ena platforma",
   "pf_h2": "Trije svetovi. En sistem.",
-  "pf_lead": "Vsa področja si delijo matične podatke, obračunavanje in pooblastila. Kar je zabeleženo na enem področju, je na voljo povsod.",
+  "pf_lead": "Vsak izdelek privzeto deluje z lastnimi matičnimi podatki in lastnimi moduli. Na željo si lahko več izdelkov deli skupno zbirko podatkov.",
   "f1_h": "Dokumentacija s podporo umetne inteligence",
   "f1_p": "Glasovni vnos in predlogi besedila zmanjšajo obseg dokumentiranja. Nurelo se uči iz vaših vzorcev.",
   "f2_h": "Integrirano obračunavanje",

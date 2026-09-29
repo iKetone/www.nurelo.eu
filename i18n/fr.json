@@ -15,6 +15,7 @@
   "cta_demo": "Demander une démo",
   "lang_aria": "Choisir la langue",
   "top_btn": "Haut de page",
+  "more": "En savoir plus",
   "h1_a": "Dispersé. Confus. Chronophage.",
   "h1_b": "Clair. Connecté. <em>Nurelo.</em>",
   "hero_lead": "Nurelo réunit l'aide à domicile, les établissements de soins et la téléassistance sur une seule plateforme, avec planification des tournées, documentation, facturation et connexion TI-KIM.",
@@ -65,7 +66,7 @@
 
   "pf_kicker": "Une plateforme",
   "pf_h2": "Trois univers. Un système.",
-  "pf_lead": "Tous les modes d'exercice partagent les données de base, la facturation et les droits d'accès. Ce qui est saisi dans un domaine est disponible partout.",
+  "pf_lead": "Chaque produit fonctionne par défaut avec ses propres données de base et ses propres modules. Sur demande, plusieurs produits peuvent partager une base de données commune.",
   "f1_h": "Documentation assistée par l'IA",
   "f1_p": "La saisie vocale et les suggestions de texte réduisent le temps de documentation. Nurelo apprend de vos habitudes.",
   "f2_h": "Facturation intégrée",
