@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{meta_title}}</title>
+  <meta name="description" content="{{a:meta_desc}}" />
+  <!-- TODO: noindex vor dem Live-Gang entfernen -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#241B14" />
+  <link rel="canonical" href="{{url}}" />
+{{hreflang}}
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="{{locale}}" />
+  <meta property="og:title" content="{{a:meta_title}}" />
+  <meta property="og:description" content="{{a:og_desc}}" />
+  <meta property="og:url" content="{{url}}" />
+  <meta property="og:image" content="https://www.nurelo.eu/logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Nurelo",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "{{j:ld_desc}}",
+    "url": "{{url}}",
+    "inLanguage": "{{lang}}"
+  }
+  </script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="g-st" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2.6" fill="currentColor"/><rect x="13" y="3" width="8" height="8" rx="2.6" fill="currentColor" opacity=".55"/><rect x="3" y="13" width="8" height="8" rx="2.6" fill="currentColor" opacity=".55"/><rect x="13" y="13" width="8" height="8" rx="2.6" fill="currentColor"/></symbol>
+      <symbol id="g-am" viewBox="0 0 24 24"><path d="M6 19h9a3.5 3.5 0 000-7H9a3.5 3.5 0 010-7h9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="5" cy="19" r="2.6" fill="currentColor"/><circle cx="19" cy="5" r="2.6" fill="currentColor"/></symbol>
+      <symbol id="g-hn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.8" fill="currentColor"/><path d="M8 8a5.7 5.7 0 000 8M16 8a5.7 5.7 0 010 8M4.6 4.6a10.5 10.5 0 000 14.8M19.4 4.6a10.5 10.5 0 010 14.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">{{skip}}</a>
+
+  <!-- Schwebende Navigation -->
+  <header class="nav">
+    <div class="pill nav-left">
+      <a class="brand" href="#top" aria-label="{{a:brand_aria}}">
+        <img src="/logo.png" width="30" height="30" alt="" />
+        <span>Nurelo</span>
+      </a>
+      <nav aria-label="{{a:nav_aria}}">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#stationaer">{{nav_st}}</a></li>
+          <li><a href="#ambulant">{{nav_am}}</a></li>
+          <li><a href="#hausnotruf">{{nav_hn}}</a></li>
+          <li><a href="#plattform">{{nav_pf}}</a></li>
+          <li><a href="#preise">{{nav_pr}}</a></li>
+        </ul>
+      </nav>
+{{switcher}}
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="{{a:menu}}" aria-expanded="false" aria-controls="nav-links">{{menu}}</button>
+    </div>
+    <div class="pill nav-right">
+      <a class="btn btn-dark btn-sm" href="#kontakt">{{cta_demo}}</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="stage-pin" id="stage">
+        <div class="wordmark" aria-hidden="true">Nurelo</div>
+
+        <div class="hero-copy">
+          <h1>
+            <span class="sr-only">{{meta_title}}</span>
+            <span class="h1-a" aria-hidden="true">{{h1_a}}</span>
+            <span class="h1-b" aria-hidden="true">{{h1_b}}</span>
+          </h1>
+          <div class="hero-lower">
+          <div class="hero-more">
+            <p class="lead">{{hero_lead}}</p>
+          </div>
+          <p class="scroll-hint" aria-hidden="true">{{scroll}}</p>
+          </div>
+        </div>
+
+        <div class="win-wrap">
+          <div class="app-window" role="img" aria-label="{{a:mock_aria}}">
+            <div class="win-bar"><b>Nurelo</b><span class="win-time">{{mock_today}}</span></div>
+            <div class="track">
+              <span>06:00</span><span>09:00</span><span>12:00</span><span>15:00</span><span>18:00</span>
+              <i class="anchor" data-anchor="st"></i>
+              <i class="anchor" data-anchor="am"></i>
+              <i class="anchor" data-anchor="hn"></i>
+            </div>
+            <ul class="win-rows">
+              <li><span class="dot st"></span>{{mock_r1}}<time>07:45</time></li>
+              <li><span class="dot am"></span>{{mock_r2}}<time>08:30</time></li>
+              <li><span class="dot hn"></span>{{mock_r3}}<time>14:02</time></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Kacheln: 3 große, 9 Satelliten -->
+        <div class="tile big st" data-tile="big" data-kind="st" data-depth="1"><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-st"/></svg></div></div></div>
+        <div class="tile big am" data-tile="big" data-kind="am" data-depth="1.35"><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-am"/></svg></div></div></div>
+        <div class="tile big hn" data-tile="big" data-kind="hn" data-depth="0.8"><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-hn"/></svg></div></div></div>
+
+        <div class="tile sat st" data-tile="sat" data-kind="st" data-i="0" data-sx="-.42" data-sy="-.30" data-sr="-24"><div class="tile-body"></div></div>
+        <div class="tile sat st" data-tile="sat" data-kind="st" data-i="1" data-sx="-.18" data-sy=".30" data-sr="18"><div class="tile-body"></div></div>
+        <div class="tile sat st" data-tile="sat" data-kind="st" data-i="2" data-sx=".30" data-sy="-.22" data-sr="40"><div class="tile-body"></div></div>
+        <div class="tile sat am" data-tile="sat" data-kind="am" data-i="0" data-sx=".40" data-sy=".18" data-sr="-32"><div class="tile-body"></div></div>
+        <div class="tile sat am" data-tile="sat" data-kind="am" data-i="1" data-sx="-.36" data-sy=".08" data-sr="26"><div class="tile-body"></div></div>
+        <div class="tile sat am" data-tile="sat" data-kind="am" data-i="2" data-sx=".08" data-sy="-.36" data-sr="-14"><div class="tile-body"></div></div>
+        <div class="tile sat hn" data-tile="sat" data-kind="hn" data-i="0" data-sx="-.06" data-sy=".38" data-sr="34"><div class="tile-body"></div></div>
+        <div class="tile sat hn" data-tile="sat" data-kind="hn" data-i="1" data-sx=".44" data-sy="-.34" data-sr="-38"><div class="tile-body"></div></div>
+        <div class="tile sat hn" data-tile="sat" data-kind="hn" data-i="2" data-sx="-.46" data-sy=".36" data-sr="12"><div class="tile-body"></div></div>
+      </div>
+    </section>
+
+    <!-- KAPITEL -->
+    <div class="chapters">
+      <section class="chapter c-st" id="stationaer" style="--i:0">
+        <div class="wrap chapter-grid">
+          <div class="chapter-text">
+            <p class="kicker"><span>01</span> {{nav_st}}</p>
+            <h2>{{st_h2}}</h2>
+            <p class="chapter-lead">{{st_lead}}</p>
+            <ul class="ticks">
+              <li>{{st_t1}}</li>
+              <li>{{st_t2}}</li>
+              <li>{{st_t3}}</li>
+              <li>{{st_t4}}</li>
+            </ul>
+          </div>
+          <div class="chapter-visual">
+            <div class="app-window dark">
+              <div class="win-bar"><b>Nurelo {{nav_st}}</b></div>
+              <ul class="win-rows big-rows">
+                <li><span class="dot st"></span><div>Müller, Herbert<small>{{st_n1_sub}}</small></div><time>{{st_n1_state}}</time></li>
+                <li><span class="dot st"></span><div>{{st_n2}}<small>{{st_n2_sub}}</small></div><time>09:00</time></li>
+                <li><span class="dot st"></span><div>{{st_n3}}<small>{{st_n3_sub}}</small></div><time>{{st_n3_state}}</time></li>
+              </ul>
+            </div>
+            <div class="tile chap st" data-depth="1" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-st"/></svg></div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter c-am" id="ambulant" style="--i:1">
+        <div class="wrap chapter-grid">
+          <div class="chapter-text">
+            <p class="kicker"><span>02</span> {{nav_am}}</p>
+            <h2>{{am_h2}}</h2>
+            <p class="chapter-lead">{{am_lead}}</p>
+            <ul class="ticks">
+              <li>{{am_t1}}</li>
+              <li>{{am_t2}}</li>
+              <li>{{am_t3}}</li>
+              <li>{{am_t4}}</li>
+            </ul>
+          </div>
+          <div class="chapter-visual">
+            <div class="app-window dark">
+              <div class="win-bar"><b>Nurelo {{nav_am}} · {{am_win}}</b></div>
+              <svg class="route" viewBox="0 0 400 200" role="img" aria-label="{{a:am_route_aria}}">
+                <path d="M30 160 C 110 160, 90 60, 170 60 S 250 150, 310 120 S 350 50, 372 40" fill="none" stroke="#C59045" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 12"/>
+                <g fill="#C59045"><circle cx="30" cy="160" r="9"/><circle cx="170" cy="60" r="9"/><circle cx="310" cy="120" r="9"/><circle cx="372" cy="40" r="9"/></g>
+                <g fill="#F2EADD" font-size="13" font-weight="700" text-anchor="middle"><text x="30" y="186">08:30</text><text x="170" y="40">09:10</text><text x="310" y="150">09:55</text><text x="372" y="24">10:30</text></g>
+              </svg>
+            </div>
+            <div class="tile chap am" data-depth="1.3" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-am"/></svg></div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter c-hn" id="hausnotruf" style="--i:2">
+        <div class="wrap chapter-grid">
+          <div class="chapter-text">
+            <p class="kicker"><span>03</span> {{nav_hn}}</p>
+            <h2>{{hn_h2}}</h2>
+            <p class="chapter-lead">{{hn_lead}}</p>
+            <ul class="ticks">
+              <li>{{hn_t1}}</li>
+              <li>{{hn_t2}}</li>
+              <li>{{hn_t3}}</li>
+              <li>{{hn_t4}}</li>
+            </ul>
+          </div>
+          <div class="chapter-visual">
+            <div class="app-window dark">
+              <div class="win-bar"><b>Nurelo {{nav_hn}} · {{hn_win}}</b></div>
+              <ol class="chain">
+                <li><b>{{hn_c1}}</b><small>{{hn_c1s}}</small></li>
+                <li><b>Nurelo</b><small>{{hn_c2s}}</small></li>
+                <li><b>{{hn_c3}}</b><small>{{hn_c3s}}</small></li>
+                <li><b>{{hn_c4}}</b><small>{{hn_c4s}}</small></li>
+              </ol>
+            </div>
+            <div class="tile chap hn" data-depth="0.9" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-hn"/></svg></div></div></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- PLATTFORM -->
+    <section class="platform" id="plattform">
+      <div class="wrap">
+        <div class="platform-head reveal">
+          <img src="/logo.png" width="120" height="120" alt="" />
+          <p class="kicker light"><span>04</span> {{pf_kicker}}</p>
+          <h2>{{pf_h2}}</h2>
+          <p class="chapter-lead">{{pf_lead}}</p>
+        </div>
+        <ol class="feat-list">
+          <li class="reveal"><span>01</span><h3>{{f1_h}}</h3><p>{{f1_p}}</p></li>
+          <li class="reveal"><span>02</span><h3>{{f2_h}}</h3><p>{{f2_p}}</p></li>
+          <li class="reveal"><span>03</span><h3>{{f3_h}}</h3><p>{{f3_p}}</p></li>
+          <li class="reveal"><span>04</span><h3>{{f4_h}}</h3><p>{{f4_p}}</p></li>
+          <li class="reveal"><span>05</span><h3>{{f5_h}}</h3><p>{{f5_p}}</p></li>
+          <li class="reveal"><span>06</span><h3>{{f6_h}}</h3><p>{{f6_p}}</p></li>
+        </ol>
+
+        <div class="chip-block reveal">
+          <div>
+            <h3>{{mod_h}}</h3>
+            <ul class="chips">
+              <li>{{mod1}}</li><li>{{mod2}}</li><li>{{mod3}}</li><li>{{mod4}}</li><li>{{mod5}}</li><li>{{mod6}}</li><li>{{mod7}}</li><li>{{mod8}}</li>
+            </ul>
+          </div>
+          <div>
+            <h3>{{integ_h}}</h3>
+            <ul class="chips">
+              <li>DATEV v700</li><li>Lexware</li><li>ADDISON</li><li>SAP FI</li><li>TI-KIM</li><li>CSV / FHIR</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABLAUF -->
+    <section class="steps-sec" id="ablauf">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker dark"><span>05</span> {{on_kicker}}</p>
+          <h2>{{on_h2}}</h2>
+          <p class="lead">{{on_lead}}</p>
+        </div>
+        <ol class="steps">
+          <li class="reveal"><h3>{{s1_h}}</h3><p>{{s1_p}}</p></li>
+          <li class="reveal"><h3>{{s2_h}}</h3><p>{{s2_p}}</p></li>
+          <li class="reveal"><h3>{{s3_h}}</h3><p>{{s3_p}}</p></li>
+          <li class="reveal"><h3>{{s4_h}}</h3><p>{{s4_p}}</p></li>
+        </ol>
+        <ul class="trust reveal">
+          <li>{{tr1}}</li><li>{{tr2}}</li><li>{{tr3}}</li><li>{{tr4}}</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PREISE -->
+    <section class="pricing" id="preise">
+      <div class="wrap price-grid">
+        <div class="reveal">
+          <p class="kicker dark"><span>06</span> {{pr_kicker}}</p>
+          <h2>{{pr_h2}}</h2>
+          <p class="lead">{{pr_lead}}</p>
+          <a class="btn btn-terra" href="#kontakt">{{pr_btn}}</a>
+        </div>
+        <dl class="price-factors reveal">
+          <div><dt>{{pd1}}</dt><dd>{{pdd1}}</dd></div>
+          <div><dt>{{pd2}}</dt><dd>{{pdd2}}</dd></div>
+          <div><dt>{{pd3}}</dt><dd>{{pdd3}}</dd></div>
+          <div><dt>{{pd4}}</dt><dd>{{pdd4}}</dd></div>
+          <div><dt>{{pd5}}</dt><dd>{{pdd5}}</dd></div>
+          <div><dt>{{pd6}}</dt><dd>{{pdd6}}</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section class="contact" id="kontakt">
+      <div class="wrap">
+        <div class="cta-box reveal">
+          <div class="cta-tiles" aria-hidden="true">
+            <div class="tile mini st"><div class="tile-body"><svg><use href="#g-st"/></svg></div></div>
+            <div class="tile mini am"><div class="tile-body"><svg><use href="#g-am"/></svg></div></div>
+            <div class="tile mini hn"><div class="tile-body"><svg><use href="#g-hn"/></svg></div></div>
+          </div>
+          <h2>{{ct_h2}}</h2>
+          <p class="lead">{{ct_lead}}</p>
+          <div class="cta-actions">
+            <a class="btn btn-terra" href="mailto:contact@nurelo.eu?subject={{u:ct_subj_start}}">{{ct_start}}</a>
+            <a class="btn btn-ghost-light" href="mailto:contact@nurelo.eu?subject={{u:ct_subj_demo}}">{{ct_demo}}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a class="brand" href="#top"><img src="/logo.png" width="30" height="30" alt="" /><span>Nurelo</span></a>
+          <p>{{ft_desc}}</p>
+        </div>
+        <nav aria-label="{{a:ft_products}}">
+          <h2>{{ft_products}}</h2>
+          <ul>
+            <li><a href="#stationaer">Nurelo {{nav_st}}</a></li>
+            <li><a href="#ambulant">Nurelo {{nav_am}}</a></li>
+            <li><a href="#hausnotruf">Nurelo {{nav_hn}}</a></li>
+            <li><a href="#plattform">{{nav_pf}}</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="{{a:ft_company}}">
+          <h2>{{ft_company}}</h2>
+          <ul>
+            <li><a href="#kontakt">{{ft_contact}}</a></li>
+            <li><a href="#ablauf">{{on_kicker}}</a></li>
+            <li><a href="#preise">{{nav_pr}}</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="{{a:ft_legal}}">
+          <h2>{{ft_legal}}</h2>
+          <ul>
+            <li><a href="/datenschutz.html" hreflang="de">{{ft_privacy}}</a></li>
+            <li><a href="/impressum.html" hreflang="de">{{ft_imprint}}</a></li>
+            <li><a href="/agb.html" hreflang="de">{{ft_terms}}</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="foot-bottom">
+        <span>{{ft_copy}}</span>
+        <span>{{ft_made}}</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/main.js" defer></script>
+  <script src="/tiles3d.js" defer></script>
+</body>
+</html>
