@@ -72,7 +72,13 @@
   function smooth(a, b, v) { var t = clamp((v - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); }
 
   // 3D-Kacheln erst nach dem Laden und im Leerlauf nachladen, damit nichts ruckelt
+  // Auf schwachen Handys bleiben die Kacheln in CSS, das Treiben startet dann sofort
+  function lowPower() {
+    return narrow.matches && ((navigator.deviceMemory && navigator.deviceMemory <= 4) ||
+      (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4));
+  }
   function load3d() {
+    if (lowPower()) { window.dispatchEvent(new Event('nurelo3d')); return; }
     var s = document.createElement('script');
     s.src = '/tiles3d.js'; s.async = true;
     document.body.appendChild(s);
@@ -107,7 +113,8 @@
     });
   }
 
-  function animated() { return !reduce.matches && !narrow.matches; }
+  // Die Scroll-Sequenz läuft auch mobil; nur bei reduzierter Bewegung bleibt der Hero statisch
+  function animated() { return !reduce.matches; }
 
   var pointer = { x: 0, y: 0 };
   var tilts = [].slice.call(document.querySelectorAll('.tile .tilt'));
@@ -187,7 +194,8 @@
 
   function heroProgress() {
     var r = hero.getBoundingClientRect();
-    var total = r.height - window.innerHeight;
+    // Höhe der Bühne statt der Fensterhöhe, damit die Browserleiste am Handy den Verlauf nicht springen lässt
+    var total = r.height - stage.offsetHeight - 20;
     return total > 0 ? clamp(-r.top / total, 0, 1) : 1;
   }
 
