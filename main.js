@@ -132,7 +132,7 @@
       more.style.opacity = smooth(0.6, 0.8, p);
       more.style.pointerEvents = p > 0.7 ? 'auto' : 'none';
       hint.style.opacity = 1 - smooth(0, 0.12, p);
-      win.style.opacity = lerp(0.5, 1, smooth(0.1, 0.6, p));
+      win.style.opacity = smooth(0.42, 0.62, p);
     } else {
       [h1a, h1b, more, hint, win].forEach(function (el) { el.style.opacity = ''; el.style.pointerEvents = ''; });
     }
