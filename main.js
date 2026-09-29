@@ -81,9 +81,17 @@
   var needTilt = false;
 
   // Sanftes Treiben und Mitreagieren der Satelliten (nur in der verstreuten Phase)
-  var DRIFT = { raf: 0, visible: true, ps: { x: 0, y: 0 }, t1: 0, t2: 0 };
+  var DRIFT = { raf: 0, visible: true, enabled: false, t0: 0, ps: { x: 0, y: 0 }, t1: 0, t2: 0 };
+  // Das Treiben startet erst, wenn die 3D-Einrichtung fertig ist (oder nach einer Wartezeit),
+  // damit ihre kurzen Blockaden in einen Moment fallen, in dem sich noch nichts bewegt.
+  function enableDrift() {
+    if (DRIFT.enabled) return;
+    DRIFT.enabled = true; DRIFT.t0 = performance.now();
+    driftKick();
+  }
+  window.addEventListener('nurelo3d', enableDrift);
   function driftAllowed() {
-    return hero.classList.contains('pinned') && !reduce.matches && DRIFT.visible && !document.hidden && DRIFT.t2 < 1;
+    return DRIFT.enabled && hero.classList.contains('pinned') && !reduce.matches && DRIFT.visible && !document.hidden && DRIFT.t2 < 1;
   }
   function driftFrame() {
     DRIFT.raf = 0;
@@ -101,14 +109,19 @@
       var a = anchors[el.dataset.kind]; if (!a) return;
       var k = pinned ? t2 : 1;
       var sc = lerp(0.35, 1, k);
-      el.style.opacity = pinned ? clamp(k * 1.6, 0, 1) : 1;
-      el.style.transform = 'translate3d(' + a.x + 'px,' + lerp(a.y + 50, a.y, k) + 'px,0) scale(' + sc + ')';
+      var op = pinned ? clamp(k * 1.6, 0, 1) : 1;
+      var tf = 'translate3d(' + a.x + 'px,' + lerp(a.y + 50, a.y, k) + 'px,0) scale(' + sc + ')';
+      // nur schreiben, wenn sich etwas ändert (spart Arbeit im Treiben-Takt)
+      if (el._op !== op) { el._op = op; el.style.opacity = op; }
+      if (el._tf !== tf) { el._tf = tf; el.style.transform = tf; }
     });
     if (!pinned) return;
     var order = { st: 0, am: 1, hn: 2 };
     var T = performance.now() / 1000;
     var still = reduce.matches;
     var A = clamp(Math.min(W, H) * 0.018, 8, 16);
+    // sanft einblenden, damit die Kacheln beim Start nicht springen
+    var ramp = DRIFT.enabled ? smooth(0, 1, (performance.now() - DRIFT.t0) / 1800) : 0;
     sats.forEach(function (el, idx) {
       var a = anchors[el.dataset.kind]; if (!a) return;
       var i = +el.dataset.i;
@@ -126,11 +139,11 @@
       // Treiben: 9 bis 16 s je Zyklus, klingt mit der Sortierung ab
       var calm = 1 - e1;
       var period = 9 + ((idx * 5) % 8), w = 6.2832 / period, ph = idx * 1.9;
-      var dx = still ? 0 : calm * A * Math.sin(T * w + ph);
-      var dy = still ? 0 : calm * A * Math.cos(T * w * 0.8 + ph * 1.3);
-      var dr = still ? 0 : calm * 4 * Math.sin(T * w * 0.6 + ph * 0.7);
+      var dx = still ? 0 : ramp * calm * A * Math.sin(T * w + ph);
+      var dy = still ? 0 : ramp * calm * A * Math.cos(T * w * 0.8 + ph * 1.3);
+      var dr = still ? 0 : ramp * calm * 4 * Math.sin(T * w * 0.6 + ph * 0.7);
       // Mitreagieren mit der Maus: 10 bis 20 px, endet mit dem Verschmelzen
-      var pf = still ? 0 : (1 - e2) * (10 + (idx % 3) * 5);
+      var pf = still ? 0 : ramp * (1 - e2) * (10 + (idx % 3) * 5);
       x += dx + DRIFT.ps.x * pf; y += dy + DRIFT.ps.y * pf; rot += dr;
       el.style.opacity = 1 - smooth(0.5, 1, t2);
       el.style.setProperty('--g', (1 - e1).toFixed(3));
@@ -221,4 +234,19 @@
   hero.classList.toggle('pinned', animated());
   measure();
   update();
+
+  // 3D-Kacheln erst nach dem Laden und im Leerlauf nachladen, damit nichts ruckelt
+  function load3d() {
+    var s = document.createElement('script');
+    s.src = '/tiles3d.js'; s.async = true;
+    document.body.appendChild(s);
+  }
+  function later() {
+    if ('requestIdleCallback' in window) window.requestIdleCallback(load3d, { timeout: 3000 });
+    else setTimeout(load3d, 1200);
+  }
+  if (document.readyState === 'complete') later(); else window.addEventListener('load', later);
+  // Notfalls ohne 3D starten (Skript blockiert, sehr langsames Gerät)
+  function failsafe() { setTimeout(enableDrift, 4500); }
+  if (document.readyState === 'complete') failsafe(); else window.addEventListener('load', failsafe);
 })();
