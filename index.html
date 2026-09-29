@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nurelo – Pflegesoftware für ambulant, stationär und Hausnotruf</title>
-  <meta name="description" content="Nurelo ist die Pflegemanagement-Software für ambulante Dienste, stationäre Einrichtungen und Hausnotruf: Tourenplanung, Dokumentation, Abrechnung und TI-KIM in einer Plattform. Gehostet in Deutschland." />
+  <meta name="description" content="Nurelo bündelt ambulante Pflege, stationäre Einrichtungen und Hausnotruf in einer Plattform: Tourenplanung, Dokumentation, Abrechnung und TI-KIM. Gehostet in Deutschland." />
   <!-- TODO: noindex vor dem Live-Gang entfernen -->
   <meta name="robots" content="noindex, nofollow" />
-  <meta name="theme-color" content="#a4593a" />
+  <meta name="theme-color" content="#241B14" />
   <link rel="canonical" href="https://www.nurelo.eu/" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <meta property="og:type" content="website" />
@@ -17,9 +17,7 @@
   <meta property="og:url" content="https://www.nurelo.eu/" />
   <meta property="og:image" content="https://www.nurelo.eu/logo.png" />
   <meta name="twitter:card" content="summary" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="styles.css" />
   <script type="application/ld+json">
   {
@@ -35,307 +33,255 @@
   </script>
 </head>
 <body>
-  <!-- Icon sprite -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
+      <symbol id="g-st" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2.6" fill="currentColor"/><rect x="13" y="3" width="8" height="8" rx="2.6" fill="currentColor" opacity=".55"/><rect x="3" y="13" width="8" height="8" rx="2.6" fill="currentColor" opacity=".55"/><rect x="13" y="13" width="8" height="8" rx="2.6" fill="currentColor"/></symbol>
+      <symbol id="g-am" viewBox="0 0 24 24"><path d="M6 19h9a3.5 3.5 0 000-7H9a3.5 3.5 0 010-7h9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="5" cy="19" r="2.6" fill="currentColor"/><circle cx="19" cy="5" r="2.6" fill="currentColor"/></symbol>
+      <symbol id="g-hn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.8" fill="currentColor"/><path d="M8 8a5.7 5.7 0 000 8M16 8a5.7 5.7 0 010 8M4.6 4.6a10.5 10.5 0 000 14.8M19.4 4.6a10.5 10.5 0 010 14.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
       <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
       <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></symbol>
-      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></symbol>
-      <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></symbol>
-      <symbol id="i-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
-      <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></symbol>
-      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></symbol>
-      <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 3"/></symbol>
-      <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></symbol>
-      <symbol id="i-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2V2z"/><path d="M9 7h6M9 11h6"/></symbol>
-      <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8"/></symbol>
-      <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></symbol>
-      <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 01-15.5 6.2L3 16M3 12A9 9 0 0118.5 5.8L21 8"/><path d="M21 3v5h-5M3 21v-5h5"/></symbol>
-      <symbol id="i-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h8a3 3 0 000-6H8a3 3 0 010-6h8"/></symbol>
-      <symbol id="i-pill" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5a5 5 0 01-7-7l10-10a5 5 0 017 7l-10 10z"/><path d="M8.5 8.5l7 7"/></symbol>
-      <symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/></symbol>
-      <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
-      <symbol id="i-layout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></symbol>
-      <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3"/></symbol>
-      <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
-      <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></symbol>
-      <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></symbol>
     </defs>
   </svg>
 
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-  <header class="site-header">
-    <div class="wrap nav">
+  <!-- Schwebende Navigation -->
+  <header class="nav">
+    <div class="pill nav-left">
       <a class="brand" href="#top" aria-label="Nurelo – Startseite">
-        <img src="logo.png" width="36" height="36" alt="" />
-        <span>Nur<span>elo</span></span>
+        <img src="logo.png" width="30" height="30" alt="" />
+        <span>Nurelo</span>
       </a>
       <nav aria-label="Hauptnavigation">
         <ul class="nav-links" id="nav-links">
-          <li><a href="#produkte">Produkte</a></li>
-          <li><a href="#funktionen">Funktionen</a></li>
-          <li><a href="#module">Module</a></li>
-          <li><a href="#ablauf">Ablauf</a></li>
+          <li><a href="#stationaer">Stationär</a></li>
+          <li><a href="#ambulant">Ambulant</a></li>
+          <li><a href="#hausnotruf">Hausnotruf</a></li>
+          <li><a href="#plattform">Plattform</a></li>
           <li><a href="#preise">Preise</a></li>
         </ul>
       </nav>
-      <div class="nav-actions">
-        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Dunkles Farbschema" aria-pressed="false">
-          <svg class="sun" aria-hidden="true"><use href="#i-sun"/></svg>
-          <svg class="moon" aria-hidden="true"><use href="#i-moon"/></svg>
-        </button>
-        <a class="btn btn-primary" href="#kontakt">Demo anfragen</a>
-        <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Menü" aria-expanded="false" aria-controls="nav-links">
-          <svg aria-hidden="true"><use href="#i-menu"/></svg>
-        </button>
-      </div>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Menü" aria-expanded="false" aria-controls="nav-links">
+        <svg aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+    <div class="pill nav-right">
+      <a class="btn btn-dark btn-sm" href="#kontakt">Demo anfragen</a>
     </div>
   </header>
 
   <main id="main">
     <!-- HERO -->
     <section class="hero" id="top">
-      <div class="wrap hero-grid">
-        <div>
-          <span class="eyebrow">Pflegesoftware · Made in Germany</span>
-          <h1>Weniger Verwaltung. <em>Mehr Zeit für Pflege.</em></h1>
-          <p class="lead">Nurelo vereint ambulante Pflege, stationäre Einrichtungen und Hausnotruf in einer Plattform – mit Tourenplanung, Dokumentation, Abrechnung und TI-KIM-Anbindung.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#kontakt">30 Tage kostenlos testen <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a class="btn btn-ghost" href="#produkte">Produkte ansehen</a>
+      <div class="stage-pin" id="stage">
+        <div class="wordmark" aria-hidden="true">Nurelo</div>
+
+        <div class="hero-copy">
+          <h1>
+            <span class="sr-only">Nurelo – Pflegesoftware für ambulant, stationär und Hausnotruf</span>
+            <span class="h1-a" aria-hidden="true">Verstreut. Unübersichtlich. Zeitfressend.</span>
+            <span class="h1-b" aria-hidden="true">Klar. Verbunden. <em>Nurelo.</em></span>
+          </h1>
+          <div class="hero-lower">
+          <div class="hero-more">
+            <p class="lead">Nurelo bündelt ambulante Pflege, stationäre Einrichtungen und Hausnotruf in einer Plattform – mit Tourenplanung, Dokumentation, Abrechnung und TI-KIM-Anbindung.</p>
+            <div class="hero-actions">
+              <a class="btn btn-terra" href="#kontakt">30 Tage kostenlos testen <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-ghost" href="#stationaer">Die Produkte</a>
+            </div>
           </div>
-          <p class="hero-note">Kein Vertrag, keine Kreditkarte.</p>
-          <ul class="hero-facts">
-            <li class="fact"><strong>3</strong><span>Betriebsformen</span></li>
-            <li class="fact"><strong>40 %</strong><span>weniger Verwaltungsaufwand</span></li>
-            <li class="fact"><strong>99,9 %</strong><span>Verfügbarkeit (SLA)</span></li>
-          </ul>
+          <p class="scroll-hint" aria-hidden="true">Scrollen</p>
+          </div>
         </div>
 
-        <div class="mock reveal" role="img" aria-label="Vorschau der Nurelo-Oberfläche mit Übersicht über Stationär, Ambulant und Hausnotruf">
-          <div class="mock-bar"><i></i><i></i><i></i><b>Nurelo · Tagesübersicht</b></div>
-          <div class="mock-body">
-            <div class="mock-tabs">
-              <span class="tab on">Heute</span><span class="tab">Touren</span><span class="tab">Bewohner</span><span class="tab">Alarme</span>
+        <div class="win-wrap">
+          <div class="app-window" role="img" aria-label="Vorschau der Nurelo-Oberfläche: Zeitleiste mit den Modulen Stationär, Ambulant und Hausnotruf">
+            <div class="win-bar"><i></i><i></i><i></i><b>Nurelo</b><span class="win-time">Heute</span></div>
+            <div class="track">
+              <span>06:00</span><span>09:00</span><span>12:00</span><span>15:00</span><span>18:00</span>
+              <i class="anchor" data-anchor="st"></i>
+              <i class="anchor" data-anchor="am"></i>
+              <i class="anchor" data-anchor="hn"></i>
             </div>
-            <div class="mock-cards">
-              <div class="mini st"><small>Stationär</small><strong>48</strong></div>
-              <div class="mini am"><small>Touren</small><strong>12</strong></div>
-              <div class="mini hn"><small>Notrufe</small><strong>0</strong></div>
-            </div>
-            <div class="mock-list">
-              <div class="row"><span class="dot g"></span><div class="grow">Müller, Herbert<span>Pflegegrad 3 · dokumentiert</span></div><time>07:45</time></div>
-              <div class="row"><span class="dot y"></span><div class="grow">Tour 2 – Nord<span>4 Einsätze · Fahrzeug 03</span></div><time>08:30</time></div>
-              <div class="row"><span class="dot b"></span><div class="grow">Medikamentenrunde<span>Station B</span></div><time>09:00</time></div>
-              <div class="row"><span class="dot g"></span><div class="grow">Hausnotruf-Test<span>Alle Geräte online</span></div><time>10:00</time></div>
-            </div>
+            <ul class="win-rows">
+              <li><span class="dot st"></span>Zimmer 12 – Dokumentation abgeschlossen<time>07:45</time></li>
+              <li><span class="dot am"></span>Tour 2 Nord – 4 Einsätze, Fahrzeug 03<time>08:30</time></li>
+              <li><span class="dot hn"></span>Alarm 0147 – an Leitstelle weitergeleitet<time>14:02</time></li>
+            </ul>
           </div>
         </div>
+
+        <!-- Kacheln: 3 große, 9 Satelliten -->
+        <div class="tile big st" data-tile="big" data-kind="st" data-depth="1"><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-st"/></svg></div></div></div>
+        <div class="tile big am" data-tile="big" data-kind="am" data-depth="1.35"><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-am"/></svg></div></div></div>
+        <div class="tile big hn" data-tile="big" data-kind="hn" data-depth="0.8"><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-hn"/></svg></div></div></div>
+
+        <div class="tile sat st" data-tile="sat" data-kind="st" data-i="0" data-sx="-.42" data-sy="-.30" data-sr="-24"><div class="tile-body"></div></div>
+        <div class="tile sat st" data-tile="sat" data-kind="st" data-i="1" data-sx="-.18" data-sy=".30" data-sr="18"><div class="tile-body"></div></div>
+        <div class="tile sat st" data-tile="sat" data-kind="st" data-i="2" data-sx=".30" data-sy="-.22" data-sr="40"><div class="tile-body"></div></div>
+        <div class="tile sat am" data-tile="sat" data-kind="am" data-i="0" data-sx=".40" data-sy=".18" data-sr="-32"><div class="tile-body"></div></div>
+        <div class="tile sat am" data-tile="sat" data-kind="am" data-i="1" data-sx="-.36" data-sy=".08" data-sr="26"><div class="tile-body"></div></div>
+        <div class="tile sat am" data-tile="sat" data-kind="am" data-i="2" data-sx=".08" data-sy="-.36" data-sr="-14"><div class="tile-body"></div></div>
+        <div class="tile sat hn" data-tile="sat" data-kind="hn" data-i="0" data-sx="-.06" data-sy=".38" data-sr="34"><div class="tile-body"></div></div>
+        <div class="tile sat hn" data-tile="sat" data-kind="hn" data-i="1" data-sx=".44" data-sy="-.34" data-sr="-38"><div class="tile-body"></div></div>
+        <div class="tile sat hn" data-tile="sat" data-kind="hn" data-i="2" data-sx="-.46" data-sy=".36" data-sr="12"><div class="tile-body"></div></div>
       </div>
     </section>
 
-    <!-- TRUST -->
-    <div class="trust">
-      <div class="wrap">
-        <ul>
-          <li><svg aria-hidden="true"><use href="#i-shield"/></svg>DSGVO-konform</li>
-          <li><svg aria-hidden="true"><use href="#i-lock"/></svg>ISO 27001</li>
-          <li><svg aria-hidden="true"><use href="#i-pulse"/></svg>SGB-XI-konform</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Prüfungsfeste Dokumentation</li>
-          <li><svg aria-hidden="true"><use href="#i-home"/></svg>Hosting in Deutschland</li>
-          <li><svg aria-hidden="true"><use href="#i-mail"/></svg>TI-KIM-Anbindung</li>
-        </ul>
-      </div>
+    <!-- KAPITEL -->
+    <div class="chapters">
+      <!-- STATIONÄR -->
+      <section class="chapter c-st" id="stationaer" style="--i:0">
+        <div class="wrap chapter-grid">
+          <div class="chapter-text">
+            <p class="kicker"><span>01</span> Stationär</p>
+            <h2>Jede Akte an ihrem Platz.</h2>
+            <p class="chapter-lead">Volldigitales Management für stationäre Einrichtungen: Bewohnerverwaltung, Dienstplan, Pflegedokumentation und Auswertungen für Qualitätsprüfungen auf einem zentralen Dashboard.</p>
+            <ul class="ticks">
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Bewohnerverwaltung und Pflegeplanung</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Dienstplanung und Kostenstellen</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Medikamentenverwaltung</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Pflegegrad-Erfassung</li>
+            </ul>
+          </div>
+          <div class="chapter-visual">
+            <div class="app-window dark">
+              <div class="win-bar"><i></i><i></i><i></i><b>Nurelo Stationär</b></div>
+              <ul class="win-rows big-rows">
+                <li><span class="dot st"></span><div>Müller, Herbert<small>Zimmer 12 · Pflegegrad 3</small></div><time>dokumentiert</time></li>
+                <li><span class="dot st"></span><div>Medikamentenrunde<small>Station B</small></div><time>09:00</time></li>
+                <li><span class="dot st"></span><div>Dienstplan KW 40<small>Frühdienst, Spätdienst, Nacht</small></div><time>2 offen</time></li>
+              </ul>
+            </div>
+            <div class="tile chap st" data-depth="1" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-st"/></svg></div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AMBULANT -->
+      <section class="chapter c-am" id="ambulant" style="--i:1">
+        <div class="wrap chapter-grid">
+          <div class="chapter-text">
+            <p class="kicker"><span>02</span> Ambulant</p>
+            <h2>Jede Tour im Fluss.</h2>
+            <p class="chapter-lead">Effiziente Steuerung ambulanter Dienste: intelligente Tourenplanung, Leistungserfassung nach SGB XI und V, Fahrzeugmanagement und mobile Einsatzdokumentation.</p>
+            <ul class="ticks">
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Tourenplanung mit Fahrzeugzuweisung</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Leistungserfassung SGB XI + V</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Mobile Einsatzdokumentation</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Abrechnung nach §&nbsp;302</li>
+            </ul>
+          </div>
+          <div class="chapter-visual">
+            <div class="app-window dark">
+              <div class="win-bar"><i></i><i></i><i></i><b>Nurelo Ambulant · Tour 2 Nord</b></div>
+              <svg class="route" viewBox="0 0 400 200" role="img" aria-label="Tourenverlauf mit vier Einsätzen">
+                <path d="M30 160 C 110 160, 90 60, 170 60 S 250 150, 310 120 S 350 50, 372 40" fill="none" stroke="#C59045" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 12"/>
+                <g fill="#C59045"><circle cx="30" cy="160" r="9"/><circle cx="170" cy="60" r="9"/><circle cx="310" cy="120" r="9"/><circle cx="372" cy="40" r="9"/></g>
+                <g fill="#F2EADD" font-size="13" font-weight="700" text-anchor="middle"><text x="30" y="186">08:30</text><text x="170" y="40">09:10</text><text x="310" y="150">09:55</text><text x="372" y="24">10:30</text></g>
+              </svg>
+            </div>
+            <div class="tile chap am" data-depth="1.3" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-am"/></svg></div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HAUSNOTRUF -->
+      <section class="chapter c-hn" id="hausnotruf" style="--i:2">
+        <div class="wrap chapter-grid">
+          <div class="chapter-text">
+            <p class="kicker"><span>03</span> Hausnotruf</p>
+            <h2>Jeder Alarm am richtigen Ort.</h2>
+            <p class="chapter-lead">Komplettes Hausnotruf-Management: Teilnehmerverwaltung, Gerätemanagement, Alarmweiterleitung an die Leitstelle und automatische Abrechnung der Monatspauschalen.</p>
+            <ul class="ticks">
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Teilnehmer- und Gerätemanagement</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Funk-Rufknopf und Smartwatch</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Alarmweiterleitung an die Leitstelle</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Monatspauschale automatisch abgerechnet</li>
+            </ul>
+          </div>
+          <div class="chapter-visual">
+            <div class="app-window dark">
+              <div class="win-bar"><i></i><i></i><i></i><b>Nurelo Hausnotruf · Alarmkette</b></div>
+              <ol class="chain">
+                <li><b>Gerät</b><small>Alarm ausgelöst</small></li>
+                <li><b>Nurelo</b><small>Teilnehmer erkannt</small></li>
+                <li><b>Leitstelle</b><small>Weiterleitung</small></li>
+                <li><b>Einsatz</b><small>Dokumentiert</small></li>
+              </ol>
+            </div>
+            <div class="tile chap hn" data-depth="0.9" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-hn"/></svg></div></div></div>
+          </div>
+        </div>
+      </section>
     </div>
 
-    <!-- PRODUKTE -->
-    <section id="produkte">
+    <!-- PLATTFORM -->
+    <section class="platform" id="plattform">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Betriebsformen</span>
-          <h2>Drei Lösungen. Eine Plattform.</h2>
-          <p class="lead">Jede Betriebsform bringt eigene Workflows und spezialisierte Module mit – nahtlos in einer Anwendung vereint.</p>
+        <div class="platform-head reveal">
+          <img src="logo.png" width="120" height="120" alt="" />
+          <p class="kicker light"><span>04</span> Eine Plattform</p>
+          <h2>Drei Welten. Ein System.</h2>
+          <p class="chapter-lead">Alle Betriebsformen teilen sich Stammdaten, Abrechnung und Berechtigungen. Was in einem Bereich erfasst wird, steht überall zur Verfügung.</p>
         </div>
-        <div class="products">
-          <article class="card product st reveal">
-            <span class="tag">Stationär</span>
-            <h3>Nurelo Stationär</h3>
-            <p>Volldigitales Management für stationäre Einrichtungen: Bewohnerverwaltung, Dienstplan, Pflegedokumentation und Auswertungen für Qualitätsprüfungen auf einem zentralen Dashboard.</p>
-            <ul class="chips">
-              <li>Bewohnerverwaltung</li><li>Pflegeplanung</li><li>Dienstplanung</li><li>Medikamente</li><li>Pflegegrad-Erfassung</li><li>Kostenstellen</li>
-            </ul>
-            <a class="more" href="#kontakt">Mehr erfahren →</a>
-          </article>
-          <article class="card product am reveal">
-            <span class="tag">Ambulant</span>
-            <h3>Nurelo Ambulant</h3>
-            <p>Effiziente Steuerung ambulanter Dienste: intelligente Tourenplanung, Leistungserfassung nach SGB XI und V, Fahrzeugmanagement und mobile Einsatzdokumentation.</p>
-            <ul class="chips">
-              <li>Tourenplanung</li><li>Leistungserfassung SGB XI + V</li><li>Fahrzeuge</li><li>Klientenverwaltung</li><li>Einsatzdokumentation</li><li>Abrechnung §&nbsp;302</li>
-            </ul>
-            <a class="more" href="#kontakt">Mehr erfahren →</a>
-          </article>
-          <article class="card product hn reveal">
-            <span class="tag">Hausnotruf</span>
-            <h3>Nurelo Hausnotruf</h3>
-            <p>Komplettes Hausnotruf-Management: Teilnehmerverwaltung, Gerätemanagement, Alarmweiterleitung an die Leitstelle und automatische Abrechnung der Monatspauschalen.</p>
-            <ul class="chips">
-              <li>Teilnehmerverwaltung</li><li>Gerätemanagement</li><li>Alarmweiterleitung</li><li>Smartwatch</li><li>Funk-Rufknopf</li><li>Monatspauschale</li>
-            </ul>
-            <a class="more" href="#kontakt">Mehr erfahren →</a>
-          </article>
-        </div>
-      </div>
-    </section>
+        <ol class="feat-list">
+          <li class="reveal"><span>01</span><h3>KI-gestützte Dokumentation</h3><p>Spracheingabe und Textvorschläge reduzieren den Dokumentationsaufwand. Nurelo lernt aus Ihren Mustern.</p></li>
+          <li class="reveal"><span>02</span><h3>Integrierte Abrechnung</h3><p>Abrechnung mit Kostenträgern, automatische Rechnungserstellung und Exporte für Buchhaltung und Lohn.</p></li>
+          <li class="reveal"><span>03</span><h3>TI-KIM-Messaging</h3><p>Sichere Kommunikation mit Ärzten, Kassen und Leistungserbringern über die Telematikinfrastruktur.</p></li>
+          <li class="reveal"><span>04</span><h3>Rollen &amp; Berechtigungen</h3><p>Granulare Zugriffssteuerung für PDL, Pflegekräfte, Buchhaltung und Administration, mit Audit-Log.</p></li>
+          <li class="reveal"><span>05</span><h3>Berichte &amp; Designer</h3><p>Statistiken für Qualitätsprüfungen und ein Berichtsdesigner für eigene Druckvorlagen.</p></li>
+          <li class="reveal"><span>06</span><h3>Automatische Updates</h3><p>Keine Installation, keine IT-Abhängigkeit. Neue Funktionen und Gesetzesänderungen kommen automatisch.</p></li>
+        </ol>
 
-    <!-- FUNKTIONEN -->
-    <section class="features" id="funktionen">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Kernfunktionen</span>
-          <h2>Durchdacht. Vollständig. Pflegetauglich.</h2>
-          <p class="lead">Von der Dokumentation bis zur Abrechnung – Nurelo deckt den gesamten Pflegealltag ab.</p>
+        <div class="chip-block reveal">
+          <div>
+            <h3>Module nach Bedarf</h3>
+            <ul class="chips">
+              <li>Tourenplanung</li><li>Medikamentenverwaltung</li><li>Dokumentenarchiv</li><li>Dienstplanung</li><li>Abrechnung</li><li>TI-KIM-Postfach</li><li>Berichtsdesigner</li><li>Nutzerverwaltung</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Schnittstellen</h3>
+            <ul class="chips">
+              <li>DATEV v700</li><li>Lexware</li><li>ADDISON</li><li>SAP FI</li><li>TI-KIM</li><li>CSV / FHIR</li>
+            </ul>
+          </div>
         </div>
-        <div class="feature-grid">
-          <article class="card feature wide reveal">
-            <span class="ico"><svg aria-hidden="true"><use href="#i-spark"/></svg></span>
-            <h3>KI-gestützte Dokumentation</h3>
-            <p>Spracheingabe und intelligente Textvorschläge reduzieren den Dokumentationsaufwand. Nurelo lernt aus Ihren Mustern und schlägt passende Formulierungen vor.</p>
-          </article>
-          <article class="card feature reveal">
-            <span class="ico"><svg aria-hidden="true"><use href="#i-receipt"/></svg></span>
-            <h3>Integrierte Abrechnung</h3>
-            <p>Abrechnung mit Kostenträgern, automatische Rechnungserstellung und Exporte für DATEV, Lexware, ADDISON und SAP&nbsp;FI.</p>
-          </article>
-          <article class="card feature reveal">
-            <span class="ico"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
-            <h3>TI-KIM-Messaging</h3>
-            <p>Sichere Kommunikation mit Ärzten, Kassen und Leistungserbringern über die Telematikinfrastruktur – direkt in Nurelo.</p>
-          </article>
-          <article class="card feature reveal">
-            <span class="ico"><svg aria-hidden="true"><use href="#i-users"/></svg></span>
-            <h3>Rollen &amp; Berechtigungen</h3>
-            <p>Granulare Zugriffssteuerung für PDL, Pflegekräfte, Buchhaltung und Administration.</p>
-          </article>
-          <article class="card feature reveal">
-            <span class="ico"><svg aria-hidden="true"><use href="#i-chart"/></svg></span>
-            <h3>Berichte &amp; Designer</h3>
-            <p>Statistiken für Qualitätsprüfungen, individuelle Auswertungen und ein Berichtsdesigner für eigene Druckvorlagen.</p>
-          </article>
-          <article class="card feature reveal">
-            <span class="ico"><svg aria-hidden="true"><use href="#i-refresh"/></svg></span>
-            <h3>Automatische Updates</h3>
-            <p>Keine Installation, keine IT-Abhängigkeit. Neue Funktionen und Gesetzesänderungen werden automatisch eingespielt.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- MODULE -->
-    <section id="module">
-      <div class="wrap">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Erweiterungsmodule</span>
-          <h2>Wächst mit Ihren Anforderungen.</h2>
-          <p class="lead">Aktivieren Sie Module nach Bedarf – ohne Neuinstallation.</p>
-        </div>
-        <div class="modules">
-          <article class="card module reveal"><span class="ico"><svg aria-hidden="true"><use href="#i-route"/></svg></span><h4>Tourenplanung</h4><p>Optimierte Routen mit Fahrzeug- und Mitarbeiterzuweisung.</p></article>
-          <article class="card module reveal"><span class="ico"><svg aria-hidden="true"><use href="#i-pill"/></svg></span><h4>Medikamentenverwaltung</h4><p>Lückenlose Übersicht mit Verabreichungsprotokoll.</p></article>
-          <article class="card module reveal"><span class="ico"><svg aria-hidden="true"><use href="#i-folder"/></svg></span><h4>Dokumentenarchiv</h4><p>Zentrales Archiv für Verträge, Atteste und Dokumente.</p></article>
-          <article class="card module reveal"><span class="ico"><svg aria-hidden="true"><use href="#i-calendar"/></svg></span><h4>Dienstplanung</h4><p>Schichtplanung, Urlaub und Abwesenheiten.</p></article>
-          <article class="card module reveal"><span class="ico"><svg aria-hidden="true"><use href="#i-receipt"/></svg></span><h4>Abrechnung</h4><p>Kostenträgerabrechnung für Pflegegrade 1–5 mit DATEV-Export.</p></article>
-          <article class="card module reveal"><span class="ico"><svg aria-hidden="true"><use href="#i-mail"/></svg></span><h4>TI-KIM-Postfach</h4><p>Ein- und Ausgang für TI-konforme Nachrichten.</p></article>
-          <article class="card module reveal"><span class="ico"><svg aria-hidden="true"><use href="#i-layout"/></svg></span><h4>Berichtsdesigner</h4><p>Eigene Druckvorlagen für alle Berichte.</p></article>
-          <article class="card module reveal"><span class="ico"><svg aria-hidden="true"><use href="#i-key"/></svg></span><h4>Nutzerverwaltung</h4><p>Rollenbasierter Zugriff mit Audit-Log.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <!-- SCHNITTSTELLEN -->
-    <section class="integrations" id="schnittstellen">
-      <div class="wrap integ-grid">
-        <div class="reveal">
-          <span class="eyebrow">Schnittstellen</span>
-          <h2>Nahtlos in Ihrer Systemlandschaft.</h2>
-          <p class="lead" style="margin-top:1rem">Nurelo spricht die Sprache Ihrer bestehenden Software – mit Exporten für gängige Buchhaltungs- und Abrechnungssysteme.</p>
-        </div>
-        <ul class="badges reveal">
-          <li>DATEV v700</li><li>Lexware</li><li>ADDISON</li><li>SAP FI</li><li>TI-KIM</li><li>CSV / FHIR</li>
-        </ul>
       </div>
     </section>
 
     <!-- ABLAUF -->
-    <section id="ablauf">
+    <section class="steps-sec" id="ablauf">
       <div class="wrap">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Onboarding</span>
+        <div class="section-head reveal">
+          <p class="kicker dark"><span>05</span> Onboarding</p>
           <h2>In vier Schritten live.</h2>
           <p class="lead">Kein langwieriges IT-Projekt. Nurelo ist in wenigen Tagen einsatzbereit – mit persönlicher Begleitung.</p>
         </div>
-        <ol class="steps" style="list-style:none;padding:0">
-          <li class="step reveal"><h3>Demo &amp; Beratung</h3><p>Wir analysieren gemeinsam Ihre konkreten Anforderungen.</p></li>
-          <li class="step reveal"><h3>Konfiguration</h3><p>Einrichtung auf Ihre Betriebsform, inklusive Stammdaten-Import aus bestehenden Systemen.</p></li>
-          <li class="step reveal"><h3>Schulung</h3><p>Live-Training für PDL und Team, dazu eine Videobibliothek für den Einstieg.</p></li>
-          <li class="step reveal"><h3>Go-Live &amp; Support</h3><p>Produktivstart mit persönlicher Begleitung in den ersten Wochen.</p></li>
+        <ol class="steps">
+          <li class="reveal"><h3>Demo &amp; Beratung</h3><p>Wir analysieren gemeinsam Ihre Anforderungen.</p></li>
+          <li class="reveal"><h3>Konfiguration</h3><p>Einrichtung auf Ihre Betriebsform, inklusive Stammdaten-Import.</p></li>
+          <li class="reveal"><h3>Schulung</h3><p>Live-Training für PDL und Team, dazu eine Videobibliothek.</p></li>
+          <li class="reveal"><h3>Go-Live &amp; Support</h3><p>Produktivstart mit persönlicher Begleitung in den ersten Wochen.</p></li>
         </ol>
-      </div>
-    </section>
-
-    <!-- REFERENZEN -->
-    <section class="features" id="referenzen">
-      <div class="wrap">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Referenzen</span>
-          <h2>Was unsere Kunden sagen.</h2>
-        </div>
-        <div class="quotes">
-          <figure class="card quote reveal">
-            <blockquote>„Die Tourenplanung läuft jetzt komplett über Nurelo – was früher 2 Stunden am Morgen gekostet hat, erledigen wir in 15 Minuten."</blockquote>
-            <footer><span class="avatar" aria-hidden="true">MH</span><div><strong>Maria Hoffmann</strong><span>PDL, ambulanter Pflegedienst München</span></div></footer>
-          </figure>
-          <figure class="card quote reveal">
-            <blockquote>„Unsere Qualitätsprüfung war dieses Jahr die entspannteste seit Jahren. Alle Pflegedokumentationen sind lückenlos und sofort abrufbar."</blockquote>
-            <footer><span class="avatar" aria-hidden="true">TK</span><div><strong>Thomas Kessler</strong><span>Heimleiter, Seniorenzentrum Rheinblick</span></div></footer>
-          </figure>
-          <figure class="card quote reveal">
-            <blockquote>„Das Hausnotruf-Modul hat unsere Alarmreaktion spürbar verbessert. Gerätemanagement, Teilnehmerlisten und Abrechnung – alles an einem Ort."</blockquote>
-            <footer><span class="avatar" aria-hidden="true">SB</span><div><strong>Sandra Braun</strong><span>Geschäftsführerin, Sozialstation Bergland</span></div></footer>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- SICHERHEIT -->
-    <section class="security" id="sicherheit">
-      <div class="wrap sec-grid">
-        <div class="reveal">
-          <span class="eyebrow">Sicherheit</span>
-          <h2>Sicherheit, die Sie schützt.</h2>
-          <p class="lead">Nurelo wird in Deutschland entwickelt, auf deutschen Servern gehostet und erfüllt die gesetzlichen Anforderungen der deutschen Pflegelandschaft.</p>
-        </div>
-        <ul class="sec-badges reveal">
-          <li><svg aria-hidden="true"><use href="#i-shield"/></svg>DSGVO</li>
-          <li><svg aria-hidden="true"><use href="#i-lock"/></svg>ISO 27001</li>
-          <li><svg aria-hidden="true"><use href="#i-pulse"/></svg>SGB XI</li>
-          <li><svg aria-hidden="true"><use href="#i-clock"/></svg>99,9 % SLA</li>
-          <li><svg aria-hidden="true"><use href="#i-home"/></svg>DE-Hosting</li>
+        <ul class="trust reveal">
+          <li>DSGVO-konform</li><li>Hosting in Deutschland</li><li>Automatische Updates</li><li>Persönlicher Support</li>
         </ul>
       </div>
     </section>
 
     <!-- PREISE -->
-    <section id="preise">
+    <section class="pricing" id="preise">
       <div class="wrap">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Lizenzmodelle</span>
+        <div class="section-head reveal">
+          <p class="kicker dark"><span>06</span> Lizenzmodelle</p>
           <h2>Transparent. Skalierbar.</h2>
           <p class="lead">Lizenzen richten sich nach Ihrer Einrichtungsgröße – ohne versteckte Kosten.</p>
         </div>
         <div class="plans">
-          <article class="card plan reveal">
+          <article class="plan reveal">
             <span class="tier">Starter</span>
             <h3>Einzeleinrichtung</h3>
             <p>Für kleine Dienste bis 20 Mitarbeitende – alle Kernfunktionen inklusive.</p>
@@ -347,7 +293,7 @@
             </ul>
             <a class="btn btn-ghost" href="#kontakt">Angebot anfragen</a>
           </article>
-          <article class="card plan featured reveal">
+          <article class="plan featured reveal">
             <span class="tier">Empfohlen</span>
             <h3>Professionell</h3>
             <p>Für wachsende Organisationen mit mehreren Bereichen und Standorten.</p>
@@ -359,9 +305,9 @@
               <li><svg aria-hidden="true"><use href="#i-check"/></svg>TI-KIM-Anbindung</li>
               <li><svg aria-hidden="true"><use href="#i-check"/></svg>Prioritäts-Support</li>
             </ul>
-            <a class="btn btn-primary" href="#kontakt">Angebot anfragen</a>
+            <a class="btn btn-terra" href="#kontakt">Angebot anfragen</a>
           </article>
-          <article class="card plan reveal">
+          <article class="plan reveal">
             <span class="tier">Enterprise</span>
             <h3>Träger &amp; Verbände</h3>
             <p>Individuelle Lösungen für Träger mit mehreren Einrichtungen.</p>
@@ -377,16 +323,20 @@
       </div>
     </section>
 
-    <!-- KONTAKT / CTA -->
-    <section id="kontakt" style="padding-top:0">
+    <!-- KONTAKT -->
+    <section class="contact" id="kontakt">
       <div class="wrap">
         <div class="cta-box reveal">
-          <span class="eyebrow" style="color:inherit;opacity:.85">Jetzt starten</span>
+          <div class="cta-tiles" aria-hidden="true">
+            <div class="tile mini st"><div class="tile-body"><svg><use href="#g-st"/></svg></div></div>
+            <div class="tile mini am"><div class="tile-body"><svg><use href="#g-am"/></svg></div></div>
+            <div class="tile mini hn"><div class="tile-body"><svg><use href="#g-hn"/></svg></div></div>
+          </div>
           <h2>Bereit für den nächsten Schritt?</h2>
           <p class="lead">Testen Sie Nurelo 30 Tage kostenlos – kein Vertrag, keine Kreditkarte. Unser Team begleitet Sie von Anfang an.</p>
           <div class="cta-actions">
-            <a class="btn btn-primary" href="mailto:kontakt@nurelo.eu?subject=Testzugang%20Nurelo">Kostenlos starten <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a class="btn btn-ghost" href="mailto:kontakt@nurelo.eu?subject=Demo-Termin%20Nurelo">Demo vereinbaren</a>
+            <a class="btn btn-terra" href="mailto:contact@nurelo.eu?subject=Testzugang%20Nurelo">Kostenlos starten <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-ghost-light" href="mailto:contact@nurelo.eu?subject=Demo-Termin%20Nurelo">Demo vereinbaren</a>
           </div>
         </div>
       </div>
@@ -397,33 +347,32 @@
     <div class="wrap">
       <div class="foot-grid">
         <div>
-          <a class="brand" href="#top"><img src="logo.png" width="36" height="36" alt="" /><span>Nur<span>elo</span></span></a>
+          <a class="brand" href="#top"><img src="logo.png" width="30" height="30" alt="" /><span>Nurelo</span></a>
           <p>Pflegemanagement-Software für ambulante Dienste, stationäre Einrichtungen und Hausnotruf-Anbieter. Entwickelt in Deutschland.</p>
         </div>
         <nav aria-label="Produkte">
           <h2>Produkte</h2>
           <ul>
-            <li><a href="#produkte">Nurelo Stationär</a></li>
-            <li><a href="#produkte">Nurelo Ambulant</a></li>
-            <li><a href="#produkte">Nurelo Hausnotruf</a></li>
-            <li><a href="#module">Erweiterungsmodule</a></li>
+            <li><a href="#stationaer">Nurelo Stationär</a></li>
+            <li><a href="#ambulant">Nurelo Ambulant</a></li>
+            <li><a href="#hausnotruf">Nurelo Hausnotruf</a></li>
+            <li><a href="#plattform">Plattform</a></li>
           </ul>
         </nav>
         <nav aria-label="Unternehmen">
           <h2>Unternehmen</h2>
           <ul>
             <li><a href="#kontakt">Kontakt</a></li>
-            <li><a href="#referenzen">Referenzen</a></li>
-            <li><a href="#sicherheit">Sicherheit</a></li>
+            <li><a href="#ablauf">Onboarding</a></li>
             <li><a href="#preise">Preise</a></li>
           </ul>
         </nav>
         <nav aria-label="Rechtliches">
           <h2>Rechtliches</h2>
           <ul>
-            <li><a href="#">Datenschutz</a></li>
-            <li><a href="#">Impressum</a></li>
-            <li><a href="#">AGB</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="agb.html">AGB</a></li>
           </ul>
         </nav>
       </div>
