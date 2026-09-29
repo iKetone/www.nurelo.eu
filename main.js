@@ -129,6 +129,7 @@
     var still = reduce.matches;
     tilts.forEach(function (el) {
       var tile = el.parentNode;
+      if (tile.classList.contains('tile3d')) { if (el.style.transform) el.style.transform = ''; return; }
       var depth = parseFloat(tile.dataset.depth || 1);
       var tx = still ? 0 : pointer.x, ty = still ? 0 : pointer.y;
       var ry = tx * 24 * depth, rx = -ty * 24 * depth;
