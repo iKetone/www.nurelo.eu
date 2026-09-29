@@ -33,6 +33,26 @@
     toggleTop();
   }
 
+  // ---------- Sprung zu gestapelten Kapiteln ----------
+  // Klebende Kapitel liegen beim Hochscrollen schon "oben", der Browser hält den Anker dann für erreicht.
+  // Deshalb das Ziel aus der ungeklebten Position berechnen.
+  var chapterBox = document.querySelector('.chapters');
+  if (chapterBox) {
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+      var id = a.getAttribute('href').slice(1);
+      var target = id && document.getElementById(id);
+      if (!target || target.parentNode !== chapterBox || getComputedStyle(target).position !== 'sticky') return;
+      var y = chapterBox.getBoundingClientRect().top + window.scrollY;
+      for (var s = target.previousElementSibling; s; s = s.previousElementSibling) y += s.offsetHeight;
+      y -= parseFloat(getComputedStyle(target).top) || 0;
+      e.preventDefault();
+      window.scrollTo({ top: y, behavior: reduce.matches ? 'auto' : 'smooth' });
+      if (history.replaceState) history.replaceState(null, '', '#' + id);
+    });
+  }
+
   // ---------- Reveal ----------
   var items = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
