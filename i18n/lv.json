@@ -15,6 +15,7 @@
   "cta_demo": "Pieprasīt demonstrāciju",
   "lang_aria": "Izvēlēties valodu",
   "top_btn": "Uz augšu",
+  "more": "Uzzināt vairāk",
   "h1_a": "Izkaisīts. Nepārskatāms. Laikietilpīgs.",
   "h1_b": "Skaidri. Savienoti. <em>Nurelo.</em>",
   "hero_lead": "Nurelo vienā platformā apvieno aprūpi mājās, aprūpes namus un trauksmes izsaukumu pakalpojumus, ar maršrutu plānošanu, dokumentēšanu, rēķinu izrakstīšanu un TI-KIM savienojumu.",
@@ -65,7 +66,7 @@
 
   "pf_kicker": "Viena platforma",
   "pf_h2": "Trīs pasaules. Viena sistēma.",
-  "pf_lead": "Visas jomas izmanto kopīgus pamatdatus, rēķinu izrakstīšanu un piekļuves tiesības. Kas tiek reģistrēts vienā jomā, ir pieejams visur.",
+  "pf_lead": "Katrs produkts pēc noklusējuma darbojas ar saviem pamatdatiem un saviem moduļiem. Pēc pieprasījuma vairāki produkti var izmantot kopīgu datubāzi.",
   "f1_h": "Ar mākslīgo intelektu atbalstīta dokumentēšana",
   "f1_p": "Balss ievade un teksta ieteikumi samazina dokumentēšanas slodzi. Nurelo mācās no jūsu ieradumiem.",
   "f2_h": "Integrēta rēķinu izrakstīšana",

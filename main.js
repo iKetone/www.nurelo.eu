@@ -51,9 +51,23 @@
   function lerp(a, b, t) { return a + (b - a) * t; }
   function smooth(a, b, v) { var t = clamp((v - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); }
 
+  // 3D-Kacheln erst nach dem Laden und im Leerlauf nachladen, damit nichts ruckelt
+  function load3d() {
+    var s = document.createElement('script');
+    s.src = '/tiles3d.js'; s.async = true;
+    document.body.appendChild(s);
+  }
+  function later() {
+    if ('requestIdleCallback' in window) window.requestIdleCallback(load3d, { timeout: 3000 });
+    else setTimeout(load3d, 1200);
+  }
+  if (document.readyState === 'complete') later(); else window.addEventListener('load', later);
+
   // ---------- Hero-Bühne ----------
   var hero = document.getElementById('top');
   var stage = document.getElementById('stage');
+  // Unterseiten haben keine Hero-Bühne, der Rest gilt nur für die Startseite
+  if (!hero || !stage) return;
   var bigs = [].slice.call(stage.querySelectorAll('[data-tile="big"]'));
   var sats = [].slice.call(stage.querySelectorAll('[data-tile="sat"]'));
   var h1a = stage.querySelector('.h1-a');
@@ -235,17 +249,6 @@
   measure();
   update();
 
-  // 3D-Kacheln erst nach dem Laden und im Leerlauf nachladen, damit nichts ruckelt
-  function load3d() {
-    var s = document.createElement('script');
-    s.src = '/tiles3d.js'; s.async = true;
-    document.body.appendChild(s);
-  }
-  function later() {
-    if ('requestIdleCallback' in window) window.requestIdleCallback(load3d, { timeout: 3000 });
-    else setTimeout(load3d, 1200);
-  }
-  if (document.readyState === 'complete') later(); else window.addEventListener('load', later);
   // Notfalls ohne 3D starten (Skript blockiert, sehr langsames Gerät)
   function failsafe() { setTimeout(enableDrift, 4500); }
   if (document.readyState === 'complete') failsafe(); else window.addEventListener('load', failsafe);

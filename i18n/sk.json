@@ -15,6 +15,7 @@
   "cta_demo": "Požiadať o ukážku",
   "lang_aria": "Vybrať jazyk",
   "top_btn": "Hore",
+  "more": "Zistiť viac",
   "h1_a": "Roztrieštené. Neprehľadné. Zdĺhavé.",
   "h1_b": "Jasné. Prepojené. <em>Nurelo.</em>",
   "hero_lead": "Nurelo spája domácu starostlivosť, pobytové zariadenia a tiesňovú starostlivosť na jednej platforme, s plánovaním trás, dokumentáciou, fakturáciou a pripojením TI-KIM.",
@@ -65,7 +66,7 @@
 
   "pf_kicker": "Jedna platforma",
   "pf_h2": "Tri svety. Jeden systém.",
-  "pf_lead": "Všetky oblasti zdieľajú kmeňové údaje, fakturáciu a oprávnenia. Čo sa zaznamená v jednej oblasti, je k dispozícii všade.",
+  "pf_lead": "Každý produkt v predvolenom nastavení pracuje s vlastnými kmeňovými údajmi a vlastnými modulmi. Na želanie môže viac produktov zdieľať spoločnú databázu.",
   "f1_h": "Dokumentácia s podporou AI",
   "f1_p": "Hlasové zadávanie a návrhy textu znižujú náročnosť dokumentácie. Nurelo sa učí z vašich zvyklostí.",
   "f2_h": "Integrovaná fakturácia",

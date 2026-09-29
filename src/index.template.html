@@ -53,11 +53,7 @@
       </a>
       <nav aria-label="{{a:nav_aria}}">
         <ul class="nav-links" id="nav-links">
-          <li><a href="#stationaer">{{nav_st}}</a></li>
-          <li><a href="#ambulant">{{nav_am}}</a></li>
-          <li><a href="#hausnotruf">{{nav_hn}}</a></li>
-          <li><a href="#plattform">{{nav_pf}}</a></li>
-          <li><a href="#preise">{{nav_pr}}</a></li>
+{{nav_links}}
         </ul>
       </nav>
 {{switcher}}
@@ -136,16 +132,10 @@
               <li>{{st_t3}}</li>
               <li>{{st_t4}}</li>
             </ul>
+            <a class="chapter-more" href="{{href_st}}"{{hl_st}}>{{more}}</a>
           </div>
           <div class="chapter-visual">
-            <div class="app-window dark">
-              <div class="win-bar"><b>Nurelo {{nav_st}}</b></div>
-              <ul class="win-rows big-rows">
-                <li><span class="dot st"></span><div>Müller, Herbert<small>{{st_n1_sub}}</small></div><time>{{st_n1_state}}</time></li>
-                <li><span class="dot st"></span><div>{{st_n2}}<small>{{st_n2_sub}}</small></div><time>09:00</time></li>
-                <li><span class="dot st"></span><div>{{st_n3}}<small>{{st_n3_sub}}</small></div><time>{{st_n3_state}}</time></li>
-              </ul>
-            </div>
+            {{include:mock-st}}
             <div class="tile chap st" data-depth="1" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-st"/></svg></div></div></div>
           </div>
         </div>
@@ -163,16 +153,10 @@
               <li>{{am_t3}}</li>
               <li>{{am_t4}}</li>
             </ul>
+            <a class="chapter-more" href="{{href_am}}"{{hl_am}}>{{more}}</a>
           </div>
           <div class="chapter-visual">
-            <div class="app-window dark">
-              <div class="win-bar"><b>Nurelo {{nav_am}} · {{am_win}}</b></div>
-              <svg class="route" viewBox="0 0 400 200" role="img" aria-label="{{a:am_route_aria}}">
-                <path d="M30 160 C 110 160, 90 60, 170 60 S 250 150, 310 120 S 350 50, 372 40" fill="none" stroke="#C59045" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 12"/>
-                <g fill="#C59045"><circle cx="30" cy="160" r="9"/><circle cx="170" cy="60" r="9"/><circle cx="310" cy="120" r="9"/><circle cx="372" cy="40" r="9"/></g>
-                <g fill="#F2EADD" font-size="13" font-weight="700" text-anchor="middle"><text x="30" y="186">08:30</text><text x="170" y="40">09:10</text><text x="310" y="150">09:55</text><text x="372" y="24">10:30</text></g>
-              </svg>
-            </div>
+            {{include:mock-am}}
             <div class="tile chap am" data-depth="1.3" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-am"/></svg></div></div></div>
           </div>
         </div>
@@ -190,17 +174,10 @@
               <li>{{hn_t3}}</li>
               <li>{{hn_t4}}</li>
             </ul>
+            <a class="chapter-more" href="{{href_hn}}"{{hl_hn}}>{{more}}</a>
           </div>
           <div class="chapter-visual">
-            <div class="app-window dark">
-              <div class="win-bar"><b>Nurelo {{nav_hn}} · {{hn_win}}</b></div>
-              <ol class="chain">
-                <li><b>{{hn_c1}}</b><small>{{hn_c1s}}</small></li>
-                <li><b>Nurelo</b><small>{{hn_c2s}}</small></li>
-                <li><b>{{hn_c3}}</b><small>{{hn_c3s}}</small></li>
-                <li><b>{{hn_c4}}</b><small>{{hn_c4s}}</small></li>
-              </ol>
-            </div>
+            {{include:mock-hn}}
             <div class="tile chap hn" data-depth="0.9" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-hn"/></svg></div></div></div>
           </div>
         </div>
@@ -312,9 +289,9 @@
         <nav aria-label="{{a:ft_products}}">
           <h2>{{ft_products}}</h2>
           <ul>
-            <li><a href="#stationaer">Nurelo {{nav_st}}</a></li>
-            <li><a href="#ambulant">Nurelo {{nav_am}}</a></li>
-            <li><a href="#hausnotruf">Nurelo {{nav_hn}}</a></li>
+            <li><a href="{{href_st}}"{{hl_st}}>Nurelo {{nav_st}}</a></li>
+            <li><a href="{{href_am}}"{{hl_am}}>Nurelo {{nav_am}}</a></li>
+            <li><a href="{{href_hn}}"{{hl_hn}}>Nurelo {{nav_hn}}</a></li>
             <li><a href="#plattform">{{nav_pf}}</a></li>
           </ul>
         </nav>

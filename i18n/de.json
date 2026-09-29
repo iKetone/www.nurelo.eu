@@ -15,6 +15,7 @@
   "cta_demo": "Demo anfragen",
   "lang_aria": "Sprache wählen",
   "top_btn": "Nach oben",
+  "more": "Mehr erfahren",
   "h1_a": "Verstreut. Unübersichtlich. Zeitfressend.",
   "h1_b": "Klar. Verbunden. <em>Nurelo.</em>",
   "hero_lead": "Nurelo bündelt ambulante Pflege, stationäre Einrichtungen und Hausnotruf in einer Plattform, mit Tourenplanung, Dokumentation, Abrechnung und TI-KIM-Anbindung.",
@@ -65,7 +66,7 @@
 
   "pf_kicker": "Eine Plattform",
   "pf_h2": "Drei Welten. Ein System.",
-  "pf_lead": "Alle Betriebsformen teilen sich Stammdaten, Abrechnung und Berechtigungen. Was in einem Bereich erfasst wird, steht überall zur Verfügung.",
+  "pf_lead": "Jedes Produkt arbeitet standardmäßig mit eigenen Stammdaten und eigenen Modulen. Auf Wunsch teilen sich mehrere Produkte eine gemeinsame Datenbank.",
   "f1_h": "KI-gestützte Dokumentation",
   "f1_p": "Spracheingabe und Textvorschläge reduzieren den Dokumentationsaufwand. Nurelo lernt aus Ihren Mustern.",
   "f2_h": "Integrierte Abrechnung",

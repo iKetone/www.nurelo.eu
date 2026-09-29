@@ -15,6 +15,7 @@
   "cta_demo": "Užsakyti demonstraciją",
   "lang_aria": "Pasirinkti kalbą",
   "top_btn": "Į viršų",
+  "more": "Sužinoti daugiau",
   "h1_a": "Išsklaidyta. Neaišku. Imli laiko.",
   "h1_b": "Aiškiai. Sujungta. <em>Nurelo.</em>",
   "hero_lead": "Nurelo vienoje platformoje sujungia slaugą namuose, slaugos namus ir pagalbos iškvietimo paslaugas, su maršrutų planavimu, dokumentavimu, sąskaitų išrašymu ir TI-KIM ryšiu.",
@@ -65,7 +66,7 @@
 
   "pf_kicker": "Viena platforma",
   "pf_h2": "Trys pasauliai. Viena sistema.",
-  "pf_lead": "Visos sritys naudoja bendrus pagrindinius duomenis, sąskaitų išrašymą ir teises. Tai, kas užfiksuojama vienoje srityje, prieinama visur.",
+  "pf_lead": "Kiekvienas produktas pagal numatytuosius nustatymus veikia su savais pagrindiniais duomenimis ir savais moduliais. Pageidaujant keli produktai gali dalytis bendra duomenų baze.",
   "f1_h": "Dirbtinio intelekto padedamas dokumentavimas",
   "f1_p": "Įvedimas balsu ir teksto pasiūlymai sumažina dokumentavimo apkrovą. Nurelo mokosi iš jūsų įpročių.",
   "f2_h": "Integruotas sąskaitų išrašymas",

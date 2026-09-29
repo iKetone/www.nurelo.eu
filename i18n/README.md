@@ -26,3 +26,12 @@ Das Skript meldet fehlende oder unbekannte Schlüssel und bricht dann ab.
 - In `*_h`-Schlüsseln steht `&amp;` für ein Und-Zeichen, in Attributen wie `meta_desc` steht Klartext.
 - Impressum, Datenschutz und AGB gibt es nur auf Deutsch (`/impressum.html` usw.).
 - Die Übersetzungen sind Entwürfe und sollten vor dem Live-Gang von Muttersprachlern geprüft werden.
+
+## Produktseiten
+
+Die Produktseiten (`/stationaer/`, `/ambulant/`, `/hausnotruf/` und `/en/residential/`, `/en/home-care/`, `/en/emergency-call/`) entstehen aus `src/product.template.html`.
+
+- Texte je Produkt stehen in `i18n/produkte.<code>.json` (Schlüssel mit Präfix `st_`, `am_`, `hn_`). Bisher gibt es nur `de` und `en`.
+- Alle anderen Texte (Ablauf, Kontakt, Fußzeile) kommen aus der normalen Sprachdatei `i18n/<code>.json`.
+- Eine neue Sprache für die Produktseiten: `produkte.<code>.json` anlegen und den Code in `PRODUCT_LANGS` und die Slugs in `PRODUCTS` (`tools/build-i18n.mjs`) ergänzen. Bis dahin verlinken die anderen Sprachen auf die englischen Produktseiten.
+- Danach `node tools/build-i18n.mjs` ausführen.

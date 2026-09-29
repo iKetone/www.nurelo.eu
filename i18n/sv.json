@@ -15,6 +15,7 @@
   "cta_demo": "Begär demo",
   "lang_aria": "Välj språk",
   "top_btn": "Till toppen",
+  "more": "Läs mer",
   "h1_a": "Utspritt. Oöverskådligt. Tidskrävande.",
   "h1_b": "Tydligt. Sammanhållet. <em>Nurelo.</em>",
   "hero_lead": "Nurelo samlar hemtjänst, äldreboenden och trygghetslarm på en plattform, med ruttplanering, dokumentation, fakturering och TI-KIM-anslutning.",
@@ -65,7 +66,7 @@
 
   "pf_kicker": "En plattform",
   "pf_h2": "Tre världar. Ett system.",
-  "pf_lead": "Alla verksamheter delar grunddata, fakturering och behörigheter. Det som registreras i ett område finns tillgängligt överallt.",
+  "pf_lead": "Varje produkt arbetar som standard med egna grunddata och egna moduler. På begäran kan flera produkter dela en gemensam databas.",
   "f1_h": "AI-stödd dokumentation",
   "f1_p": "Röstinmatning och textförslag minskar dokumentationsarbetet. Nurelo lär sig av era rutiner.",
   "f2_h": "Integrerad fakturering",

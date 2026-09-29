@@ -15,6 +15,7 @@
   "cta_demo": "Bemutató kérése",
   "lang_aria": "Nyelv választása",
   "top_btn": "Vissza a tetejére",
+  "more": "Tudjon meg többet",
   "h1_a": "Szétszórt. Átláthatatlan. Időrabló.",
   "h1_b": "Világos. Összekapcsolt. <em>Nurelo.</em>",
   "hero_lead": "A Nurelo egyetlen platformon egyesíti a házi gondozást, a bentlakásos otthonokat és a segélyhívó szolgáltatást, útvonaltervezéssel, dokumentációval, számlázással és TI-KIM-kapcsolattal.",
@@ -65,7 +66,7 @@
 
   "pf_kicker": "Egy platform",
   "pf_h2": "Három világ. Egy rendszer.",
-  "pf_lead": "Minden terület közös törzsadatokat, számlázást és jogosultságokat használ. Amit az egyik területen rögzítenek, az mindenhol elérhető.",
+  "pf_lead": "Minden termék alapértelmezés szerint saját törzsadatokkal és saját modulokkal működik. Kérésre több termék közös adatbázist is használhat.",
   "f1_h": "MI-támogatott dokumentáció",
   "f1_p": "A hangalapú bevitel és a szövegjavaslatok csökkentik a dokumentálás terhét. A Nurelo tanul az Önök szokásaiból.",
   "f2_h": "Integrált számlázás",

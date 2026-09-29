@@ -15,6 +15,7 @@
   "cta_demo": "Zatraži demo",
   "lang_aria": "Odaberi jezik",
   "top_btn": "Na vrh",
+  "more": "Saznajte više",
   "h1_a": "Razbacano. Nepregledno. Dugotrajno.",
   "h1_b": "Jasno. Povezano. <em>Nurelo.</em>",
   "hero_lead": "Nurelo objedinjuje kućnu njegu, domove za starije i uslugu hitnih poziva na jednoj platformi, uz planiranje ruta, dokumentaciju, naplatu i TI-KIM vezu.",
@@ -65,7 +66,7 @@
 
   "pf_kicker": "Jedna platforma",
   "pf_h2": "Tri svijeta. Jedan sustav.",
-  "pf_lead": "Sva područja dijele matične podatke, naplatu i ovlasti. Ono što se evidentira u jednom području dostupno je posvuda.",
+  "pf_lead": "Svaki proizvod prema zadanim postavkama radi s vlastitim matičnim podacima i vlastitim modulima. Na zahtjev više proizvoda može dijeliti zajedničku bazu podataka.",
   "f1_h": "Dokumentacija uz podršku umjetne inteligencije",
   "f1_p": "Glasovni unos i prijedlozi teksta smanjuju opseg dokumentiranja. Nurelo uči iz vaših navika.",
   "f2_h": "Integrirana naplata",

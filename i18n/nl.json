@@ -15,6 +15,7 @@
   "cta_demo": "Demo aanvragen",
   "lang_aria": "Taal kiezen",
   "top_btn": "Terug naar boven",
+  "more": "Meer informatie",
   "h1_a": "Verspreid. Onoverzichtelijk. Tijdrovend.",
   "h1_b": "Helder. Verbonden. <em>Nurelo.</em>",
   "hero_lead": "Nurelo brengt thuiszorg, verpleeghuizen en alarmering samen op één platform, met routeplanning, documentatie, facturatie en TI-KIM-koppeling.",
@@ -65,7 +66,7 @@
 
   "pf_kicker": "Eén platform",
   "pf_h2": "Drie werelden. Eén systeem.",
-  "pf_lead": "Alle zorgvormen delen stamgegevens, facturatie en rechten. Wat in één onderdeel wordt vastgelegd, is overal beschikbaar.",
+  "pf_lead": "Elk product werkt standaard met eigen stamgegevens en eigen modules. Op verzoek kunnen meerdere producten één gezamenlijke database delen.",
   "f1_h": "Documentatie met AI-ondersteuning",
   "f1_p": "Spraakinvoer en tekstsuggesties verminderen de documentatielast. Nurelo leert van uw werkwijze.",
   "f2_h": "Geïntegreerde facturatie",
