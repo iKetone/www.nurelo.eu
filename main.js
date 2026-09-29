@@ -25,6 +25,14 @@
     });
   }
 
+  // ---------- Nach oben ----------
+  var toTop = document.querySelector('.to-top');
+  if (toTop) {
+    var toggleTop = function () { toTop.classList.toggle('show', window.scrollY > window.innerHeight * 0.8); };
+    window.addEventListener('scroll', toggleTop, { passive: true });
+    toggleTop();
+  }
+
   // ---------- Reveal ----------
   var items = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {

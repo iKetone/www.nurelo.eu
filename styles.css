@@ -273,6 +273,12 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .foot-grid ul a:hover { text-decoration: underline; }
 .foot-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .6rem; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); color: var(--ink-2); font-size: .88rem; }
 
+/* Nach oben */
+.to-top { position: fixed; right: 20px; bottom: 20px; z-index: 60; width: 48px; height: 48px; display: grid; place-items: center; background: var(--ink); color: var(--cream); border: 2px solid var(--cream); border-radius: 10px; visibility: hidden; opacity: 0; }
+.to-top.show { visibility: visible; opacity: 1; }
+.to-top span { width: 11px; height: 11px; border-left: 2.5px solid currentColor; border-top: 2.5px solid currentColor; transform: translateY(3px) rotate(45deg); }
+.to-top:hover { background: var(--terra-d); }
+
 /* Rechtsseiten */
 .legal-head { background: var(--cream); border-bottom: 1px solid var(--line); }
 .legal-head .wrap { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
