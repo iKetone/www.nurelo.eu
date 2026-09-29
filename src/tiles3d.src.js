@@ -4,6 +4,11 @@
  * Ein gemeinsamer WebGL-Renderer zeichnet jede Kachel und kopiert das Bild in deren Canvas.
  * Ohne WebGL bleibt die CSS-Kachel sichtbar.
  *
+ * Die Datei wird von main.js erst nach dem Laden im Leerlauf nachgeladen. Die Einrichtung
+ * läuft in kleinen Portionen mit Pausen dazwischen, damit die Seite nie blockiert:
+ * Renderer, Umgebungslicht, Geometrie, dann eine Kachel je Bild, danach das Material
+ * im Hintergrund übersetzen. Eine Kachel wird erst eingeblendet, wenn sie sichtbar ist.
+ *
  * Build (three und esbuild müssen installiert sein):
  *   npx esbuild src/tiles3d.src.js --bundle --minify --format=iife --outfile=tiles3d.js
  */
@@ -14,7 +19,12 @@ import {
 } from 'three';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 
-function boot() {
+// Pause: erst ein Bild zeichnen lassen, dann weitermachen
+function pause() {
+  return new Promise(function (res) { requestAnimationFrame(function () { setTimeout(res, 0); }); });
+}
+
+async function boot() {
 
 var COLORS = { st: 0x7a734a, am: 0xc59045, hn: 0xbf6d47 };
 var CREAM = '#f2eadd';
@@ -35,9 +45,11 @@ renderer.outputColorSpace = SRGBColorSpace;
 renderer.toneMapping = NoToneMapping;
 var dpr = Math.min(window.devicePixelRatio || 1, 2);
 renderer.setPixelRatio(1);
+await pause();
 
 var pmrem = new PMREMGenerator(renderer);
-var envMap = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+var envMap = pmrem.fromScene(new RoomEnvironment(), 0.04, 0.1, 100, { size: 128 }).texture;
+await pause();
 
 // ---------- Geometrie: abgerundete Kachel ----------
 function roundedShape(w, h, r) {
@@ -60,6 +72,7 @@ var tileGeo = new ExtrudeGeometry(roundedShape(0.82, 0.82, 0.27), {
 tileGeo.center();
 var FRONT_Z = DEPTH / 2 + BEVEL + 0.002;
 var glyphGeo = new PlaneGeometry(1, 1);
+await pause();
 
 // ---------- Symbole ----------
 function drawGlyph(kind) {
@@ -135,7 +148,6 @@ function makeTile(el) {
     depth: parseFloat(el.dataset.depth || 1), scroll: el.hasAttribute('data-scroll'),
     visible: false, rx: 0, ry: 0, w: 0, h: 0
   };
-  el.classList.add('tile3d');
   tiles.push(t);
   sizeTile(t);
   return t;
@@ -173,6 +185,7 @@ function frame() {
     if (Math.abs(t.ry - ty) > 0.002 || Math.abs(t.rx - tx) > 0.002) moving = true;
     t.group.rotation.set(t.rx, t.ry, 0);
     renderTile(t);
+    if (!t.shown) { t.shown = true; t.el.classList.add('tile3d'); }
   });
   if (moving) request();
 }
@@ -180,8 +193,13 @@ function request() { if (!raf) raf = requestAnimationFrame(frame); }
 
 // ---------- Start ----------
 var els = [].slice.call(document.querySelectorAll('.tile.big, .tile.chap, .tile.mini'));
-var made = els.map(makeTile).filter(Boolean);
-if (!made.length) throw new Error('keine Kacheln');
+for (var k = 0; k < els.length; k++) { makeTile(els[k]); await pause(); }
+if (!tiles.length) throw new Error('keine Kacheln');
+
+// Material im Hintergrund übersetzen (blockiert nicht, wenn der Browser es unterstützt)
+if (renderer.compileAsync) {
+  try { await renderer.compileAsync(tiles[0].scene, tiles[0].cam); } catch (e) { /* wird beim ersten Zeichnen nachgeholt */ }
+}
 
 if ('IntersectionObserver' in window) {
   var io = new IntersectionObserver(function (entries) {
@@ -209,10 +227,13 @@ window.addEventListener('pointermove', function (e) {
 window.addEventListener('scroll', request, { passive: true });
 window.addEventListener('resize', function () { dpr = Math.min(window.devicePixelRatio || 1, 2); tiles.forEach(sizeTile); request(); });
 request();
+// erste Bilder zeichnen lassen, dann melden, dass die Seite loslegen kann
+await pause();
+await pause();
+window.dispatchEvent(new Event('nurelo3d'));
 }
 
-try {
-  boot();
-} catch (e) {
+boot().catch(function (e) {
   if (window.console) console.info('Nurelo: 3D-Kacheln nicht aktiv (' + e.message + ')');
-}
+  window.dispatchEvent(new Event('nurelo3d'));
+});

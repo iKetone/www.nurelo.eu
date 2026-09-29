@@ -121,7 +121,9 @@ h3 { font-size: 1.3rem; letter-spacing: -.015em; }
 .tile.st { --c: var(--olive); --cd: #4b472a; }
 .tile.am { --c: var(--ochre); --cd: #8a5f17; }
 .tile.hn { --c: var(--terra); --cd: #8a3f22; }
-.tile-gl { position: absolute; left: -25%; top: -25%; width: 150%; height: 150%; pointer-events: none; }
+.tile-gl { position: absolute; left: -25%; top: -25%; width: 150%; height: 150%; pointer-events: none; opacity: 0; transition: opacity .35s; }
+.tile3d .tile-gl { opacity: 1; }
+.tile-body { transition: opacity .35s; }
 .tile3d .tile-body { opacity: 0; }
 .tile .tilt { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; will-change: transform; }
 .tile-body {
@@ -295,6 +297,7 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .js .reveal.in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
+  .tile-gl, .tile-body { transition: none; }
   html { scroll-behavior: auto; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
 }
