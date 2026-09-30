@@ -16,20 +16,46 @@
   <meta property="og:title" content="{{a:meta_title}}" />
   <meta property="og:description" content="{{a:og_desc}}" />
   <meta property="og:url" content="{{url}}" />
-  <meta property="og:image" content="https://www.nurelo.eu/logo.png" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:site_name" content="Nurelo" />
+  <meta property="og:image" content="https://www.nurelo.eu/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Nurelo" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Nurelo",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "description": "{{j:ld_desc}}",
-    "url": "{{url}}",
-    "inLanguage": "{{lang}}"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.nurelo.eu/#organization",
+        "name": "Nurelo",
+        "url": "https://www.nurelo.eu/",
+        "logo": "https://www.nurelo.eu/logo.png",
+        "email": "contact@nurelo.eu"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.nurelo.eu/#website",
+        "name": "Nurelo",
+        "url": "https://www.nurelo.eu/",
+        "inLanguage": "{{lang}}",
+        "publisher": { "@id": "https://www.nurelo.eu/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Nurelo",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "{{j:ld_desc}}",
+        "url": "{{url}}",
+        "inLanguage": "{{lang}}",
+        "publisher": { "@id": "https://www.nurelo.eu/#organization" }
+      }
+    ]
   }
   </script>
 </head>

@@ -40,20 +40,46 @@
   <meta property="og:title" content="Nurelo: care software for home care, residential care and emergency call services" />
   <meta property="og:description" content="Three care settings, one platform: route planning, care documentation, billing and TI-KIM." />
   <meta property="og:url" content="https://www.nurelo.eu/en/" />
-  <meta property="og:image" content="https://www.nurelo.eu/logo.png" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:site_name" content="Nurelo" />
+  <meta property="og:image" content="https://www.nurelo.eu/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Nurelo" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Nurelo",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "description": "Care management software for home care services, residential care facilities and home emergency call providers.",
-    "url": "https://www.nurelo.eu/en/",
-    "inLanguage": "en"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.nurelo.eu/#organization",
+        "name": "Nurelo",
+        "url": "https://www.nurelo.eu/",
+        "logo": "https://www.nurelo.eu/logo.png",
+        "email": "contact@nurelo.eu"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.nurelo.eu/#website",
+        "name": "Nurelo",
+        "url": "https://www.nurelo.eu/",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://www.nurelo.eu/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Nurelo",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Care management software for home care services, residential care facilities and home emergency call providers.",
+        "url": "https://www.nurelo.eu/en/",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://www.nurelo.eu/#organization" }
+      }
+    ]
   }
   </script>
 </head>

@@ -40,20 +40,46 @@
   <meta property="og:title" content="Nurelo: bogearraí cúraim do chúram sa bhaile, do chúram cónaithe agus d'aláraim éigeandála" />
   <meta property="og:description" content="Trí réimse, ardán amháin: pleanáil bealaigh, doiciméadú cúraim, billeáil agus TI-KIM." />
   <meta property="og:url" content="https://www.nurelo.eu/ga/" />
-  <meta property="og:image" content="https://www.nurelo.eu/logo.png" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:site_name" content="Nurelo" />
+  <meta property="og:image" content="https://www.nurelo.eu/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Nurelo" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Nurelo",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "description": "Bogearraí bainistíochta cúraim do sheirbhísí cúraim sa bhaile, do dhaoine cúraim chónaithe agus do sholáthraithe aláraim éigeandála.",
-    "url": "https://www.nurelo.eu/ga/",
-    "inLanguage": "ga"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.nurelo.eu/#organization",
+        "name": "Nurelo",
+        "url": "https://www.nurelo.eu/",
+        "logo": "https://www.nurelo.eu/logo.png",
+        "email": "contact@nurelo.eu"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.nurelo.eu/#website",
+        "name": "Nurelo",
+        "url": "https://www.nurelo.eu/",
+        "inLanguage": "ga",
+        "publisher": { "@id": "https://www.nurelo.eu/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Nurelo",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Bogearraí bainistíochta cúraim do sheirbhísí cúraim sa bhaile, do dhaoine cúraim chónaithe agus do sholáthraithe aláraim éigeandála.",
+        "url": "https://www.nurelo.eu/ga/",
+        "inLanguage": "ga",
+        "publisher": { "@id": "https://www.nurelo.eu/#organization" }
+      }
+    ]
   }
   </script>
 </head>

@@ -40,20 +40,46 @@
   <meta property="og:title" content="Nurelo: aprūpes programmatūra aprūpei mājās, aprūpes namiem un trauksmes izsaukumu pakalpojumiem" />
   <meta property="og:description" content="Trīs jomas, viena platforma: maršrutu plānošana, aprūpes dokumentēšana, rēķinu izrakstīšana un TI-KIM." />
   <meta property="og:url" content="https://www.nurelo.eu/lv/" />
-  <meta property="og:image" content="https://www.nurelo.eu/logo.png" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:site_name" content="Nurelo" />
+  <meta property="og:image" content="https://www.nurelo.eu/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Nurelo" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Nurelo",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "description": "Aprūpes pārvaldības programmatūra aprūpes mājās pakalpojumiem, aprūpes namiem un trauksmes izsaukumu pakalpojumu sniedzējiem.",
-    "url": "https://www.nurelo.eu/lv/",
-    "inLanguage": "lv"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.nurelo.eu/#organization",
+        "name": "Nurelo",
+        "url": "https://www.nurelo.eu/",
+        "logo": "https://www.nurelo.eu/logo.png",
+        "email": "contact@nurelo.eu"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.nurelo.eu/#website",
+        "name": "Nurelo",
+        "url": "https://www.nurelo.eu/",
+        "inLanguage": "lv",
+        "publisher": { "@id": "https://www.nurelo.eu/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Nurelo",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Aprūpes pārvaldības programmatūra aprūpes mājās pakalpojumiem, aprūpes namiem un trauksmes izsaukumu pakalpojumu sniedzējiem.",
+        "url": "https://www.nurelo.eu/lv/",
+        "inLanguage": "lv",
+        "publisher": { "@id": "https://www.nurelo.eu/#organization" }
+      }
+    ]
   }
   </script>
 </head>
