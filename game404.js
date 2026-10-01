@@ -16,17 +16,17 @@
   var de = /^de/i.test(navigator.language || 'de');
   var T = de ? {
     title: 'Tour 404', aria: 'Minispiel Tour 404',
-    intro: 'Diese Seite ist nicht erreichbar, eure Tour schon. Lenkt per Wischen oder mit den Pfeiltasten. Oliv und Senf zählen 1 Punkt, ein Alarm in Terrakotta zählt 3. Die Route darf sich nicht kreuzen.',
+    intro: 'Diese Seite ist nicht erreichbar, eure Tour schon. Lenkt per Wischen oder mit den Pfeiltasten. Oliv und Senf zählen 1 Punkt, ein Alarm in Terrakotta zählt 3. Der Alarm verschwindet nach wenigen Sekunden. Die Route darf sich nicht kreuzen.',
     play: 'Spielen', again: 'Nochmal', over: 'Tour beendet', paused: 'Pausiert', resume: 'Weiter',
     score: 'Einsätze', best: 'Rekord',
   } : {
     title: 'Tour 404', aria: 'Mini game Tour 404',
-    intro: 'This page is not reachable, but your tour is. Steer by swiping or with the arrow keys. Olive and mustard are worth 1 point, an alarm in terracotta is worth 3. The route must not cross itself.',
+    intro: 'This page is not reachable, but your tour is. Steer by swiping or with the arrow keys. Olive and mustard are worth 1 point, an alarm in terracotta is worth 3. The alarm disappears after a few seconds. The route must not cross itself.',
     play: 'Play', again: 'Again', over: 'Tour over', paused: 'Paused', resume: 'Resume',
     score: 'Stops', best: 'Best',
   };
 
-  var CELL = 28;
+  var CELL = 56; // wird je nach Fenster in layout() gesetzt
   var css = getComputedStyle(document.documentElement);
   function col(n, d) { return (css.getPropertyValue(n) || d).trim() || d; }
   var C = {
@@ -36,6 +36,7 @@
   var GLYPH_AM = new Path2D('M6 19h9a3.5 3.5 0 000-7H9a3.5 3.5 0 010-7h9');
   var GLYPH_HN = new Path2D('M8 8a5.7 5.7 0 000 8M16 8a5.7 5.7 0 010 8M4.6 4.6a10.5 10.5 0 000 14.8M19.4 4.6a10.5 10.5 0 010 14.8');
 
+  var ALARM_MS = 7000;
   var KEY = 'nurelo-tour404';
   var best = 0;
   try { best = parseInt(localStorage.getItem(KEY), 10) || 0; } catch (e) {}
@@ -46,8 +47,10 @@
 
   function layout() {
     var w = Math.min(section.clientWidth || 360, 720);
-    cols = Math.max(12, Math.min(26, Math.floor(w / CELL)));
-    rows = Math.max(11, Math.min(20, Math.floor((window.innerHeight - 110) / CELL))); // Feld und Zähler passen in ein Fenster
+    // Kleines Feld mit großen Figuren: hochkant 6 x 8, quer 9 x 6
+    var portrait = w < 560;
+    cols = portrait ? 6 : 9; rows = portrait ? 8 : 6;
+    CELL = Math.max(36, Math.min(72, Math.floor(w / cols), Math.floor((window.innerHeight - 110) / rows))); // Feld und Zähler passen in ein Fenster
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = cols * CELL * dpr; canvas.height = rows * CELL * dpr;
     canvas.style.width = cols * CELL + 'px'; canvas.style.height = rows * CELL + 'px';
@@ -72,8 +75,8 @@
   }
 
   function reset() {
-    var y = Math.floor(rows / 2), x = Math.max(3, Math.floor(cols / 3));
-    snake = [{ x: x, y: y }, { x: x - 1, y: y }, { x: x - 2, y: y }];
+    var y = Math.floor(rows / 2), x = 2;
+    snake = [{ x: x, y: y }, { x: x - 1, y: y }];
     dir = { x: 1, y: 0 }; queue = []; grow = 0; score = 0; normals = 0; alarm = null; item = null;
     item = freeCell(); item.k = 'st';
     acc = 0;
@@ -87,7 +90,7 @@
     if (queue.length < 2) queue.push(d);
   }
 
-  function interval() { return Math.max(75, 140 - 5 * Math.floor(score / 5)); }
+  function interval() { return Math.max(150, 260 - 8 * Math.floor(score / 5)); }
 
   function step() {
     if (queue.length) dir = queue.shift();
@@ -101,8 +104,10 @@
     else if (h.x === item.x && h.y === item.y) {
       pts = 1; normals++;
       var k = item.k === 'st' ? 'am' : 'st';
-      item = null; item = freeCell() || { x: 0, y: 0 }; item.k = k;
-      if (!alarm && normals % 5 === 0) { var a = freeCell(); if (a) { alarm = a; alarm.ttl = 6000; } }
+      item = null; item = freeCell();
+      if (!item) { score += pts; setScore(); return finish(); } // Feld voll: geschafft
+      item.k = k;
+      if (!alarm && normals % 4 === 0) { var a = freeCell(); if (a) { alarm = a; alarm.ttl = ALARM_MS; } }
     }
     if (pts) { score += pts; grow += pts; setScore(); }
     if (grow > 0) grow--; else snake.pop();
@@ -160,7 +165,7 @@
     for (var x = 0; x <= cols; x++) for (var y = 0; y <= rows; y++) ctx.fillRect(x * CELL - 1, y * CELL - 1, 2, 2);
     // Route als gepunktete Linie vom Ende bis zum Fahrzeug
     ctx.strokeStyle = C.ink; ctx.lineWidth = CELL * 0.2; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-    ctx.setLineDash([0, CELL * 0.44]);
+    ctx.setLineDash([0, CELL * 0.4]);
     ctx.beginPath();
     for (var i = snake.length - 1; i >= 0; i--) {
       var px = (snake[i].x + 0.5) * CELL, py = (snake[i].y + 0.5) * CELL;
@@ -168,7 +173,7 @@
     }
     ctx.stroke(); ctx.setLineDash([]);
     tile(item);
-    if (alarm) tile({ x: alarm.x, y: alarm.y, k: 'hn' }, Math.max(0, alarm.ttl / 6000));
+    if (alarm) tile({ x: alarm.x, y: alarm.y, k: 'hn' }, Math.max(0, alarm.ttl / ALARM_MS));
     // Fahrzeug
     var h = snake[0], hs = CELL * 0.82, hx = (h.x + 0.5) * CELL, hy = (h.y + 0.5) * CELL;
     ctx.fillStyle = C.ink; roundRect(hx - hs / 2, hy - hs / 2, hs, hs, hs * 0.3); ctx.fill();
@@ -224,7 +229,7 @@
   field.addEventListener('pointermove', function (e) {
     if (!p0 || state !== 'play') return;
     var dx = e.clientX - p0.x, dy = e.clientY - p0.y;
-    if (Math.max(Math.abs(dx), Math.abs(dy)) < 22) return;
+    if (Math.max(Math.abs(dx), Math.abs(dy)) < 18) return;
     steer(Math.abs(dx) > Math.abs(dy) ? { x: dx > 0 ? 1 : -1, y: 0 } : { x: 0, y: dy > 0 ? 1 : -1 });
     p0 = { x: e.clientX, y: e.clientY };
   });
