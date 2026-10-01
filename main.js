@@ -195,7 +195,7 @@
   function heroProgress() {
     var r = hero.getBoundingClientRect();
     // Höhe der Bühne statt der Fensterhöhe, damit die Browserleiste am Handy den Verlauf nicht springen lässt
-    var total = r.height - stage.offsetHeight - 20;
+    var total = r.height - stage.offsetHeight;
     return total > 0 ? clamp(-r.top / total, 0, 1) : 1;
   }
 
