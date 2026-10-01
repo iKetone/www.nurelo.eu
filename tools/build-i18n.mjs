@@ -134,7 +134,27 @@ function render(template, ctx) {
 const usedMain = new Set();
 const usedProd = new Set();
 
+// Wörter mit Bindestrich in <span class="nb"> setzen, damit sie nicht am Bindestrich umbrechen.
+// Nur Text im <body>, nicht in Tags, Attributen, Skripten oder Stilen.
+function keepHyphenated(html) {
+  const bodyAt = html.indexOf('<body');
+  if (bodyAt < 0) return html;
+  const re = /(?<![\p{L}\p{N}-])([\p{L}\p{N}]+(?:-[\p{L}\p{N}]+)+)(?![\p{L}\p{N}-])/gu;
+  let skip = 0; // Tiefe in <script>, <style>, <svg>
+  const parts = html.slice(bodyAt).split(/(<[^>]+>)/);
+  const out = parts.map((p) => {
+    if (p.startsWith('<')) {
+      const m = /^<(\/?)(script|style|svg)\b/i.exec(p);
+      if (m) skip += m[1] ? -1 : (p.endsWith('/>') ? 0 : 1);
+      return p;
+    }
+    return skip > 0 ? p : p.replace(re, '<span class="nb">$1</span>');
+  });
+  return html.slice(0, bodyAt) + out.join('');
+}
+
 function write(relPath, html) {
+  html = keepHyphenated(html);
   const full = join(root, relPath);
   mkdirSync(dirname(full), { recursive: true });
   writeFileSync(full, html);

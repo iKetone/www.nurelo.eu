@@ -64,7 +64,10 @@ ul, ol { list-style: none; padding: 0; }
 .skip-link:focus { top: 1rem; }
 
 .wrap { width: min(100% - 2.5rem, var(--max)); margin-inline: auto; }
-h1, h2, h3, p, li, dt, dd, small { hyphens: auto; overflow-wrap: break-word; }
+/* Wörter wandern als Ganzes in die nächste Zeile, keine automatische Silbentrennung.
+   break-word greift nur als Notbremse, wenn ein Wort allein nicht in eine Zeile passt. */
+h1, h2, h3, p, li, dt, dd, small { hyphens: manual; overflow-wrap: break-word; }
+.nb { white-space: nowrap; } /* Wörter mit Bindestrich (z. B. TI-KIM-Anbindung) bleiben zusammen */
 h1, h2, h3 { line-height: 1.04; letter-spacing: -.03em; font-weight: 800; }
 h2 { font-size: clamp(2.2rem, 5vw, 4rem); }
 h3 { font-size: 1.3rem; letter-spacing: -.015em; }
