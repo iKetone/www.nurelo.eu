@@ -95,7 +95,7 @@ function switcherHtml(code, langs, pathFor, ariaText) {
   const items = langs.map((c) =>
     `          <li><a href="${pathFor(c)}" hreflang="${c}" lang="${c}"${c === code ? ' aria-current="true"' : ''}>${LANGNAME[c]}</a></li>`).join('\n');
   return `      <details class="lang">
-        <summary aria-label="${escAttr(stripTags(ariaText))}"><span aria-hidden="true">${code.toUpperCase()}</span></summary>
+        <summary aria-label="${code.toUpperCase()}: ${escAttr(stripTags(ariaText))}"><span aria-hidden="true">${code.toUpperCase()}</span></summary>
         <ul class="lang-list">
 ${items}
         </ul>

@@ -56,6 +56,9 @@ img, svg { display: block; max-width: 100%; }
 a { color: inherit; }
 ul, ol { list-style: none; padding: 0; }
 :focus-visible { outline: 3px solid var(--terra-d); outline-offset: 3px; border-radius: 8px; }
+/* Auf dunklen und farbigen Flächen reicht Terrakotta als Fokusring nicht */
+.c-st :focus-visible, .c-hn :focus-visible, .platform :focus-visible, .cta-box :focus-visible, .app-window :focus-visible { outline-color: var(--cream); }
+.c-am :focus-visible { outline-color: var(--ink); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .skip-link { position: absolute; left: 1rem; top: -4rem; z-index: 100; background: var(--ink); color: var(--cream); padding: .6rem 1rem; border-radius: 10px; }
 .skip-link:focus { top: 1rem; }
@@ -109,7 +112,7 @@ h3 { font-size: 1.3rem; letter-spacing: -.015em; }
 .lang summary::after { content: ""; width: 6px; height: 6px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-2px); }
 .lang[open] summary::after { transform: rotate(-135deg) translateY(-2px); }
 .lang summary:hover { border-color: var(--ink); }
-.lang-list { position: absolute; top: calc(100% + 8px); right: 0; width: min(560px, calc(100vw - 24px)); display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; padding: .5rem; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; z-index: 70; }
+.lang-list { position: absolute; top: calc(100% + 8px); right: 0; width: min(560px, calc(100vw - 24px)); display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; padding: .5rem; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; z-index: 70; max-height: calc(100vh - 96px); max-height: calc(100dvh - 96px); overflow-y: auto; overscroll-behavior: contain; }
 .lang-list a { display: block; padding: .55rem .8rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: .95rem; }
 .lang-list a:hover { background: var(--cream); }
 .lang-list a[aria-current] { background: var(--ink); color: var(--cream); }
@@ -179,7 +182,7 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .win-bar { display: flex; align-items: center; gap: .4rem; padding: .75rem 1.1rem; font-size: .8rem; color: rgba(242,234,221,.7); }
 .win-bar b { font-weight: 600; }
 .win-time { margin-left: auto; }
-.track { position: relative; height: clamp(76px, 12vh, 130px); margin: 0 1.1rem; border-radius: 6px; background: rgba(242,234,221,.06); display: flex; justify-content: space-between; align-items: flex-end; padding: 0 1rem .5rem; font-size: .72rem; color: rgba(242,234,221,.5); }
+.track { position: relative; height: clamp(76px, 12vh, 130px); margin: 0 1.1rem; border-radius: 6px; background: rgba(242,234,221,.06); display: flex; justify-content: space-between; align-items: flex-end; padding: 0 1rem .5rem; font-size: .72rem; color: rgba(242,234,221,.68); }
 .anchor { position: absolute; top: -26%; width: 0; height: 0; }
 .anchor[data-anchor="st"] { left: 26%; }
 .anchor[data-anchor="am"] { left: 50%; top: -40%; }
@@ -202,7 +205,7 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .c-st { background: var(--olive-d); }
 .c-am { background: var(--ochre); color: var(--ink); }
 .c-hn { background: var(--terra-d); }
-.chapter .chapter-lead { color: inherit; opacity: .9; }
+.chapter .chapter-lead { color: inherit; }
 .chapter-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
 .chapter h2 { margin-bottom: 1.4rem; }
 .ticks { display: grid; margin-top: 1.8rem; font-weight: 600; }
@@ -337,7 +340,8 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
   .feat-list { grid-template-columns: 1fr 1fr; }
   .pg-feats { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: 1fr 1fr; }
-  .price-grid { grid-template-columns: 1fr; }
+  .price-grid { grid-template-columns: minmax(0, 1fr); }
+  .price-grid > * { min-width: 0; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-height: 900px) { .stage-pin .win-rows li:nth-child(3) { display: none; } }
@@ -373,4 +377,9 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
   .cta-actions .btn { width: 100%; }
   .price-factors div { grid-template-columns: 1fr; gap: .2rem; }
   .track span:nth-child(even) { display: none; }
+}
+@media (max-width: 400px) {
+  h2 { font-size: 1.9rem; }
+  .cta-tiles { gap: .6rem; }
+  .tile.mini { --s: 68px; }
 }
