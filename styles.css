@@ -145,9 +145,9 @@ h3 { font-size: 1.3rem; letter-spacing: -.015em; }
 html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 
 /* Hero */
-.hero { background: var(--ink); padding: 0; }
+.hero { background: var(--paper); padding: 0; }
 .stage-pin {
-  position: relative; margin: 10px; border-radius: 14px; overflow: hidden; min-height: calc(100vh - 20px);
+  position: relative; margin: 0; overflow: hidden; min-height: 100vh; min-height: 100svh;
   background: var(--paper);
   display: flex; flex-direction: column; align-items: center; justify-content: space-between;
   padding: clamp(84px, 11vh, 118px) 24px 24px; isolation: isolate;
@@ -170,7 +170,7 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .scroll-hint::after { content: ""; display: block; width: 2px; height: 22px; margin: .35rem auto 0; background: var(--ink-2); opacity: .6; }
 
 .hero.pinned { height: 300vh; height: 300svh; }
-.hero.pinned .stage-pin { position: sticky; top: 0; height: calc(100vh - 20px); height: calc(100svh - 20px); min-height: 0; margin-top: 10px; }
+.hero.pinned .stage-pin { position: sticky; top: 0; height: 100vh; height: 100svh; min-height: 0; }
 .hero.pinned .h1-a { display: block; }
 .hero.pinned .scroll-hint { display: block; }
 .hero:not(.pinned) .sat { display: none; }
@@ -196,7 +196,8 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .dot.st { background: #a5a06a; } .dot.am { background: var(--ochre); } .dot.hn { background: #e0876a; }
 
 /* Kapitel (stapelnd) */
-.chapters { background: var(--ink); }
+.chapters { position: relative; margin-top: -14px; } /* überlappt den Hero, dessen Fläche hinter den runden Ecken bleibt */
+.chapters > .platform { position: sticky; top: calc(var(--i) * 14px); }
 .chapter {
   position: sticky; top: calc(var(--i) * 14px); min-height: 100vh; display: flex; align-items: center;
   border-radius: 14px 14px 0 0; padding: clamp(5rem, 9vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
@@ -221,7 +222,7 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .chain small { color: rgba(242,234,221,.65); font-size: .78rem; }
 
 /* Plattform */
-.platform { background: var(--ink); color: var(--cream); padding: clamp(5rem, 10vw, 8rem) 0; border-radius: 14px 14px 0 0; position: relative; margin-top: -1px; }
+.platform { background: var(--ink); color: var(--cream); padding: clamp(5rem, 10vw, 8rem) 0; border-radius: 14px 14px 0 0; position: relative; }
 .platform-head { display: grid; gap: 0; justify-items: start; max-width: 760px; }
 .platform-head img { margin-bottom: 2rem; }
 .platform-head h2 { margin-bottom: 1.2rem; }
@@ -346,7 +347,8 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 }
 @media (max-height: 900px) { .stage-pin .win-rows li:nth-child(3) { display: none; } }
 @media (max-width: 860px), (max-height: 700px) {
-  .chapter { position: relative; top: 0; min-height: 0; }
+  .chapter, .chapters > .platform { position: relative; top: 0; min-height: 0; }
+  .chapter + .chapter, .chapter + .platform { margin-top: -14px; } /* Karten schieben sich auch ohne Kleben ineinander */
   .stage-pin { min-height: 0; }
 }
 @media (max-width: 860px) {
