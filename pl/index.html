@@ -40,20 +40,46 @@
   <meta property="og:title" content="Nurelo: oprogramowanie dla opieki domowej, domów opieki i teleopieki" />
   <meta property="og:description" content="Trzy obszary, jedna platforma: planowanie tras, dokumentacja opieki, rozliczenia i TI-KIM." />
   <meta property="og:url" content="https://www.nurelo.eu/pl/" />
-  <meta property="og:image" content="https://www.nurelo.eu/logo.png" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:site_name" content="Nurelo" />
+  <meta property="og:image" content="https://www.nurelo.eu/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Nurelo" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Nurelo",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "description": "Oprogramowanie do zarządzania opieką dla usług domowych, domów opieki i dostawców teleopieki.",
-    "url": "https://www.nurelo.eu/pl/",
-    "inLanguage": "pl"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.nurelo.eu/#organization",
+        "name": "Nurelo",
+        "url": "https://www.nurelo.eu/",
+        "logo": "https://www.nurelo.eu/logo.png",
+        "email": "contact@nurelo.eu"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.nurelo.eu/#website",
+        "name": "Nurelo",
+        "url": "https://www.nurelo.eu/",
+        "inLanguage": "pl",
+        "publisher": { "@id": "https://www.nurelo.eu/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Nurelo",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Oprogramowanie do zarządzania opieką dla usług domowych, domów opieki i dostawców teleopieki.",
+        "url": "https://www.nurelo.eu/pl/",
+        "inLanguage": "pl",
+        "publisher": { "@id": "https://www.nurelo.eu/#organization" }
+      }
+    ]
   }
   </script>
 </head>
@@ -72,7 +98,7 @@
   <header class="nav">
     <div class="pill nav-left">
       <a class="brand" href="#top" aria-label="Strona główna Nurelo">
-        <img src="/logo.png" width="30" height="30" alt="" />
+        <img src="/logo-96.webp" width="30" height="30" alt="" />
         <span>Nurelo</span>
       </a>
       <nav aria-label="Nawigacja główna">
@@ -85,7 +111,7 @@
         </ul>
       </nav>
       <details class="lang">
-        <summary aria-label="Wybierz język"><span aria-hidden="true">PL</span></summary>
+        <summary aria-label="PL: Wybierz język"><span aria-hidden="true">PL</span></summary>
         <ul class="lang-list">
           <li><a href="/" hreflang="de" lang="de">Deutsch</a></li>
           <li><a href="/bg/" hreflang="bg" lang="bg">Български</a></li>
@@ -269,7 +295,7 @@
     <section class="platform" id="plattform">
       <div class="wrap">
         <div class="platform-head reveal">
-          <img src="/logo.png" width="120" height="120" alt="" />
+          <img src="/logo-240.webp" width="120" height="120" alt="" />
           <p class="kicker light"><span>04</span> Jedna platforma</p>
           <h2>Trzy światy. Jeden system.</h2>
           <p class="chapter-lead">Każdy produkt domyślnie działa z własnymi danymi podstawowymi i własnymi modułami. Na życzenie kilka produktów może korzystać ze wspólnej bazy danych.</p>
@@ -364,7 +390,7 @@
     <div class="wrap">
       <div class="foot-grid">
         <div>
-          <a class="brand" href="#top"><img src="/logo.png" width="30" height="30" alt="" /><span>Nurelo</span></a>
+          <a class="brand" href="#top"><img src="/logo-96.webp" width="30" height="30" alt="" /><span>Nurelo</span></a>
           <p>Oprogramowanie do zarządzania opieką dla usług domowych, domów opieki i dostawców teleopieki. Opracowane w Niemczech.</p>
         </div>
         <nav aria-label="Produkty">
@@ -398,9 +424,9 @@
         <span>Opracowane w Niemczech</span>
       </div>
     </div>
+    <a class="to-top" href="#top" aria-label="Do góry" title="Do góry"><span aria-hidden="true"></span></a>
   </footer>
 
-  <a class="to-top" href="#top" aria-label="Do góry" title="Do góry"><span aria-hidden="true"></span></a>
 
   <script src="/main.js" defer></script>
 </body>

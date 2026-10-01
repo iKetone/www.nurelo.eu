@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- Quelle für og-image.png (1200x630).
+     Neu erzeugen: Seite bei laufendem Server öffnen (z. B. http://localhost:8123/tools/og-image.html)
+     und als 1200x630 Screenshot in og-image.png speichern. -->
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="/styles.css" />
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #f2eadd; }
+  .og { width: 1200px; height: 630px; position: relative; background: #fbf7f0; border: 0; display: grid; place-items: center; }
+  .og::before { content: ""; position: absolute; inset: 0; background: #f2eadd; clip-path: polygon(0 62%, 100% 38%, 100% 100%, 0 100%); }
+  .brand { position: relative; display: flex; align-items: center; gap: 28px; font-size: 132px; font-weight: 800; letter-spacing: -.05em; line-height: 1; color: #241b14; }
+  .brand img { width: 150px; height: 150px; }
+  .tiles { position: absolute; left: 0; right: 0; bottom: 70px; display: flex; justify-content: center; gap: 36px; }
+  .tiles .tile { position: relative; margin: 0; --s: 110px; }
+  .tiles .tile:nth-child(1) { transform: rotate(-7deg); }
+  .tiles .tile:nth-child(2) { transform: translateY(-16px) rotate(2deg); }
+  .tiles .tile:nth-child(3) { transform: rotate(6deg); }
+</style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="g-st" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2.6" fill="currentColor"/><rect x="13" y="3" width="8" height="8" rx="2.6" fill="currentColor" opacity=".55"/><rect x="3" y="13" width="8" height="8" rx="2.6" fill="currentColor" opacity=".55"/><rect x="13" y="13" width="8" height="8" rx="2.6" fill="currentColor"/></symbol>
+      <symbol id="g-am" viewBox="0 0 24 24"><path d="M6 19h9a3.5 3.5 0 000-7H9a3.5 3.5 0 010-7h9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="5" cy="19" r="2.6" fill="currentColor"/><circle cx="19" cy="5" r="2.6" fill="currentColor"/></symbol>
+      <symbol id="g-hn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.8" fill="currentColor"/><path d="M8 8a5.7 5.7 0 000 8M16 8a5.7 5.7 0 010 8M4.6 4.6a10.5 10.5 0 000 14.8M19.4 4.6a10.5 10.5 0 010 14.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    </defs>
+  </svg>
+  <div class="og">
+    <div class="brand"><img src="/logo.png" alt="" /><span>Nurelo</span></div>
+    <div class="tiles">
+      <div class="tile st"><div class="tile-body"><svg><use href="#g-st"/></svg></div></div>
+      <div class="tile am"><div class="tile-body"><svg><use href="#g-am"/></svg></div></div>
+      <div class="tile hn"><div class="tile-body"><svg><use href="#g-hn"/></svg></div></div>
+    </div>
+  </div>
+</body>
+</html>

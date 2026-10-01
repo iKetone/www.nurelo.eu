@@ -18,20 +18,37 @@
   <meta property="og:title" content="Nurelo Residential: care software for residential care facilities" />
   <meta property="og:description" content="Nurelo Residential manages residents, care planning, staff rota and medication in residential care facilities, with its own master data and its own modules. Hosted in Germany." />
   <meta property="og:url" content="https://www.nurelo.eu/en/residential/" />
-  <meta property="og:image" content="https://www.nurelo.eu/logo.png" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:site_name" content="Nurelo" />
+  <meta property="og:image" content="https://www.nurelo.eu/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Nurelo" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Nurelo Residential",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "description": "Nurelo Residential manages residents, care planning, staff rota and medication in residential care facilities, with its own master data and its own modules. Hosted in Germany.",
-    "url": "https://www.nurelo.eu/en/residential/",
-    "inLanguage": "en"
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Nurelo Residential",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Nurelo Residential manages residents, care planning, staff rota and medication in residential care facilities, with its own master data and its own modules. Hosted in Germany.",
+        "url": "https://www.nurelo.eu/en/residential/",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://www.nurelo.eu/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Nurelo", "item": "https://www.nurelo.eu/en/" },
+          { "@type": "ListItem", "position": 2, "name": "Nurelo Residential", "item": "https://www.nurelo.eu/en/residential/" }
+        ]
+      }
+    ]
   }
   </script>
 </head>
@@ -49,7 +66,7 @@
   <header class="nav">
     <div class="pill nav-left">
       <a class="brand" href="/en/" aria-label="Nurelo home page">
-        <img src="/logo.png" width="30" height="30" alt="" />
+        <img src="/logo-96.webp" width="30" height="30" alt="" />
         <span>Nurelo</span>
       </a>
       <nav aria-label="Main navigation">
@@ -62,7 +79,7 @@
         </ul>
       </nav>
       <details class="lang">
-        <summary aria-label="Choose language"><span aria-hidden="true">EN</span></summary>
+        <summary aria-label="EN: Choose language"><span aria-hidden="true">EN</span></summary>
         <ul class="lang-list">
           <li><a href="/stationaer/" hreflang="de" lang="de">Deutsch</a></li>
           <li><a href="/en/residential/" hreflang="en" lang="en" aria-current="true">English</a></li>
@@ -194,7 +211,7 @@
     <div class="wrap">
       <div class="foot-grid">
         <div>
-          <a class="brand" href="/en/"><img src="/logo.png" width="30" height="30" alt="" /><span>Nurelo</span></a>
+          <a class="brand" href="/en/"><img src="/logo-96.webp" width="30" height="30" alt="" /><span>Nurelo</span></a>
           <p>Care management software for home care services, residential care facilities and home emergency call providers. Developed in Germany.</p>
         </div>
         <nav aria-label="Products">
@@ -228,9 +245,9 @@
         <span>Developed in Germany</span>
       </div>
     </div>
+    <a class="to-top" href="#top" aria-label="Back to top" title="Back to top"><span aria-hidden="true"></span></a>
   </footer>
 
-  <a class="to-top" href="#top" aria-label="Back to top" title="Back to top"><span aria-hidden="true"></span></a>
 
   <script src="/main.js" defer></script>
 </body>

@@ -18,20 +18,37 @@
   <meta property="og:title" content="Nurelo Emergency call: software for home emergency call providers" />
   <meta property="og:description" content="Nurelo Emergency call manages participants, devices and alarm forwarding to the control centre and bills monthly fees, with its own master data and its own modules. Hosted in Germany." />
   <meta property="og:url" content="https://www.nurelo.eu/en/emergency-call/" />
-  <meta property="og:image" content="https://www.nurelo.eu/logo.png" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:site_name" content="Nurelo" />
+  <meta property="og:image" content="https://www.nurelo.eu/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Nurelo" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Nurelo Emergency call",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "description": "Nurelo Emergency call manages participants, devices and alarm forwarding to the control centre and bills monthly fees, with its own master data and its own modules. Hosted in Germany.",
-    "url": "https://www.nurelo.eu/en/emergency-call/",
-    "inLanguage": "en"
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Nurelo Emergency call",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Nurelo Emergency call manages participants, devices and alarm forwarding to the control centre and bills monthly fees, with its own master data and its own modules. Hosted in Germany.",
+        "url": "https://www.nurelo.eu/en/emergency-call/",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://www.nurelo.eu/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Nurelo", "item": "https://www.nurelo.eu/en/" },
+          { "@type": "ListItem", "position": 2, "name": "Nurelo Emergency call", "item": "https://www.nurelo.eu/en/emergency-call/" }
+        ]
+      }
+    ]
   }
   </script>
 </head>
@@ -49,7 +66,7 @@
   <header class="nav">
     <div class="pill nav-left">
       <a class="brand" href="/en/" aria-label="Nurelo home page">
-        <img src="/logo.png" width="30" height="30" alt="" />
+        <img src="/logo-96.webp" width="30" height="30" alt="" />
         <span>Nurelo</span>
       </a>
       <nav aria-label="Main navigation">
@@ -62,7 +79,7 @@
         </ul>
       </nav>
       <details class="lang">
-        <summary aria-label="Choose language"><span aria-hidden="true">EN</span></summary>
+        <summary aria-label="EN: Choose language"><span aria-hidden="true">EN</span></summary>
         <ul class="lang-list">
           <li><a href="/hausnotruf/" hreflang="de" lang="de">Deutsch</a></li>
           <li><a href="/en/emergency-call/" hreflang="en" lang="en" aria-current="true">English</a></li>
@@ -195,7 +212,7 @@
     <div class="wrap">
       <div class="foot-grid">
         <div>
-          <a class="brand" href="/en/"><img src="/logo.png" width="30" height="30" alt="" /><span>Nurelo</span></a>
+          <a class="brand" href="/en/"><img src="/logo-96.webp" width="30" height="30" alt="" /><span>Nurelo</span></a>
           <p>Care management software for home care services, residential care facilities and home emergency call providers. Developed in Germany.</p>
         </div>
         <nav aria-label="Products">
@@ -229,9 +246,9 @@
         <span>Developed in Germany</span>
       </div>
     </div>
+    <a class="to-top" href="#top" aria-label="Back to top" title="Back to top"><span aria-hidden="true"></span></a>
   </footer>
 
-  <a class="to-top" href="#top" aria-label="Back to top" title="Back to top"><span aria-hidden="true"></span></a>
 
   <script src="/main.js" defer></script>
 </body>

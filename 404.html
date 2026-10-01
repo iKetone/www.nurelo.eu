@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 | Nurelo</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#241B14" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .game { margin-top: 3rem; scroll-margin-top: 12px; }
+    .game-bar { display: flex; justify-content: space-between; gap: 1rem; font-weight: 800; margin-bottom: .6rem; max-width: 100%; }
+    .game-field { position: relative; max-width: 100%; touch-action: none; user-select: none; -webkit-user-select: none; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--paper); }
+    .game-field canvas { display: block; max-width: 100%; outline: none; }
+    .game-overlay { position: absolute; inset: 0; display: grid; align-content: center; justify-items: center; gap: 1rem; padding: 1.5rem; text-align: center; background: rgba(251, 247, 240, .94); }
+    .game-overlay[hidden] { display: none; }
+    .game-overlay h2 { font-size: clamp(1.6rem, 5vw, 2.4rem); }
+    .game-overlay p { color: var(--ink-2); max-width: 44ch; font-size: .98rem; }
+  </style>
+</head>
+<body>
+  <header class="legal-head">
+    <div class="wrap">
+      <a class="brand" href="/" aria-label="Nurelo"><img src="/logo-96.webp" width="30" height="30" alt="" /><span>Nurelo</span></a>
+    </div>
+  </header>
+  <main class="legal">
+    <div class="wrap legal-wrap">
+      <h1>404</h1>
+      <p lang="de">Diese Seite gibt es nicht (mehr). <a href="/">Zur Startseite</a></p>
+      <p lang="en">This page does not exist. <a href="/en/">Back to the home page</a></p>
+      <section class="game" id="game" hidden>
+        <div class="game-bar" aria-live="polite"><span id="g-score"></span><span id="g-best"></span></div>
+        <div class="game-field" id="g-field">
+          <canvas id="g-canvas" role="img" tabindex="-1"></canvas>
+          <div class="game-overlay" id="g-overlay">
+            <h2 id="g-title"></h2>
+            <p id="g-text"></p>
+            <button class="btn btn-terra" id="g-btn" type="button"></button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="/game404.js" defer></script>
+  </main>
+</body>
+</html>

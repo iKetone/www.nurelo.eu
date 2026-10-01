@@ -18,20 +18,37 @@
   <meta property="og:title" content="Nurelo Ambulant: Pflegesoftware für ambulante Dienste" />
   <meta property="og:description" content="Nurelo Ambulant plant Touren und erfasst Leistungen nach SGB XI und V für ambulante Pflegedienste, mit eigenen Stammdaten und eigenen Modulen. Gehostet in Deutschland." />
   <meta property="og:url" content="https://www.nurelo.eu/ambulant/" />
-  <meta property="og:image" content="https://www.nurelo.eu/logo.png" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:site_name" content="Nurelo" />
+  <meta property="og:image" content="https://www.nurelo.eu/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Nurelo" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Nurelo Ambulant",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "description": "Nurelo Ambulant plant Touren und erfasst Leistungen nach SGB XI und V für ambulante Pflegedienste, mit eigenen Stammdaten und eigenen Modulen. Gehostet in Deutschland.",
-    "url": "https://www.nurelo.eu/ambulant/",
-    "inLanguage": "de"
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Nurelo Ambulant",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Nurelo Ambulant plant Touren und erfasst Leistungen nach SGB XI und V für ambulante Pflegedienste, mit eigenen Stammdaten und eigenen Modulen. Gehostet in Deutschland.",
+        "url": "https://www.nurelo.eu/ambulant/",
+        "inLanguage": "de",
+        "publisher": { "@id": "https://www.nurelo.eu/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Nurelo", "item": "https://www.nurelo.eu/" },
+          { "@type": "ListItem", "position": 2, "name": "Nurelo Ambulant", "item": "https://www.nurelo.eu/ambulant/" }
+        ]
+      }
+    ]
   }
   </script>
 </head>
@@ -49,7 +66,7 @@
   <header class="nav">
     <div class="pill nav-left">
       <a class="brand" href="/" aria-label="Nurelo Startseite">
-        <img src="/logo.png" width="30" height="30" alt="" />
+        <img src="/logo-96.webp" width="30" height="30" alt="" />
         <span>Nurelo</span>
       </a>
       <nav aria-label="Hauptnavigation">
@@ -62,7 +79,7 @@
         </ul>
       </nav>
       <details class="lang">
-        <summary aria-label="Sprache wählen"><span aria-hidden="true">DE</span></summary>
+        <summary aria-label="DE: Sprache wählen"><span aria-hidden="true">DE</span></summary>
         <ul class="lang-list">
           <li><a href="/ambulant/" hreflang="de" lang="de" aria-current="true">Deutsch</a></li>
           <li><a href="/en/home-care/" hreflang="en" lang="en">English</a></li>
@@ -194,7 +211,7 @@
     <div class="wrap">
       <div class="foot-grid">
         <div>
-          <a class="brand" href="/"><img src="/logo.png" width="30" height="30" alt="" /><span>Nurelo</span></a>
+          <a class="brand" href="/"><img src="/logo-96.webp" width="30" height="30" alt="" /><span>Nurelo</span></a>
           <p>Pflegemanagement-Software für ambulante Dienste, stationäre Einrichtungen und Hausnotruf-Anbieter. Entwickelt in Deutschland.</p>
         </div>
         <nav aria-label="Produkte">
@@ -228,9 +245,9 @@
         <span>Entwickelt in Deutschland</span>
       </div>
     </div>
+    <a class="to-top" href="#top" aria-label="Nach oben" title="Nach oben"><span aria-hidden="true"></span></a>
   </footer>
 
-  <a class="to-top" href="#top" aria-label="Nach oben" title="Nach oben"><span aria-hidden="true"></span></a>
 
   <script src="/main.js" defer></script>
 </body>

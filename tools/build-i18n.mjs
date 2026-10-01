@@ -3,6 +3,7 @@
 //
 // Startseite:     src/index.template.html   + i18n/<code>.json            (24 Sprachen)
 // Produktseiten:  src/product.template.html + i18n/produkte.<code>.json   (siehe PRODUCT_LANGS)
+// Außerdem: sitemap.xml und robots.txt
 // Bausteine:      src/partials/<name>.html, eingebunden mit {{include:name}} (auf Produktseiten auch {{include-P:name}} für <name>-st, -am, -hn)
 //
 // Platzhalter in den Vorlagen:
@@ -94,7 +95,7 @@ function switcherHtml(code, langs, pathFor, ariaText) {
   const items = langs.map((c) =>
     `          <li><a href="${pathFor(c)}" hreflang="${c}" lang="${c}"${c === code ? ' aria-current="true"' : ''}>${LANGNAME[c]}</a></li>`).join('\n');
   return `      <details class="lang">
-        <summary aria-label="${escAttr(stripTags(ariaText))}"><span aria-hidden="true">${code.toUpperCase()}</span></summary>
+        <summary aria-label="${code.toUpperCase()}: ${escAttr(stripTags(ariaText))}"><span aria-hidden="true">${code.toUpperCase()}</span></summary>
         <ul class="lang-list">
 ${items}
         </ul>
@@ -197,6 +198,23 @@ for (const code of PRODUCT_LANGS) {
     write(code === 'de' ? `${p.slugs.de}/index.html` : `${code}/${p.slugs[code]}/index.html`, html);
   }
 }
+
+// ---------- Sitemap und robots.txt ----------
+// Jede Seite nennt alle ihre Sprachfassungen, Produktseiten nur die vorhandenen.
+const sitemapEntry = (path, langs, pathFor) => {
+  const alts = [
+    ...langs.map((c) => `    <xhtml:link rel="alternate" hreflang="${c}" href="${SITE}${pathFor(c)}"/>`),
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${pathFor('de')}"/>`,
+  ].join('\n');
+  return `  <url>\n    <loc>${SITE}${path}</loc>\n${alts}\n  </url>`;
+};
+const entries = [
+  ...LANGS.map(([c]) => sitemapEntry(homePath(c), LANGS.map((l) => l[0]), homePath)),
+  ...PRODUCTS.flatMap((p) => PRODUCT_LANGS.map((c) => sitemapEntry(productPath(p, c), PRODUCT_LANGS, (l) => productPath(p, l)))),
+];
+write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`);
+// Bewusst ohne Disallow: Solange noindex gesetzt ist, müssen Suchmaschinen die Seiten lesen dürfen, um es zu sehen.
+write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
 
 // ---------- Ungenutzte Schlüssel melden ----------
 for (const k of mainKeys) if (!usedMain.has(k)) fail(`Schlüssel ungenutzt: ${k}`);

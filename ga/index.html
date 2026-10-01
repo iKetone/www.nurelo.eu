@@ -40,20 +40,46 @@
   <meta property="og:title" content="Nurelo: bogearraí cúraim do chúram sa bhaile, do chúram cónaithe agus d'aláraim éigeandála" />
   <meta property="og:description" content="Trí réimse, ardán amháin: pleanáil bealaigh, doiciméadú cúraim, billeáil agus TI-KIM." />
   <meta property="og:url" content="https://www.nurelo.eu/ga/" />
-  <meta property="og:image" content="https://www.nurelo.eu/logo.png" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:site_name" content="Nurelo" />
+  <meta property="og:image" content="https://www.nurelo.eu/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Nurelo" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Nurelo",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "description": "Bogearraí bainistíochta cúraim do sheirbhísí cúraim sa bhaile, do dhaoine cúraim chónaithe agus do sholáthraithe aláraim éigeandála.",
-    "url": "https://www.nurelo.eu/ga/",
-    "inLanguage": "ga"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.nurelo.eu/#organization",
+        "name": "Nurelo",
+        "url": "https://www.nurelo.eu/",
+        "logo": "https://www.nurelo.eu/logo.png",
+        "email": "contact@nurelo.eu"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.nurelo.eu/#website",
+        "name": "Nurelo",
+        "url": "https://www.nurelo.eu/",
+        "inLanguage": "ga",
+        "publisher": { "@id": "https://www.nurelo.eu/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Nurelo",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Bogearraí bainistíochta cúraim do sheirbhísí cúraim sa bhaile, do dhaoine cúraim chónaithe agus do sholáthraithe aláraim éigeandála.",
+        "url": "https://www.nurelo.eu/ga/",
+        "inLanguage": "ga",
+        "publisher": { "@id": "https://www.nurelo.eu/#organization" }
+      }
+    ]
   }
   </script>
 </head>
@@ -72,7 +98,7 @@
   <header class="nav">
     <div class="pill nav-left">
       <a class="brand" href="#top" aria-label="Leathanach baile Nurelo">
-        <img src="/logo.png" width="30" height="30" alt="" />
+        <img src="/logo-96.webp" width="30" height="30" alt="" />
         <span>Nurelo</span>
       </a>
       <nav aria-label="Príomhnavigáid">
@@ -85,7 +111,7 @@
         </ul>
       </nav>
       <details class="lang">
-        <summary aria-label="Roghnaigh teanga"><span aria-hidden="true">GA</span></summary>
+        <summary aria-label="GA: Roghnaigh teanga"><span aria-hidden="true">GA</span></summary>
         <ul class="lang-list">
           <li><a href="/" hreflang="de" lang="de">Deutsch</a></li>
           <li><a href="/bg/" hreflang="bg" lang="bg">Български</a></li>
@@ -269,7 +295,7 @@
     <section class="platform" id="plattform">
       <div class="wrap">
         <div class="platform-head reveal">
-          <img src="/logo.png" width="120" height="120" alt="" />
+          <img src="/logo-240.webp" width="120" height="120" alt="" />
           <p class="kicker light"><span>04</span> Ardán amháin</p>
           <h2>Trí shaol. Córas amháin.</h2>
           <p class="chapter-lead">Oibríonn gach táirge de réir réamhshocraithe lena shonraí máistir féin agus lena mhodúil féin. Ar iarratas, is féidir le roinnt táirgí bunachar sonraí comhroinnte a úsáid.</p>
@@ -364,7 +390,7 @@
     <div class="wrap">
       <div class="foot-grid">
         <div>
-          <a class="brand" href="#top"><img src="/logo.png" width="30" height="30" alt="" /><span>Nurelo</span></a>
+          <a class="brand" href="#top"><img src="/logo-96.webp" width="30" height="30" alt="" /><span>Nurelo</span></a>
           <p>Bogearraí bainistíochta cúraim do sheirbhísí cúraim sa bhaile, do dhaoine cúraim chónaithe agus do sholáthraithe aláraim éigeandála. Forbartha sa Ghearmáin.</p>
         </div>
         <nav aria-label="Táirgí">
@@ -398,9 +424,9 @@
         <span>Forbartha sa Ghearmáin</span>
       </div>
     </div>
+    <a class="to-top" href="#top" aria-label="Ar ais go barr" title="Ar ais go barr"><span aria-hidden="true"></span></a>
   </footer>
 
-  <a class="to-top" href="#top" aria-label="Ar ais go barr" title="Ar ais go barr"><span aria-hidden="true"></span></a>
 
   <script src="/main.js" defer></script>
 </body>
