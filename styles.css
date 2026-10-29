@@ -544,6 +544,19 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .45s ease-out, transform .45s ease-out; }
 .js .reveal.in { opacity: 1; transform: none; }
 
+/* Einblenden am Scroll statt per Skript, wo der Browser es kann: läuft beim Zurückscrollen rückwärts, braucht kein JavaScript
+   und staffelt Geschwisterelemente (Spalten, Listenzeilen) leicht. Sonst bleibt das Einblenden per Skript (.in) bestehen. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .js .reveal { opacity: 1; transform: none; transition: none; animation: reveal-up cubic-bezier(.2, .7, .2, 1) both; animation-timeline: view(); animation-range: cover 0% cover 18%; }
+    @supports (width: calc(sibling-index() * 1px)) {
+      .js .feat-list .reveal, .js .steps .reveal, .js .price-factors .reveal, .js .trust .reveal, .js .pg-feats .reveal, .js .other-list .reveal {
+        animation-range-start: cover calc((sibling-index() - 1) * 3%); animation-range-end: cover calc(18% + (sibling-index() - 1) * 3%); }
+    }
+  }
+}
+@keyframes reveal-up { from { opacity: 0; transform: translateY(26px); } }
+
 /* Menü und Sprachliste blenden kurz ein statt abrupt zu erscheinen */
 @keyframes pop-in { from { opacity: 0; } }
 .lang[open] .lang-list { animation: pop-in .15s ease-out; }
