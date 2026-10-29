@@ -226,6 +226,33 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .chain b { display: block; font-size: 1rem; }
 .chain small { color: rgba(242,234,221,.65); font-size: .78rem; }
 
+/* Fenster in den Kapiteln: kleine Abläufe, nur im Bild (Klasse .live setzt main.js) und nur bei erlaubter Bewegung.
+   Der Ruhezustand ist das heutige Bild; alles Neue ist darin unsichtbar. */
+.chain li::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: #e0876a; opacity: 0; pointer-events: none; }
+.chain li > b, .chain li > small { position: relative; }
+.chain .ring { position: absolute; inset: 0; border: 2px solid #e0876a; border-radius: 6px; opacity: 0; pointer-events: none; }
+.big-rows li { position: relative; overflow: hidden; }
+.big-rows li::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: #a5a06a; opacity: 0; transform: scaleX(0); transform-origin: left; }
+@media (prefers-reduced-motion: no-preference) {
+  .app-window.live .chain li::before { animation: chain-lit 9s ease-in-out infinite; }
+  .app-window.live .chain li:nth-child(2)::before { animation-delay: 1.5s; }
+  .app-window.live .chain li:nth-child(3)::before { animation-delay: 3s; }
+  .app-window.live .chain li:nth-child(4)::before { animation-delay: 4.5s; }
+  .app-window.live .chain .ring { animation: chain-ring 9s ease-out infinite; }
+  .app-window.live .chain .ring.r2 { animation-delay: .45s; }
+  .app-window.live .big-rows li::after { animation: row-fill 10s ease-in-out infinite; }
+  .app-window.live .big-rows li:nth-child(2)::after { animation-delay: 2s; }
+  .app-window.live .big-rows li:nth-child(3)::after { animation-delay: 4s; }
+  .app-window.live .big-rows .dot { animation: dot-pop 10s ease-in-out infinite; }
+  .app-window.live .big-rows li:nth-child(2) .dot { animation-delay: 2s; }
+  .app-window.live .big-rows li:nth-child(3) .dot { animation-delay: 4s; }
+}
+@keyframes chain-lit { 0% { opacity: 0; } 6%, 20% { opacity: .3; } 34%, 100% { opacity: 0; } }
+@keyframes chain-ring { 0% { opacity: .75; transform: scale(1); } 16%, 100% { opacity: 0; transform: scale(1.3, 1.7); } }
+@keyframes row-fill { 0% { opacity: 1; transform: scaleX(0); } 14% { opacity: 1; transform: none; } 24% { opacity: 1; transform: none; } 34%, 100% { opacity: 0; transform: none; } }
+@keyframes dot-pop { 0%, 12%, 24%, 100% { transform: none; } 18% { transform: scale(1.8); } }
+@media (prefers-reduced-motion: reduce) { .route-live { display: none; } }
+
 /* Plattform */
 .platform { background: var(--ink); color: var(--cream); padding: clamp(5rem, 10vw, 8rem) 0; border-radius: 14px 14px 0 0; position: relative; }
 .platform-head { display: grid; gap: 0; justify-items: start; max-width: 760px; }

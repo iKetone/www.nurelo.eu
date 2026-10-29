@@ -90,6 +90,27 @@
     secs.forEach(function (sec) { spy.observe(sec); });
   })();
 
+  // ---------- Fenster in den Kapiteln: Bewegung nur im Bild ----------
+  // .live schaltet die CSS-Abläufe, die SVG-Animationen der Route werden angehalten, solange das Fenster nicht sichtbar ist
+  (function () {
+    var wins = [].slice.call(document.querySelectorAll('.chapter .app-window'));
+    if (!wins.length || !('IntersectionObserver' in window)) return;
+    function svgOf(w) { var s = w.querySelector('svg.route'); return s && s.pauseAnimations ? s : null; }
+    function sync(w, on) {
+      w.classList.toggle('live', on);
+      var s = svgOf(w);
+      if (s) { if (on && !reduce.matches) s.unpauseAnimations(); else s.pauseAnimations(); }
+    }
+    wins.forEach(function (w) { sync(w, false); });
+    var io2 = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { sync(en.target, en.isIntersecting); });
+    }, { threshold: 0.3 });
+    wins.forEach(function (w) { io2.observe(w); });
+    reduce.addEventListener && reduce.addEventListener('change', function () {
+      wins.forEach(function (w) { sync(w, w.classList.contains('live')); });
+    });
+  })();
+
   // ---------- Hilfsfunktionen ----------
   function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
   function lerp(a, b, t) { return a + (b - a) * t; }
