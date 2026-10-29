@@ -169,12 +169,15 @@
   var W = 0, H = 0;
 
   function measure() {
+    // Die Ankerpunkte liegen im App-Fenster: ohne dessen Kippen und Verschieben messen, sonst wandern die Kacheln mit
+    var tf = win.style.transform; win.style.transform = '';
     var s = stage.getBoundingClientRect();
     W = s.width; H = s.height;
     ['st', 'am', 'hn'].forEach(function (k) {
       var r = stage.querySelector('[data-anchor="' + k + '"]').getBoundingClientRect();
       anchors[k] = { x: r.left - s.left + r.width / 2, y: r.top - s.top + r.height / 2 };
     });
+    win.style.transform = tf;
   }
 
   // Die Scroll-Sequenz läuft auch mobil; nur bei reduzierter Bewegung bleibt der Hero statisch
@@ -293,8 +296,11 @@
       more.style.pointerEvents = p > 0.7 ? 'auto' : 'none';
       hint.style.opacity = 1 - smooth(0, 0.12, p);
       win.style.opacity = smooth(0.42, 0.62, p);
+      // Das Fenster liegt zuerst leicht nach hinten gekippt und tiefer und richtet sich auf, bis es flach steht
+      var wk = smooth(0.36, 0.72, p);
+      win.style.transform = wk >= 1 ? '' : 'perspective(1200px) translateY(' + ((1 - wk) * 46).toFixed(1) + 'px) rotateX(' + ((1 - wk) * 9).toFixed(2) + 'deg)';
     } else {
-      [h1a, h1b, more, hint, win].forEach(function (el) { el.style.opacity = ''; el.style.pointerEvents = ''; });
+      [h1a, h1b, more, hint, win].forEach(function (el) { el.style.opacity = ''; el.style.pointerEvents = ''; el.style.transform = ''; });
     }
     DRIFT.t1 = t1; DRIFT.t2 = t2;
     setStage(t1, t2);

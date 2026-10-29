@@ -184,6 +184,7 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .hero:not(.pinned) .sat { display: none; }
 
 /* App-Fenster */
+.stage-pin .app-window { transform-origin: 50% 100%; }
 .win-wrap { position: relative; width: min(940px, 100%); z-index: 1; }
 .app-window { background: var(--ink); color: var(--cream); border-radius: 10px; overflow: hidden; position: relative; }
 .app-window.dark { background: #1a130d; border: 1px solid rgba(242,234,221,.12); }
