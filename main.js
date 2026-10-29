@@ -101,8 +101,11 @@
     return narrow.matches && ((navigator.deviceMemory && navigator.deviceMemory <= 4) ||
       (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4));
   }
-  // Schwache Handys: Glasflächen ohne Hintergrund-Filter (siehe styles.css, .low-power)
-  if (lowPower()) root.classList.add('low-power');
+  // Glasflächen (siehe styles.css, .no-blur): nur auf schwachen Touch-Geräten ohne Hintergrund-Filter, also schmal,
+  // Touch und höchstens 4 Kerne oder 2 GB. Kurze Laptop-Fenster und Desktops zählen nicht dazu.
+  var touchNarrow = window.matchMedia('(max-width: 860px) and (pointer: coarse)');
+  if (touchNarrow.matches && ((navigator.deviceMemory && navigator.deviceMemory <= 2) ||
+      (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4))) root.classList.add('no-blur');
   function load3d() {
     if (lowPower()) { window.dispatchEvent(new Event('nurelo3d')); return; }
     var s = document.createElement('script');

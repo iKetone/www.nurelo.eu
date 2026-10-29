@@ -322,14 +322,14 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 @media (hover: hover) and (pointer: fine) { .cta-box .btn-ghost-light:hover { background: var(--ink); color: var(--cream); } }
 .cta-box .btn-ghost-light:active { background: var(--ink); color: var(--cream); }
 
-/* Ohne Transparenz: wenn das System es wünscht, der Browser keinen Hintergrund-Filter kann oder das Gerät schwach ist */
+/* Ohne Transparenz: wenn das System es wünscht, der Browser keinen Hintergrund-Filter kann oder ein schwaches Touch-Gerät es meldet */
 @media (prefers-reduced-transparency: reduce) {
   .pill:not(.nav-right)::before, .pill .lang-list, .pill .nav-links, .cta-box { background: var(--paper); -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .pill:not(.nav-right)::before, .pill .lang-list, .pill .nav-links, .cta-box { background: var(--paper); }
 }
-.low-power .pill:not(.nav-right)::before, .low-power .pill .lang-list, .low-power .pill .nav-links, .low-power .cta-box { background: var(--paper); -webkit-backdrop-filter: none; backdrop-filter: none; }
+.no-blur .pill:not(.nav-right)::before, .no-blur .pill .lang-list, .no-blur .pill .nav-links, .no-blur .cta-box { background: var(--paper); -webkit-backdrop-filter: none; backdrop-filter: none; }
 
 /* Footer */
 .site-footer { background: var(--cream); padding: 3rem 0 calc(2.2rem + env(safe-area-inset-bottom)); font-size: .95rem; }
