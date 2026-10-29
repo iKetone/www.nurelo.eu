@@ -230,11 +230,20 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .platform-head img { margin-bottom: 2rem; }
 .platform-head h2 { margin-bottom: 1.2rem; }
 .platform .chapter-lead { color: rgba(242,234,221,.75); }
-.feat-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.4rem 2rem; margin-top: 4.5rem; }
-.feat-list li { border-top: 1px solid rgba(242,234,221,.2); padding-top: 1.4rem; }
-.feat-list li > span { font-size: .9rem; font-weight: 700; color: var(--ochre); letter-spacing: .1em; }
-.feat-list h3 { margin: .6rem 0 .6rem; }
-.feat-list p { color: rgba(242,234,221,.7); font-size: 1rem; }
+.feat-list { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(15rem, auto); gap: 14px; margin-top: 4.5rem; }
+.feat-list li { display: flex; flex-direction: column; padding: clamp(1.3rem, 2.2vw, 1.9rem); border-radius: 14px; background: rgba(242,234,221,.08); color: var(--cream); }
+.feat-list li > span { margin-bottom: auto; padding-bottom: 1.4rem; font-size: .9rem; font-weight: 700; letter-spacing: .1em; }
+.feat-list h3 { margin: 0 0 .6rem; }
+.feat-list p { font-size: 1rem; }
+/* Test (Stil "Bento Box Grid", flach und in der Palette): unterschiedlich große Kacheln statt zwei Spalten */
+.feat-list li:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; background: var(--olive-d); }
+.feat-list li:nth-child(2) { grid-column: 3 / 5; background: var(--terra-d); }
+.feat-list li:nth-child(3) { background: var(--ochre); color: var(--ink); }
+.feat-list li:nth-child(5) { grid-column: 1 / 3; background: var(--cream); color: var(--ink); }
+.feat-list li:nth-child(6) { grid-column: 3 / 5; background: var(--ochre-d); }
+.feat-list li:nth-child(1) h3 { font-size: clamp(1.6rem, 2.8vw, 2.5rem); margin-bottom: 1rem; }
+.feat-list li:nth-child(1) p { font-size: 1.1rem; max-width: 34ch; }
+
 .chip-block { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid rgba(242,234,221,.2); }
 .chip-block h3 { margin-bottom: 1rem; font-size: 1.1rem; }
 .chips { display: flex; flex-wrap: wrap; gap: .5rem; }
@@ -374,8 +383,8 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 @media (prefers-contrast: more) {
   :root { --line: #8c7d68; --ink-2: var(--ink); }
   .chips li { border-color: var(--cream); }
-  .platform .chapter-lead, .feat-list p, .cta-box .lead, .win-bar, .win-rows time, .win-rows small, .chain small, .track { color: var(--cream); }
-  .feat-list li, .chip-block { border-top-color: var(--cream); }
+  .platform .chapter-lead, .cta-box .lead, .win-bar, .win-rows time, .win-rows small, .chain small, .track { color: var(--cream); }
+  .chip-block { border-top-color: var(--cream); }
   .wordmark { color: rgba(36,27,20,.1); }
 }
 
@@ -383,6 +392,8 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 @media (max-width: 960px) {
   .chapter-grid, .chip-block { grid-template-columns: 1fr; }
   .feat-list { grid-template-columns: 1fr 1fr; }
+  .feat-list li:nth-child(n) { grid-column: auto; grid-row: auto; }
+  .feat-list li:nth-child(1), .feat-list li:nth-child(6) { grid-column: 1 / 3; }
   .pg-feats { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: 1fr 1fr; }
   .price-grid { grid-template-columns: minmax(0, 1fr); }
@@ -417,6 +428,8 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 }
 @media (max-width: 560px) {
   .feat-list, .steps, .pg-feats { grid-template-columns: 1fr; }
+  .feat-list li:nth-child(n) { grid-column: auto; }
+  .feat-list { grid-auto-rows: auto; }
   .other-list a { grid-template-columns: 1fr; gap: .2rem; }
   .foot-grid { grid-template-columns: 1fr; }
   .chain { grid-template-columns: 1fr 1fr; }
