@@ -1,0 +1,3 @@
+# Python-Bytecode, den die Skills unter .claude/skills beim Ausführen erzeugen
+__pycache__/
+*.pyc

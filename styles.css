@@ -44,6 +44,7 @@
 
   --font: "Karla", "NureloAlt", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --max: 1160px;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --r: 10px;
 }
 
@@ -81,7 +82,6 @@ h3 { font-size: 1.3rem; letter-spacing: -.015em; }
 .lead, .chapter-lead { font-size: clamp(1.08rem, 1.5vw, 1.25rem); max-width: 56ch; color: var(--ink-2); }
 
 .kicker { font-size: .86rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1.2rem; display: flex; gap: .7rem; align-items: center; }
-.kicker > span { display: inline-grid; place-items: center; min-width: 2.2rem; height: 1.7rem; padding: 0 .5rem; border-radius: 6px; border: 1.5px solid currentColor; font-size: .78rem; }
 .kicker.dark { color: var(--terra-d); }
 .kicker.light { color: var(--cream); }
 
@@ -209,6 +209,8 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .c-st { background: var(--olive-d); }
 .c-am { background: var(--ochre); color: var(--ink); }
 .c-hn { background: var(--terra-d); }
+/* Test (Stil "Nature Distilled"): feine Körnung auf den Kapitelflächen (eine kleine, einmal gezeichnete SVG-Kachel) und organisch unterschiedliche Ecken bei den Bento-Kacheln */
+.c-st, .c-am, .c-hn { background-image: var(--grain); }
 .chapter .chapter-lead { color: inherit; }
 .chapter-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
 .chapter h2 { margin-bottom: 1.4rem; }
@@ -230,37 +232,63 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .platform-head img { margin-bottom: 2rem; }
 .platform-head h2 { margin-bottom: 1.2rem; }
 .platform .chapter-lead { color: rgba(242,234,221,.75); }
-.feat-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.4rem 2rem; margin-top: 4.5rem; }
-.feat-list li { border-top: 1px solid rgba(242,234,221,.2); padding-top: 1.4rem; }
-.feat-list li > span { font-size: .9rem; font-weight: 700; color: var(--ochre); letter-spacing: .1em; }
-.feat-list h3 { margin: .6rem 0 .6rem; }
-.feat-list p { color: rgba(242,234,221,.7); font-size: 1rem; }
+.feat-list { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(12rem, auto); gap: 14px; margin-top: 4.5rem; }
+.feat-list li { display: flex; flex-direction: column; padding: clamp(1.3rem, 2.2vw, 1.9rem); border-radius: 14px; background: rgba(242,234,221,.08); color: var(--cream); }
+.feat-list h3 { margin: 0 0 .6rem; }
+.feat-list p { font-size: 1rem; }
+/* Test (Stil "Bento Box Grid", flach und in der Palette): unterschiedlich große Kacheln statt zwei Spalten */
+.feat-list li:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; background: var(--olive-d); }
+.feat-list li:nth-child(2) { grid-column: 3 / 5; background: var(--terra-d); }
+.feat-list li:nth-child(3) { background: var(--ochre); color: var(--ink); }
+.feat-list li:nth-child(5) { grid-column: 1 / 3; background: var(--cream); color: var(--ink); }
+.feat-list li:nth-child(6) { grid-column: 3 / 5; background: var(--ochre-d); }
+.feat-list li:nth-child(1) { border-radius: 36px 14px 28px 14px; }
+.feat-list li:nth-child(2) { border-radius: 14px 30px 14px 24px; }
+.feat-list li:nth-child(3) { border-radius: 22px 14px 30px 14px; }
+.feat-list li:nth-child(4) { border-radius: 14px 26px 14px 30px; }
+.feat-list li:nth-child(5) { border-radius: 28px 14px 22px 14px; }
+.feat-list li:nth-child(6) { border-radius: 14px 34px 14px 26px; }
+.feat-list li:nth-child(1) h3 { font-size: clamp(1.8rem, 3.4vw, 3.1rem); margin-bottom: 1.1rem; }
+.feat-list li:nth-child(1) p { font-size: clamp(1.05rem, 1.5vw, 1.25rem); max-width: 30ch; }
+
 .chip-block { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid rgba(242,234,221,.2); }
 .chip-block h3 { margin-bottom: 1rem; font-size: 1.1rem; }
 .chips { display: flex; flex-wrap: wrap; gap: .5rem; }
 .chips li { padding: .45rem 1rem; border-radius: 6px; border: 1.5px solid rgba(242,234,221,.3); font-size: .92rem; font-weight: 600; }
 
 /* Ablauf */
-.steps-sec { padding: clamp(5rem, 10vw, 8rem) 0; background: var(--cream); border-radius: 14px 14px 0 0; margin-top: -14px; position: relative; }
+.steps-sec { padding: clamp(5.5rem, 12vw, 10rem) 0; background: var(--cream); border-radius: 14px 14px 0 0; margin-top: -14px; position: relative; }
 .section-head { max-width: 760px; margin-bottom: 3.5rem; }
 .section-head h2 { margin-bottom: 1.2rem; }
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6rem; counter-reset: s; }
 .steps li { counter-increment: s; padding-top: 1.4rem; border-top: 3px solid var(--ink); }
 .steps li::before { content: "0" counter(s); display: block; font-size: 3.4rem; font-weight: 800; letter-spacing: -.05em; line-height: 1; color: var(--terra-d); margin-bottom: 1rem; }
+/* Test (Stil "Exaggerated Minimalism"): übergroße Ziffern in einer einzigen Akzentfarbe, mehr Leerraum, keine Linien */
+.steps-sec .section-head { max-width: 1040px; margin-bottom: clamp(4rem, 8vw, 7rem); }
+.steps-sec .section-head h2 { font-size: clamp(2.6rem, 7vw, 6rem); letter-spacing: -.045em; text-wrap: balance; }
+.steps { gap: clamp(2rem, 4vw, 3.4rem); }
+.steps li { padding-top: 0; border-top: 0; }
+.steps li::before { font-size: clamp(4.5rem, 9.5vw, 8.5rem); font-weight: 800; letter-spacing: -.06em; margin-bottom: 1.4rem; }
+.steps h3 { font-size: 1.45rem; }
 .steps p { color: var(--ink-2); margin-top: .5rem; }
 .trust { display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; margin-top: 4rem; font-weight: 700; }
 .trust li { padding: .5rem 1.1rem; border-radius: 6px; background: var(--paper); border: 1px solid var(--line); font-size: .92rem; }
 
 /* Preise */
 .pricing { padding: 0 0 clamp(5rem, 10vw, 8rem); background: var(--cream); }
-.price-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+.price-grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(2rem, 6vw, 6rem); align-items: start; }
 .price-grid h2 { margin-bottom: 1.2rem; }
 .price-grid .btn { margin-top: 2rem; }
 .price-factors { display: grid; }
-.price-factors div { display: grid; grid-template-columns: 11rem 1fr; gap: 1rem; padding: 1.1rem 0; border-top: 1px solid var(--ink); }
+.price-factors div { display: grid; grid-template-columns: minmax(8rem, 12rem) 1fr; gap: 1rem 1.6rem; padding: 1.5rem 0; border-top: 1px solid var(--ink); }
 .price-factors div:last-child { border-bottom: 1px solid var(--ink); }
-.price-factors dt { font-weight: 800; }
+.price-factors dt { font-size: 1.35rem; font-weight: 800; line-height: 1.15; letter-spacing: -.015em; }
 .price-factors dd { margin: 0; color: var(--ink-2); }
+/* Test (Stil "Editorial Grid / Magazine"): kräftige Trennlinie wie ein Rubrikkopf, Initiale am Textanfang, schmale Textspalte neben einem breiten Register */
+.pricing .price-grid { border-top: 3px solid var(--ink); padding-top: clamp(1.8rem, 3.5vw, 2.8rem); }
+.price-factors div:first-child { border-top: 0; padding-top: 0; }
+.price-grid .lead { display: flow-root; }
+.price-grid .lead::first-letter { float: left; margin: .05em .08em 0 0; font-size: 4.2em; font-weight: 800; line-height: .76; color: var(--terra-d); }
 
 /* CTA */
 .contact { padding-bottom: 2rem; background: var(--cream); }
@@ -307,7 +335,6 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .pg-section { padding: clamp(4rem, 9vw, 7rem) 0; background: var(--cream); position: relative; }
 .pg-feats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.4rem 1.6rem; }
 .pg-feats li { border-top: 3px solid var(--pc, var(--ink)); padding-top: 1.2rem; }
-.pg-feats li > span { font-size: .9rem; font-weight: 800; letter-spacing: .1em; color: var(--pc-d, var(--terra-d)); }
 .pg-feats h3 { margin: .6rem 0 .5rem; }
 .pg-feats p { color: var(--ink-2); font-size: 1rem; }
 .pg-st { --pc: var(--olive); --pc-d: var(--olive-d); }
@@ -374,8 +401,8 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 @media (prefers-contrast: more) {
   :root { --line: #8c7d68; --ink-2: var(--ink); }
   .chips li { border-color: var(--cream); }
-  .platform .chapter-lead, .feat-list p, .cta-box .lead, .win-bar, .win-rows time, .win-rows small, .chain small, .track { color: var(--cream); }
-  .feat-list li, .chip-block { border-top-color: var(--cream); }
+  .platform .chapter-lead, .cta-box .lead, .win-bar, .win-rows time, .win-rows small, .chain small, .track { color: var(--cream); }
+  .chip-block { border-top-color: var(--cream); }
   .wordmark { color: rgba(36,27,20,.1); }
 }
 
@@ -383,10 +410,13 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 @media (max-width: 960px) {
   .chapter-grid, .chip-block { grid-template-columns: 1fr; }
   .feat-list { grid-template-columns: 1fr 1fr; }
+  .feat-list li:nth-child(n) { grid-column: auto; grid-row: auto; }
+  .feat-list li:nth-child(1), .feat-list li:nth-child(6) { grid-column: 1 / 3; }
   .pg-feats { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: 1fr 1fr; }
   .price-grid { grid-template-columns: minmax(0, 1fr); }
   .price-grid > * { min-width: 0; }
+  .price-factors div:first-child { border-top: 1px solid var(--ink); padding-top: 1.5rem; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (min-width: 900px) and (min-height: 640px) { .hero-copy h1 { letter-spacing: -.045em; } }
@@ -417,6 +447,8 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 }
 @media (max-width: 560px) {
   .feat-list, .steps, .pg-feats { grid-template-columns: 1fr; }
+  .feat-list li:nth-child(n) { grid-column: auto; }
+  .feat-list { grid-auto-rows: auto; }
   .other-list a { grid-template-columns: 1fr; gap: .2rem; }
   .foot-grid { grid-template-columns: 1fr; }
   .chain { grid-template-columns: 1fr 1fr; }
