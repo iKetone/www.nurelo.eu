@@ -44,6 +44,7 @@
 
   --font: "Karla", "NureloAlt", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --max: 1160px;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --r: 10px;
 }
 
@@ -209,6 +210,8 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .c-st { background: var(--olive-d); }
 .c-am { background: var(--ochre); color: var(--ink); }
 .c-hn { background: var(--terra-d); }
+/* Test (Stil "Nature Distilled"): feine Körnung auf den Kapitelflächen (eine kleine, einmal gezeichnete SVG-Kachel) und organisch unterschiedliche Ecken bei den Bento-Kacheln */
+.c-st, .c-am, .c-hn { background-image: var(--grain); }
 .chapter .chapter-lead { color: inherit; }
 .chapter-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
 .chapter h2 { margin-bottom: 1.4rem; }
@@ -240,6 +243,12 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .feat-list li:nth-child(3) { background: var(--ochre); color: var(--ink); }
 .feat-list li:nth-child(5) { grid-column: 1 / 3; background: var(--cream); color: var(--ink); }
 .feat-list li:nth-child(6) { grid-column: 3 / 5; background: var(--ochre-d); }
+.feat-list li:nth-child(1) { border-radius: 36px 14px 28px 14px; }
+.feat-list li:nth-child(2) { border-radius: 14px 30px 14px 24px; }
+.feat-list li:nth-child(3) { border-radius: 22px 14px 30px 14px; }
+.feat-list li:nth-child(4) { border-radius: 14px 26px 14px 30px; }
+.feat-list li:nth-child(5) { border-radius: 28px 14px 22px 14px; }
+.feat-list li:nth-child(6) { border-radius: 14px 34px 14px 26px; }
 .feat-list li:nth-child(1) h3 { font-size: clamp(1.8rem, 3.4vw, 3.1rem); margin-bottom: 1.1rem; }
 .feat-list li:nth-child(1) p { font-size: clamp(1.05rem, 1.5vw, 1.25rem); max-width: 30ch; }
 
