@@ -161,6 +161,32 @@
     place();
   })();
 
+  // ---------- Wortweises Aufhellen ausgewählter Überschriften und Einleitungen ----------
+  // Nur Wörter (nicht Buchstaben): bleibt in allen Sprachen lesbar, der Text steht unverändert im Dokument. Die Wörter werden erst
+  // zerlegt, wenn der Browser scroll-gesteuerte Animationen kann und Bewegung erlaubt ist; sonst bleibt der Text unberührt.
+  (function () {
+    if (!(window.CSS && CSS.supports && CSS.supports('animation-timeline: view()')) || reduce.matches) return;
+    var targets = [].slice.call(document.querySelectorAll('.platform-head h2, .platform-head .chapter-lead, .steps-sec .section-head h2, .steps-sec .section-head .lead'));
+    targets.forEach(function (el) {
+      var words = [];
+      (function walk(node) {
+        [].slice.call(node.childNodes).forEach(function (n) {
+          if (n.nodeType === 3) {
+            var parts = n.nodeValue.split(/(\s+)/), frag = document.createDocumentFragment();
+            parts.forEach(function (t) {
+              if (!t) return;
+              if (/^\s+$/.test(t)) { frag.appendChild(document.createTextNode(t)); return; }
+              var s = document.createElement('span'); s.className = 'w'; s.textContent = t; words.push(s); frag.appendChild(s);
+            });
+            node.replaceChild(frag, n);
+          } else if (n.nodeType === 1 && !n.classList.contains('w')) walk(n);
+        });
+      })(el);
+      words.forEach(function (w, i) { w.style.setProperty('--f', words.length > 1 ? (i / (words.length - 1)).toFixed(3) : '0'); });
+      if (words.length) el.classList.add('words');
+    });
+  })();
+
   // ---------- Hilfsfunktionen ----------
   function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
   function lerp(a, b, t) { return a + (b - a) * t; }

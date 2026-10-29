@@ -654,6 +654,14 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
   }
 }
 @keyframes grow-x { to { transform: scaleX(1); } }
+/* Wortweises Aufhellen (Wörter setzt main.js): jedes Wort beginnt leicht versetzt, alle sind nach etwa einem Fünftel des Weges hell */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .words { view-timeline: --words block; }
+    .words .w { opacity: .16; animation: word-on linear both; animation-timeline: --words; animation-range: cover calc(var(--f) * 12%) cover calc(9% + var(--f) * 12%); }
+  }
+}
+@keyframes word-on { to { opacity: 1; } }
 /* Kapitel-Stapel mit Tiefe: main.js verkleinert die verdeckte Karte leicht, während die nächste darüberfährt */
 .chapters > .chapter, .chapters > .platform { transform-origin: 50% 0; }
 
