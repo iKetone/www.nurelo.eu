@@ -101,6 +101,8 @@
     return narrow.matches && ((navigator.deviceMemory && navigator.deviceMemory <= 4) ||
       (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4));
   }
+  // Schwache Handys: Glasflächen ohne Hintergrund-Filter (siehe styles.css, .low-power)
+  if (lowPower()) root.classList.add('low-power');
   function load3d() {
     if (lowPower()) { window.dispatchEvent(new Event('nurelo3d')); return; }
     var s = document.createElement('script');
