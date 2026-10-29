@@ -53,6 +53,41 @@
     });
   }
 
+  // ---------- Kapitel-Stapel mit Tiefe ----------
+  // Die klebenden Kapitel verschieben ihre Position beim Überfahren nicht, deshalb taugt keine View-Timeline: Der Fortschritt kommt aus der
+  // Lage des jeweils nächsten Kapitels (unten im Fenster = 0, an seinem Klebeplatz = 1). Erst alle Lagen lesen, dann schreiben;
+  // will-change nur, solange eine Karte unterwegs ist. Nur Verkleinern: ein zusätzliches Abdunkeln über die ganze Karte kostete im
+  // Messlauf ohne Grafikkarte deutlich mehr Bildzeit und ist deshalb entfallen.
+  if (chapterBox) {
+    (function () {
+      var cards = [].slice.call(chapterBox.children);
+      var deep = window.matchMedia('(min-width: 861px) and (min-height: 701px)');
+      var sticks = [], busy = false;
+      function readSticks() { sticks = cards.map(function (el) { return parseFloat(getComputedStyle(el).top) || 0; }); }
+      function depth() {
+        busy = false;
+        var on = deep.matches && !reduce.matches, H = window.innerHeight;
+        var tops = cards.map(function (el) { return el.getBoundingClientRect().top; });
+        cards.forEach(function (el, i) {
+          if (i === cards.length - 1) return;
+          var p = on ? Math.min(1, Math.max(0, (H - tops[i + 1]) / (H - sticks[i + 1]))) : 0;
+          p = Math.round(p * 200) / 200;
+          if (el._p === p) return;
+          el._p = p;
+          var active = p > 0 && p < 1;
+          el.style.willChange = active ? 'transform' : '';
+          el.style.transform = p ? 'scale(' + (1 - 0.035 * p).toFixed(4) + ')' : '';
+        });
+      }
+      function ask() { if (!busy) { busy = true; requestAnimationFrame(depth); } }
+      window.addEventListener('scroll', ask, { passive: true });
+      window.addEventListener('resize', function () { readSticks(); ask(); });
+      deep.addEventListener && deep.addEventListener('change', ask);
+      reduce.addEventListener && reduce.addEventListener('change', ask);
+      readSticks(); depth();
+    })();
+  }
+
   // ---------- Reveal ----------
   var items = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {

@@ -654,6 +654,8 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
   }
 }
 @keyframes grow-x { to { transform: scaleX(1); } }
+/* Kapitel-Stapel mit Tiefe: main.js verkleinert die verdeckte Karte leicht, während die nächste darüberfährt */
+.chapters > .chapter, .chapters > .platform { transform-origin: 50% 0; }
 
 /* Menü und Sprachliste blenden kurz ein statt abrupt zu erscheinen */
 @keyframes pop-in { from { opacity: 0; } }
