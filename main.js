@@ -101,11 +101,10 @@
     return narrow.matches && ((navigator.deviceMemory && navigator.deviceMemory <= 4) ||
       (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4));
   }
-  // Glasflächen (siehe styles.css, .no-blur): nur auf schwachen Touch-Geräten ohne Hintergrund-Filter, also schmal,
-  // Touch und höchstens 4 Kerne oder 2 GB. Kurze Laptop-Fenster und Desktops zählen nicht dazu.
-  var touchNarrow = window.matchMedia('(max-width: 860px) and (pointer: coarse)');
-  if (touchNarrow.matches && ((navigator.deviceMemory && navigator.deviceMemory <= 2) ||
-      (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4))) root.classList.add('no-blur');
+  // Glasflächen (siehe styles.css, .no-blur): nur auf Touch-Geräten, die höchstens 2 GB Speicher melden.
+  // Die Kernzahl zählt hier nicht: Safari meldet sie gedeckelt und deviceMemory gar nicht, ein iPhone soll das Glas zeigen.
+  if (window.matchMedia('(max-width: 860px) and (pointer: coarse)').matches &&
+      navigator.deviceMemory && navigator.deviceMemory <= 2) root.classList.add('no-blur');
   function load3d() {
     if (lowPower()) { window.dispatchEvent(new Event('nurelo3d')); return; }
     var s = document.createElement('script');
