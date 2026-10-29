@@ -3,8 +3,8 @@ Stand: Commit a81dbca ("add remove-animations skill"). SKILL.md unverändert üb
 Vor der Installation gelesen: reines Markdown, keine Skripte, keine Netzwerkzugriffe.
 
 Hinweise für dieses Projekt (Nurelo-Webseite):
-- Schon umgesetzt: Hero und Kapitel nutzen svh, Hover-Effekte gibt es nicht, der Sprachwähler hat 16 px große Ziele und die Seite scrollt ohne Pull-to-Refresh-Eingriff.
-- Noch offen und im Skill beschrieben: touch-action: manipulation auf Buttons, -webkit-tap-highlight-color, viewport-fit=cover mit Safe-Area-Abständen (die Navigation sitzt fest oben), user-select: none nur auf Bedienelementen.
+- Schon umgesetzt: Hero und erste Bildschirmhöhe nutzen svh statt vh.
+- Im Code gefunden und im Skill beschrieben (Stand der Prüfung: styles.css und Startseite): 12 :hover-Regeln ohne die Abfrage (hover: hover) and (pointer: fine), kein touch-action: manipulation, kein -webkit-tap-highlight-color, kein viewport-fit=cover mit Safe-Area-Abständen (die Navigation sitzt fest oben). Die Seite hat keine Eingabefelder, die Regel zur 16-px-Schrift in Feldern greift erst, wenn es welche gibt.
 - theme-color gibt es nur einmal (#241B14), die Seite hat keinen Dunkelmodus; der Skill-Vorschlag mit zwei Werten gilt hier nicht.
 - Der Skill verlangt Tests auf echten Geräten, die Prüfung im emulierten Browser reicht nicht.
 - Der Skill antwortet beim ersten Aufruf ohne Frage nur mit einem festen Satz ("I'm ready to make ...").
