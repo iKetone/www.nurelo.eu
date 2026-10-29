@@ -540,6 +540,13 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .chapter-more:active { text-decoration-thickness: 4px; }
 .other-list a:active > span:first-child { text-decoration: underline; text-underline-offset: .28em; }
 
+/* Seitenübergang: beim Wechsel zwischen den Seiten und Sprachen blendet die neue Seite über der alten ein
+   (Chrome, Edge und Safari; Firefox lädt wie bisher). Nur die Überblendung der ganzen Seite, keine Größenanimation einzelner Teile. */
+@media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+::view-transition-old(root) { animation: none; mix-blend-mode: normal; }
+::view-transition-new(root) { animation: vt-in .26s ease-out both; mix-blend-mode: normal; }
+@keyframes vt-in { from { opacity: 0; } }
+
 /* Reveal */
 .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .45s ease-out, transform .45s ease-out; }
 .js .reveal.in { opacity: 1; transform: none; }
