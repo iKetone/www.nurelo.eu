@@ -111,6 +111,31 @@
     });
   })();
 
+  // ---------- Gleitender Unterstrich in der Navigation (Desktop) ----------
+  // Ein einziges Element, das per transform zum aktuellen Link gleitet; die Markierung (aria-current) setzen weiterhin der Scroll-Spy
+  // und die Seitenvorlage, hier wird nur mitgelesen.
+  (function () {
+    var wide = window.matchMedia('(min-width: 861px)');
+    var ind = document.createElement('span');
+    ind.className = 'nav-ind'; ind.setAttribute('aria-hidden', 'true');
+    links.appendChild(ind);
+    var placed = false;
+    function place() {
+      var a = links.querySelector('a[aria-current]');
+      if (!wide.matches || !a) { ind.classList.remove('on'); links.classList.remove('has-ind'); return; }
+      links.classList.add('has-ind');
+      if (!placed) ind.classList.add('still');
+      ind.style.transform = 'translateX(' + a.offsetLeft + 'px) scaleX(' + a.offsetWidth + ')';
+      ind.classList.add('on');
+      if (!placed) { placed = true; void ind.offsetWidth; ind.classList.remove('still'); }
+    }
+    new MutationObserver(place).observe(links, { attributes: true, attributeFilter: ['aria-current'], subtree: true });
+    window.addEventListener('resize', function () { placed = false; place(); });
+    wide.addEventListener && wide.addEventListener('change', function () { placed = false; place(); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { placed = false; place(); });
+    place();
+  })();
+
   // ---------- Hilfsfunktionen ----------
   function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
   function lerp(a, b, t) { return a + (b - a) * t; }
