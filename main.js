@@ -66,6 +66,30 @@
     items.forEach(function (el) { el.classList.add('in'); });
   }
 
+  // ---------- Aktuelle Stelle in der Navigation ----------
+  // Ein schmales Band bei 40 % der Fensterhöhe: der Abschnitt, der es zuletzt (im Dokument) kreuzt, ist der aktuelle.
+  // IntersectionObserver statt Scroll-Handler, damit keine Positionen gelesen werden müssen.
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+    var linkFor = {};
+    [].slice.call(links.querySelectorAll('a[href^="#"]')).forEach(function (a) { linkFor[a.getAttribute('href').slice(1)] = a; });
+    var secs = [].slice.call(document.querySelectorAll('main > section[id], .chapters > section[id]'));
+    if (!secs.length || !Object.keys(linkFor).length) return;
+    secs.sort(function (a, b) { return a.compareDocumentPosition(b) & 4 ? -1 : 1; });
+    var inBand = {}, shown = null;
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { inBand[en.target.id] = en.isIntersecting; });
+      var cur = null;
+      secs.forEach(function (sec) { if (inBand[sec.id]) cur = sec.id; });
+      var a = cur && linkFor[cur] || null;
+      if (a === shown) return;
+      if (shown) shown.removeAttribute('aria-current');
+      if (a) a.setAttribute('aria-current', 'location');
+      shown = a;
+    }, { rootMargin: '-40% 0px -59% 0px' });
+    secs.forEach(function (sec) { spy.observe(sec); });
+  })();
+
   // ---------- Hilfsfunktionen ----------
   function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
   function lerp(a, b, t) { return a + (b - a) * t; }
@@ -120,9 +144,12 @@
   var tilts = [].slice.call(document.querySelectorAll('.tile .tilt'));
   tilts.forEach(function (el) { el._cur = { rx: 0, ry: 0 }; });
   var needTilt = false;
+  // Neigung nur für Kacheln im Bild berechnen (spart Stilarbeit, wenn der Mauszeiger über anderen Abschnitten liegt)
+  var tilesSeen = 0;
+  [].slice.call(document.querySelectorAll('.tile')).forEach(function (t) { t._vis = true; tilesSeen++; });
 
   // Sanftes Treiben und Mitreagieren der Satelliten (nur in der verstreuten Phase)
-  var DRIFT = { raf: 0, visible: true, enabled: false, t0: 0, ps: { x: 0, y: 0 }, t1: 0, t2: 0 };
+  var DRIFT = { raf: 0, visible: true, enabled: false, t0: 0, last: 0, ps: { x: 0, y: 0 }, t1: 0, t2: 0 };
   // Das Treiben startet erst, wenn die 3D-Einrichtung fertig ist (oder nach einer Wartezeit),
   // damit ihre kurzen Blockaden in einen Moment fallen, in dem sich noch nichts bewegt.
   function enableDrift() {
@@ -134,12 +161,17 @@
   function driftAllowed() {
     return DRIFT.enabled && hero.classList.contains('pinned') && !reduce.matches && DRIFT.visible && !document.hidden && DRIFT.t2 < 1;
   }
-  function driftFrame() {
+  // Auf Touch-Geräten reichen 30 Bilder pro Sekunde: das Treiben ist langsam und spart dort Akku
+  var coarse = window.matchMedia('(pointer: coarse)');
+  function driftFrame(now) {
     DRIFT.raf = 0;
     if (!driftAllowed()) return;
-    DRIFT.ps.x = lerp(DRIFT.ps.x, pointer.x, 0.05);
-    DRIFT.ps.y = lerp(DRIFT.ps.y, pointer.y, 0.05);
-    setStage(DRIFT.t1, DRIFT.t2);
+    if (!(coarse.matches && now - DRIFT.last < 30)) {
+      DRIFT.last = now;
+      DRIFT.ps.x = lerp(DRIFT.ps.x, pointer.x, 0.05);
+      DRIFT.ps.y = lerp(DRIFT.ps.y, pointer.y, 0.05);
+      setStage(DRIFT.t1, DRIFT.t2);
+    }
     DRIFT.raf = requestAnimationFrame(driftFrame);
   }
   function driftKick() { if (!DRIFT.raf && driftAllowed()) DRIFT.raf = requestAnimationFrame(driftFrame); }
@@ -186,8 +218,10 @@
       // Mitreagieren mit der Maus: 10 bis 20 px, endet mit dem Verschmelzen
       var pf = still ? 0 : ramp * (1 - e2) * (10 + (idx % 3) * 5);
       x += dx + DRIFT.ps.x * pf; y += dy + DRIFT.ps.y * pf; rot += dr;
-      el.style.opacity = 1 - smooth(0.5, 1, t2);
-      el.style.setProperty('--g', (1 - e1).toFixed(3));
+      // --g wird von den Kindern geerbt (Graustufe): nur schreiben, wenn der Wert sich ändert
+      var op = 1 - smooth(0.5, 1, t2), g = (1 - e1).toFixed(3);
+      if (el._op !== op) { el._op = op; el.style.opacity = op; }
+      if (el._g !== g) { el._g = g; el.style.setProperty('--g', g); }
       el.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0) rotate(' + rot + 'deg) scale(' + sc + ')';
     });
   }
@@ -199,12 +233,16 @@
     return total > 0 ? clamp(-r.top / total, 0, 1) : 1;
   }
 
+  var stageLive = true;
   function update() {
     if (animated() !== hero.classList.contains('pinned')) {
       hero.classList.toggle('pinned', animated());
       measure();
     }
     var pinned = hero.classList.contains('pinned');
+    // Ist der Hero aus dem Bild, genügt es, den Endzustand einmal zu schreiben
+    if (!DRIFT.visible && !stageLive) { updateTilt(); return; }
+    stageLive = DRIFT.visible;
     var p = pinned ? heroProgress() : 1;
     var t1 = smooth(0, 0.5, p);
     var t2 = smooth(0.5, 0.92, p);
@@ -228,15 +266,24 @@
   function updateTilt() {
     var moving = false;
     var still = reduce.matches;
-    tilts.forEach(function (el) {
+    var live = tilts.filter(function (el) {
       var tile = el.parentNode;
-      if (tile.classList.contains('tile3d')) { if (el.style.transform) el.style.transform = ''; return; }
+      if (tile.classList.contains('tile3d')) { if (el.style.transform) el.style.transform = ''; return false; }
+      return tile._vis;
+    });
+    // erst alle Positionen lesen, dann schreiben (kein Lesen nach Schreiben)
+    var tops = live.map(function (el) {
+      var tile = el.parentNode;
+      return tile.hasAttribute('data-scroll') && !still ? tile.getBoundingClientRect() : null;
+    });
+    live.forEach(function (el, i) {
+      var tile = el.parentNode;
       var depth = parseFloat(tile.dataset.depth || 1);
       var tx = still ? 0 : pointer.x, ty = still ? 0 : pointer.y;
       var ry = tx * 24 * depth, rx = -ty * 24 * depth;
       var lift = 0;
-      if (tile.hasAttribute('data-scroll') && !still) {
-        var r = tile.getBoundingClientRect();
+      var r = tops[i];
+      if (r) {
         var s = clamp(((r.top + r.height / 2) / window.innerHeight - 0.5) * 2, -1.5, 1.5);
         ry += s * 26 * depth; rx += -s * 12; lift = s * -14;
       }
@@ -262,14 +309,28 @@
     if (e.pointerType === 'touch') return;
     pointer.x = (e.clientX / window.innerWidth - 0.5) * 2;
     pointer.y = (e.clientY / window.innerHeight - 0.5) * 2;
-    schedule();
+    if (DRIFT.visible || tilesSeen > 0) schedule();
   }, { passive: true });
   reduce.addEventListener && reduce.addEventListener('change', schedule);
   narrow.addEventListener && narrow.addEventListener('change', schedule);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { measure(); schedule(); });
 
   if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (en) { DRIFT.visible = en[0].isIntersecting; driftKick(); }).observe(hero);
+    new IntersectionObserver(function (en) {
+      DRIFT.visible = en[0].isIntersecting;
+      if (DRIFT.visible) stageLive = true;
+      schedule(); driftKick();
+    }).observe(hero);
+    // Kacheln: Sichtbarkeit merken, damit nur das Nötige neu berechnet wird
+    var tileIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var was = en.target._vis, now = en.isIntersecting;
+        if (was === now) return;
+        en.target._vis = now; tilesSeen += now ? 1 : -1;
+      });
+      schedule();
+    }, { rootMargin: '80px' });
+    [].slice.call(document.querySelectorAll('.tile')).forEach(function (t) { tileIO.observe(t); });
   }
   document.addEventListener('visibilitychange', driftKick);
 

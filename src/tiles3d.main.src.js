@@ -40,24 +40,27 @@
       id: id, el: el, kind: kind, canvas: canvas, ctx: canvas.getContext('bitmaprenderer'),
       depth: parseFloat(el.dataset.depth || 1), scroll: el.hasAttribute('data-scroll'),
       visible: false, shown: false, pending: false,
-      rx: 0.16, ry: -0.28, w: 0, sent: null
+      rx: 0.16, ry: -0.28, w: 0, size: 0, sent: null
     };
     sizeTile(t);
     return t;
   }
 
-  function sizeTile(t) { t.w = Math.max(2, Math.round(t.el.offsetWidth * 1.5 * dpr)); }
+  // t.w: volle Bildgröße. t.size: was gerade angefordert wird, in Bewegung kleiner (spart Rechenzeit im Hintergrundprozess),
+  // sobald die Kachel zur Ruhe kommt wieder in voller Größe.
+  var MOVING_SCALE = 0.7;
+  function sizeTile(t) { t.w = Math.max(2, Math.round(t.el.offsetWidth * 1.5 * dpr)); t.size = t.w; }
 
   // ---------- Bilder anfordern und anzeigen ----------
   function send(t) {
     t.pending = true;
-    t.sent = { rx: t.rx, ry: t.ry, w: t.w };
-    worker.postMessage({ type: 'render', id: t.id, kind: t.kind, size: t.w, rx: t.rx, ry: t.ry });
+    t.sent = { rx: t.rx, ry: t.ry, w: t.size };
+    worker.postMessage({ type: 'render', id: t.id, kind: t.kind, size: t.size, rx: t.rx, ry: t.ry });
   }
 
   function changed(t) {
     var s = t.sent;
-    return !s || s.w !== t.w || Math.abs(s.rx - t.rx) > 0.0005 || Math.abs(s.ry - t.ry) > 0.0005;
+    return !s || s.w !== t.size || Math.abs(s.rx - t.rx) > 0.0005 || Math.abs(s.ry - t.ry) > 0.0005;
   }
 
   function frame() {
@@ -76,7 +79,9 @@
         ty += s * 0.55 * t.depth; tx += -s * 0.22;
       }
       t.ry = lerp(t.ry, ty, 0.14); t.rx = lerp(t.rx, tx, 0.14);
-      if (Math.abs(t.ry - ty) > 0.002 || Math.abs(t.rx - tx) > 0.002) moving = true;
+      var tileMoving = Math.abs(t.ry - ty) > 0.002 || Math.abs(t.rx - tx) > 0.002;
+      if (tileMoving) moving = true;
+      t.size = tileMoving ? Math.max(2, Math.round(t.w * MOVING_SCALE)) : t.w;
       if (!t.pending && changed(t)) send(t);
     });
     if (moving) request();
