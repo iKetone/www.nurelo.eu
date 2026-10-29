@@ -82,7 +82,6 @@ h3 { font-size: 1.3rem; letter-spacing: -.015em; }
 .lead, .chapter-lead { font-size: clamp(1.08rem, 1.5vw, 1.25rem); max-width: 56ch; color: var(--ink-2); }
 
 .kicker { font-size: .86rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1.2rem; display: flex; gap: .7rem; align-items: center; }
-.kicker > span { display: inline-grid; place-items: center; min-width: 2.2rem; height: 1.7rem; padding: 0 .5rem; border-radius: 6px; border: 1.5px solid currentColor; font-size: .78rem; }
 .kicker.dark { color: var(--terra-d); }
 .kicker.light { color: var(--cream); }
 
@@ -336,7 +335,6 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .pg-section { padding: clamp(4rem, 9vw, 7rem) 0; background: var(--cream); position: relative; }
 .pg-feats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.4rem 1.6rem; }
 .pg-feats li { border-top: 3px solid var(--pc, var(--ink)); padding-top: 1.2rem; }
-.pg-feats li > span { font-size: .9rem; font-weight: 800; letter-spacing: .1em; color: var(--pc-d, var(--terra-d)); }
 .pg-feats h3 { margin: .6rem 0 .5rem; }
 .pg-feats p { color: var(--ink-2); font-size: 1rem; }
 .pg-st { --pc: var(--olive); --pc-d: var(--olive-d); }
