@@ -248,11 +248,20 @@
           <div class="chapter-visual">
             <div class="app-window dark">
   <div class="win-bar"><b>Nurelo Kotihoito · Reitti 2 Pohjoinen</b></div>
+  <div class="route-box">
   <svg class="route" viewBox="0 0 400 200" role="img" aria-label="Reitin kulku neljällä käynnillä">
     <path d="M30 160 C 110 160, 90 60, 170 60 S 250 150, 310 120 S 350 50, 372 40" fill="none" stroke="#C59045" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 12"/>
     <g fill="#C59045"><circle cx="30" cy="160" r="9"/><circle cx="170" cy="60" r="9"/><circle cx="310" cy="120" r="9"/><circle cx="372" cy="40" r="9"/></g>
     <g fill="#F2EADD" font-size="13" font-weight="700" text-anchor="middle"><text x="30" y="186">08:30</text><text x="170" y="40">09:10</text><text x="310" y="150">09:55</text><text x="372" y="24">10:30</text></g>
   </svg>
+  <div class="route-live" aria-hidden="true">
+    <i class="ping" style="--x:7.5%;--y:80%;--d:.01s"></i>
+    <i class="ping" style="--x:42.5%;--y:30%;--d:3.04s"></i>
+    <i class="ping" style="--x:77.5%;--y:60%;--d:5.75s"></i>
+    <i class="ping" style="--x:93%;--y:20%;--d:7.5s"></i>
+    <i class="veh"></i>
+  </div>
+  </div>
 </div>
 
             <div class="tile chap am" data-depth="1.3" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-am"/></svg></div></div></div>
@@ -278,7 +287,7 @@
             <div class="app-window dark">
   <div class="win-bar"><b>Nurelo Turvapuhelin · Hälytysketju</b></div>
   <ol class="chain">
-    <li><b>Laite</b><small>Hälytys lähetetty</small></li>
+    <li><i class="ring" aria-hidden="true"></i><i class="ring r2" aria-hidden="true"></i><b>Laite</b><small>Hälytys lähetetty</small></li>
     <li><b>Nurelo</b><small>Käyttäjä tunnistettu</small></li>
     <li><b>Hälytyskeskus</b><small>Välitys</small></li>
     <li><b>Toimenpide</b><small>Dokumentoitu</small></li>
@@ -375,8 +384,8 @@
           <li class="reveal"><h3>Koulutus</h3><p>Livekoulutus hoitotyön johdolle ja tiimille sekä videokirjasto.</p></li>
           <li class="reveal"><h3>Tuotantoon siirto &amp; tuki</h3><p>Tuottava alku henkilökohtaisella tuella ensimmäisinä viikkoina.</p></li>
         </ol>
-        <ul class="trust reveal">
-          <li><span class="nb">GDPR-yhteensopiva</span></li><li>Isännöity Saksassa</li><li>Automaattiset päivitykset</li><li>Henkilökohtainen tuki</li>
+        <ul class="trust">
+          <li class="reveal"><span class="nb">GDPR-yhteensopiva</span></li><li class="reveal">Isännöity Saksassa</li><li class="reveal">Automaattiset päivitykset</li><li class="reveal">Henkilökohtainen tuki</li>
         </ul>
       </div>
     </section>
@@ -390,13 +399,13 @@
           <p class="lead">Teemme toimipaikallenne sopivan tarjouksen ilman piilokustannuksia.</p>
           <a class="btn btn-terra" href="#kontakt">Pyydä tarjous</a>
         </div>
-        <dl class="price-factors reveal">
-          <div><dt>Toimintamuodot</dt><dd>Yksi toimintamuoto tai kaikki kolme: hoivakoti, kotihoito ja turvapuhelin.</dd></div>
-          <div><dt>Käyttäjät</dt><dd>Pienet palvelut enintään 20 käyttäjätunnukseen, suuremmat organisaatiot ilman rajoitusta.</dd></div>
-          <div><dt>Moduulit</dt><dd>Lisämoduulit, kuten reittisuunnittelu, <span class="nb">asiakirja-arkisto</span> tai raporttisuunnittelija, tarpeen mukaan.</dd></div>
-          <div><dt>Rajapinnat</dt><dd>Viennit DATEViin ja SAP:iin sekä <span class="nb">TI-KIM-yhteys</span>.</dd></div>
-          <div><dt>Tuki</dt><dd>Sähköpostituki tai ensisijainen tuki, ylläpitäjille oma asiakasvastaava.</dd></div>
-          <div><dt>Ylläpitäjät ja liitot</dt><dd>Yksilölliset ratkaisut useille toimipaikoille, SLA sopimuksen mukaan.</dd></div>
+        <dl class="price-factors">
+          <div class="reveal"><dt>Toimintamuodot</dt><dd>Yksi toimintamuoto tai kaikki kolme: hoivakoti, kotihoito ja turvapuhelin.</dd></div>
+          <div class="reveal"><dt>Käyttäjät</dt><dd>Pienet palvelut enintään 20 käyttäjätunnukseen, suuremmat organisaatiot ilman rajoitusta.</dd></div>
+          <div class="reveal"><dt>Moduulit</dt><dd>Lisämoduulit, kuten reittisuunnittelu, <span class="nb">asiakirja-arkisto</span> tai raporttisuunnittelija, tarpeen mukaan.</dd></div>
+          <div class="reveal"><dt>Rajapinnat</dt><dd>Viennit DATEViin ja SAP:iin sekä <span class="nb">TI-KIM-yhteys</span>.</dd></div>
+          <div class="reveal"><dt>Tuki</dt><dd>Sähköpostituki tai ensisijainen tuki, ylläpitäjille oma asiakasvastaava.</dd></div>
+          <div class="reveal"><dt>Ylläpitäjät ja liitot</dt><dd>Yksilölliset ratkaisut useille toimipaikoille, SLA sopimuksen mukaan.</dd></div>
         </dl>
       </div>
     </section>

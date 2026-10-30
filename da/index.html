@@ -248,11 +248,20 @@
           <div class="chapter-visual">
             <div class="app-window dark">
   <div class="win-bar"><b>Nurelo Hjemmepleje · Rute 2 Nord</b></div>
+  <div class="route-box">
   <svg class="route" viewBox="0 0 400 200" role="img" aria-label="Rutens forløb med fire besøg">
     <path d="M30 160 C 110 160, 90 60, 170 60 S 250 150, 310 120 S 350 50, 372 40" fill="none" stroke="#C59045" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 12"/>
     <g fill="#C59045"><circle cx="30" cy="160" r="9"/><circle cx="170" cy="60" r="9"/><circle cx="310" cy="120" r="9"/><circle cx="372" cy="40" r="9"/></g>
     <g fill="#F2EADD" font-size="13" font-weight="700" text-anchor="middle"><text x="30" y="186">08:30</text><text x="170" y="40">09:10</text><text x="310" y="150">09:55</text><text x="372" y="24">10:30</text></g>
   </svg>
+  <div class="route-live" aria-hidden="true">
+    <i class="ping" style="--x:7.5%;--y:80%;--d:.01s"></i>
+    <i class="ping" style="--x:42.5%;--y:30%;--d:3.04s"></i>
+    <i class="ping" style="--x:77.5%;--y:60%;--d:5.75s"></i>
+    <i class="ping" style="--x:93%;--y:20%;--d:7.5s"></i>
+    <i class="veh"></i>
+  </div>
+  </div>
 </div>
 
             <div class="tile chap am" data-depth="1.3" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-am"/></svg></div></div></div>
@@ -278,7 +287,7 @@
             <div class="app-window dark">
   <div class="win-bar"><b>Nurelo Nødkald · Alarmkæde</b></div>
   <ol class="chain">
-    <li><b>Enhed</b><small>Alarm udløst</small></li>
+    <li><i class="ring" aria-hidden="true"></i><i class="ring r2" aria-hidden="true"></i><b>Enhed</b><small>Alarm udløst</small></li>
     <li><b>Nurelo</b><small>Bruger genkendt</small></li>
     <li><b>Alarmcentral</b><small>Videresendelse</small></li>
     <li><b>Indsats</b><small>Dokumenteret</small></li>
@@ -375,8 +384,8 @@
           <li class="reveal"><h3>Undervisning</h3><p><span class="nb">Live-undervisning</span> for plejeledelse og team, plus et videobibliotek.</p></li>
           <li class="reveal"><h3>Idriftsættelse &amp; support</h3><p>Produktiv start med personlig vejledning de første uger.</p></li>
         </ol>
-        <ul class="trust reveal">
-          <li><span class="nb">GDPR-overholdende</span></li><li>Hostet i Tyskland</li><li>Automatiske opdateringer</li><li>Personlig support</li>
+        <ul class="trust">
+          <li class="reveal"><span class="nb">GDPR-overholdende</span></li><li class="reveal">Hostet i Tyskland</li><li class="reveal">Automatiske opdateringer</li><li class="reveal">Personlig support</li>
         </ul>
       </div>
     </section>
@@ -390,13 +399,13 @@
           <p class="lead">Vi udarbejder et tilbud, der passer til jeres institution, uden skjulte omkostninger.</p>
           <a class="btn btn-terra" href="#kontakt">Bed om et tilbud</a>
         </div>
-        <dl class="price-factors reveal">
-          <div><dt>Plejeformer</dt><dd>Én plejeform eller alle tre: plejecenter, hjemmepleje og nødkald.</dd></div>
-          <div><dt>Brugere</dt><dd>Små tjenester op til 20 brugerkonti, større organisationer uden begrænsning.</dd></div>
-          <div><dt>Moduler</dt><dd>Tillægsmoduler som ruteplanlægning, dokumentarkiv eller rapportdesigner efter behov.</dd></div>
-          <div><dt>Grænseflader</dt><dd>Eksport til DATEV og SAP samt <span class="nb">TI-KIM-forbindelsen</span>.</dd></div>
-          <div><dt>Support</dt><dd><span class="nb">E-mailsupport</span> eller prioriteret support, med fast kontaktperson for driftsherrer.</dd></div>
-          <div><dt>Driftsherrer og foreninger</dt><dd>Individuelle løsninger til flere institutioner, SLA efter aftale.</dd></div>
+        <dl class="price-factors">
+          <div class="reveal"><dt>Plejeformer</dt><dd>Én plejeform eller alle tre: plejecenter, hjemmepleje og nødkald.</dd></div>
+          <div class="reveal"><dt>Brugere</dt><dd>Små tjenester op til 20 brugerkonti, større organisationer uden begrænsning.</dd></div>
+          <div class="reveal"><dt>Moduler</dt><dd>Tillægsmoduler som ruteplanlægning, dokumentarkiv eller rapportdesigner efter behov.</dd></div>
+          <div class="reveal"><dt>Grænseflader</dt><dd>Eksport til DATEV og SAP samt <span class="nb">TI-KIM-forbindelsen</span>.</dd></div>
+          <div class="reveal"><dt>Support</dt><dd><span class="nb">E-mailsupport</span> eller prioriteret support, med fast kontaktperson for driftsherrer.</dd></div>
+          <div class="reveal"><dt>Driftsherrer og foreninger</dt><dd>Individuelle løsninger til flere institutioner, SLA efter aftale.</dd></div>
         </dl>
       </div>
     </section>

@@ -248,11 +248,20 @@
           <div class="chapter-visual">
             <div class="app-window dark">
   <div class="win-bar"><b>Nurelo Cúram sa bhaile · Bealach 2 Tuaisceart</b></div>
+  <div class="route-box">
   <svg class="route" viewBox="0 0 400 200" role="img" aria-label="Cúrsa an bhealaigh le ceithre chuairt">
     <path d="M30 160 C 110 160, 90 60, 170 60 S 250 150, 310 120 S 350 50, 372 40" fill="none" stroke="#C59045" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 12"/>
     <g fill="#C59045"><circle cx="30" cy="160" r="9"/><circle cx="170" cy="60" r="9"/><circle cx="310" cy="120" r="9"/><circle cx="372" cy="40" r="9"/></g>
     <g fill="#F2EADD" font-size="13" font-weight="700" text-anchor="middle"><text x="30" y="186">08:30</text><text x="170" y="40">09:10</text><text x="310" y="150">09:55</text><text x="372" y="24">10:30</text></g>
   </svg>
+  <div class="route-live" aria-hidden="true">
+    <i class="ping" style="--x:7.5%;--y:80%;--d:.01s"></i>
+    <i class="ping" style="--x:42.5%;--y:30%;--d:3.04s"></i>
+    <i class="ping" style="--x:77.5%;--y:60%;--d:5.75s"></i>
+    <i class="ping" style="--x:93%;--y:20%;--d:7.5s"></i>
+    <i class="veh"></i>
+  </div>
+  </div>
 </div>
 
             <div class="tile chap am" data-depth="1.3" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-am"/></svg></div></div></div>
@@ -278,7 +287,7 @@
             <div class="app-window dark">
   <div class="win-bar"><b>Nurelo Aláram éigeandála · Slabhra aláraim</b></div>
   <ol class="chain">
-    <li><b>Feiste</b><small>Aláram gníomhachtaithe</small></li>
+    <li><i class="ring" aria-hidden="true"></i><i class="ring r2" aria-hidden="true"></i><b>Feiste</b><small>Aláram gníomhachtaithe</small></li>
     <li><b>Nurelo</b><small>Úsáideoir aitheanta</small></li>
     <li><b>Ionad rialaithe</b><small>Seoladh ar aghaidh</small></li>
     <li><b>Freagra</b><small>Doiciméadaithe</small></li>
@@ -375,8 +384,8 @@
           <li class="reveal"><h3>Oiliúint</h3><p>Oiliúint bheo do bhainisteoirí cúraim agus don fhoireann, móide leabharlann físeán.</p></li>
           <li class="reveal"><h3>Tosú beo &amp; tacaíocht</h3><p>Tús táirgiúil le tacaíocht phearsanta sna chéad seachtainí.</p></li>
         </ol>
-        <ul class="trust reveal">
-          <li>Comhlíonann RGCS</li><li>Óstáilte sa Ghearmáin</li><li>Nuashonruithe uathoibríocha</li><li>Tacaíocht phearsanta</li>
+        <ul class="trust">
+          <li class="reveal">Comhlíonann RGCS</li><li class="reveal">Óstáilte sa Ghearmáin</li><li class="reveal">Nuashonruithe uathoibríocha</li><li class="reveal">Tacaíocht phearsanta</li>
         </ul>
       </div>
     </section>
@@ -390,13 +399,13 @@
           <p class="lead">Ullmhaímid tairiscint a oireann do d'institiúid, gan costais fholaithe.</p>
           <a class="btn btn-terra" href="#kontakt">Iarr tairiscint</a>
         </div>
-        <dl class="price-factors reveal">
-          <div><dt>Réimsí</dt><dd>Réimse amháin nó gach ceann den triúr: cúram cónaithe, cúram sa bhaile agus aláram éigeandála.</dd></div>
-          <div><dt>Úsáideoirí</dt><dd>Seirbhísí beaga suas le 20 cuntas úsáideora, eagraíochtaí níos mó gan teorainn.</dd></div>
-          <div><dt>Modúil</dt><dd>Modúil bhreise, mar phleanáil bealaigh, cartlann doiciméad nó dearthóir tuarascálacha, de réir riachtanais.</dd></div>
-          <div><dt>Comhéadain</dt><dd>Onnmhairithe do DATEV agus SAP chomh maith leis an nasc <span class="nb">TI-KIM</span>.</dd></div>
-          <div><dt>Tacaíocht</dt><dd>Tacaíocht ríomhphoist nó tacaíocht tosaíochta, le bainisteoir cuntais tiomanta d'oibritheoirí.</dd></div>
-          <div><dt>Oibritheoirí agus cumainn</dt><dd>Réitigh shaincheaptha do roinnt institiúidí, SLA de réir comhaontaithe.</dd></div>
+        <dl class="price-factors">
+          <div class="reveal"><dt>Réimsí</dt><dd>Réimse amháin nó gach ceann den triúr: cúram cónaithe, cúram sa bhaile agus aláram éigeandála.</dd></div>
+          <div class="reveal"><dt>Úsáideoirí</dt><dd>Seirbhísí beaga suas le 20 cuntas úsáideora, eagraíochtaí níos mó gan teorainn.</dd></div>
+          <div class="reveal"><dt>Modúil</dt><dd>Modúil bhreise, mar phleanáil bealaigh, cartlann doiciméad nó dearthóir tuarascálacha, de réir riachtanais.</dd></div>
+          <div class="reveal"><dt>Comhéadain</dt><dd>Onnmhairithe do DATEV agus SAP chomh maith leis an nasc <span class="nb">TI-KIM</span>.</dd></div>
+          <div class="reveal"><dt>Tacaíocht</dt><dd>Tacaíocht ríomhphoist nó tacaíocht tosaíochta, le bainisteoir cuntais tiomanta d'oibritheoirí.</dd></div>
+          <div class="reveal"><dt>Oibritheoirí agus cumainn</dt><dd>Réitigh shaincheaptha do roinnt institiúidí, SLA de réir comhaontaithe.</dd></div>
         </dl>
       </div>
     </section>

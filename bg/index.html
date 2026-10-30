@@ -248,11 +248,20 @@
           <div class="chapter-visual">
             <div class="app-window dark">
   <div class="win-bar"><b>Nurelo Грижа в дома · Маршрут 2 Север</b></div>
+  <div class="route-box">
   <svg class="route" viewBox="0 0 400 200" role="img" aria-label="Ход на маршрута с четири посещения">
     <path d="M30 160 C 110 160, 90 60, 170 60 S 250 150, 310 120 S 350 50, 372 40" fill="none" stroke="#C59045" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 12"/>
     <g fill="#C59045"><circle cx="30" cy="160" r="9"/><circle cx="170" cy="60" r="9"/><circle cx="310" cy="120" r="9"/><circle cx="372" cy="40" r="9"/></g>
     <g fill="#F2EADD" font-size="13" font-weight="700" text-anchor="middle"><text x="30" y="186">08:30</text><text x="170" y="40">09:10</text><text x="310" y="150">09:55</text><text x="372" y="24">10:30</text></g>
   </svg>
+  <div class="route-live" aria-hidden="true">
+    <i class="ping" style="--x:7.5%;--y:80%;--d:.01s"></i>
+    <i class="ping" style="--x:42.5%;--y:30%;--d:3.04s"></i>
+    <i class="ping" style="--x:77.5%;--y:60%;--d:5.75s"></i>
+    <i class="ping" style="--x:93%;--y:20%;--d:7.5s"></i>
+    <i class="veh"></i>
+  </div>
+  </div>
 </div>
 
             <div class="tile chap am" data-depth="1.3" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-am"/></svg></div></div></div>
@@ -278,7 +287,7 @@
             <div class="app-window dark">
   <div class="win-bar"><b>Nurelo Спешно повикване · Верига на алармата</b></div>
   <ol class="chain">
-    <li><b>Устройство</b><small>Алармата е задействана</small></li>
+    <li><i class="ring" aria-hidden="true"></i><i class="ring r2" aria-hidden="true"></i><b>Устройство</b><small>Алармата е задействана</small></li>
     <li><b>Nurelo</b><small>Потребителят е разпознат</small></li>
     <li><b>Диспечерски център</b><small>Препращане</small></li>
     <li><b>Реакция</b><small>Документирана</small></li>
@@ -375,8 +384,8 @@
           <li class="reveal"><h3>Обучение</h3><p>Обучение на живо за ръководството на грижите и екипа, плюс видеотека.</p></li>
           <li class="reveal"><h3>Пускане в работа &amp; поддръжка</h3><p>Продуктивен старт с лично съпровождане през първите седмици.</p></li>
         </ol>
-        <ul class="trust reveal">
-          <li>Съответствие с GDPR</li><li>Хостван в Германия</li><li>Автоматични актуализации</li><li>Лична поддръжка</li>
+        <ul class="trust">
+          <li class="reveal">Съответствие с GDPR</li><li class="reveal">Хостван в Германия</li><li class="reveal">Автоматични актуализации</li><li class="reveal">Лична поддръжка</li>
         </ul>
       </div>
     </section>
@@ -390,13 +399,13 @@
           <p class="lead">Изготвяме оферта, съобразена с вашето заведение, без скрити разходи.</p>
           <a class="btn btn-terra" href="#kontakt">Поискайте оферта</a>
         </div>
-        <dl class="price-factors reveal">
-          <div><dt>Области</dt><dd>Една област или и трите: дом за грижи, грижа в дома и спешно повикване.</dd></div>
-          <div><dt>Потребители</dt><dd>Малки служби до 20 потребителски акаунта, <span class="nb">по-големи</span> организации без ограничение.</dd></div>
-          <div><dt>Модули</dt><dd>Допълнителни модули като планиране на маршрути, архив на документи или дизайнер на справки според нуждите.</dd></div>
-          <div><dt>Интерфейси</dt><dd>Експорти за DATEV и SAP, както и връзка с <span class="nb">TI-KIM</span>.</dd></div>
-          <div><dt>Поддръжка</dt><dd>Поддръжка по имейл или приоритетна поддръжка, със собствен отговорник за клиенти за операторите.</dd></div>
-          <div><dt>Оператори и сдружения</dt><dd>Индивидуални решения за няколко заведения, SLA по договаряне.</dd></div>
+        <dl class="price-factors">
+          <div class="reveal"><dt>Области</dt><dd>Една област или и трите: дом за грижи, грижа в дома и спешно повикване.</dd></div>
+          <div class="reveal"><dt>Потребители</dt><dd>Малки служби до 20 потребителски акаунта, <span class="nb">по-големи</span> организации без ограничение.</dd></div>
+          <div class="reveal"><dt>Модули</dt><dd>Допълнителни модули като планиране на маршрути, архив на документи или дизайнер на справки според нуждите.</dd></div>
+          <div class="reveal"><dt>Интерфейси</dt><dd>Експорти за DATEV и SAP, както и връзка с <span class="nb">TI-KIM</span>.</dd></div>
+          <div class="reveal"><dt>Поддръжка</dt><dd>Поддръжка по имейл или приоритетна поддръжка, със собствен отговорник за клиенти за операторите.</dd></div>
+          <div class="reveal"><dt>Оператори и сдружения</dt><dd>Индивидуални решения за няколко заведения, SLA по договаряне.</dd></div>
         </dl>
       </div>
     </section>

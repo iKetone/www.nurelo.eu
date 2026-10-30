@@ -248,11 +248,20 @@
           <div class="chapter-visual">
             <div class="app-window dark">
   <div class="win-bar"><b>Nurelo Kura <span class="nb">fid-dar</span> · Rotta 2 Tramuntana</b></div>
+  <div class="route-box">
   <svg class="route" viewBox="0 0 400 200" role="img" aria-label="Kors tar-rotta b'erba' żjarat">
     <path d="M30 160 C 110 160, 90 60, 170 60 S 250 150, 310 120 S 350 50, 372 40" fill="none" stroke="#C59045" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 12"/>
     <g fill="#C59045"><circle cx="30" cy="160" r="9"/><circle cx="170" cy="60" r="9"/><circle cx="310" cy="120" r="9"/><circle cx="372" cy="40" r="9"/></g>
     <g fill="#F2EADD" font-size="13" font-weight="700" text-anchor="middle"><text x="30" y="186">08:30</text><text x="170" y="40">09:10</text><text x="310" y="150">09:55</text><text x="372" y="24">10:30</text></g>
   </svg>
+  <div class="route-live" aria-hidden="true">
+    <i class="ping" style="--x:7.5%;--y:80%;--d:.01s"></i>
+    <i class="ping" style="--x:42.5%;--y:30%;--d:3.04s"></i>
+    <i class="ping" style="--x:77.5%;--y:60%;--d:5.75s"></i>
+    <i class="ping" style="--x:93%;--y:20%;--d:7.5s"></i>
+    <i class="veh"></i>
+  </div>
+  </div>
 </div>
 
             <div class="tile chap am" data-depth="1.3" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-am"/></svg></div></div></div>
@@ -278,7 +287,7 @@
             <div class="app-window dark">
   <div class="win-bar"><b>Nurelo Sejħa ta' emerġenza · Katina <span class="nb">tal-allarm</span></b></div>
   <ol class="chain">
-    <li><b>Apparat</b><small>Allarm attivat</small></li>
+    <li><i class="ring" aria-hidden="true"></i><i class="ring r2" aria-hidden="true"></i><b>Apparat</b><small>Allarm attivat</small></li>
     <li><b>Nurelo</b><small>Utent identifikat</small></li>
     <li><b>Ċentru <span class="nb">tal-kontroll</span></b><small>Tressiq</small></li>
     <li><b>Intervent</b><small>Dokumentat</small></li>
@@ -375,8 +384,8 @@
           <li class="reveal"><h3>Taħriġ</h3><p>Taħriġ dirett <span class="nb">għall-maniġment</span> <span class="nb">tal-kura</span> u <span class="nb">t-tim</span>, flimkien ma' librerija <span class="nb">tal-vidjows</span>.</p></li>
           <li class="reveal"><h3>Tluq &amp; appoġġ</h3><p>Bidu produttiv b'appoġġ personali <span class="nb">fl-ewwel</span> ġimgħat.</p></li>
         </ol>
-        <ul class="trust reveal">
-          <li>Konformi <span class="nb">mal-GDPR</span></li><li>Ospitat <span class="nb">fil-Ġermanja</span></li><li>Aġġornamenti awtomatiċi</li><li>Appoġġ personali</li>
+        <ul class="trust">
+          <li class="reveal">Konformi <span class="nb">mal-GDPR</span></li><li class="reveal">Ospitat <span class="nb">fil-Ġermanja</span></li><li class="reveal">Aġġornamenti awtomatiċi</li><li class="reveal">Appoġġ personali</li>
         </ul>
       </div>
     </section>
@@ -390,13 +399,13 @@
           <p class="lead">Nipprepparaw offerta li taqbel <span class="nb">mal-istituzzjoni</span> tiegħek, mingħajr spejjeż moħbija.</p>
           <a class="btn btn-terra" href="#kontakt">Itlob offerta</a>
         </div>
-        <dl class="price-factors reveal">
-          <div><dt>Oqsma</dt><dd>Qasam wieħed jew <span class="nb">it-tlieta</span> kollha: kura residenzjali, kura <span class="nb">fid-dar</span> u sejħa ta' emerġenza.</dd></div>
-          <div><dt>Utenti</dt><dd>Servizzi żgħar sa 20 kont <span class="nb">tal-utent</span>, organizzazzjonijiet akbar mingħajr limitu.</dd></div>
-          <div><dt>Moduli</dt><dd>Moduli addizzjonali <span class="nb">bħall-ippjanar</span> <span class="nb">tar-rotot</span>, <span class="nb">l-arkivju</span> <span class="nb">tad-dokumenti</span> jew <span class="nb">id-disinjatur</span> <span class="nb">tar-rapporti</span> skont <span class="nb">il-ħtieġa</span>.</dd></div>
-          <div><dt>Interfaċċji</dt><dd>Esportazzjonijiet għal DATEV u SAP kif ukoll <span class="nb">il-konnessjoni</span> <span class="nb">TI-KIM</span>.</dd></div>
-          <div><dt>Appoġġ</dt><dd>Appoġġ <span class="nb">bl-email</span> jew appoġġ prijoritarju, b'maniġer <span class="nb">tal-kont</span> dedikat <span class="nb">għall-operaturi</span>.</dd></div>
-          <div><dt>Operaturi u assoċjazzjonijiet</dt><dd>Soluzzjonijiet individwali għal diversi istituzzjonijiet, SLA skont ftehim.</dd></div>
+        <dl class="price-factors">
+          <div class="reveal"><dt>Oqsma</dt><dd>Qasam wieħed jew <span class="nb">it-tlieta</span> kollha: kura residenzjali, kura <span class="nb">fid-dar</span> u sejħa ta' emerġenza.</dd></div>
+          <div class="reveal"><dt>Utenti</dt><dd>Servizzi żgħar sa 20 kont <span class="nb">tal-utent</span>, organizzazzjonijiet akbar mingħajr limitu.</dd></div>
+          <div class="reveal"><dt>Moduli</dt><dd>Moduli addizzjonali <span class="nb">bħall-ippjanar</span> <span class="nb">tar-rotot</span>, <span class="nb">l-arkivju</span> <span class="nb">tad-dokumenti</span> jew <span class="nb">id-disinjatur</span> <span class="nb">tar-rapporti</span> skont <span class="nb">il-ħtieġa</span>.</dd></div>
+          <div class="reveal"><dt>Interfaċċji</dt><dd>Esportazzjonijiet għal DATEV u SAP kif ukoll <span class="nb">il-konnessjoni</span> <span class="nb">TI-KIM</span>.</dd></div>
+          <div class="reveal"><dt>Appoġġ</dt><dd>Appoġġ <span class="nb">bl-email</span> jew appoġġ prijoritarju, b'maniġer <span class="nb">tal-kont</span> dedikat <span class="nb">għall-operaturi</span>.</dd></div>
+          <div class="reveal"><dt>Operaturi u assoċjazzjonijiet</dt><dd>Soluzzjonijiet individwali għal diversi istituzzjonijiet, SLA skont ftehim.</dd></div>
         </dl>
       </div>
     </section>

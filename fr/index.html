@@ -248,11 +248,20 @@
           <div class="chapter-visual">
             <div class="app-window dark">
   <div class="win-bar"><b>Nurelo À domicile · Tournée 2 Nord</b></div>
+  <div class="route-box">
   <svg class="route" viewBox="0 0 400 200" role="img" aria-label="Parcours de la tournée avec quatre interventions">
     <path d="M30 160 C 110 160, 90 60, 170 60 S 250 150, 310 120 S 350 50, 372 40" fill="none" stroke="#C59045" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 12"/>
     <g fill="#C59045"><circle cx="30" cy="160" r="9"/><circle cx="170" cy="60" r="9"/><circle cx="310" cy="120" r="9"/><circle cx="372" cy="40" r="9"/></g>
     <g fill="#F2EADD" font-size="13" font-weight="700" text-anchor="middle"><text x="30" y="186">08:30</text><text x="170" y="40">09:10</text><text x="310" y="150">09:55</text><text x="372" y="24">10:30</text></g>
   </svg>
+  <div class="route-live" aria-hidden="true">
+    <i class="ping" style="--x:7.5%;--y:80%;--d:.01s"></i>
+    <i class="ping" style="--x:42.5%;--y:30%;--d:3.04s"></i>
+    <i class="ping" style="--x:77.5%;--y:60%;--d:5.75s"></i>
+    <i class="ping" style="--x:93%;--y:20%;--d:7.5s"></i>
+    <i class="veh"></i>
+  </div>
+  </div>
 </div>
 
             <div class="tile chap am" data-depth="1.3" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-am"/></svg></div></div></div>
@@ -278,7 +287,7 @@
             <div class="app-window dark">
   <div class="win-bar"><b>Nurelo Téléassistance · Chaîne d'alarme</b></div>
   <ol class="chain">
-    <li><b>Appareil</b><small>Alarme déclenchée</small></li>
+    <li><i class="ring" aria-hidden="true"></i><i class="ring r2" aria-hidden="true"></i><b>Appareil</b><small>Alarme déclenchée</small></li>
     <li><b>Nurelo</b><small>Abonné identifié</small></li>
     <li><b>Centrale</b><small>Transmission</small></li>
     <li><b>Intervention</b><small>Documentée</small></li>
@@ -375,8 +384,8 @@
           <li class="reveal"><h3>Formation</h3><p>Formation en direct pour la direction des soins et l'équipe, avec une vidéothèque.</p></li>
           <li class="reveal"><h3>Mise en service &amp; assistance</h3><p>Démarrage productif avec un accompagnement personnel pendant les premières semaines.</p></li>
         </ol>
-        <ul class="trust reveal">
-          <li>Conforme au RGPD</li><li>Hébergé en Allemagne</li><li>Mises à jour automatiques</li><li>Assistance personnalisée</li>
+        <ul class="trust">
+          <li class="reveal">Conforme au RGPD</li><li class="reveal">Hébergé en Allemagne</li><li class="reveal">Mises à jour automatiques</li><li class="reveal">Assistance personnalisée</li>
         </ul>
       </div>
     </section>
@@ -390,13 +399,13 @@
           <p class="lead">Nous établissons une offre adaptée à votre structure, sans coûts cachés.</p>
           <a class="btn btn-terra" href="#kontakt">Demander une offre</a>
         </div>
-        <dl class="price-factors reveal">
-          <div><dt>Modes d'exercice</dt><dd>Un mode d'exercice ou les trois : établissement, à domicile et téléassistance.</dd></div>
-          <div><dt>Utilisateurs</dt><dd>Petits services jusqu'à 20 comptes, organisations plus grandes sans limite.</dd></div>
-          <div><dt>Modules</dt><dd>Modules complémentaires comme la planification des tournées, l'archive de documents ou le concepteur de rapports selon vos besoins.</dd></div>
-          <div><dt>Interfaces</dt><dd>Exports pour DATEV et SAP ainsi que la connexion <span class="nb">TI-KIM</span>.</dd></div>
-          <div><dt>Assistance</dt><dd>Assistance par <span class="nb">e-mail</span> ou assistance prioritaire, avec un interlocuteur dédié pour les gestionnaires.</dd></div>
-          <div><dt>Gestionnaires et fédérations</dt><dd>Solutions sur mesure pour plusieurs structures, SLA sur accord.</dd></div>
+        <dl class="price-factors">
+          <div class="reveal"><dt>Modes d'exercice</dt><dd>Un mode d'exercice ou les trois : établissement, à domicile et téléassistance.</dd></div>
+          <div class="reveal"><dt>Utilisateurs</dt><dd>Petits services jusqu'à 20 comptes, organisations plus grandes sans limite.</dd></div>
+          <div class="reveal"><dt>Modules</dt><dd>Modules complémentaires comme la planification des tournées, l'archive de documents ou le concepteur de rapports selon vos besoins.</dd></div>
+          <div class="reveal"><dt>Interfaces</dt><dd>Exports pour DATEV et SAP ainsi que la connexion <span class="nb">TI-KIM</span>.</dd></div>
+          <div class="reveal"><dt>Assistance</dt><dd>Assistance par <span class="nb">e-mail</span> ou assistance prioritaire, avec un interlocuteur dédié pour les gestionnaires.</dd></div>
+          <div class="reveal"><dt>Gestionnaires et fédérations</dt><dd>Solutions sur mesure pour plusieurs structures, SLA sur accord.</dd></div>
         </dl>
       </div>
     </section>

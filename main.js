@@ -53,6 +53,41 @@
     });
   }
 
+  // ---------- Kapitel-Stapel mit Tiefe ----------
+  // Die klebenden Kapitel verschieben ihre Position beim Überfahren nicht, deshalb taugt keine View-Timeline: Der Fortschritt kommt aus der
+  // Lage des jeweils nächsten Kapitels (unten im Fenster = 0, an seinem Klebeplatz = 1). Erst alle Lagen lesen, dann schreiben;
+  // will-change nur, solange eine Karte unterwegs ist. Nur Verkleinern: ein zusätzliches Abdunkeln über die ganze Karte kostete im
+  // Messlauf ohne Grafikkarte deutlich mehr Bildzeit und ist deshalb entfallen.
+  if (chapterBox) {
+    (function () {
+      var cards = [].slice.call(chapterBox.children);
+      var deep = window.matchMedia('(min-width: 861px) and (min-height: 701px)');
+      var sticks = [], busy = false;
+      function readSticks() { sticks = cards.map(function (el) { return parseFloat(getComputedStyle(el).top) || 0; }); }
+      function depth() {
+        busy = false;
+        var on = deep.matches && !reduce.matches, H = window.innerHeight;
+        var tops = cards.map(function (el) { return el.getBoundingClientRect().top; });
+        cards.forEach(function (el, i) {
+          if (i === cards.length - 1) return;
+          var p = on ? Math.min(1, Math.max(0, (H - tops[i + 1]) / (H - sticks[i + 1]))) : 0;
+          p = Math.round(p * 200) / 200;
+          if (el._p === p) return;
+          el._p = p;
+          var active = p > 0 && p < 1;
+          el.style.willChange = active ? 'transform' : '';
+          el.style.transform = p ? 'scale(' + (1 - 0.035 * p).toFixed(4) + ')' : '';
+        });
+      }
+      function ask() { if (!busy) { busy = true; requestAnimationFrame(depth); } }
+      window.addEventListener('scroll', ask, { passive: true });
+      window.addEventListener('resize', function () { readSticks(); ask(); });
+      deep.addEventListener && deep.addEventListener('change', ask);
+      reduce.addEventListener && reduce.addEventListener('change', ask);
+      readSticks(); depth();
+    })();
+  }
+
   // ---------- Reveal ----------
   var items = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
@@ -88,6 +123,68 @@
       shown = a;
     }, { rootMargin: '-40% 0px -59% 0px' });
     secs.forEach(function (sec) { spy.observe(sec); });
+  })();
+
+  // ---------- Fenster in den Kapiteln: Bewegung nur im Bild ----------
+  // .live schaltet die CSS-Abläufe der Fenster, solange sie im Bild sind
+  (function () {
+    var wins = [].slice.call(document.querySelectorAll('.chapter .app-window'));
+    if (!wins.length || !('IntersectionObserver' in window)) return;
+    var io2 = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { en.target.classList.toggle('live', en.isIntersecting); });
+    }, { threshold: 0.3 });
+    wins.forEach(function (w) { io2.observe(w); });
+  })();
+
+  // ---------- Gleitender Unterstrich in der Navigation (Desktop) ----------
+  // Ein einziges Element, das per transform zum aktuellen Link gleitet; die Markierung (aria-current) setzen weiterhin der Scroll-Spy
+  // und die Seitenvorlage, hier wird nur mitgelesen.
+  (function () {
+    var wide = window.matchMedia('(min-width: 861px)');
+    var ind = document.createElement('span');
+    ind.className = 'nav-ind'; ind.setAttribute('aria-hidden', 'true');
+    links.appendChild(ind);
+    var placed = false;
+    function place() {
+      var a = links.querySelector('a[aria-current]');
+      if (!wide.matches || !a) { ind.classList.remove('on'); links.classList.remove('has-ind'); return; }
+      links.classList.add('has-ind');
+      if (!placed) ind.classList.add('still');
+      ind.style.transform = 'translateX(' + a.offsetLeft + 'px) scaleX(' + a.offsetWidth + ')';
+      ind.classList.add('on');
+      if (!placed) { placed = true; void ind.offsetWidth; ind.classList.remove('still'); }
+    }
+    new MutationObserver(place).observe(links, { attributes: true, attributeFilter: ['aria-current'], subtree: true });
+    window.addEventListener('resize', function () { placed = false; place(); });
+    wide.addEventListener && wide.addEventListener('change', function () { placed = false; place(); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { placed = false; place(); });
+    place();
+  })();
+
+  // ---------- Wortweises Aufhellen ausgewählter Überschriften und Einleitungen ----------
+  // Nur Wörter (nicht Buchstaben): bleibt in allen Sprachen lesbar, der Text steht unverändert im Dokument. Die Wörter werden erst
+  // zerlegt, wenn der Browser scroll-gesteuerte Animationen kann und Bewegung erlaubt ist; sonst bleibt der Text unberührt.
+  (function () {
+    if (!(window.CSS && CSS.supports && CSS.supports('animation-timeline: view()')) || reduce.matches) return;
+    var targets = [].slice.call(document.querySelectorAll('.platform-head h2, .platform-head .chapter-lead, .steps-sec .section-head h2, .steps-sec .section-head .lead'));
+    targets.forEach(function (el) {
+      var words = [];
+      (function walk(node) {
+        [].slice.call(node.childNodes).forEach(function (n) {
+          if (n.nodeType === 3) {
+            var parts = n.nodeValue.split(/(\s+)/), frag = document.createDocumentFragment();
+            parts.forEach(function (t) {
+              if (!t) return;
+              if (/^\s+$/.test(t)) { frag.appendChild(document.createTextNode(t)); return; }
+              var s = document.createElement('span'); s.className = 'w'; s.textContent = t; words.push(s); frag.appendChild(s);
+            });
+            node.replaceChild(frag, n);
+          } else if (n.nodeType === 1 && !n.classList.contains('w')) walk(n);
+        });
+      })(el);
+      words.forEach(function (w, i) { w.style.setProperty('--f', words.length > 1 ? (i / (words.length - 1)).toFixed(3) : '0'); });
+      if (words.length) el.classList.add('words');
+    });
   })();
 
   // ---------- Hilfsfunktionen ----------
@@ -133,12 +230,15 @@
   var W = 0, H = 0;
 
   function measure() {
+    // Die Ankerpunkte liegen im App-Fenster: ohne dessen Kippen und Verschieben messen, sonst wandern die Kacheln mit
+    var tf = win.style.transform; win.style.transform = '';
     var s = stage.getBoundingClientRect();
     W = s.width; H = s.height;
     ['st', 'am', 'hn'].forEach(function (k) {
       var r = stage.querySelector('[data-anchor="' + k + '"]').getBoundingClientRect();
       anchors[k] = { x: r.left - s.left + r.width / 2, y: r.top - s.top + r.height / 2 };
     });
+    win.style.transform = tf;
   }
 
   // Die Scroll-Sequenz läuft auch mobil; nur bei reduzierter Bewegung bleibt der Hero statisch
@@ -257,8 +357,11 @@
       more.style.pointerEvents = p > 0.7 ? 'auto' : 'none';
       hint.style.opacity = 1 - smooth(0, 0.12, p);
       win.style.opacity = smooth(0.42, 0.62, p);
+      // Das Fenster liegt zuerst leicht nach hinten gekippt und tiefer und richtet sich auf, bis es flach steht
+      var wk = smooth(0.36, 0.72, p);
+      win.style.transform = wk >= 1 ? '' : 'perspective(1200px) translateY(' + ((1 - wk) * 46).toFixed(1) + 'px) rotateX(' + ((1 - wk) * 9).toFixed(2) + 'deg)';
     } else {
-      [h1a, h1b, more, hint, win].forEach(function (el) { el.style.opacity = ''; el.style.pointerEvents = ''; });
+      [h1a, h1b, more, hint, win].forEach(function (el) { el.style.opacity = ''; el.style.pointerEvents = ''; el.style.transform = ''; });
     }
     DRIFT.t1 = t1; DRIFT.t2 = t2;
     setStage(t1, t2);

@@ -248,11 +248,20 @@
           <div class="chapter-visual">
             <div class="app-window dark">
   <div class="win-bar"><b>Nurelo Φροντίδα κατ' οίκον · Διαδρομή 2 Βορράς</b></div>
+  <div class="route-box">
   <svg class="route" viewBox="0 0 400 200" role="img" aria-label="Πορεία διαδρομής με τέσσερις επισκέψεις">
     <path d="M30 160 C 110 160, 90 60, 170 60 S 250 150, 310 120 S 350 50, 372 40" fill="none" stroke="#C59045" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 12"/>
     <g fill="#C59045"><circle cx="30" cy="160" r="9"/><circle cx="170" cy="60" r="9"/><circle cx="310" cy="120" r="9"/><circle cx="372" cy="40" r="9"/></g>
     <g fill="#F2EADD" font-size="13" font-weight="700" text-anchor="middle"><text x="30" y="186">08:30</text><text x="170" y="40">09:10</text><text x="310" y="150">09:55</text><text x="372" y="24">10:30</text></g>
   </svg>
+  <div class="route-live" aria-hidden="true">
+    <i class="ping" style="--x:7.5%;--y:80%;--d:.01s"></i>
+    <i class="ping" style="--x:42.5%;--y:30%;--d:3.04s"></i>
+    <i class="ping" style="--x:77.5%;--y:60%;--d:5.75s"></i>
+    <i class="ping" style="--x:93%;--y:20%;--d:7.5s"></i>
+    <i class="veh"></i>
+  </div>
+  </div>
 </div>
 
             <div class="tile chap am" data-depth="1.3" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-am"/></svg></div></div></div>
@@ -278,7 +287,7 @@
             <div class="app-window dark">
   <div class="win-bar"><b>Nurelo Τηλεβοήθεια · Αλυσίδα συναγερμού</b></div>
   <ol class="chain">
-    <li><b>Συσκευή</b><small>Ενεργοποίηση συναγερμού</small></li>
+    <li><i class="ring" aria-hidden="true"></i><i class="ring r2" aria-hidden="true"></i><b>Συσκευή</b><small>Ενεργοποίηση συναγερμού</small></li>
     <li><b>Nurelo</b><small>Αναγνώριση χρήστη</small></li>
     <li><b>Κέντρο ελέγχου</b><small>Προώθηση</small></li>
     <li><b>Επέμβαση</b><small>Τεκμηριωμένη</small></li>
@@ -375,8 +384,8 @@
           <li class="reveal"><h3>Εκπαίδευση</h3><p>Ζωντανή εκπαίδευση για τη διεύθυνση φροντίδας και την ομάδα, καθώς και βιβλιοθήκη βίντεο.</p></li>
           <li class="reveal"><h3>Έναρξη παραγωγικής χρήσης &amp; υποστήριξη</h3><p>Παραγωγική εκκίνηση με προσωπική υποστήριξη τις πρώτες εβδομάδες.</p></li>
         </ol>
-        <ul class="trust reveal">
-          <li>Συμμόρφωση με τον ΓΚΠΔ</li><li>Φιλοξενείται στη Γερμανία</li><li>Αυτόματες ενημερώσεις</li><li>Προσωπική υποστήριξη</li>
+        <ul class="trust">
+          <li class="reveal">Συμμόρφωση με τον ΓΚΠΔ</li><li class="reveal">Φιλοξενείται στη Γερμανία</li><li class="reveal">Αυτόματες ενημερώσεις</li><li class="reveal">Προσωπική υποστήριξη</li>
         </ul>
       </div>
     </section>
@@ -390,13 +399,13 @@
           <p class="lead">Ετοιμάζουμε μια προσφορά που ταιριάζει στη μονάδα σας, χωρίς κρυφά κόστη.</p>
           <a class="btn btn-terra" href="#kontakt">Ζητήστε προσφορά</a>
         </div>
-        <dl class="price-factors reveal">
-          <div><dt>Τομείς</dt><dd>Ένας τομέας ή και οι τρεις: μονάδα φροντίδας, φροντίδα κατ' οίκον και τηλεβοήθεια.</dd></div>
-          <div><dt>Χρήστες</dt><dd>Μικρές υπηρεσίες έως 20 λογαριασμούς χρηστών, μεγαλύτεροι οργανισμοί χωρίς περιορισμό.</dd></div>
-          <div><dt>Ενότητες</dt><dd>Πρόσθετες ενότητες, όπως προγραμματισμός διαδρομών, αρχείο εγγράφων ή σχεδιαστής αναφορών, ανάλογα με τις ανάγκες.</dd></div>
-          <div><dt>Διεπαφές</dt><dd>Εξαγωγές για DATEV και SAP, καθώς και σύνδεση <span class="nb">TI-KIM</span>.</dd></div>
-          <div><dt>Υποστήριξη</dt><dd>Υποστήριξη μέσω email ή προτεραιότητας, με αποκλειστικό υπεύθυνο πελατών για φορείς λειτουργίας.</dd></div>
-          <div><dt>Φορείς λειτουργίας και ενώσεις</dt><dd>Εξατομικευμένες λύσεις για περισσότερες μονάδες, SLA κατόπιν συμφωνίας.</dd></div>
+        <dl class="price-factors">
+          <div class="reveal"><dt>Τομείς</dt><dd>Ένας τομέας ή και οι τρεις: μονάδα φροντίδας, φροντίδα κατ' οίκον και τηλεβοήθεια.</dd></div>
+          <div class="reveal"><dt>Χρήστες</dt><dd>Μικρές υπηρεσίες έως 20 λογαριασμούς χρηστών, μεγαλύτεροι οργανισμοί χωρίς περιορισμό.</dd></div>
+          <div class="reveal"><dt>Ενότητες</dt><dd>Πρόσθετες ενότητες, όπως προγραμματισμός διαδρομών, αρχείο εγγράφων ή σχεδιαστής αναφορών, ανάλογα με τις ανάγκες.</dd></div>
+          <div class="reveal"><dt>Διεπαφές</dt><dd>Εξαγωγές για DATEV και SAP, καθώς και σύνδεση <span class="nb">TI-KIM</span>.</dd></div>
+          <div class="reveal"><dt>Υποστήριξη</dt><dd>Υποστήριξη μέσω email ή προτεραιότητας, με αποκλειστικό υπεύθυνο πελατών για φορείς λειτουργίας.</dd></div>
+          <div class="reveal"><dt>Φορείς λειτουργίας και ενώσεις</dt><dd>Εξατομικευμένες λύσεις για περισσότερες μονάδες, SLA κατόπιν συμφωνίας.</dd></div>
         </dl>
       </div>
     </section>
