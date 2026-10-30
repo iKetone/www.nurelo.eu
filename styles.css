@@ -113,7 +113,7 @@ h3 { font-size: 1.3rem; letter-spacing: -.015em; }
 .nav-links a[aria-current] { color: var(--ink); text-decoration: underline; text-decoration-thickness: 2px; text-decoration-color: var(--terra-d); text-underline-offset: .4em; }
 .menu-btn { display: none; height: 40px; padding: 0 .9rem; border: 0; border-radius: 8px; background: transparent; color: var(--ink); cursor: pointer; place-items: center; font: inherit; font-weight: 700; }
 
-.nav-ind { position: absolute; left: 0; bottom: -3px; width: 1px; height: 2px; background: var(--terra-d); transform-origin: left; opacity: 0; pointer-events: none; transition: transform .5s linear(0, .24 8%, .66 18%, .93 28%, 1.05 38%, 1.07 46%, 1.02 60%, .995 78%, 1), opacity .2s ease-out; }
+.nav-ind { position: absolute; left: 0; bottom: -3px; width: 1px; height: 2px; background: var(--terra-d); transform-origin: left; opacity: 0; pointer-events: none; transition: transform .4s linear(0, .3 8%, .75 18%, .97 28%, 1.03 38%, 1.02 50%, .998 70%, 1), opacity .2s ease-out; }
 .nav-ind.on { opacity: 1; }
 .nav-ind.still { transition: none; }
 .nav-links.has-ind a[aria-current] { text-decoration: none; }
@@ -644,13 +644,10 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
   }
 }
 @keyframes reveal-up { from { opacity: 0; transform: translateY(26px); } }
-/* Scroll-Fortschritt: dünne Linie am unteren Rand der Navigation, Fortschrittslinie im Ablauf */
-@supports (animation-timeline: scroll()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .pill:not(.nav-right)::after { content: ""; position: absolute; left: 10px; right: 10px; bottom: 0; height: 2px; border-radius: 1px; background: var(--terra-d); transform-origin: left; transform: scaleX(0); animation: grow-x linear both; animation-timeline: scroll(root); }
-    @media (min-width: 961px) {
-      .steps::after { transform: scaleX(0); animation: grow-x linear both; animation-timeline: view(); animation-range: cover 18% cover 58%; }
-    }
+/* Fortschrittslinie im Ablauf, füllt sich beim Scrollen */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) and (min-width: 961px) {
+    .steps::after { transform: scaleX(0); animation: grow-x linear both; animation-timeline: view(); animation-range: cover 18% cover 58%; }
   }
 }
 @keyframes grow-x { to { transform: scaleX(1); } }
