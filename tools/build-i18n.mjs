@@ -162,6 +162,27 @@ function write(relPath, html) {
 
 // ---------- Startseiten ----------
 const homeTemplate = read('src/index.template.html');
+
+// Nur auf der deutschen Startseite (Einstieg und x-default): Besucher, deren Gerät eine andere unserer Sprachen bevorzugt, landen
+// beim ersten Aufruf direkt in dieser Sprache. Kein Weiterleiten bei Suchmaschinen und Vorschau-Robotern, bei Besuchern, die aus der
+// eigenen Seite kommen (Sprachmenü, Logo), und bei Sprachen, die wir nicht haben. Es wird nichts gespeichert.
+const autoLangScript = `
+  <script>
+  (function () {
+    try {
+      if (/bot\\b|crawl|spider|slurp|lighthouse|preview/i.test(navigator.userAgent)) return;
+      if (document.referrer && new URL(document.referrer).origin === location.origin) return;
+      var ok = ${JSON.stringify(LANGS.map((l) => l[0]))};
+      var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language];
+      for (var i = 0; i < list.length; i++) {
+        var c = String(list[i]).toLowerCase().split('-')[0];
+        if (ok.indexOf(c) < 0) continue;
+        if (c !== 'de') location.replace('/' + c + '/' + location.search + location.hash);
+        return;
+      }
+    } catch (e) { /* ohne Weiterleitung weiter */ }
+  })();
+  </script>`;
 for (const [code] of LANGS) {
   if (!main[code]) continue;
   const t = main[code];
@@ -169,6 +190,7 @@ for (const [code] of LANGS) {
   const specials = {
     lang: code, locale: LOCALE[code], url: SITE + homePath(code), home: homePath(code),
     hreflang: hreflangHtml(LANGS.map((l) => l[0]), pathFor),
+    autolang: code === 'de' ? autoLangScript : '',
     switcher: switcherHtml(code, LANGS.map((l) => l[0]), pathFor, t.lang_aria),
     nav_links: [
       ['#stationaer', 'nav_st'], ['#ambulant', 'nav_am'], ['#hausnotruf', 'nav_hn'], ['#plattform', 'nav_pf'], ['#preise', 'nav_pr'],
