@@ -1,0 +1,62 @@
+/* Maskottchen-Seite (Entwurf): drei Posen, am Scroll geführt. Palette und Schrift kommen aus styles.css. */
+body { background: var(--cream); }
+.mk { position: relative; }
+.mk-stage { position: relative; }
+.mk-bg { display: none; }
+
+/* Ohne Skript und bei reduzierter Bewegung: drei Karten untereinander */
+.scene { position: relative; display: grid; grid-template-columns: 1fr; align-items: end; gap: 1.5rem; padding: 7.5rem max(1.25rem, env(safe-area-inset-left)) 0; overflow: hidden; }
+.scene .txt { align-self: start; }
+.scene h1, .scene h2 { font-size: clamp(2.4rem, 7vw, 5.2rem); letter-spacing: -.035em; margin-bottom: .8rem; text-wrap: balance; }
+.scene em { font-style: normal; text-decoration: underline; text-decoration-thickness: .08em; text-underline-offset: .14em; }
+.scene .kicker { margin-bottom: 1rem; }
+.scene .sub { font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 600; max-width: 28ch; }
+.fig { justify-self: center; line-height: 0; }
+.fig img { width: auto; max-width: 100%; height: min(66svh, 640px); object-fit: contain; }
+.s0 { background: var(--ochre); color: var(--ink); }
+.s1 { background: var(--terra-d); color: var(--cream); }
+.s2 { background: var(--ink); color: var(--cream); }
+.s0 .kicker { color: var(--ink); } .s1 .kicker, .s2 .kicker { color: var(--cream); }
+.s2 .kicker { color: var(--ochre); }
+.s1 .fig img { height: auto; width: min(94vw, 560px); }
+
+/* Mit Skript: eine Bühne, die klebt, drei Szenen überblenden sich */
+.mk.pinned { height: 420svh; }
+.mk.pinned .mk-stage { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+.mk.pinned .mk-bg { display: block; position: absolute; inset: 0; z-index: 0; }
+.mk.pinned .mk-bg i { position: absolute; inset: 0; display: block; }
+.mk.pinned .b0 { background: var(--ochre); } .mk.pinned .b1 { background: var(--terra-d); opacity: 0; } .mk.pinned .b2 { background: var(--ink); opacity: 0; }
+.mk.pinned .scene { position: absolute; inset: 0; z-index: 1; display: block; padding: 0; background: none; opacity: 0; pointer-events: none; overflow: visible; }
+.mk.pinned .scene.on { pointer-events: auto; }
+.mk.pinned .txt { position: absolute; left: 8vw; top: 50%; width: min(40rem, 44vw); transform: translateY(-50%); }
+.mk.pinned .s1 .txt { left: auto; right: 8vw; }
+.mk.pinned .fig { position: absolute; bottom: 0; left: 70%; transform: translateX(-50%); }
+.mk.pinned .s1 .fig { left: 28%; }
+.mk.pinned .fig img { height: min(84svh, 820px); }
+.mk.pinned .s1 .fig img { height: auto; width: min(44vw, 560px); max-height: 80svh; }
+.mk.pinned .scene h1, .mk.pinned .scene h2 { font-size: clamp(2.6rem, 6.2vw, 5.4rem); }
+
+/* Atmen: die Figur hebt und senkt sich kaum merklich, nur im Bild */
+@media (prefers-reduced-motion: no-preference) {
+  .mk.live .fig img { transform-origin: 50% 100%; animation: breathe 5s ease-in-out infinite; }
+}
+@keyframes breathe { 50% { transform: scale(1.012, 1.02); } }
+
+/* Schmal: Text oben, Figur unten */
+@media (max-width: 860px) {
+  .mk.pinned .txt, .mk.pinned .s1 .txt { left: 1.4rem; right: 1.4rem; top: 5.4rem; width: auto; transform: none; }
+  .mk.pinned .fig, .mk.pinned .s1 .fig { left: 50%; }
+  .mk.pinned .fig img { height: min(54svh, 520px); }
+  .mk.pinned .s1 .fig img { width: auto; height: min(44svh, 420px); max-height: none; }
+  .mk.pinned .scene h1, .mk.pinned .scene h2 { font-size: clamp(2.2rem, 10vw, 3.4rem); }
+}
+@media (max-height: 640px) and (min-width: 861px) { .mk.pinned .fig img { height: 78svh; } }
+
+/* Abschluss */
+.mk-end { padding: clamp(4rem, 9vw, 7rem) 0; background: var(--cream); text-align: center; }
+.mk-end h2 { font-size: clamp(2rem, 5vw, 3.6rem); margin-bottom: 1rem; }
+.mk-end .lead { margin: 0 auto 2rem; }
+.mk-end .cta-actions { justify-content: center; }
+.mk-foot { padding: 1.4rem 0 calc(1.8rem + env(safe-area-inset-bottom)); background: var(--cream); border-top: 1px solid var(--line); font-size: .92rem; color: var(--ink-2); }
+.mk-foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .6rem; }
+.mk-foot a { color: inherit; }
