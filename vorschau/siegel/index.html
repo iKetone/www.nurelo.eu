@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Vorschau Siegel | Nurelo</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#F2EADD" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/vorschau/siegel/siegel.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="pill nav-left">
+      <a class="brand" href="/" aria-label="Nurelo Startseite"><img src="/logo-96.webp" width="30" height="30" alt="" /><span>Nurelo</span></a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Entwurf (Variante C): Siegel statt Kacheln. Nur zum Vergleichen, nicht verlinkt und nicht übersetzt. -->
+    <section class="sg-sec" aria-labelledby="sg-h">
+      <div class="wrap">
+        <h1 class="sr-only">Immer dabei: DSGVO-konform, Hosting in Deutschland, Automatische Updates, Persönlicher Support</h1>
+        <p class="kicker dark" id="sg-h">Immer dabei</p>
+        <div class="seal" id="seal">
+          <svg class="disc" viewBox="0 0 440 440" aria-hidden="true" focusable="false">
+            <circle cx="220" cy="220" r="212" fill="#241b14"/>
+            <circle cx="220" cy="220" r="160" fill="none" stroke="#c59045" stroke-opacity=".55" stroke-width="1.5"/>
+            <circle cx="220" cy="220" r="134" fill="#fbf7f0"/>
+          </svg>
+          <svg class="ring" viewBox="0 0 440 440" aria-hidden="true" focusable="false">
+            <defs><path id="sg-p" d="M42 220a178 178 0 1 1 356 0a178 178 0 1 1-356 0"/></defs>
+            <text><textPath href="#sg-p" textLength="1117" lengthAdjust="spacing">DSGVO-KONFORM • HOSTING IN DEUTSCHLAND • AUTOMATISCHE UPDATES • PERSÖNLICHER SUPPORT • </textPath></text>
+          </svg>
+          <img class="core" src="/logo-240.webp" width="240" height="240" alt="" />
+        </div>
+        <ul class="sr-only">
+          <li>DSGVO-konform</li><li>Hosting in Deutschland</li><li>Automatische Updates</li><li>Persönlicher Support</li>
+        </ul>
+        <p class="note">Vorschau Variante C. Der Ring dreht sich langsam, solange er im Bild ist, und steht bei reduzierter Bewegung still.</p>
+      </div>
+    </section>
+  </main>
+  <script>
+    (function () {
+      var s = document.getElementById('seal');
+      if (!s || !('IntersectionObserver' in window)) return;
+      new IntersectionObserver(function (e) { s.classList.toggle('live', e[0].isIntersecting); }).observe(s);
+    })();
+  </script>
+</body>
+</html>
