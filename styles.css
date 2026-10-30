@@ -449,10 +449,52 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 @keyframes up-fill { 0% { transform: scaleX(.04); } 62%, 90% { transform: none; } 100% { transform: scaleX(.04); } }
 @keyframes up-arrow { 50% { transform: translateY(3px); } }
 
-.chip-block { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid rgba(242,234,221,.2); }
-.chip-block h3 { margin-bottom: 1rem; font-size: 1.1rem; }
-.chips { display: flex; flex-wrap: wrap; gap: .5rem; }
-.chips li { padding: .45rem 1rem; border-radius: 6px; border: 1.5px solid rgba(242,234,221,.3); font-size: .92rem; font-weight: 600; }
+.chip-block { display: grid; grid-template-columns: minmax(0, 1fr); gap: 3.2rem; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid rgba(242,234,221,.2); }
+.chip-block h3 { margin-bottom: 1.1rem; font-size: 1.1rem; }
+
+/* Module nach Bedarf: bis 1099 px eine Liste mit Symbol und Schalter, darüber Kacheln. Die Schalter sind reine Darstellung. */
+.mods { display: grid; grid-template-columns: minmax(0, 1fr); column-gap: 3.5rem; }
+.mod { position: relative; display: flex; align-items: center; gap: 1rem; padding: 1.05rem 0; border-top: 1px solid rgba(242,234,221,.2); font-weight: 700; line-height: 1.2; }
+.mod > * { position: relative; }
+.mod svg { width: 24px; height: 24px; flex: none; color: var(--ochre); }
+.mod .n { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.sw { flex: none; width: 34px; height: 20px; border-radius: 10px; background: rgba(242,234,221,.2); }
+.sw::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--ochre); opacity: 0; }
+.sw s { position: absolute; left: 3px; top: 3px; display: block; width: 14px; height: 14px; border-radius: 50%; background: var(--cream); }
+.mod.on .sw::before { opacity: 1; } .mod.on .sw s { transform: translateX(14px); }
+.mod::before { display: none; }
+@media (min-width: 700px) { .mods { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) {
+  .mods { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .mod { flex-direction: column; align-items: flex-start; gap: 1.2rem; min-height: 8.4rem; padding: 1.2rem; border-top: 0; border-radius: 14px; background: rgba(242,234,221,.07); }
+  .mod::before { content: ""; position: absolute; inset: 0; display: block; border-radius: inherit; background: rgba(197,144,69,.18); opacity: 0; }
+  .mod.on::before { opacity: 1; }
+  .mod svg { width: 30px; height: 30px; }
+  .mod .n { flex: none; margin-top: auto; }
+  .mod .sw { position: absolute; top: 1.1rem; right: 1.1rem; }
+}
+
+/* Schnittstellen: zwei gegenläufige Bänder aus Platten über die ganze Breite (die Namen stehen zusätzlich als Liste für Screenreader) */
+.band { display: grid; gap: 12px; overflow: hidden; }
+.band .row { display: flex; gap: 12px; width: max-content; }
+.plate { flex: none; padding: .85rem 1.5rem; border-radius: 12px; border: 1.5px solid rgba(242,234,221,.3); font-size: 1.02rem; font-weight: 800; letter-spacing: -.01em; white-space: nowrap; }
+.plate.f { background: var(--cream); border-color: var(--cream); color: var(--ink); }
+.plate.o { background: var(--ochre); border-color: var(--ochre); color: var(--ink); }
+@media (min-width: 700px) { .plate { padding: .95rem 1.7rem; font-size: 1.08rem; } }
+@media (prefers-reduced-motion: reduce) {
+  .band .row { width: auto; flex-wrap: wrap; } .band .dup, .band .r2 { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .chip-block.in .band .row { animation: band-slide 36s linear infinite; }
+  .chip-block.in .band .r2 { animation-direction: reverse; animation-duration: 42s; }
+  .chip-block.in .mod.flip::before { animation: mod-tint 9s ease-in-out infinite; }
+  .chip-block.in .mod.flip .sw::before { animation: mod-tint 9s ease-in-out infinite; }
+  .chip-block.in .mod.flip .sw s { animation: mod-knob 9s ease-in-out infinite; }
+  .chip-block.in .mod.flip:nth-child(7), .chip-block.in .mod.flip:nth-child(7)::before, .chip-block.in .mod.flip:nth-child(7) .sw::before, .chip-block.in .mod.flip:nth-child(7) .sw s { animation-delay: 4.5s; }
+}
+@keyframes band-slide { to { transform: translateX(-50%); } }
+@keyframes mod-tint { 0%, 30% { opacity: 0; } 40%, 80% { opacity: 1; } 90%, 100% { opacity: 0; } }
+@keyframes mod-knob { 0%, 30% { transform: none; } 40%, 80% { transform: translateX(14px); } 90%, 100% { transform: none; } }
 
 /* Ablauf */
 .steps-sec { padding: clamp(5.5rem, 12vw, 10rem) 0; background: var(--cream); border-radius: 14px 14px 0 0; margin-top: -14px; position: relative; }
@@ -677,7 +719,7 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 /* Erhöhter Kontrast: kräftigere Linien, Zweitfarbe und gedämpfte Texte auf dunklen Flächen voll */
 @media (prefers-contrast: more) {
   :root { --line: #8c7d68; --ink-2: var(--ink); }
-  .chips li { border-color: var(--cream); }
+  .plate { border-color: var(--cream); } .mod { border-top-color: rgba(242,234,221,.6); }
   .platform .chapter-lead, .win-bar, .win-rows time, .win-rows small, .chain small, .track { color: var(--cream); }
   .chip-block { border-top-color: var(--cream); }
   .cta-box .lead { color: var(--ink); }
@@ -686,7 +728,7 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 
 /* Responsive */
 @media (max-width: 960px) {
-  .chapter-grid, .chip-block { grid-template-columns: 1fr; }
+  .chapter-grid { grid-template-columns: 1fr; }
   .feat-list { grid-template-columns: 1fr 1fr; }
   .feat-list li:nth-child(n) { grid-column: auto; grid-row: auto; }
   .feat-list li:nth-child(1), .feat-list li:nth-child(6) { grid-column: 1 / 3; }
