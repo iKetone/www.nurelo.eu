@@ -521,8 +521,30 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .steps li::before { font-size: clamp(4.5rem, 9.5vw, 8.5rem); font-weight: 800; letter-spacing: -.06em; margin-bottom: 1.4rem; }
 .steps h3 { font-size: 1.45rem; }
 .steps p { color: var(--ink-2); margin-top: .5rem; }
-.trust { display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; margin-top: 4rem; font-weight: 700; }
-.trust li { padding: .5rem 1.1rem; border-radius: 6px; background: var(--paper); border: 1px solid var(--line); font-size: .92rem; }
+/* Zusagen nach den Schritten: vier Kacheln wie die Bento-Boxen, Icon oben links, Titel unten links */
+.trust-wrap { margin-top: clamp(4.5rem, 9vw, 7rem); }
+.trust-wrap .kicker { margin-bottom: 1.4rem; }
+.trust { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.trust li { display: flex; flex-direction: column; justify-content: space-between; gap: 2.2rem; min-height: 11.5rem; padding: 1.4rem; border-radius: 14px; background: var(--ink); color: var(--cream); font-size: 1.2rem; font-weight: 800; line-height: 1.15; letter-spacing: -.01em; overflow-wrap: anywhere; hyphens: auto; }
+.trust li:nth-child(1) { background: var(--ochre); color: var(--ink); }
+.trust li:nth-child(2) { background: var(--terra-d); }
+.trust li:nth-child(3) { background: var(--olive-d); }
+.trust svg { width: 38px; height: 38px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.trust .nb { white-space: normal; }
+.trust svg * { stroke-dasharray: 1 2; }
+@media (max-width: 960px) {
+  .trust { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .trust li { min-height: 9.5rem; gap: 1.6rem; padding: 1.15rem; font-size: 1.05rem; }
+  .trust svg { width: 32px; height: 32px; }
+}
+@media (max-width: 380px) { .trust li { padding: 1rem; font-size: .98rem; } }
+/* Die Icons zeichnen sich, während die Kachel ins Bild läuft (ohne scroll-gesteuerte Animation stehen sie sofort fertig da) */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .trust svg { animation: ico-draw linear both; animation-timeline: view(); animation-range: cover 8% cover 34%; }
+  }
+}
+@keyframes ico-draw { from { stroke-dashoffset: 1.1; opacity: 0; } 12% { opacity: 1; } to { stroke-dashoffset: 0; opacity: 1; } }
 
 /* Preise */
 .pricing { padding: 0 0 clamp(5rem, 10vw, 8rem); background: var(--cream); }
