@@ -138,22 +138,42 @@
 
   // ---------- Gleitender Unterstrich in der Navigation (Desktop) ----------
   // Ein einziges Element, das per transform zum aktuellen Link gleitet; die Markierung (aria-current) setzen weiterhin der Scroll-Spy
-  // und die Seitenvorlage, hier wird nur mitgelesen.
+  // und die Seitenvorlage, hier wird nur mitgelesen. Drei Dinge gegen Unruhe: Nach einem Klick auf einen Link bleibt der Strich bis zum
+  // Ende der Scrollfahrt am Ziel (statt über die Zwischenabschnitte zu hüpfen), eine kurze Lücke ohne aktuellen Abschnitt blendet ihn
+  // nicht aus, und nach dem Ausblenden springt er an die neue Stelle statt aus der alten herüberzugleiten.
   (function () {
     var wide = window.matchMedia('(min-width: 861px)');
     var ind = document.createElement('span');
     ind.className = 'nav-ind'; ind.setAttribute('aria-hidden', 'true');
     links.appendChild(ind);
-    var placed = false;
-    function place() {
-      var a = links.querySelector('a[aria-current]');
-      if (!wide.matches || !a) { ind.classList.remove('on'); links.classList.remove('has-ind'); return; }
+    var placed = false, forced = null, forceTimer = 0, hideTimer = 0;
+    function show(a, snap) {
+      clearTimeout(hideTimer);
       links.classList.add('has-ind');
-      if (!placed) ind.classList.add('still');
+      if (snap) ind.classList.add('still');
       ind.style.transform = 'translateX(' + a.offsetLeft + 'px) scaleX(' + a.offsetWidth + ')';
       ind.classList.add('on');
-      if (!placed) { placed = true; void ind.offsetWidth; ind.classList.remove('still'); }
+      if (snap) { void ind.offsetWidth; ind.classList.remove('still'); }
     }
+    function place() {
+      var a = forced || links.querySelector('a[aria-current]');
+      if (!wide.matches) { clearTimeout(hideTimer); ind.classList.remove('on'); links.classList.remove('has-ind'); placed = false; return; }
+      if (!a) {
+        if (!ind.classList.contains('on') || hideTimer) return;
+        hideTimer = setTimeout(function () { hideTimer = 0; ind.classList.remove('on'); links.classList.remove('has-ind'); placed = false; }, 260);
+        return;
+      }
+      clearTimeout(hideTimer); hideTimer = 0;
+      show(a, !placed);
+      placed = true;
+    }
+    function release() { forced = null; place(); }
+    links.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a) return;
+      forced = a; clearTimeout(forceTimer); forceTimer = setTimeout(release, 1600); place();
+    });
+    window.addEventListener('scrollend', function () { if (forced) { clearTimeout(forceTimer); forceTimer = setTimeout(release, 120); } });
     new MutationObserver(place).observe(links, { attributes: true, attributeFilter: ['aria-current'], subtree: true });
     window.addEventListener('resize', function () { placed = false; place(); });
     wide.addEventListener && wide.addEventListener('change', function () { placed = false; place(); });
@@ -193,10 +213,10 @@
   function smooth(a, b, v) { var t = clamp((v - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); }
 
   // 3D-Kacheln erst nach dem Laden und im Leerlauf nachladen, damit nichts ruckelt
-  // Auf schwachen Handys bleiben die Kacheln in CSS, das Treiben startet dann sofort
+  // Nur sehr schwache Touch-Geräte (höchstens 2 GB Speicher gemeldet) behalten die Kacheln in CSS, das Treiben startet dann sofort.
+  // Kernzahl und Fensterhöhe zählen nicht: Safari meldet die Kerne gedeckelt und den Speicher gar nicht, ein iPhone bekommt 3D.
   function lowPower() {
-    return narrow.matches && ((navigator.deviceMemory && navigator.deviceMemory <= 4) ||
-      (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4));
+    return window.matchMedia('(pointer: coarse)').matches && !!navigator.deviceMemory && navigator.deviceMemory <= 2;
   }
   // Glasflächen (siehe styles.css, .no-blur): nur auf Touch-Geräten, die höchstens 2 GB Speicher melden.
   // Die Kernzahl zählt hier nicht: Safari meldet sie gedeckelt und deviceMemory gar nicht, ein iPhone soll das Glas zeigen.
