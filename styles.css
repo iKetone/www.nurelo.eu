@@ -485,8 +485,8 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
   .band .row { width: auto; flex-wrap: wrap; } .band .dup, .band .r2 { display: none; }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .chip-block.in .band .row { animation: band-slide 36s linear infinite; }
-  .chip-block.in .band .r2 { animation-direction: reverse; animation-duration: 42s; }
+  .chip-block.in .band .row { animation: band-slide 54s linear infinite; }
+  .chip-block.in .band .r2 { animation-direction: reverse; animation-duration: 63s; }
   .chip-block.in .mod.flip::before { animation: mod-tint 9s ease-in-out infinite; }
   .chip-block.in .mod.flip .sw::before { animation: mod-tint 9s ease-in-out infinite; }
   .chip-block.in .mod.flip .sw s { animation: mod-knob 9s ease-in-out infinite; }
