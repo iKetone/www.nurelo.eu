@@ -89,6 +89,14 @@
       <symbol id="g-st" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2.6" fill="currentColor"/><rect x="13" y="3" width="8" height="8" rx="2.6" fill="currentColor" opacity=".55"/><rect x="3" y="13" width="8" height="8" rx="2.6" fill="currentColor" opacity=".55"/><rect x="13" y="13" width="8" height="8" rx="2.6" fill="currentColor"/></symbol>
       <symbol id="g-am" viewBox="0 0 24 24"><path d="M6 19h9a3.5 3.5 0 000-7H9a3.5 3.5 0 010-7h9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="5" cy="19" r="2.6" fill="currentColor"/><circle cx="19" cy="5" r="2.6" fill="currentColor"/></symbol>
       <symbol id="g-hn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.8" fill="currentColor"/><path d="M8 8a5.7 5.7 0 000 8M16 8a5.7 5.7 0 010 8M4.6 4.6a10.5 10.5 0 000 14.8M19.4 4.6a10.5 10.5 0 010 14.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+      <symbol id="m-tour" viewBox="0 0 24 24"><path d="M6 19h9a3.5 3.5 0 000-7H9a3.5 3.5 0 010-7h9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="5" cy="19" r="2.4" fill="currentColor"/><circle cx="19" cy="5" r="2.4" fill="currentColor"/></symbol>
+      <symbol id="m-med" viewBox="0 0 24 24"><rect x="2.5" y="8.5" width="19" height="7" rx="3.5" transform="rotate(-35 12 12)" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M9.2 9.3l5.6 5.4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+      <symbol id="m-doc" viewBox="0 0 24 24"><path d="M3.5 7a2 2 0 012-2h4l2 2.2h7a2 2 0 012 2V17a2 2 0 01-2 2h-13a2 2 0 01-2-2z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></symbol>
+      <symbol id="m-duty" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M3.5 10h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="8.5" cy="14.5" r="1.4" fill="currentColor"/><circle cx="12" cy="14.5" r="1.4" fill="currentColor"/></symbol>
+      <symbol id="m-bill" viewBox="0 0 24 24"><path d="M6 3.5h12v17l-3-2-3 2-3-2-3 2z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M9.5 9h5M9.5 13h5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+      <symbol id="m-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M3.5 8l8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="m-rep" viewBox="0 0 24 24"><path d="M5 20V12M12 20V5M19 20v-9" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></symbol>
+      <symbol id="m-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M4.5 20a7.5 7.5 0 0115 0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
     </defs>
   </svg>
 
@@ -355,15 +363,25 @@
         <div class="chip-block reveal">
           <div>
             <h3>Moduļi pēc vajadzības</h3>
-            <ul class="chips">
-              <li>Maršrutu plānošana</li><li>Zāļu pārvaldība</li><li>Dokumentu arhīvs</li><li>Darba grafiks</li><li>Rēķinu izrakstīšana</li><li><span class="nb">TI-KIM</span> pastkaste</li><li>Pārskatu veidotājs</li><li>Lietotāju pārvaldība</li>
+            <ul class="mods">
+              <li class="mod on"><svg aria-hidden="true"><use href="#m-tour"/></svg><span class="n">Maršrutu plānošana</span><span class="sw" aria-hidden="true"><s></s></span></li>
+              <li class="mod on"><svg aria-hidden="true"><use href="#m-med"/></svg><span class="n">Zāļu pārvaldība</span><span class="sw" aria-hidden="true"><s></s></span></li>
+              <li class="mod flip"><svg aria-hidden="true"><use href="#m-doc"/></svg><span class="n">Dokumentu arhīvs</span><span class="sw" aria-hidden="true"><s></s></span></li>
+              <li class="mod on"><svg aria-hidden="true"><use href="#m-duty"/></svg><span class="n">Darba grafiks</span><span class="sw" aria-hidden="true"><s></s></span></li>
+              <li class="mod on"><svg aria-hidden="true"><use href="#m-bill"/></svg><span class="n">Rēķinu izrakstīšana</span><span class="sw" aria-hidden="true"><s></s></span></li>
+              <li class="mod "><svg aria-hidden="true"><use href="#m-mail"/></svg><span class="n"><span class="nb">TI-KIM</span> pastkaste</span><span class="sw" aria-hidden="true"><s></s></span></li>
+              <li class="mod flip"><svg aria-hidden="true"><use href="#m-rep"/></svg><span class="n">Pārskatu veidotājs</span><span class="sw" aria-hidden="true"><s></s></span></li>
+              <li class="mod on"><svg aria-hidden="true"><use href="#m-user"/></svg><span class="n">Lietotāju pārvaldība</span><span class="sw" aria-hidden="true"><s></s></span></li>
             </ul>
           </div>
           <div>
             <h3>Saskarnes</h3>
-            <ul class="chips">
-              <li>DATEV v700</li><li>Lexware</li><li>ADDISON</li><li>SAP FI</li><li><span class="nb">TI-KIM</span></li><li>CSV / FHIR</li>
-            </ul>
+            <ul class="sr-only"><li>DATEV v700</li><li>Lexware</li><li>ADDISON</li><li>SAP FI</li><li><span class="nb">TI-KIM</span></li><li>CSV / FHIR</li></ul>
+<div class="band" aria-hidden="true">
+  <div class="row"><span class="plate f">DATEV v700</span><span class="plate">Lexware</span><span class="plate o">ADDISON</span><span class="plate f">SAP FI</span><span class="plate"><span class="nb">TI-KIM</span></span><span class="plate o">CSV / FHIR</span><span class="plate f dup">DATEV v700</span><span class="plate dup">Lexware</span><span class="plate o dup">ADDISON</span><span class="plate f dup">SAP FI</span><span class="plate dup"><span class="nb">TI-KIM</span></span><span class="plate o dup">CSV / FHIR</span><span class="plate f dup">DATEV v700</span><span class="plate dup">Lexware</span><span class="plate o dup">ADDISON</span><span class="plate f dup">SAP FI</span><span class="plate dup"><span class="nb">TI-KIM</span></span><span class="plate o dup">CSV / FHIR</span><span class="plate f dup">DATEV v700</span><span class="plate dup">Lexware</span><span class="plate o dup">ADDISON</span><span class="plate f dup">SAP FI</span><span class="plate dup"><span class="nb">TI-KIM</span></span><span class="plate o dup">CSV / FHIR</span></div>
+  <div class="row r2"><span class="plate o">SAP FI</span><span class="plate f"><span class="nb">TI-KIM</span></span><span class="plate">CSV / FHIR</span><span class="plate o">DATEV v700</span><span class="plate f">Lexware</span><span class="plate">ADDISON</span><span class="plate o dup">SAP FI</span><span class="plate f dup"><span class="nb">TI-KIM</span></span><span class="plate dup">CSV / FHIR</span><span class="plate o dup">DATEV v700</span><span class="plate f dup">Lexware</span><span class="plate dup">ADDISON</span><span class="plate o dup">SAP FI</span><span class="plate f dup"><span class="nb">TI-KIM</span></span><span class="plate dup">CSV / FHIR</span><span class="plate o dup">DATEV v700</span><span class="plate f dup">Lexware</span><span class="plate dup">ADDISON</span><span class="plate o dup">SAP FI</span><span class="plate f dup"><span class="nb">TI-KIM</span></span><span class="plate dup">CSV / FHIR</span><span class="plate o dup">DATEV v700</span><span class="plate f dup">Lexware</span><span class="plate dup">ADDISON</span></div>
+</div>
+
           </div>
         </div>
       </div>
