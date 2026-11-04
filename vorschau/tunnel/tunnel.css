@@ -1,7 +1,0 @@
-/* Vorschau Tunnel-Prototypen: gemeinsame Grundlage */
-body.tn { background: #1a130e; color: var(--cream); }
-.tn .nav { position: fixed; }
-.tn-tag { position: fixed; left: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 30; max-width: calc(100vw - 32px); padding: .5rem .85rem; border-radius: 999px; background: rgba(242,234,221,.1); border: 1px solid rgba(242,234,221,.22); color: var(--cream); font-size: .8rem; font-weight: 700; letter-spacing: .02em; text-decoration: none; }
-.tn-tag span { opacity: .65; font-weight: 500; }
-.tn .kicker { color: var(--ochre); margin-bottom: .8rem; }
-.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
