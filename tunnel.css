@@ -12,7 +12,7 @@
 .tn-auto, .tn-funk { display: none; }
 .tn-hi { font-size: clamp(2.3rem, 6.4vw, 4.6rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; text-wrap: balance; }
 .tn-in .tn-card:not(.tn-hello) { display: flex; flex-direction: column; gap: .4rem; padding: clamp(1.3rem, 3vw, 2rem); border: 3px solid var(--c); border-radius: 28px; background: color-mix(in srgb, var(--c) 9%, transparent); }
-.tn-st { --c: #a3a86b; } .tn-am { --c: var(--ochre); } .tn-hn { --c: var(--terra); }
+.tn-st { --c: #a3a86b; } .tn-am { --c: var(--ochre); } .tn-hn { --c: #d7835c; }
 .tn-card .kicker { color: var(--c); margin-bottom: .5rem; }
 .tn-h { font-size: clamp(1.45rem, 2.6vw, 2.2rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.08; text-wrap: balance; }
 .tn-more { margin-top: auto; padding-top: 1.2rem; font-weight: 700; color: var(--c); text-underline-offset: .28em; text-decoration-thickness: 2px; }
