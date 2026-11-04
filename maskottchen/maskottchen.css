@@ -33,7 +33,7 @@ body { background: var(--cream); }
 .mk.pinned .fig { position: absolute; bottom: 0; left: 70%; transform: translateX(-50%); }
 .mk.pinned .s1 .fig { left: 28%; }
 .mk.pinned .fig img { height: min(84svh, 820px); }
-.mk.pinned .s1 .fig img { height: auto; width: min(44vw, 560px); max-height: 80svh; }
+.mk.pinned .s1 .fig img { height: auto; width: min(46vw, 640px); max-height: 80svh; }
 .mk.pinned .scene h1, .mk.pinned .scene h2 { font-size: clamp(2.6rem, 6.2vw, 5.4rem); }
 
 /* Atmen: die Figur hebt und senkt sich kaum merklich, nur im Bild */
@@ -47,7 +47,8 @@ body { background: var(--cream); }
   .mk.pinned .txt, .mk.pinned .s1 .txt { left: 1.4rem; right: 1.4rem; top: 5.4rem; width: auto; transform: none; }
   .mk.pinned .fig, .mk.pinned .s1 .fig { left: 50%; }
   .mk.pinned .fig img { height: min(54svh, 520px); }
-  .mk.pinned .s1 .fig img { width: auto; height: min(44svh, 420px); max-height: none; }
+  .mk.pinned .s1 .fig { width: max-content; }
+  .mk.pinned .s1 .fig img { width: min(90vw, 520px); height: auto; max-height: none; max-width: none; }
   .mk.pinned .scene h1, .mk.pinned .scene h2 { font-size: clamp(2.2rem, 10vw, 3.4rem); }
 }
 @media (max-height: 640px) and (min-width: 861px) { .mk.pinned .fig img { height: 78svh; } }

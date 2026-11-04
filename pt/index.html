@@ -49,6 +49,7 @@
   <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/tunnel.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -207,6 +208,36 @@
         <div class="tile sat hn" data-tile="sat" data-kind="hn" data-i="2" data-sx="-.46" data-sy=".36" data-sr="12"><div class="tile-body"></div></div>
       </div>
     </section>
+
+    <!-- EINFAHRT: Tunnel mit Begrüßung und den drei Welten (tunnel.js, Grundzustand ohne Skript: Begrüßung und drei Karten) -->
+    <div class="tn tn-in" id="einfahrt" data-tn="in" data-len="480">
+      <div class="tn-stage">
+        <canvas class="tn-cv" aria-hidden="true"></canvas>
+        <div class="tn-world">
+          <div class="tn-card tn-hello" data-z="-3.4" data-x="-1.55" data-y="0.15" data-yaw="5" data-nx="0" data-ny="1.5">
+            <p class="tn-hi">Olá, somos a Nurelo.</p>
+          </div>
+          <img class="tn-fig tn-gruss" src="/maskottchen/gruss.webp" width="546" height="1100" alt="" loading="lazy" decoding="async" data-z="-3.4" data-x="1.85" data-y="-0.3" data-h="3.3" data-yaw="-6" data-nx="0.3" data-ny="-0.75" data-nh="2.6" />
+          <article class="tn-card tn-st" data-stop data-z="-11" data-x="-1.7" data-y="0.1" data-yaw="22">
+            <p class="kicker">Lares</p>
+            <p class="tn-h">Cada processo no seu lugar.</p>
+            <a class="tn-more" href="#stationaer">Saber mais</a>
+          </article>
+          <img class="tn-fig tn-auto" src="/maskottchen/auto.webp" width="1140" height="820" alt="" loading="lazy" decoding="async" data-z="-15.2" data-x="-1.95" data-y="-0.55" data-h="1.9" data-yaw="12" />
+          <article class="tn-card tn-am" data-stop data-z="-18.5" data-x="1.7" data-y="0.1" data-yaw="-22">
+            <p class="kicker">Domiciliário</p>
+            <p class="tn-h">Cada rota em fluxo.</p>
+            <a class="tn-more" href="#ambulant">Saber mais</a>
+          </article>
+          <article class="tn-card tn-hn" data-stop data-z="-26" data-x="-1.7" data-y="0.1" data-yaw="22">
+            <p class="kicker">Teleassistência</p>
+            <p class="tn-h">Cada alarme no sítio certo.</p>
+            <a class="tn-more" href="#hausnotruf">Saber mais</a>
+          </article>
+        </div>
+        <p class="tn-hint" aria-hidden="true">Deslizar</p>
+      </div>
+    </div>
 
     <!-- KAPITEL -->
     <div class="chapters">
@@ -434,20 +465,25 @@
       </div>
     </section>
 
-    <!-- KONTAKT -->
-    <section class="contact" id="kontakt">
-      <div class="wrap">
-        <div class="cta-box reveal">
-          <div class="cta-tiles" aria-hidden="true">
-            <div class="tile mini st"><div class="tile-body"><svg><use href="#g-st"/></svg></div></div>
-            <div class="tile mini am"><div class="tile-body"><svg><use href="#g-am"/></svg></div></div>
-            <div class="tile mini hn"><div class="tile-body"><svg><use href="#g-hn"/></svg></div></div>
-          </div>
-          <h2>Pronto para o passo seguinte?</h2>
-          <p class="lead">Experimente a Nurelo gratuitamente durante 30 dias, sem contrato e sem cartão de crédito. A nossa equipa <span class="nb">acompanha-o</span> desde o início.</p>
-          <div class="cta-actions">
-            <a class="btn btn-terra" href="mailto:contact@nurelo.eu?subject=Acesso%20de%20teste%20Nurelo">Começar gratuitamente</a>
-            <a class="btn btn-ghost-light" href="mailto:contact@nurelo.eu?subject=Marca%C3%A7%C3%A3o%20de%20demonstra%C3%A7%C3%A3o%20Nurelo">Marcar demonstração</a>
+    <!-- KONTAKT: zugleich Ziel der Schlussfahrt (tunnel.js); Grundzustand ohne Skript wie bisher -->
+    <section class="contact tn tn-out" id="kontakt" data-tn="out" data-len="260">
+      <div class="tn-stage">
+        <canvas class="tn-cv" aria-hidden="true"></canvas>
+        <div class="tn-world">
+          <div class="wrap tn-card tn-final" data-final data-z="-14" data-x="0" data-y="0" data-yaw="0">
+            <div class="cta-box reveal">
+              <div class="cta-tiles" aria-hidden="true">
+                <div class="tile mini st"><div class="tile-body"><svg><use href="#g-st"/></svg></div></div>
+                <div class="tile mini am"><div class="tile-body"><svg><use href="#g-am"/></svg></div></div>
+                <div class="tile mini hn"><div class="tile-body"><svg><use href="#g-hn"/></svg></div></div>
+              </div>
+              <h2>Pronto para o passo seguinte?</h2>
+              <p class="lead">Experimente a Nurelo gratuitamente durante 30 dias, sem contrato e sem cartão de crédito. A nossa equipa <span class="nb">acompanha-o</span> desde o início.</p>
+              <div class="cta-actions">
+                <a class="btn btn-terra" href="mailto:contact@nurelo.eu?subject=Acesso%20de%20teste%20Nurelo">Começar gratuitamente</a>
+                <a class="btn btn-ghost-light" href="mailto:contact@nurelo.eu?subject=Marca%C3%A7%C3%A3o%20de%20demonstra%C3%A7%C3%A3o%20Nurelo">Marcar demonstração</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -497,5 +533,6 @@
 
 
   <script src="/main.js" defer></script>
+  <script src="/tunnel.js" defer></script>
 </body>
 </html>
