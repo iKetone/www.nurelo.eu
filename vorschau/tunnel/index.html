@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Vorschau Tunnel | Nurelo</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#1A130E" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/vorschau/tunnel/tunnel.css" />
+  <style>
+    .tn-idx { padding: clamp(6rem, 12vw, 9rem) 0 4rem; }
+    .tn-idx h1 { font-size: clamp(2.2rem, 6vw, 4rem); letter-spacing: -.04em; margin-bottom: 1rem; }
+    .tn-idx .lead { color: rgba(242,234,221,.75); max-width: 40rem; margin-bottom: 2.6rem; }
+    .tn-idx ul { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .tn-idx a.card { display: flex; flex-direction: column; gap: .6rem; min-height: 11rem; padding: 1.3rem; border-radius: 14px; text-decoration: none; color: var(--ink); font-weight: 800; font-size: 1.25rem; line-height: 1.15; }
+    .tn-idx a.card small { margin-top: auto; font-size: .92rem; font-weight: 500; line-height: 1.4; opacity: .85; }
+    .tn-idx a.card:nth-child(1) { background: var(--ochre); }
+    .tn-idx a.card:nth-child(2) { background: var(--terra); color: var(--ink); }
+    .tn-idx a.card:nth-child(3) { background: var(--cream); }
+    .tn-idx a.card:active { transform: scale(.985); }
+  </style>
+</head>
+<body class="tn">
+  <header class="nav">
+    <div class="pill nav-left">
+      <a class="brand" href="/" aria-label="Nurelo Startseite"><img src="/logo-96.webp" width="30" height="30" alt="" /><span>Nurelo</span></a>
+    </div>
+  </header>
+  <main>
+    <section class="tn-idx">
+      <div class="wrap">
+        <p class="kicker">Vorschau</p>
+        <h1>Drei Tunnel-Prototypen</h1>
+        <p class="lead">Nur zum Ansehen und Vergleichen: nicht verlinkt, nicht übersetzt, Texte sind Platzhalter. Am besten auf dem Handy und am Desktop durchscrollen.</p>
+        <ul>
+          <li><a class="card" href="/vorschau/tunnel/zoom/">A: Fenster-Zoom<small>Gestapelte Fenster in Markenfarben, durch die man hindurchfliegt. Nur CSS und etwas Skript, ohne 3D-Technik.</small></a></li>
+          <li><a class="card" href="/vorschau/tunnel/css3d/">B: CSS-3D-Tunnel<small>Echter Raum aus Rahmen und Wandtafeln mit Perspektive. Läuft ohne WebGL, sehr leicht.</small></a></li>
+          <li><a class="card" href="/vorschau/tunnel/webgl/">C: WebGL-Tunnel<small>Leuchtende Linien, Nebel, Staub und schwebende Tafeln samt eurer Figur. Die aufwendigste Variante.</small></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
