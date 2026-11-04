@@ -1,3 +1,6 @@
 # Python-Bytecode, den die Skills unter .claude/skills beim Ausführen erzeugen
 __pycache__/
 *.pyc
+
+# Protokolle und Screenshots des Hallmark-Skills (Audit, Redesign), lokal erzeugt
+.hallmark/
