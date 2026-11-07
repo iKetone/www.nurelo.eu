@@ -323,7 +323,7 @@
       var a = anchors[el.dataset.kind]; if (!a) return;
       var i = +el.dataset.i;
       var sx = W / 2 + parseFloat(el.dataset.sx) * W * 0.95;
-      var sy = H / 2 + parseFloat(el.dataset.sy) * H * 0.8;
+      var sy = H * 0.56 + parseFloat(el.dataset.sy) * H * 0.7;   // etwas tiefer als die Mitte, damit die Kacheln nicht in die (jetzt längere) Überschrift ragen
       var ang = (i / 3) * Math.PI * 2 + order[el.dataset.kind] * 0.9 - 1.2;
       var rad = 0.5 * Math.min(W, H) * 0.19 + 36;
       var cx = a.x + Math.cos(ang) * rad;
