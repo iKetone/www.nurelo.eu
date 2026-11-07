@@ -229,6 +229,20 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
   border-radius: 14px 14px 0 0; padding: clamp(5rem, 9vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
   color: var(--cream); overflow: hidden;
 }
+/* Tiefe im Kapitelstapel: eine weiche Kante dort, wo das nächste Kapitel über das vorige fährt. Statisch, ohne Animation. */
+.chapters > section { box-shadow: 0 -18px 38px -20px color-mix(in srgb, var(--night) 55%, transparent); }
+
+/* Kapitelbilder setzen sich beim Einfahren: das Fenster fährt etwas langsamer ein als das Kapitel und ist angekommen, kurz bevor es
+   einrastet (Tiefe, ohne dass etwas springt). Nur transform, scroll-gesteuert, nur mit Unterstützung und erlaubter Bewegung.
+   Die Kapitel haben overflow: hidden und sind damit selbst ein Scroll-Container; view() im Bild würde an ihnen hängen und stillstehen.
+   Darum trägt das Kapitel die Timeline, das Bild nutzt sie. Der Weg bis zum Einrasten ist Fensterhöhe minus Klebeabstand (--i * 14px). */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .chapter { view-timeline: --ch block; }
+    .chapter-visual { animation: ch-settle linear both; animation-timeline: --ch; animation-range: entry 0px entry calc(88svh - var(--i, 0) * 14px); }
+    @keyframes ch-settle { from { transform: translate3d(0, 9svh, 0); } to { transform: none; } }
+  }
+}
 .c-st { background: var(--olive-d); }
 .c-am { background: var(--ochre); color: var(--ink); }
 .c-hn { background: var(--terra-d); }

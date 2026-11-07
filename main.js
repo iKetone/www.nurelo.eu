@@ -2,15 +2,6 @@
   var root = document.documentElement;
   root.classList.add('js');
 
-  // Prototyp "Fluss": mit ?flow aufgerufen, lädt die Seite flow.css (weichere Übergänge zwischen den Abschnitten). Ohne den Parameter
-  // ändert sich nichts. Nach der Entscheidung wandert der Inhalt in styles.css, und dieser Block entfällt.
-  if (/[?&]flow(=1)?(&|$)/.test(location.search)) {
-    root.classList.add('flow');
-    var flowCss = document.createElement('link');
-    flowCss.rel = 'stylesheet'; flowCss.href = '/flow.css';
-    document.head.appendChild(flowCss);
-  }
-
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   var narrow = window.matchMedia('(max-width: 860px), (max-height: 700px)');
 
