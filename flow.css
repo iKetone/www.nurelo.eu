@@ -1,0 +1,67 @@
+/* Nurelo: Prototyp "Fluss" – weichere Übergänge zwischen den Abschnitten
+   Nur aktiv, wenn die Seite mit ?flow aufgerufen wird (main.js setzt html.flow und lädt diese Datei); ohne den Parameter bleibt alles beim Alten.
+   Grundsätze: nur transform und opacity werden animiert, alles läuft als scroll-gesteuerte CSS-Animation (kein Skript pro Bild),
+   und alles steht in @supports sowie hinter "Bewegung erlaubt". Browser ohne animation-timeline und Nutzer mit reduzierter Bewegung
+   sehen exakt die bisherige Seite. */
+
+/* ---- Tiefe im Kapitelstapel: eine weiche Kante dort, wo das nächste Kapitel über das vorige fährt ----
+   Statisch, ohne Animation; liegt nur nach oben und stört dort nicht, wo nichts darunter liegt. */
+.flow .chapters > section { box-shadow: 0 -18px 38px -20px color-mix(in srgb, var(--night) 55%, transparent); }
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+
+    /* ---- Kapitelbilder setzen sich beim Einfahren ----
+       Das Fenster fährt etwas langsamer ein als das Kapitel und kommt an, kurz bevor das Kapitel einrastet: das gibt Tiefe,
+       ohne dass etwas springt. Das Kapitel selbst bleibt unverändert, nur sein Bild läuft nach.
+       Die Kapitel haben overflow: hidden und sind damit selbst ein Scroll-Container; view() im Bild würde an ihnen hängen und stillstehen.
+       Darum trägt das Kapitel die Timeline, das Bild nutzt sie. Der Weg bis zum Einrasten ist Fensterhöhe minus Klebeabstand (--i * 14px). */
+    .flow .chapter { view-timeline: --ch block; }
+    .flow .chapter-visual {
+      animation: flow-settle linear both;
+      animation-timeline: --ch;
+      animation-range: entry 0px entry calc(88svh - var(--i, 0) * 14px);
+    }
+    @keyframes flow-settle { from { transform: translate3d(0, 9svh, 0); } to { transform: none; } }
+
+    /* ---- Einfahrt in den Tunnel: der Papierton läuft von oben in die Nacht, die Ringe tauchen aus dem Dunst auf ---- */
+    .flow .tn.pinned .tn-stage { view-timeline: --tn-stage block; }
+
+    .flow .tn.pinned .tn-stage::before,
+    .flow .tn.pinned .tn-stage::after {
+      content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    }
+    .flow .tn.pinned .tn-cv { z-index: 0; }
+    .flow .tn.pinned .tn-world { z-index: 2; }
+
+    /* Die Kante zur Nachbarfläche bleibt immer papierfarben und deckend; animiert wird nur, wie weit der Verlauf in die Bühne reicht
+       (scaleY mit fester Kante). Würde man stattdessen die Deckkraft überblenden, stünde mitten im Übergang eine graue Kante. */
+    /* oben: Einfahrt (Papier -> Nacht); der Verlauf zieht sich zusammen, bis die Bühne das Fenster füllt */
+    .flow .tn.pinned .tn-stage::before {
+      background: linear-gradient(to bottom, var(--cream) 0%, var(--cream) 6%, color-mix(in srgb, var(--cream) 45%, transparent) 30%, transparent 68%);
+      transform-origin: 50% 0;
+      animation: flow-dawn linear both;
+      animation-timeline: --tn-stage;
+      animation-range: entry 0% entry 100%;
+    }
+    @keyframes flow-dawn { from { transform: scaleY(1); } to { transform: scaleY(0); } }
+
+    /* unten: Ausfahrt (Nacht -> Papier); der Verlauf wächst, sobald die Bühne nach der Fahrt weiterzieht */
+    .flow .tn.pinned .tn-stage::after {
+      background: linear-gradient(to top, var(--cream) 0%, var(--cream) 6%, color-mix(in srgb, var(--cream) 45%, transparent) 30%, transparent 68%);
+      transform-origin: 50% 100%;
+      animation: flow-dusk linear both;
+      animation-timeline: --tn-stage;
+      animation-range: exit 0% exit 100%;
+    }
+    /* vor dem Auszug (Bühne festgepinnt) bleibt die Fläche unsichtbar; gleich zu Beginn des Auszugs blendet sie ein */
+    @keyframes flow-dusk { 0% { opacity: 0; transform: scaleY(.3); } 3% { opacity: 1; } 100% { opacity: 1; transform: scaleY(1); } }
+
+    .flow .tn.pinned .tn-cv {
+      animation: flow-rings linear both;
+      animation-timeline: --tn-stage;
+      animation-range: entry 20% entry 100%;
+    }
+    @keyframes flow-rings { from { opacity: 0; } to { opacity: 1; } }
+  }
+}
