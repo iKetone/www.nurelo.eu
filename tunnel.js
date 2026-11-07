@@ -27,7 +27,7 @@
   function smooth(t) { t = clamp(t, 0, 1); return t * t * (3 - 2 * t); }
 
   var pointer = { x: 0, y: 0, tx: 0, ty: 0 };
-  if (fine) window.addEventListener('pointermove', function (e) { pointer.tx = e.clientX / window.innerWidth - 0.5; pointer.ty = e.clientY / window.innerHeight - 0.5; }, { passive: true });
+  if (fine) window.addEventListener('pointermove', function (e) { pointer.tx = e.clientX / window.innerWidth - 0.5; pointer.ty = e.clientY / window.innerHeight - 0.5; kick(); }, { passive: true });
 
   function rrect(ctx, x, y, w, h, r) {
     r = Math.min(r, w / 2, h / 2);
@@ -50,6 +50,9 @@
   var visible = false, raf = 0, last = 0, lastDraw = 0, cur = 0, pinned = false;
   var cardO = -1, cardVis = false, cardLive = false;
   var t0 = performance.now();
+  // Das leise Schwanken der Kamera läuft nur kurz nach dem Scrollen. Nach 5 s Ruhe klingt es aus und die Zeichenschleife hält an
+  // (WCAG 2.2.2: selbst startende Bewegung darf nicht dauerhaft laufen; spart nebenbei Akku). Scrollen weckt alles wieder auf.
+  var CALM_AFTER = 5000, lastMove = performance.now(), calm = 1;
 
   function buildGeometry() {
     LEN = RINGS * GAP;
@@ -146,10 +149,11 @@
     cur = force ? p : cur;
     var camZ = path(cur);
     var sway = 1 - smooth((cur - 0.72) / 0.28);      // am Ende steht alles still
-    var t = (performance.now() - t0) / 1000;
+    var now = performance.now(), t = (now - t0) / 1000;
+    calm += ((now - lastMove > CALM_AFTER ? 0 : 1) - calm) * 0.04;
     pointer.x += (pointer.tx - pointer.x) * 0.05; pointer.y += (pointer.ty - pointer.y) * 0.05;
-    var cx = Math.sin(t * 0.45) * 0.07 * sway + pointer.x * 0.3 * sway;
-    var cy = Math.cos(t * 0.37) * 0.045 * sway - pointer.y * 0.2 * sway;
+    var cx = Math.sin(t * 0.45) * 0.07 * sway * calm + pointer.x * 0.3 * sway;
+    var cy = Math.cos(t * 0.37) * 0.045 * sway * calm - pointer.y * 0.2 * sway;
     var roll = force ? 0 : clamp((progress() - cur) * 1.6, -0.045, 0.045);
     draw(camZ, cx, cy, roll);
     world.style.transform = 'rotate(' + roll.toFixed(4) + 'rad)';
@@ -159,13 +163,17 @@
   function tick(now) {
     raf = 0;
     if (!visible || document.hidden || !pinned) return;
-    raf = requestAnimationFrame(tick);
-    if (weak && now - lastDraw < 33) return;
+    if (weak && now - lastDraw < 33) { raf = requestAnimationFrame(tick); return; }
     var dt = last ? Math.min(now - last, 64) : 16; last = now; lastDraw = now;
-    cur += (progress() - cur) * (1 - Math.exp(-dt / 120));
+    var target = progress();
+    cur += (target - cur) * (1 - Math.exp(-dt / 120));
     render(false);
+    // Alles ausgeklungen (Kamera am Ziel, Schwanken aus, Zeiger eingeholt): keine weiteren Bilder, bis wieder gescrollt wird
+    var still = calm < 0.004 && Math.abs(target - cur) < 0.0004 && Math.abs(pointer.tx - pointer.x) < 0.0008 && Math.abs(pointer.ty - pointer.y) < 0.0008;
+    if (!still) raf = requestAnimationFrame(tick);
   }
   function kick() { if (!raf && visible && pinned) { last = 0; raf = requestAnimationFrame(tick); } }
+  window.addEventListener('scroll', function () { lastMove = performance.now(); kick(); }, { passive: true });
 
   function setup() {
     pinned = !reduce.matches;
