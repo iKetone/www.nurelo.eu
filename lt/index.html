@@ -50,6 +50,15 @@
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/tunnel.css" />
+  <script>
+  /* Hero: Startzustand der Scroll-Sequenz schon im ersten Bild (siehe styles.css, html.hero-boot); entfällt bei reduzierter Bewegung */
+  (function () {
+    var d = document.documentElement;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    d.classList.add('hero-boot');
+    setTimeout(function () { d.classList.remove('hero-boot'); }, 3000);
+  })();
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",

@@ -186,11 +186,19 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .scroll-hint { display: none; align-self: start; font-size: .8rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-2); }
 .scroll-hint::after { content: ""; display: block; width: 2px; height: 22px; margin: .35rem auto 0; background: var(--ink-2); opacity: .6; }
 
-.hero.pinned { height: 300vh; height: 300svh; }
-.hero.pinned .stage-pin { position: sticky; top: 0; height: 100vh; height: 100svh; min-height: 0; }
-.hero.pinned .h1-a { display: block; }
-.hero.pinned .scroll-hint { display: block; }
+/* html.hero-boot (kleines Skript im Kopf der Startseite, nur bei erlaubter Bewegung): der Startzustand der Scroll-Sequenz steht schon
+   im allerersten Bild. Sonst malt der Browser zuerst den statischen Endzustand (Überschrift B, Fließtext, Fenster) und springt um,
+   sobald main.js läuft. main.js nimmt die Klasse nach dem ersten update() wieder weg; ein Zeitgeber im Kopf tut es spätestens nach 3 s. */
+.hero.pinned, .hero-boot .hero { height: 300vh; height: 300svh; }
+.hero.pinned .stage-pin, .hero-boot .stage-pin { position: sticky; top: 0; height: 100vh; height: 100svh; min-height: 0; }
+.hero.pinned .h1-a, .hero-boot .h1-a { display: block; }
+.hero.pinned .scroll-hint, .hero-boot .scroll-hint { display: block; }
+.hero-boot .h1-b, .hero-boot .hero-more, .hero-boot .stage-pin .app-window { opacity: 0; }
+.hero-boot .tile.big, .hero-boot .tile.sat { display: none; }
 .hero:not(.pinned) .sat { display: none; }
+/* die Satelliten blenden beim Start ein, statt aufzuspringen (sie erscheinen erst, wenn main.js sie platziert hat) */
+@media (prefers-reduced-motion: no-preference) { .tile.sat { animation: tile-in .6s ease-out backwards; } }
+@keyframes tile-in { from { opacity: 0; } }
 
 /* App-Fenster */
 .stage-pin .app-window { transform-origin: 50% 100%; }

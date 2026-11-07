@@ -473,6 +473,7 @@
   hero.classList.toggle('pinned', animated());
   measure();
   update();
+  root.classList.remove('hero-boot');   // ab jetzt zeichnet das Skript den Hero (siehe styles.css, html.hero-boot)
 
   // Notfalls ohne 3D starten (Skript blockiert, sehr langsames Gerät)
   function failsafe() { setTimeout(enableDrift, 4500); }
