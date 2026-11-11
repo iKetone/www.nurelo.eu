@@ -176,7 +176,7 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 }
 .hero-copy { text-align: center; max-width: 1100px; position: relative; display: grid; justify-items: center; gap: clamp(.7rem, 2vh, 1.4rem); z-index: 2; }
 .hero-copy h1 { align-items: end; font-size: clamp(2.2rem, min(5.2vw, 8vh), 4.8rem); letter-spacing: -.03em; display: grid; }
-.hero-copy h1 > span { grid-area: 1 / 1; }
+.hero-copy h1 > span { grid-area: 1 / 1; text-wrap: balance; } /* keine Waise "Pflege." in der letzten Zeile */
 .hero-copy h1 em { font-style: normal; color: var(--terra-d); }
 .h1-a { display: none; }
 .hero-lower { display: grid; justify-items: center; }
@@ -196,6 +196,10 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .hero-boot .h1-b, .hero-boot .hero-more, .hero-boot .stage-pin .app-window { opacity: 0; }
 .hero-boot .tile.big, .hero-boot .tile.sat { display: none; }
 .hero:not(.pinned) .sat { display: none; }
+/* Ohne Scroll-Sequenz (reduzierte Bewegung, ohne Skript) stehen beide Sätze untereinander; sonst hätte "sie" im zweiten keinen Bezug */
+html:not(.hero-boot) .hero:not(.pinned) .hero-copy h1 { row-gap: .15em; }
+html:not(.hero-boot) .hero:not(.pinned) .hero-copy h1 > span { grid-area: auto; }
+html:not(.hero-boot) .hero:not(.pinned) .h1-a { display: block; color: var(--ink-2); }
 /* die Satelliten blenden beim Start ein, statt aufzuspringen (sie erscheinen erst, wenn main.js sie platziert hat) */
 @media (prefers-reduced-motion: no-preference) { .tile.sat { animation: tile-in .6s ease-out backwards; } }
 @keyframes tile-in { from { opacity: 0; } }
@@ -226,8 +230,22 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .chapters > .platform { position: sticky; top: calc(var(--i) * 14px); }
 .chapter {
   position: sticky; top: calc(var(--i) * 14px); min-height: 100vh; display: flex; align-items: center;
-  border-radius: 14px 14px 0 0; padding: clamp(5rem, 9vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
+  border-radius: 14px 14px 0 0; padding: clamp(4.5rem, 7vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem); /* etwas kompakter, damit auch ausführlichere Texte in ein Fenster passen */
   color: var(--cream); overflow: hidden;
+}
+/* Tiefe im Kapitelstapel: eine weiche Kante dort, wo das nächste Kapitel über das vorige fährt. Statisch, ohne Animation. */
+.chapters > section { box-shadow: 0 -18px 38px -20px color-mix(in srgb, var(--night) 55%, transparent); }
+
+/* Kapitelbilder setzen sich beim Einfahren: das Fenster fährt etwas langsamer ein als das Kapitel und ist angekommen, kurz bevor es
+   einrastet (Tiefe, ohne dass etwas springt). Nur transform, scroll-gesteuert, nur mit Unterstützung und erlaubter Bewegung.
+   Die Kapitel haben overflow: hidden und sind damit selbst ein Scroll-Container; view() im Bild würde an ihnen hängen und stillstehen.
+   Darum trägt das Kapitel die Timeline, das Bild nutzt sie. Der Weg bis zum Einrasten ist Fensterhöhe minus Klebeabstand (--i * 14px). */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .chapter { view-timeline: --ch block; }
+    .chapter-visual { animation: ch-settle linear both; animation-timeline: --ch; animation-range: entry 0px entry calc(88svh - var(--i, 0) * 14px); }
+    @keyframes ch-settle { from { transform: translate3d(0, 9svh, 0); } to { transform: none; } }
+  }
 }
 .c-st { background: var(--olive-d); }
 .c-am { background: var(--ochre); color: var(--ink); }
@@ -236,9 +254,9 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 .c-st, .c-am, .c-hn { background-image: var(--grain); }
 .chapter .chapter-lead { color: inherit; }
 .chapter-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
-.chapter h2 { margin-bottom: 1.4rem; }
-.ticks { display: grid; margin-top: 1.8rem; font-weight: 600; }
-.ticks li { padding: .75rem 0; border-top: 1px solid color-mix(in srgb, currentColor 30%, transparent); }
+.chapter h2 { margin-bottom: 1.1rem; font-size: clamp(2rem, 3.8vw, 3.2rem); } /* die Überschriften sind jetzt ganze Sätze, daher etwas kleiner als die übrigen h2 */
+.ticks { display: grid; margin-top: 1.4rem; font-weight: 600; }
+.ticks li { padding: .6rem 0; border-top: 1px solid color-mix(in srgb, currentColor 30%, transparent); }
 .ticks li:last-child { border-bottom: 1px solid color-mix(in srgb, currentColor 30%, transparent); }
 .chapter-visual { position: relative; padding: 7.5rem 0 0; }
 .chapter .tile.chap { --s: clamp(110px, 16vw, 168px); left: auto; right: 4%; top: 0; margin: 0; }

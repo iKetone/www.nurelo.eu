@@ -2,15 +2,6 @@
   var root = document.documentElement;
   root.classList.add('js');
 
-  // Prototyp "Fluss": mit ?flow aufgerufen, lädt die Seite flow.css (weichere Übergänge zwischen den Abschnitten). Ohne den Parameter
-  // ändert sich nichts. Nach der Entscheidung wandert der Inhalt in styles.css, und dieser Block entfällt.
-  if (/[?&]flow(=1)?(&|$)/.test(location.search)) {
-    root.classList.add('flow');
-    var flowCss = document.createElement('link');
-    flowCss.rel = 'stylesheet'; flowCss.href = '/flow.css';
-    document.head.appendChild(flowCss);
-  }
-
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   var narrow = window.matchMedia('(max-width: 860px), (max-height: 700px)');
 
@@ -332,7 +323,7 @@
       var a = anchors[el.dataset.kind]; if (!a) return;
       var i = +el.dataset.i;
       var sx = W / 2 + parseFloat(el.dataset.sx) * W * 0.95;
-      var sy = H / 2 + parseFloat(el.dataset.sy) * H * 0.8;
+      var sy = H * 0.56 + parseFloat(el.dataset.sy) * H * 0.7;   // etwas tiefer als die Mitte, damit die Kacheln nicht in die (jetzt längere) Überschrift ragen
       var ang = (i / 3) * Math.PI * 2 + order[el.dataset.kind] * 0.9 - 1.2;
       var rad = 0.5 * Math.min(W, H) * 0.19 + 36;
       var cx = a.x + Math.cos(ang) * rad;

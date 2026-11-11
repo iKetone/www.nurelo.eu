@@ -17,3 +17,36 @@
 .js .tn.pinned .tn-final { width: min(100% - 2.5rem, var(--max)); }
 .js .tn.pinned .tn-final .cta-box.reveal { opacity: 1; transform: none; animation: none; transition: none; }
 .js .tn.pinned .tn-final .cta-box { background: color-mix(in srgb, var(--paper) 93%, transparent); -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: 0 0 90px color-mix(in srgb, var(--ochre) 22%, transparent); }
+
+/* Ein- und Ausfahrt: der Papierton läuft von oben in die Nacht und unten wieder hinaus, die Ringe tauchen aus dem Dunst auf.
+   Scroll-gesteuert (View-Timeline der Bühne), nur transform und opacity, nur mit Unterstützung und erlaubter Bewegung.
+   Die Kante zur Nachbarfläche bleibt immer papierfarben und deckend; animiert wird nur, wie weit der Verlauf in die Bühne reicht
+   (scaleY mit fester Kante). Würde man stattdessen die Deckkraft überblenden, stünde mitten im Übergang eine graue Kante. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .js .tn.pinned .tn-stage { view-timeline: --tn-stage block; }
+    .js .tn.pinned .tn-stage::before, .js .tn.pinned .tn-stage::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+    .js .tn.pinned .tn-cv { z-index: 0; }
+    .js .tn.pinned .tn-world { z-index: 2; }
+
+    /* oben: Einfahrt (Papier -> Nacht); der Verlauf zieht sich zusammen, bis die Bühne das Fenster füllt */
+    .js .tn.pinned .tn-stage::before {
+      background: linear-gradient(to bottom, var(--cream) 0%, var(--cream) 6%, color-mix(in srgb, var(--cream) 45%, transparent) 30%, transparent 68%);
+      transform-origin: 50% 0;
+      animation: tn-dawn linear both; animation-timeline: --tn-stage; animation-range: entry 0% entry 100%;
+    }
+    @keyframes tn-dawn { from { transform: scaleY(1); } to { transform: scaleY(0); } }
+
+    /* unten: Ausfahrt (Nacht -> Papier); der Verlauf wächst, sobald die Bühne nach der Fahrt weiterzieht */
+    .js .tn.pinned .tn-stage::after {
+      background: linear-gradient(to top, var(--cream) 0%, var(--cream) 6%, color-mix(in srgb, var(--cream) 45%, transparent) 30%, transparent 68%);
+      transform-origin: 50% 100%;
+      animation: tn-dusk linear both; animation-timeline: --tn-stage; animation-range: exit 0% exit 100%;
+    }
+    /* vor dem Auszug (Bühne festgepinnt) bleibt die Fläche unsichtbar; gleich zu Beginn des Auszugs blendet sie ein */
+    @keyframes tn-dusk { 0% { opacity: 0; transform: scaleY(.3); } 3% { opacity: 1; } 100% { opacity: 1; transform: scaleY(1); } }
+
+    .js .tn.pinned .tn-cv { animation: tn-rings linear both; animation-timeline: --tn-stage; animation-range: entry 20% entry 100%; }
+    @keyframes tn-rings { from { opacity: 0; } to { opacity: 1; } }
+  }
+}
