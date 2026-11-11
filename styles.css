@@ -230,7 +230,7 @@ html:not(.hero-boot) .hero:not(.pinned) .h1-a { display: block; color: var(--ink
 .chapters > .platform { position: sticky; top: calc(var(--i) * 14px); }
 .chapter {
   position: sticky; top: calc(var(--i) * 14px); min-height: 100vh; display: flex; align-items: center;
-  border-radius: 14px 14px 0 0; padding: clamp(5rem, 9vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
+  border-radius: 14px 14px 0 0; padding: clamp(4.5rem, 7vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem); /* etwas kompakter, damit auch ausführlichere Texte in ein Fenster passen */
   color: var(--cream); overflow: hidden;
 }
 /* Tiefe im Kapitelstapel: eine weiche Kante dort, wo das nächste Kapitel über das vorige fährt. Statisch, ohne Animation. */
@@ -254,9 +254,9 @@ html:not(.hero-boot) .hero:not(.pinned) .h1-a { display: block; color: var(--ink
 .c-st, .c-am, .c-hn { background-image: var(--grain); }
 .chapter .chapter-lead { color: inherit; }
 .chapter-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
-.chapter h2 { margin-bottom: 1.4rem; }
-.ticks { display: grid; margin-top: 1.8rem; font-weight: 600; }
-.ticks li { padding: .75rem 0; border-top: 1px solid color-mix(in srgb, currentColor 30%, transparent); }
+.chapter h2 { margin-bottom: 1.1rem; font-size: clamp(2rem, 3.8vw, 3.2rem); } /* die Überschriften sind jetzt ganze Sätze, daher etwas kleiner als die übrigen h2 */
+.ticks { display: grid; margin-top: 1.4rem; font-weight: 600; }
+.ticks li { padding: .6rem 0; border-top: 1px solid color-mix(in srgb, currentColor 30%, transparent); }
 .ticks li:last-child { border-bottom: 1px solid color-mix(in srgb, currentColor 30%, transparent); }
 .chapter-visual { position: relative; padding: 7.5rem 0 0; }
 .chapter .tile.chap { --s: clamp(110px, 16vw, 168px); left: auto; right: 4%; top: 0; margin: 0; }
