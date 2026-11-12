@@ -70,5 +70,21 @@
   "hn_pg_f7_h": "Gerätevertrag",
   "hn_pg_f7_p": "Geräteverträge Ihrer Teilnehmer verwalten.",
   "hn_pg_f8_h": "Einsatzdokumentation",
-  "hn_pg_f8_p": "Einsätze nach einem Alarm dokumentieren."
+  "hn_pg_f8_p": "Einsätze nach einem Alarm dokumentieren.",
+
+  "st_sc_kicker": "Ein Blick ins Haus",
+  "st_sc_h2": "Wo Nurelo im Alltag Zeit spart.",
+  "st_sc_lead": "Scrollen Sie durch ein Haus, wie es in jeder stationären Einrichtung steht, und sehen Sie, was an welchem Ort passiert.",
+  "st_sc_1_tag": "Bewohnerzimmer",
+  "st_sc_1_h": "Einsprechen statt tippen.",
+  "st_sc_1_p": "Die Pflegekraft hält ihre Beobachtung direkt am Bett per Sprachnotiz fest. Der Eintrag landet im Berichteblatt.",
+  "st_sc_2_tag": "Stationszimmer",
+  "st_sc_2_h": "Dienstplan und Erhebung im Griff.",
+  "st_sc_2_p": "Der Dienstplan ist voll konfigurierbar. Die halbjährliche Indikatorenerhebung erfasst und übermittelt Nurelo für Sie.",
+  "st_sc_3_tag": "Medikamentenraum",
+  "st_sc_3_h": "Jede Gabe protokolliert.",
+  "st_sc_3_p": "Medikamente verwalten Sie mit Verabreichungsprotokoll, direkt dort, wo sie ausgegeben werden.",
+  "st_sc_4_tag": "Das ganze Haus",
+  "st_sc_4_h": "Ein System für alle Orte.",
+  "st_sc_4_p": "Bewohnerakte, Pflegeplanung, Dienstplan, Medikamente und Abrechnung arbeiten mit denselben Daten. Was am Bett erfasst wird, steht im Büro bereit."
 }

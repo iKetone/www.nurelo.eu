@@ -1,0 +1,71 @@
+/* Szene auf den Produktseiten: ein aufgeschnittenes Haus, durch das die Kamera beim Scrollen fährt (scene.js).
+   Ohne Skript oder bei reduzierter Bewegung bleibt es eine ruhige Seite: Überschrift, die ganze Zeichnung, darunter die vier Erklärungen. */
+
+.scn { position: relative; background: var(--cream); color: var(--ink); }
+.scn[hidden] { display: none; }
+
+/* ---------- Ruhezustand (ohne Skript, bei reduzierter Bewegung) ---------- */
+.scn:not(.scn-on) { padding: clamp(4rem, 9vw, 7rem) 0; }
+.scn:not(.scn-on) .scn-stage { width: min(100% - 2.5rem - 2 * max(env(safe-area-inset-left), env(safe-area-inset-right)), var(--max)); margin-inline: auto; }
+.scn:not(.scn-on) .scn-intro { max-width: 760px; margin-bottom: clamp(1.5rem, 4vw, 3rem); }
+.scn:not(.scn-on) .scn-intro p:not(.kicker) { color: var(--ink-2); font-size: 1.1rem; line-height: 1.6; max-width: 56ch; }
+.scn:not(.scn-on) .scn-view { overflow-x: auto; }
+.scn-view svg { display: block; width: 100%; height: auto; }
+.scn:not(.scn-on) .scn-steps { list-style: none; margin: clamp(1.5rem, 4vw, 3rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.scn:not(.scn-on) .scn-card:not(.scn-intro) { background: var(--paper); border: 1px solid var(--line); border-radius: 20px; padding: 1.4rem 1.5rem; }
+.scn:not(.scn-on) .scn-dots { display: none; }
+
+.scn-tag { font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--terra-d); margin: 0 0 .5rem; }
+.scn-card h2 { font-size: clamp(2rem, 3.4vw, 2.7rem); margin-bottom: .9rem; text-wrap: balance; }
+.scn-card h3 { font-size: clamp(1.35rem, 2.1vw, 1.7rem); letter-spacing: -.02em; line-height: 1.15; margin: 0 0 .6rem; text-wrap: balance; }
+.scn-card p:not(.kicker):not(.scn-tag) { margin: 0; color: var(--ink-2); line-height: 1.55; }
+.scn-card .kicker { margin-bottom: 1rem; }
+
+/* ---------- Kamerafahrt (scn-on wird von scene.js gesetzt) ---------- */
+.scn-on .scn-track { height: calc(100vh * 4.8); height: calc(100svh * 4.8); }
+.scn-on .scn-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.scn-on .scn-view { position: absolute; inset: 0; }
+.scn-on .scn-view svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.scn-on .scn-intro,
+.scn-on .scn-steps { position: absolute; left: max(1.25rem, env(safe-area-inset-left)); right: max(1.25rem, env(safe-area-inset-right)); bottom: max(1.1rem, env(safe-area-inset-bottom)); margin: 0; padding: 0; list-style: none; display: grid; pointer-events: none; }
+.scn-on .scn-steps > li { grid-area: 1 / 1; }
+.scn-on .scn-card { background: color-mix(in srgb, var(--paper) 94%, transparent); border: 1px solid color-mix(in srgb, var(--line) 80%, transparent); border-radius: 20px; padding: 1.2rem 1.35rem 1.3rem; box-shadow: 0 22px 60px -28px rgba(36, 27, 20, .45); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.scn-on .scn-card h2 { font-size: clamp(1.7rem, 6.4vw, 2.2rem); margin-bottom: .6rem; }
+.scn-on .scn-card h3 { font-size: clamp(1.25rem, 4.6vw, 1.5rem); }
+.scn-on .scn-card p:not(.kicker):not(.scn-tag) { font-size: .98rem; }
+.scn-on .scn-card { opacity: 0; transform: translateY(14px); transition: opacity .4s ease, transform .5s cubic-bezier(.2, .8, .2, 1); }
+.scn-on .scn-card.on { opacity: 1; transform: none; transition-delay: .05s; }
+
+@media (min-width: 900px) and (min-height: 560px) {
+  .scn-on .scn-intro,
+  .scn-on .scn-steps { right: auto; bottom: auto; top: 50%; left: max(2rem, calc((100vw - var(--max)) / 2)); width: min(25rem, 34vw); transform: translateY(-50%); }
+  .scn-on .scn-card { padding: 1.7rem 1.8rem 1.8rem; }
+  .scn-on .scn-card h2 { font-size: clamp(2rem, 3vw, 2.7rem); }
+  .scn-on .scn-card h3 { font-size: clamp(1.5rem, 2.1vw, 1.8rem); }
+  .scn-on .scn-card p:not(.kicker):not(.scn-tag) { font-size: 1.02rem; }
+}
+
+/* Fortschritt */
+.scn-on .scn-dots { position: absolute; right: max(.9rem, env(safe-area-inset-right)); top: 50%; transform: translateY(-50%); display: grid; gap: .55rem; margin: 0; padding: 0; list-style: none; }
+.scn-dots li { width: 7px; height: 7px; border-radius: 4px; background: color-mix(in srgb, var(--ink) 22%, transparent); transition: height .35s ease, background-color .35s ease; }
+.scn-dots li.on { height: 22px; background: var(--terra-d); }
+
+/* Pop-ups wachsen aus ihrer Spitze, sobald die Kamera im Raum angekommen ist */
+.scn-pop-in { transform-origin: 0 0; }
+.scn-on .scn-pop-in { opacity: 0; transform: scale(.4); transition: opacity .25s ease, transform .2s ease; }
+.scn-on .scn-pop.on .scn-pop-in { opacity: 1; transform: none; transition: opacity .3s ease, transform .6s cubic-bezier(.2, 1.35, .4, 1); }
+
+/* Sprachwelle läuft dreimal, wenn das Pop-up erscheint */
+.scn-wave rect { transform-box: fill-box; transform-origin: center; }
+@media (prefers-reduced-motion: no-preference) {
+  .scn-on .scn-pop.on .scn-wave rect { animation: scn-wave .9s ease-in-out .35s 3 both; }
+  .scn-on .scn-pop.on .scn-wave rect:nth-child(2) { animation-delay: .45s; }
+  .scn-on .scn-pop.on .scn-wave rect:nth-child(3) { animation-delay: .55s; }
+  .scn-on .scn-pop.on .scn-wave rect:nth-child(4) { animation-delay: .65s; }
+  .scn-on .scn-pop.on .scn-wave rect:nth-child(5) { animation-delay: .75s; }
+}
+@keyframes scn-wave { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.35); } }
+
+/* Der Nach-oben-Knopf würde die Textkarte überdecken, solange die Szene die Seite festhält */
+.scn-pinned .to-top.show { visibility: hidden; opacity: 0; }
