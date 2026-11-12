@@ -69,13 +69,13 @@ function room1(iso, x0, y0) {
   // Nachttisch mit Lampe
   iso.add(L, iso.box(x0 + 3.15, y0 + 0.15, 0, 0.9, 0.85, 0.85, PAL.wood, { depth: x0 + y0 + 4.2 }));
   iso.add(L, iso.box(x0 + 3.5, y0 + 0.4, 0.85, 0.25, 0.25, 0.35, '#fff3d1', { depth: x0 + y0 + 4.5 }));
-  // Sessel mit Bewohnerin: linke Armlehne liegt hinter ihr, rechte davor, sonst würde die Figur angeschnitten
-  const cx = x0 + 4.6, cy = y0 + 3.3, ch = mix(PAL.oliveL, '#000000', 0.12);
-  iso.add(L, iso.box(cx, cy, 0, 2.0, 0.4, 1.75, PAL.oliveL, { depth: cx + cy + 0.4 }));                       // Lehne
-  iso.add(L, iso.box(cx, cy + 0.4, 0, 2.0, 1.6, 0.6, PAL.oliveL, { depth: cx + cy + 1.0 }));                  // Sitz
-  iso.add(L, iso.box(cx, cy + 0.4, 0.6, 0.32, 1.6, 0.32, ch, { depth: cx + cy + 1.2 }));                      // linke Armlehne
-  iso.add(L, { depth: cx + cy + 1.9, svg: person(iso, cx + 1.0, cy + 1.45, 0.6, { sit: true, body: PAL.terraL, skin: '#e3b894', hair: '#d9d2c3', legs: '#6b5a49', s: 0.88 }) });
-  iso.add(L, iso.box(cx + 1.68, cy + 0.4, 0.6, 0.32, 1.6, 0.32, ch, { depth: cx + cy + 3.6 }));               // rechte Armlehne
+  // Sessel mit Bewohnerin: linke Armlehne liegt hinter ihr, rechte davor, die Beine hängen vor der Sitzkante
+  const cx = x0 + 4.6, cy = y0 + 3.3, ch = mix(PAL.oliveL, '#000000', 0.12), SEAT = 0.75;
+  iso.add(L, iso.box(cx, cy, 0, 2.0, 0.4, 2.0, PAL.oliveL, { depth: cx + cy + 0.4 }));                        // Lehne
+  iso.add(L, iso.box(cx, cy + 0.4, 0, 2.0, 1.6, SEAT, PAL.oliveL, { depth: cx + cy + 1.0 }));                 // Sitz
+  iso.add(L, iso.box(cx, cy + 0.4, SEAT, 0.32, 1.6, 0.32, ch, { depth: cx + cy + 1.2 }));                     // linke Armlehne
+  iso.add(L, { depth: cx + cy + 1.9, svg: person(iso, cx + 1.0, cy + 0.95, SEAT, { sit: true, seat: SEAT, thigh: 0.85, body: PAL.terraL, skin: '#e3b894', hair: '#d9d2c3', legs: '#6b5a49', shoe: '#4a3a2c', s: 0.88 }) });
+  iso.add(L, iso.box(cx + 1.68, cy + 0.4, SEAT, 0.32, 1.6, 0.32, ch, { depth: cx + cy + 3.6 }));              // rechte Armlehne
   // Pflegekraft mit Tablet am Bett
   iso.add(L, { depth: x0 + y0 + 8, svg: person(iso, x0 + 3.3, y0 + 3.9, 0.14, { body: PAL.oliveD, accent: PAL.ochre, tablet: true, skin: '#c8956d', hair: '#2b1d14' }) });
   // Pflanze
@@ -110,7 +110,7 @@ function room2(iso, x0, y0) {
   const sx = x0 + 3.2, sy = y0 + 2.0;
   iso.add(L, iso.box(sx, sy, 0, 1.3, 0.3, 1.3, '#3d2e22', { depth: sx + sy + 0.4 }));                       // Stuhllehne
   iso.add(L, iso.box(sx, sy + 0.3, 0, 1.3, 1.0, 0.5, '#3d2e22', { depth: sx + sy + 0.9 }));                 // Sitz
-  iso.add(L, { depth: sx + sy + 1.4, svg: person(iso, sx + 0.65, sy + 0.95, 0.5, { sit: true, body: PAL.terraD, skin: '#8d5a3c', hair: '#1c140e', legs: '#2b2218', s: 1 }) });
+  iso.add(L, { depth: sx + sy + 1.4, svg: person(iso, sx + 0.65, sy + 0.85, 0.5, { sit: true, seat: 0.5, thigh: 0.8, body: PAL.terraD, skin: '#8d5a3c', hair: '#1c140e', legs: '#2b2218', s: 1 }) });
   iso.add(L, iso.box(dx, dy + 0.1, 0, 0.14, 1.2, 0.82, PAL.woodD, { depth: DD - 0.5 }));
   iso.add(L, iso.box(dx + 4.46, dy + 0.1, 0, 0.14, 1.2, 0.82, PAL.woodD, { depth: DD - 0.4 }));
   iso.add(L, iso.box(dx, dy + 1.26, 0, 4.6, 0.14, 0.82, PAL.woodD, { depth: DD - 0.3 }));                   // Blende

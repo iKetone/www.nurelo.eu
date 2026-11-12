@@ -69,15 +69,29 @@ export function person(iso, wx, wy, wz, o = {}) {
   const [X, Y] = iso.p(wx, wy, wz);
   const s = o.s || 1, body = o.body || '#5a5533', skin = o.skin || '#e8c3a0', hair = o.hair || '#3a2a1e', sit = o.sit;
   const h = sit ? 58 : 84, w = 22;           // Rumpf
-  const legH = sit ? 14 : 30;
+  const legH = sit ? 0 : 30;
   const parts = [];
-  // Schatten (sitzende Figuren werfen ihn nicht auf den Sitz)
-  if (!sit) parts.push(`<ellipse cx="0" cy="2" rx="${w * 0.9}" ry="5.5" fill="#000" opacity=".18"/>`);
-  // Beine
-  parts.push(`<rect x="${-w / 2 + 2}" y="${-legH}" width="7" height="${legH}" rx="3" fill="${o.legs || '#2b2218'}"/><rect x="${w / 2 - 9}" y="${-legH}" width="7" height="${legH}" rx="3" fill="${o.legs || '#2b2218'}"/>`);
-  // Rumpf
-  parts.push(`<rect x="${-w / 2}" y="${-h}" width="${w}" height="${h - legH + 6}" rx="9" fill="${body}"/>`);
-  if (o.accent) parts.push(`<rect x="${-w / 2}" y="${-h + 16}" width="${w}" height="4" fill="${o.accent}"/>`);
+  const legCol = o.legs || '#2b2218';
+  if (!sit) {
+    parts.push(`<ellipse cx="0" cy="2" rx="${w * 0.9}" ry="5.5" fill="#000" opacity=".18"/>`);
+    parts.push(`<rect x="${-w / 2 + 2}" y="${-legH}" width="7" height="${legH}" rx="3" fill="${legCol}"/><rect x="${w / 2 - 9}" y="${-legH}" width="7" height="${legH}" rx="3" fill="${legCol}"/>`);
+    parts.push(`<rect x="${-w / 2}" y="${-h}" width="${w}" height="${h - legH + 6}" rx="9" fill="${body}"/>`);
+  } else {
+    // Sitzend: Der Rumpf sitzt auf der Sitzfläche (wz = Höhe der Sitzfläche), die Oberschenkel zeigen nach vorn (+y, im Bild nach links unten),
+    // die Unterschenkel hängen vor der Sitzkante bis zum Boden (o.seat = Sitzhöhe in Einheiten).
+    const k = 1 / s, thigh = o.thigh || 0.8, seat = o.seat || 0.6;
+    const fx = -A * thigh * k, fy = B * thigh * k, sh = seat * C * k;
+    const sx = A * 0.22 * k, sy = B * 0.22 * k;           // Abstand der Beine in x-Richtung
+    const knee = (sg) => [sg * sx + fx, sg * sy - 4 + fy];
+    parts.push(`<rect x="${-w / 2}" y="${-h}" width="${w}" height="${h + 2}" rx="9" fill="${body}"/>`);
+    const leg = (sg) => {
+      const [kx, ky] = knee(sg), [hx, hy] = [sg * sx, sg * sy - 4];
+      return `<path d="M${f(hx)} ${f(hy)} L${f(kx)} ${f(ky)}" stroke="${legCol}" stroke-width="10" stroke-linecap="round" fill="none"/>`
+        + `<rect x="${f(kx - 4.5)}" y="${f(ky)}" width="9" height="${f(sh)}" rx="4" fill="${legCol}"/>`
+        + `<rect x="${f(kx - 10)}" y="${f(ky + sh - 5)}" width="15" height="7" rx="3.5" fill="${o.shoe || '#241b14'}"/>`;
+    };
+    parts.push(leg(-1), leg(1));
+  }
   // Arme
   if (o.tablet) {
     parts.push(`<rect x="${w / 2 - 3}" y="${-h + 14}" width="7" height="26" rx="3.5" fill="${body}" transform="rotate(-24 ${w / 2} ${-h + 14})"/>`);
