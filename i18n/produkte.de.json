@@ -86,5 +86,21 @@
   "st_sc_3_p": "Medikamente verwalten Sie mit Verabreichungsprotokoll, direkt dort, wo sie ausgegeben werden.",
   "st_sc_4_tag": "Das ganze Haus",
   "st_sc_4_h": "Ein System für alle Orte.",
-  "st_sc_4_p": "Bewohnerakte, Pflegeplanung, Dienstplan, Medikamente und Abrechnung arbeiten mit denselben Daten. Was am Bett erfasst wird, steht im Büro bereit."
+  "st_sc_4_p": "Bewohnerakte, Pflegeplanung, Dienstplan, Medikamente und Abrechnung arbeiten mit denselben Daten. Was am Bett erfasst wird, steht im Büro bereit.",
+
+  "am_sc_kicker": "Ein Blick in den Tag",
+  "am_sc_h2": "Wo Nurelo auf der Tour Zeit spart.",
+  "am_sc_lead": "Folgen Sie einem Tag im ambulanten Dienst, von der Planung im Büro über den Einsatz bei den Klientinnen und Klienten bis zur Abrechnung.",
+  "am_sc_1_tag": "Einsatzplanung",
+  "am_sc_1_h": "Die Tour steht, bevor das Team losfährt.",
+  "am_sc_1_p": "Touren und Dienstplan planen Sie an einem Ort, mit Fahrzeug- und Mitarbeiterzuweisung.",
+  "am_sc_2_tag": "Beim Einsatz",
+  "am_sc_2_h": "Vor Ort dokumentiert, auch ohne Netz.",
+  "am_sc_2_p": "Die Pflegekraft dokumentiert den Einsatz mobil direkt vor Ort, auch offline, und lässt digital unterschreiben.",
+  "am_sc_3_tag": "Abrechnung",
+  "am_sc_3_h": "Aus dem Einsatz wird die Abrechnung.",
+  "am_sc_3_p": "Leistungen nach SGB XI und V werden in einem Ablauf erfasst. Die Abrechnung nach §&nbsp;302 geht direkt an die Kostenträger.",
+  "am_sc_4_tag": "Der ganze Tag",
+  "am_sc_4_h": "Von der Tour bis zur Abrechnung.",
+  "am_sc_4_p": "Planung, Dokumentation und Abrechnung laufen in einem Ablauf. Was unterwegs erfasst wird, steht im Büro bereit."
 }

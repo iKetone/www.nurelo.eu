@@ -3,9 +3,11 @@
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { buildStationaer } from './scene-st.mjs';
+import { buildAmbulant } from './scene-am.mjs';
 
 const SCENES = {
   st: buildStationaer,
+  am: buildAmbulant,
 };
 
 // Welche Produkte eine Szene haben (für die Vorlage)

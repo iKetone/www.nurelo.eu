@@ -86,5 +86,21 @@
   "st_sc_3_p": "Manage medication with an administration log, right where it is handed out.",
   "st_sc_4_tag": "The whole home",
   "st_sc_4_h": "One system for every place.",
-  "st_sc_4_p": "Resident records, care planning, rota, medication and billing work with the same data. What is captured at the bedside is ready in the office."
+  "st_sc_4_p": "Resident records, care planning, rota, medication and billing work with the same data. What is captured at the bedside is ready in the office.",
+
+  "am_sc_kicker": "A look at the day",
+  "am_sc_h2": "Where Nurelo saves time on every round.",
+  "am_sc_lead": "Follow a day at a home care service, from planning at the office through the visit to the client to billing.",
+  "am_sc_1_tag": "Visit planning",
+  "am_sc_1_h": "The round is set before the team leaves.",
+  "am_sc_1_p": "Plan rounds and the staff rota in one place, with vehicle and staff assignment.",
+  "am_sc_2_tag": "On the visit",
+  "am_sc_2_h": "Documented on site, even without a network.",
+  "am_sc_2_p": "Care staff document the visit on a mobile device right on site, even offline, and collect a digital signature.",
+  "am_sc_3_tag": "Billing",
+  "am_sc_3_h": "The visit turns into the invoice.",
+  "am_sc_3_p": "Services under SGB XI and V are recorded in one flow. Billing under §&nbsp;302 goes straight to the payers.",
+  "am_sc_4_tag": "The whole day",
+  "am_sc_4_h": "From the round to the invoice.",
+  "am_sc_4_p": "Planning, documentation and billing run in one flow. What is captured on the road is ready in the office."
 }
