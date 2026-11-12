@@ -2,7 +2,6 @@
    Ohne Skript oder bei reduzierter Bewegung bleibt es eine ruhige Seite: Überschrift, die ganze Zeichnung, darunter die vier Erklärungen. */
 
 .scn { position: relative; background: var(--cream); color: var(--ink); }
-.scn[hidden] { display: none; }
 
 /* ---------- Ruhezustand (ohne Skript, bei reduzierter Bewegung) ---------- */
 .scn:not(.scn-on) { padding: clamp(4rem, 9vw, 7rem) 0; }
