@@ -128,17 +128,17 @@ export function personWorking(iso, wx, wy, wz, o = {}) {
   }
   // Rumpf von hinten, darüber Nacken und Kopf mit Haaren
   parts.push(`<rect x="${-w / 2}" y="${-h}" width="${w}" height="${h + 2}" rx="9" fill="${body}"/>`);
-  parts.push(`<rect x="-3.5" y="${-h - 5}" width="7" height="8" rx="3" fill="${skin}"/>`);
+  parts.push(`<rect x="-3.5" y="${-h - 4}" width="7" height="7" rx="3" fill="${skin}"/>`);
   // Gesicht schaut nach vorn zum Bildschirm: ein schmaler Hautrand an der Vorderseite des Kopfes, der Rest ist Haar
-  parts.push(`<circle cx="-3.5" cy="${-h - 12}" r="12" fill="${skin}"/>`);
-  parts.push(`<circle cx="1.5" cy="${-h - 13}" r="12.5" fill="${hair}"/>`);
-  parts.push(`<path d="M-7 ${-h - 22} q6 -4 13 -1" stroke="#ffffff" stroke-opacity=".16" stroke-width="3" stroke-linecap="round" fill="none"/>`);
-  // Arme nach vorn zu den Händen
+  parts.push(`<circle cx="-3" cy="${-h - 11}" r="11.5" fill="${skin}"/>`);
+  parts.push(`<circle cx="1" cy="${-h - 12}" r="12" fill="${hair}"/>`);
+  parts.push(`<path d="M-6 ${-h - 21} q6 -3 12 -1" stroke="#ffffff" stroke-opacity=".14" stroke-width="3" stroke-linecap="round" fill="none"/>`);
+  // Arme: Oberarm hängt am Rumpf, Unterarm geht nach vorn zur Hand, so bleiben die Längen natürlich
   for (const [i, hd] of (o.hands || []).entries()) {
-    const sg = i === 0 ? -1 : 1, sh = [sg * 10, -h + 11], hand = rel(hd);
-    const el = [(sh[0] + hand[0]) / 2 + sg * 5, (sh[1] + hand[1]) / 2 + 8];
-    parts.push(`<path d="M${f(sh[0])} ${f(sh[1])} Q${f(el[0])} ${f(el[1])} ${f(hand[0])} ${f(hand[1])}" stroke="${body}" stroke-width="7.5" stroke-linecap="round" fill="none"/>`);
-    parts.push(`<circle cx="${f(hand[0])}" cy="${f(hand[1])}" r="4.3" fill="${skin}"/>`);
+    const sg = i === 0 ? -1 : 1, sh = [sg * 9, -h + 12], hand = rel(hd);
+    const el = [sg * 12.5, -h + 12 + 17];
+    parts.push(`<path d="M${f(sh[0])} ${f(sh[1])} L${f(el[0])} ${f(el[1])} L${f(hand[0])} ${f(hand[1])}" stroke="${body}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>`);
+    parts.push(`<circle cx="${f(hand[0])}" cy="${f(hand[1])}" r="3.8" fill="${skin}"/>`);
   }
   return `<g transform="translate(${f(X)} ${f(Y)}) scale(${s})">${parts.join('')}</g>`;
 }
