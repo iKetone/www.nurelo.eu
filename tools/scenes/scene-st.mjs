@@ -105,22 +105,23 @@ function room2(iso, x0, y0) {
   for (let i = 0; i < 8; i++) shelf += iso.planeX(x0 + 0.02, y0 + 1.1 + i * 0.58, y0 + 1.1 + i * 0.58 + 0.46, 2.0, 2.7 - (i % 3) * 0.1, bind[i]);
   for (let i = 0; i < 7; i++) shelf += iso.planeX(x0 + 0.02, y0 + 1.1 + i * 0.66, y0 + 1.1 + i * 0.66 + 0.5, 1.2, 1.9 - (i % 2) * 0.12, bind[(i + 3) % 8]);
   iso.add(L, { depth: x0 + y0 + 2.2, svg: shelf });
-  // Schreibtisch quer im Raum, Pflegedienstleitung sitzt dahinter, Bildschirme zeigen ihr die Vorderseite
-  const dx = x0 + 1.6, dy = y0 + 3.5, DD = dx + 4.6 + dy + 1.4;
-  const sx = x0 + 3.2, sy = y0 + 2.0;
-  iso.add(L, iso.box(sx, sy, 0, 1.3, 0.3, 1.3, '#3d2e22', { depth: sx + sy + 0.4 }));                       // Stuhllehne
-  iso.add(L, iso.box(sx, sy + 0.3, 0, 1.3, 1.0, 0.5, '#3d2e22', { depth: sx + sy + 0.9 }));                 // Sitz
-  iso.add(L, { depth: sx + sy + 1.4, svg: person(iso, sx + 0.65, sy + 0.85, 0.5, { sit: true, seat: 0.5, thigh: 0.8, body: PAL.terraD, skin: '#8d5a3c', hair: '#1c140e', legs: '#2b2218', s: 1 }) });
-  iso.add(L, iso.box(dx, dy + 0.1, 0, 0.14, 1.2, 0.82, PAL.woodD, { depth: DD - 0.5 }));
-  iso.add(L, iso.box(dx + 4.46, dy + 0.1, 0, 0.14, 1.2, 0.82, PAL.woodD, { depth: DD - 0.4 }));
-  iso.add(L, iso.box(dx, dy + 1.26, 0, 4.6, 0.14, 0.82, PAL.woodD, { depth: DD - 0.3 }));                   // Blende
-  iso.add(L, iso.box(dx, dy, 0.82, 4.6, 1.4, 0.1, PAL.wood, { depth: DD }));
+  // Schreibtisch quer im Raum (offen, mit vier Beinen), Pflegedienstleitung sitzt auf einem Bürostuhl dahinter, Bildschirme zeigen ihr die Vorderseite
+  const dx = x0 + 1.6, dy = y0 + 3.7, DD = dx + 4.6 + dy + 1.2, TOP = 0.86;
+  const sx = x0 + 3.1, sy = y0 + 1.75, SEAT = 0.55, CH = '#3d2e22';
+  iso.add(L, iso.box(sx + 0.55, sy + 0.45, 0, 0.2, 0.2, SEAT, '#2b2218', { depth: sx + sy + 0.5 }));               // Stuhlfuß
+  iso.add(L, iso.box(sx + 0.05, sy + 0.5, 0, 1.3, 0.1, 0.1, '#2b2218', { depth: sx + sy + 0.45 }));               // Rollenkreuz
+  iso.add(L, iso.box(sx + 0.6, sy, 0, 0.1, 1.1, 0.1, '#2b2218', { depth: sx + sy + 0.46 }));
+  iso.add(L, iso.box(sx - 0.05, sy + 0.05, 0.85, 1.5, 0.22, 1.35, CH, { depth: sx + sy + 0.9 }));                 // Rückenlehne
+  iso.add(L, iso.box(sx, sy + 0.2, SEAT - 0.14, 1.4, 1.2, 0.14, CH, { depth: sx + sy + 1.0 }));                   // Sitz
+  iso.add(L, { depth: sx + sy + 1.6, svg: person(iso, sx + 0.7, sy + 0.62, SEAT, { sit: true, seat: SEAT, thigh: 0.75, body: PAL.terraD, skin: '#8d5a3c', hair: '#1c140e', legs: '#2b2218', shoe: '#1a130d', s: 1 }) });
+  for (const [lx, ly] of [[0.05, 0.1], [4.41, 0.1], [0.05, 1.0], [4.41, 1.0]]) iso.add(L, iso.box(dx + lx, dy + ly, 0, 0.14, 0.1, TOP, PAL.woodD, { depth: DD - 0.5 + lx * 0.01 + ly }));
+  iso.add(L, iso.box(dx, dy, TOP, 4.6, 1.2, 0.1, PAL.wood, { depth: DD }));
   for (const [mx, w] of [[dx + 0.6, 1.4], [dx + 2.4, 1.4]]) {
-    iso.add(L, iso.box(mx, dy + 0.35, 0.92, w, 0.1, 0.95, PAL.ink, { depth: DD + 0.2 }));
-    iso.add(L, iso.box(mx + 0.55, dy + 0.4, 0.92, 0.3, 0.2, 0.12, '#3b2e22', { depth: DD + 0.1 }));
+    iso.add(L, iso.box(mx, dy + 0.3, TOP + 0.1, w, 0.1, 0.95, PAL.ink, { depth: DD + 0.2 }));
+    iso.add(L, iso.box(mx + 0.55, dy + 0.35, TOP + 0.1, 0.3, 0.2, 0.12, '#3b2e22', { depth: DD + 0.1 }));
   }
-  iso.add(L, iso.box(dx + 3.9, dy + 0.55, 0.92, 0.5, 0.4, 0.28, PAL.cream, { depth: DD + 0.3 }));            // Ordner
-  iso.add(L, iso.box(dx + 3.9, dy + 0.55, 1.2, 0.5, 0.4, 0.06, PAL.ochre, { depth: DD + 0.31 }));
+  iso.add(L, iso.box(dx + 3.9, dy + 0.5, TOP + 0.1, 0.5, 0.4, 0.28, PAL.cream, { depth: DD + 0.3 }));            // Ordner
+  iso.add(L, iso.box(dx + 3.9, dy + 0.5, TOP + 0.38, 0.5, 0.4, 0.06, PAL.ochre, { depth: DD + 0.31 }));
   // Pflanze
   iso.add(L, { depth: x0 + y0 + 20, svg: plant(iso, x0 + 6.3, y0 + 0.9, 0.14, 1) });
 }
