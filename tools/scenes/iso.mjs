@@ -104,3 +104,41 @@ export function person(iso, wx, wy, wz, o = {}) {
   parts.push(`<path d="M-12 ${-h - 12} a12 12 0 0 1 24 0 c-4 -5 -9 -7 -12 -7 c-4 0 -9 2 -12 7z" fill="${hair}"/>`);
   return `<g transform="translate(${f(X)} ${f(Y)}) scale(${s})">${parts.join('')}</g>`;
 }
+
+// Sitzende Figur von hinten bei der Arbeit am Schreibtisch.
+// (wx, wy, wz) = Hüfte auf der Sitzfläche, o.fwd = Blickrichtung als Weltvektor (z. B. [-1, 0]), o.hands = zwei Weltpunkte der Hände.
+export function personWorking(iso, wx, wy, wz, o = {}) {
+  const [X, Y] = iso.p(wx, wy, wz);
+  const s = o.s || 1, body = o.body || '#5a5533', skin = o.skin || '#e8c3a0', hair = o.hair || '#3a2a1e';
+  const legCol = o.legs || '#2b2218', shoe = o.shoe || '#1a130d';
+  const fwd = o.fwd || [-1, 0], perp = [-fwd[1], fwd[0]];
+  const seat = o.seat || 0.55, thigh = o.thigh || 0.8;
+  const rel = ([x, y, z]) => { const q = iso.peek(x, y, z); return [(q[0] - X) / s, (q[1] - Y) / s]; };
+  const h = 54, w = 22;
+  const parts = [];
+  // Beine: Oberschenkel nach vorn, Unterschenkel hängen bis zum Boden, Füße zeigen nach vorn
+  for (const sg of [-1, 1]) {
+    const hip = rel([wx + perp[0] * sg * 0.22, wy + perp[1] * sg * 0.22, wz]);
+    const kx = wx + perp[0] * sg * 0.22 + fwd[0] * thigh, ky = wy + perp[1] * sg * 0.22 + fwd[1] * thigh;
+    const knee = rel([kx, ky, wz]), floor = rel([kx, ky, wz - seat]);
+    const toe = rel([kx + fwd[0] * 0.28, ky + fwd[1] * 0.28, wz - seat]);
+    parts.push(`<path d="M${f(hip[0])} ${f(hip[1] - 3)} L${f(knee[0])} ${f(knee[1] - 3)}" stroke="${legCol}" stroke-width="10" stroke-linecap="round" fill="none"/>`
+      + `<path d="M${f(knee[0])} ${f(knee[1] - 3)} L${f(floor[0])} ${f(floor[1] - 3)}" stroke="${legCol}" stroke-width="8.5" stroke-linecap="round" fill="none"/>`
+      + `<path d="M${f(floor[0])} ${f(floor[1] - 2)} L${f(toe[0])} ${f(toe[1] - 2)}" stroke="${shoe}" stroke-width="7" stroke-linecap="round" fill="none"/>`);
+  }
+  // Rumpf von hinten, darüber Nacken und Kopf mit Haaren
+  parts.push(`<rect x="${-w / 2}" y="${-h}" width="${w}" height="${h + 2}" rx="9" fill="${body}"/>`);
+  parts.push(`<rect x="-3.5" y="${-h - 5}" width="7" height="8" rx="3" fill="${skin}"/>`);
+  // Gesicht schaut nach vorn zum Bildschirm: ein schmaler Hautrand an der Vorderseite des Kopfes, der Rest ist Haar
+  parts.push(`<circle cx="-3.5" cy="${-h - 12}" r="12" fill="${skin}"/>`);
+  parts.push(`<circle cx="1.5" cy="${-h - 13}" r="12.5" fill="${hair}"/>`);
+  parts.push(`<path d="M-7 ${-h - 22} q6 -4 13 -1" stroke="#ffffff" stroke-opacity=".16" stroke-width="3" stroke-linecap="round" fill="none"/>`);
+  // Arme nach vorn zu den Händen
+  for (const [i, hd] of (o.hands || []).entries()) {
+    const sg = i === 0 ? -1 : 1, sh = [sg * 10, -h + 11], hand = rel(hd);
+    const el = [(sh[0] + hand[0]) / 2 + sg * 5, (sh[1] + hand[1]) / 2 + 8];
+    parts.push(`<path d="M${f(sh[0])} ${f(sh[1])} Q${f(el[0])} ${f(el[1])} ${f(hand[0])} ${f(hand[1])}" stroke="${body}" stroke-width="7.5" stroke-linecap="round" fill="none"/>`);
+    parts.push(`<circle cx="${f(hand[0])}" cy="${f(hand[1])}" r="4.3" fill="${skin}"/>`);
+  }
+  return `<g transform="translate(${f(X)} ${f(Y)}) scale(${s})">${parts.join('')}</g>`;
+}
