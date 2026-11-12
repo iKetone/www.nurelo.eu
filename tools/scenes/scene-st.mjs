@@ -1,43 +1,7 @@
 // Szene "Stationär": ein aufgeschnittenes Pflegeheim mit drei Räumen (Bewohnerzimmer, Stationszimmer, Medikamentenraum).
 // Erzeugt SVG als Text. Die Kamera fährt später per Skript (scene.js) auf die drei Fokusrahmen.
-import { Iso, person, personWorking, mix, shades } from './iso.mjs';
-
-const PAL = {
-  night: '#1a130d', ink: '#241b14', cream: '#f2eadd', paper: '#fbf7f0',
-  olive: '#7a734a', oliveD: '#5a5533', oliveL: '#a5a06a', ochre: '#c59045', ochreD: '#8a5f17',
-  terra: '#bf6d47', terraD: '#9e4e2e', terraL: '#e0876a', wood: '#b98a56', woodD: '#8c6238',
-};
-const H = 3.4;            // Wandhöhe
-const RW = 7;             // Raumbreite und -tiefe
-const WALL = '#f3ead9';   // Wandfarbe innen
-
-// Wandstärke 0.35; Rückwand entlang x liegt bei y = -0.35..0, die entlang y bei x = x0-0.35..x0
-function room(iso, x0, y0, o) {
-  const L = 'room';
-  // Boden
-  iso.add(L, iso.box(x0, y0, 0, RW, RW, 0.14, o.floor, { depth: x0 + y0 + 1 }));
-  // Rückwände
-  const wallShade = { top: '#fffaf0', left: WALL, right: mix(WALL, '#000000', 0.1) };
-  iso.add(L, iso.box(x0 - 0.35, y0 - 0.35, 0, RW + 0.35, 0.35, H, WALL, { shade: wallShade, depth: x0 + y0 + 1.5 }));
-  iso.add(L, iso.box(x0 - 0.35, y0, 0, 0.35, RW, H, WALL, { shade: wallShade, depth: x0 + y0 + 1.6 }));
-  // Fußleisten
-  const baseB = mix(WALL, o.accent, 0.35);
-  iso.add(L, { depth: x0 + y0 + 1.7, svg: iso.planeY(y0, x0, x0 + RW, 0.14, 0.42, baseB) + iso.planeX(x0, y0, y0 + RW, 0.14, 0.42, mix(baseB, '#000000', 0.1)) });
-}
-
-function floorPlanks(iso, x0, y0, col) {
-  let s = '';
-  for (let v = 1; v < RW; v += 1) s += iso.line([x0 + 0.1, y0 + v, 0.15], [x0 + RW - 0.1, y0 + v, 0.15], col, 0.8, 'opacity=".55"');
-  return s;
-}
-
-function checker(iso, x0, y0, a, b) {
-  let s = '';
-  for (let i = 0; i < RW; i++) for (let j = 0; j < RW; j++) {
-    if ((i + j) % 2) s += iso.planeZ(0.15, x0 + i, x0 + i + 1, y0 + j, y0 + j + 1, b);
-  }
-  return s;
-}
+import { Iso, person, personWorking, mix } from './iso.mjs';
+import { PAL, H, RW, WALL, room, floorPlanks, checker, plant, panel, assemble } from './kit.mjs';
 
 // ---------- Raum 1: Bewohnerzimmer ----------
 function room1(iso, x0, y0) {
@@ -181,25 +145,6 @@ function room3(iso, x0, y0) {
   iso.add(L, { depth: x0 + y0 + 20, svg: plant(iso, x0 + 6.3, y0 + 5.9, 0.14, 1.0) });
 }
 
-function plant(iso, wx, wy, wz, s = 1) {
-  const [X, Y] = iso.p(wx, wy, wz);
-  return `<g transform="translate(${X.toFixed(1)} ${Y.toFixed(1)}) scale(${s})">
-    <ellipse cx="0" cy="3" rx="16" ry="6" fill="#000" opacity=".16"/>
-    <path d="M-12 0 L-9 -22 L9 -22 L12 0z" fill="${PAL.terra}"/><rect x="-10" y="-25" width="20" height="5" rx="2" fill="${PAL.terraD}"/>
-    <path d="M0 -24 C-26 -34 -22 -62 -8 -64 C-2 -48 -2 -36 0 -24z" fill="${PAL.oliveL}"/>
-    <path d="M0 -24 C26 -34 22 -62 8 -64 C2 -48 2 -36 0 -24z" fill="${PAL.olive}"/>
-    <path d="M0 -24 C-4 -44 -2 -70 0 -78 C4 -62 4 -44 0 -24z" fill="${mix(PAL.olive, '#ffffff', 0.15)}"/></g>`;
-}
-
-// ---------- schwebende Oberflächen ("Pop-ups") ----------
-// Jede Tafel ist 176 x 124 Einheiten groß, ihr Fußpunkt (Spitze) liegt bei (0, 0), die Tafel schwebt darüber.
-function panel(content, w = 176, h = 124) {
-  return `<g>
-    <path d="M-10 -14 L0 0 L10 -14z" fill="${PAL.paper}"/>
-    <rect x="${-w / 2}" y="${-h - 14}" width="${w}" height="${h}" rx="16" fill="${PAL.paper}" stroke="#ddd1bf" stroke-width="1.5"/>
-    <g transform="translate(${-w / 2} ${-h - 14})">${content}</g></g>`;
-}
-
 const popVoice = panel(`
   <circle cx="34" cy="38" r="20" fill="${PAL.ochre}"/>
   <rect x="29" y="26" width="10" height="17" rx="5" fill="${PAL.paper}"/>
@@ -252,8 +197,6 @@ export function buildStationaer() {
 
   room1(iso, ...R1); room2(iso, ...R2); room3(iso, ...R3);
 
-  const rooms = iso.flush('room');
-
   // Pop-ups: Spitze über dem Raum, ein dünner Faden führt zu dem Ort, an dem die Funktion greift
   const at = (x, y, z) => iso.peek(x, y, z);
   const tab = (x, y) => { const q = iso.peek(x, y, 0.14); return [q[0] + 22, q[1] - 66]; };
@@ -262,36 +205,5 @@ export function buildStationaer() {
     { i: 2, at: at(R2[0] + 3.4, 3.4, 4.9), to: iso.peek(R2[0] + 3.3, 0.03, 2.0), svg: popPlan },
     { i: 3, at: at(R3[0] + 3.4, 3.4, 4.9), to: tab(R3[0] + 2.3, 3.9), svg: popMeds },
   ];
-  const popSvg = pops.map((p) => {
-    const dx = p.to[0] - p.at[0], dy = p.to[1] - p.at[1];
-    return `<g class="scn-pop" data-i="${p.i}" transform="translate(${p.at[0].toFixed(1)} ${p.at[1].toFixed(1)})">
-      <g class="scn-pop-in"><line x1="0" y1="0" x2="${dx.toFixed(1)}" y2="${dy.toFixed(1)}" stroke="${PAL.ochre}" stroke-width="2.4" stroke-dasharray="1 6" stroke-linecap="round"/>
-      <circle cx="${dx.toFixed(1)}" cy="${dy.toFixed(1)}" r="9" fill="${PAL.ochre}" opacity=".3"/><circle cx="${dx.toFixed(1)}" cy="${dy.toFixed(1)}" r="4.2" fill="${PAL.ochre}"/>
-      ${p.svg}</g></g>`;
-  }).join('');
-
-  // Sichtfeld je Raum (Bildschirmkoordinaten): Raumgrundriss und Wand plus das Pop-up darüber (176 x 138 Einheiten über der Spitze)
-  const box = (x0, pop) => {
-    const pts = [iso.peek(x0 - 0.4, -0.4, H), iso.peek(x0 + RW, -0.4, H), iso.peek(x0 + RW, RW, 0), iso.peek(x0 - 0.4, RW, 0), iso.peek(x0 + RW, -0.4, 0), iso.peek(x0 - 0.4, RW, H)];
-    pts.push([pop.at[0] - 92, pop.at[1] - 146], [pop.at[0] + 92, pop.at[1]]);
-    const xs = pts.map((q) => q[0]), ys = pts.map((q) => q[1]);
-    return [Math.min(...xs), Math.min(...ys), Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys)];
-  };
-  const focus = [null, box(R1[0], pops[0]), box(R2[0], pops[1]), box(R3[0], pops[2])];
-
-  // Maße der Zeichnung (die Pop-ups ragen über die Räume hinaus)
-  const pad = 60;
-  const popTop = Math.min(...pops.map((p) => p.at[1] - 146));
-  const minX = Math.floor(iso.min[0] - pad), minY = Math.floor(Math.min(iso.min[1], popTop) - pad), maxX = Math.ceil(iso.max[0] + pad), maxY = Math.ceil(iso.max[1] + pad);
-  const vbw = maxX - minX, vbh = maxY - minY;
-  const shift = ([x, y, w, h]) => [x - minX, y - minY, w, h].map((v) => Math.round(v));
-  focus[0] = [0, 0, vbw, vbh];
-  for (let i = 1; i < 4; i++) focus[i] = shift(focus[i]);
-
-  const defs = `<defs>
-    <linearGradient id="scn-glow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6dc"/><stop offset="1" stop-color="#f6d9a0"/></linearGradient>
-  </defs>`;
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${vbw} ${vbh}" aria-hidden="true" focusable="false">${defs}
-    <g class="scn-world"><g transform="translate(${-minX} ${-minY})">${shadow}${slab.svg}${ground}${rooms}${flur.join('')}${popSvg}</g></g></svg>`;
-  return { svg, vbw, vbh, focus };
+  return assemble(iso, { R: [R1, R2, R3], pops, shadow, slab, ground, front: flur.join('') });
 }
