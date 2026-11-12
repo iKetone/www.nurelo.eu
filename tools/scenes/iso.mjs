@@ -69,15 +69,29 @@ export function person(iso, wx, wy, wz, o = {}) {
   const [X, Y] = iso.p(wx, wy, wz);
   const s = o.s || 1, body = o.body || '#5a5533', skin = o.skin || '#e8c3a0', hair = o.hair || '#3a2a1e', sit = o.sit;
   const h = sit ? 58 : 84, w = 22;           // Rumpf
-  const legH = sit ? 14 : 30;
+  const legH = sit ? 0 : 30;
   const parts = [];
-  // Schatten
-  parts.push(`<ellipse cx="0" cy="2" rx="${w * 0.9}" ry="5.5" fill="#000" opacity=".18"/>`);
-  // Beine
-  parts.push(`<rect x="${-w / 2 + 2}" y="${-legH}" width="7" height="${legH}" rx="3" fill="${o.legs || '#2b2218'}"/><rect x="${w / 2 - 9}" y="${-legH}" width="7" height="${legH}" rx="3" fill="${o.legs || '#2b2218'}"/>`);
-  // Rumpf
-  parts.push(`<rect x="${-w / 2}" y="${-h}" width="${w}" height="${h - legH + 6}" rx="9" fill="${body}"/>`);
-  if (o.accent) parts.push(`<rect x="${-w / 2}" y="${-h + 16}" width="${w}" height="4" fill="${o.accent}"/>`);
+  const legCol = o.legs || '#2b2218';
+  if (!sit) {
+    parts.push(`<ellipse cx="0" cy="2" rx="${w * 0.9}" ry="5.5" fill="#000" opacity=".18"/>`);
+    parts.push(`<rect x="${-w / 2 + 2}" y="${-legH}" width="7" height="${legH}" rx="3" fill="${legCol}"/><rect x="${w / 2 - 9}" y="${-legH}" width="7" height="${legH}" rx="3" fill="${legCol}"/>`);
+    parts.push(`<rect x="${-w / 2}" y="${-h}" width="${w}" height="${h - legH + 6}" rx="9" fill="${body}"/>`);
+  } else {
+    // Sitzend: Der Rumpf sitzt auf der Sitzfläche (wz = Höhe der Sitzfläche), die Oberschenkel zeigen nach vorn (+y, im Bild nach links unten),
+    // die Unterschenkel hängen vor der Sitzkante bis zum Boden (o.seat = Sitzhöhe in Einheiten).
+    const k = 1 / s, thigh = o.thigh || 0.8, seat = o.seat || 0.6;
+    const fx = -A * thigh * k, fy = B * thigh * k, sh = seat * C * k;
+    const sx = A * 0.22 * k, sy = B * 0.22 * k;           // Abstand der Beine in x-Richtung
+    const knee = (sg) => [sg * sx + fx, sg * sy - 4 + fy];
+    parts.push(`<rect x="${-w / 2}" y="${-h}" width="${w}" height="${h + 2}" rx="9" fill="${body}"/>`);
+    const leg = (sg) => {
+      const [kx, ky] = knee(sg), [hx, hy] = [sg * sx, sg * sy - 4];
+      return `<path d="M${f(hx)} ${f(hy)} L${f(kx)} ${f(ky)}" stroke="${legCol}" stroke-width="10" stroke-linecap="round" fill="none"/>`
+        + `<rect x="${f(kx - 4.5)}" y="${f(ky)}" width="9" height="${f(sh)}" rx="4" fill="${legCol}"/>`
+        + `<rect x="${f(kx - 10)}" y="${f(ky + sh - 5)}" width="15" height="7" rx="3.5" fill="${o.shoe || '#241b14'}"/>`;
+    };
+    parts.push(leg(-1), leg(1));
+  }
   // Arme
   if (o.tablet) {
     parts.push(`<rect x="${w / 2 - 3}" y="${-h + 14}" width="7" height="26" rx="3.5" fill="${body}" transform="rotate(-24 ${w / 2} ${-h + 14})"/>`);
@@ -88,5 +102,43 @@ export function person(iso, wx, wy, wz, o = {}) {
   // Kopf und Haare
   parts.push(`<circle cx="0" cy="${-h - 11}" r="12" fill="${skin}"/>`);
   parts.push(`<path d="M-12 ${-h - 12} a12 12 0 0 1 24 0 c-4 -5 -9 -7 -12 -7 c-4 0 -9 2 -12 7z" fill="${hair}"/>`);
+  return `<g transform="translate(${f(X)} ${f(Y)}) scale(${s})">${parts.join('')}</g>`;
+}
+
+// Sitzende Figur von hinten bei der Arbeit am Schreibtisch.
+// (wx, wy, wz) = Hüfte auf der Sitzfläche, o.fwd = Blickrichtung als Weltvektor (z. B. [-1, 0]), o.hands = zwei Weltpunkte der Hände.
+export function personWorking(iso, wx, wy, wz, o = {}) {
+  const [X, Y] = iso.p(wx, wy, wz);
+  const s = o.s || 1, body = o.body || '#5a5533', skin = o.skin || '#e8c3a0', hair = o.hair || '#3a2a1e';
+  const legCol = o.legs || '#2b2218', shoe = o.shoe || '#1a130d';
+  const fwd = o.fwd || [-1, 0], perp = [-fwd[1], fwd[0]];
+  const seat = o.seat || 0.55, thigh = o.thigh || 0.8;
+  const rel = ([x, y, z]) => { const q = iso.peek(x, y, z); return [(q[0] - X) / s, (q[1] - Y) / s]; };
+  const h = 54, w = 22;
+  const parts = [];
+  // Beine: Oberschenkel nach vorn, Unterschenkel hängen bis zum Boden, Füße zeigen nach vorn
+  for (const sg of [-1, 1]) {
+    const hip = rel([wx + perp[0] * sg * 0.22, wy + perp[1] * sg * 0.22, wz]);
+    const kx = wx + perp[0] * sg * 0.22 + fwd[0] * thigh, ky = wy + perp[1] * sg * 0.22 + fwd[1] * thigh;
+    const knee = rel([kx, ky, wz]), floor = rel([kx, ky, wz - seat]);
+    const toe = rel([kx + fwd[0] * 0.28, ky + fwd[1] * 0.28, wz - seat]);
+    parts.push(`<path d="M${f(hip[0])} ${f(hip[1] - 3)} L${f(knee[0])} ${f(knee[1] - 3)}" stroke="${legCol}" stroke-width="10" stroke-linecap="round" fill="none"/>`
+      + `<path d="M${f(knee[0])} ${f(knee[1] - 3)} L${f(floor[0])} ${f(floor[1] - 3)}" stroke="${legCol}" stroke-width="8.5" stroke-linecap="round" fill="none"/>`
+      + `<path d="M${f(floor[0])} ${f(floor[1] - 2)} L${f(toe[0])} ${f(toe[1] - 2)}" stroke="${shoe}" stroke-width="7" stroke-linecap="round" fill="none"/>`);
+  }
+  // Rumpf von hinten, darüber Nacken und Kopf mit Haaren
+  parts.push(`<rect x="${-w / 2}" y="${-h}" width="${w}" height="${h + 2}" rx="9" fill="${body}"/>`);
+  parts.push(`<rect x="-3.5" y="${-h - 4}" width="7" height="7" rx="3" fill="${skin}"/>`);
+  // Gesicht schaut nach vorn zum Bildschirm: ein schmaler Hautrand an der Vorderseite des Kopfes, der Rest ist Haar
+  parts.push(`<circle cx="-3" cy="${-h - 11}" r="11.5" fill="${skin}"/>`);
+  parts.push(`<circle cx="1" cy="${-h - 12}" r="12" fill="${hair}"/>`);
+  parts.push(`<path d="M-6 ${-h - 21} q6 -3 12 -1" stroke="#ffffff" stroke-opacity=".14" stroke-width="3" stroke-linecap="round" fill="none"/>`);
+  // Arme: Oberarm hängt am Rumpf, Unterarm geht nach vorn zur Hand, so bleiben die Längen natürlich
+  for (const [i, hd] of (o.hands || []).entries()) {
+    const sg = i === 0 ? -1 : 1, sh = [sg * 9, -h + 12], hand = rel(hd);
+    const el = [sg * 12.5, -h + 12 + 17];
+    parts.push(`<path d="M${f(sh[0])} ${f(sh[1])} L${f(el[0])} ${f(el[1])} L${f(hand[0])} ${f(hand[1])}" stroke="${body}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>`);
+    parts.push(`<circle cx="${f(hand[0])}" cy="${f(hand[1])}" r="3.8" fill="${skin}"/>`);
+  }
   return `<g transform="translate(${f(X)} ${f(Y)}) scale(${s})">${parts.join('')}</g>`;
 }
