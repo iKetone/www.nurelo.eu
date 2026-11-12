@@ -5,12 +5,6 @@
   var sec = document.getElementById('szene');
   if (!sec) return;
 
-  // Vorschau: Die Szene ist noch nicht freigegeben und nur mit ?szene sichtbar.
-  // TODO beim Live-Gang: GATED auf false setzen (und das hidden-Attribut im Baustein entfernen).
-  var GATED = true;
-  if (GATED && !/[?&]szene(=|&|$)/.test(location.search)) return;
-  sec.hidden = false;
-
   var svg = sec.querySelector('svg');
   var world = svg && svg.querySelector('.scn-world');
   var focus, vb;

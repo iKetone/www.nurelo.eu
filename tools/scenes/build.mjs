@@ -21,7 +21,7 @@ export function buildScenes(root) {
     const steps = [1, 2, 3, 4].map((i) =>
       `        <li class="scn-card" data-i="${i}"><p class="scn-tag">{{P:sc_${i}_tag}}</p><h3>{{P:sc_${i}_h}}</h3><p>{{P:sc_${i}_p}}</p></li>`).join('\n');
     const html = `<!-- Szene (erzeugt von tools/scenes/build.mjs, nicht von Hand ändern) -->
-    <section class="scn" id="szene" aria-labelledby="scn-h" data-vb="${vbw} ${vbh}" data-focus="${JSON.stringify(focus).replace(/"/g, '&quot;')}" hidden>
+    <section class="scn" id="szene" aria-labelledby="scn-h" data-vb="${vbw} ${vbh}" data-focus="${JSON.stringify(focus).replace(/"/g, '&quot;')}">
       <div class="scn-track">
         <div class="scn-stage">
           <div class="scn-intro scn-card" data-i="0">
