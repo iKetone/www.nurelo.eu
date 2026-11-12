@@ -70,5 +70,21 @@
   "hn_pg_f7_h": "Device contract",
   "hn_pg_f7_p": "Manage the device contracts of your participants.",
   "hn_pg_f8_h": "Response documentation",
-  "hn_pg_f8_p": "Document responses after an alarm."
+  "hn_pg_f8_p": "Document responses after an alarm.",
+
+  "st_sc_kicker": "A look inside the home",
+  "st_sc_h2": "Where Nurelo saves time every day.",
+  "st_sc_lead": "Scroll through a home like the one in every residential care facility and see what happens where.",
+  "st_sc_1_tag": "Resident room",
+  "st_sc_1_h": "Speak instead of typing.",
+  "st_sc_1_p": "Care staff capture their observations by voice note right at the bedside. The entry ends up in the care report.",
+  "st_sc_2_tag": "Nurses' station",
+  "st_sc_2_h": "Rota and surveys under control.",
+  "st_sc_2_p": "The staff rota is fully configurable. Nurelo records and submits the half-yearly indicator survey for you.",
+  "st_sc_3_tag": "Medication room",
+  "st_sc_3_h": "Every dose on record.",
+  "st_sc_3_p": "Manage medication with an administration log, right where it is handed out.",
+  "st_sc_4_tag": "The whole home",
+  "st_sc_4_h": "One system for every place.",
+  "st_sc_4_p": "Resident records, care planning, rota, medication and billing work with the same data. What is captured at the bedside is ready in the office."
 }

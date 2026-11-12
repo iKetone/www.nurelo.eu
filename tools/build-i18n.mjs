@@ -4,6 +4,7 @@
 // Startseite:     src/index.template.html   + i18n/<code>.json            (24 Sprachen)
 // Produktseiten:  src/product.template.html + i18n/produkte.<code>.json   (siehe PRODUCT_LANGS)
 // Außerdem: sitemap.xml und robots.txt
+// Szenen:         tools/scenes/*.mjs zeichnen die isometrischen Szenen der Produktseiten und schreiben src/partials/scene-<produkt>.html
 // Bausteine:      src/partials/<name>.html, eingebunden mit {{include:name}} (auf Produktseiten auch {{include-P:name}} für <name>-st, -am, -hn)
 //
 // Platzhalter in den Vorlagen:
@@ -13,6 +14,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildScenes, SCENE_IDS } from './scenes/build.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://www.nurelo.eu';
@@ -89,7 +91,9 @@ for (const [name, dict] of [...Object.entries(main).map(([c, d]) => [c, d]), ...
 }
 
 // ---------- Bausteine und Umschalter ----------
+buildScenes(root);
 const partial = (name) => read(`src/partials/${name}.html`);
+const partialOpt = (name) => (existsSync(join(root, `src/partials/${name}.html`)) ? partial(name) : '');
 
 function switcherHtml(code, langs, pathFor, ariaText) {
   const items = langs.map((c) =>
@@ -115,6 +119,7 @@ function render(template, ctx) {
   // Bausteine zuerst einbinden
   let out = template
     .replace(/\{\{include-P:([a-z0-9-]+)\}\}/g, (_, n) => partial(`${n}-${ctx.product.id}`))
+    .replace(/\{\{include-P-opt:([a-z0-9-]+)\}\}/g, (_, n) => partialOpt(`${n}-${ctx.product.id}`))
     .replace(/\{\{include:([a-z0-9-]+)\}\}/g, (_, n) => partial(n));
   return out.replace(/\{\{(a:|u:|j:|aP:|jP:|P:)?([a-z0-9_]+)\}\}/g, (m, mode, name) => {
     mode = mode || '';
@@ -226,6 +231,8 @@ for (const code of PRODUCT_LANGS) {
       hreflang: hreflangHtml(PRODUCT_LANGS, pathFor),
       switcher: switcherHtml(code, PRODUCT_LANGS, pathFor, t.lang_aria),
       nav_links: navLinks, others,
+      scene_css: SCENE_IDS.includes(p.id) ? '<link rel="stylesheet" href="/scene.css" />' : '',
+      scene_js: SCENE_IDS.includes(p.id) ? '<script src="/scene.js" defer></script>' : '',
       pid: p.id, pcls: p.cls, pnum: p.num, pglyph: p.glyph, pdepth: p.depth, pnav: t['nav_' + p.id],
     };
     usedMain.add('lang_aria'); usedMain.add('more'); usedMain.add('nav_' + p.id);
