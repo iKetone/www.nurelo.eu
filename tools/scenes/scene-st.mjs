@@ -69,15 +69,15 @@ function room1(iso, x0, y0) {
   // Nachttisch mit Lampe
   iso.add(L, iso.box(x0 + 3.15, y0 + 0.15, 0, 0.9, 0.85, 0.85, PAL.wood, { depth: x0 + y0 + 4.2 }));
   iso.add(L, iso.box(x0 + 3.5, y0 + 0.4, 0.85, 0.25, 0.25, 0.35, '#fff3d1', { depth: x0 + y0 + 4.5 }));
-  // Sessel mit Bewohnerin
-  const cx = x0 + 4.9, cy = y0 + 3.6;
-  iso.add(L, iso.box(cx, cy, 0, 1.6, 0.35, 1.3, PAL.oliveL, { depth: cx + cy + 0.4 }));                      // Lehne
-  iso.add(L, iso.box(cx, cy + 0.35, 0, 1.6, 1.25, 0.6, PAL.oliveL, { depth: cx + cy + 1.2 }));                // Sitz
-  iso.add(L, { depth: cx + cy + 1.6, svg: person(iso, cx + 0.8, cy + 1.05, 0.55, { sit: true, body: PAL.terraL, skin: '#e3b894', hair: '#d9d2c3', legs: '#6b5a49', s: 0.95 }) });
-  iso.add(L, iso.box(cx, cy + 0.35, 0.6, 0.28, 1.25, 0.4, mix(PAL.oliveL, '#000000', 0.12), { depth: cx + cy + 2.0 }));
-  iso.add(L, iso.box(cx + 1.32, cy + 0.35, 0.6, 0.28, 1.25, 0.4, mix(PAL.oliveL, '#000000', 0.12), { depth: cx + cy + 2.7 }));
+  // Sessel mit Bewohnerin: linke Armlehne liegt hinter ihr, rechte davor, sonst würde die Figur angeschnitten
+  const cx = x0 + 4.6, cy = y0 + 3.3, ch = mix(PAL.oliveL, '#000000', 0.12);
+  iso.add(L, iso.box(cx, cy, 0, 2.0, 0.4, 1.75, PAL.oliveL, { depth: cx + cy + 0.4 }));                       // Lehne
+  iso.add(L, iso.box(cx, cy + 0.4, 0, 2.0, 1.6, 0.6, PAL.oliveL, { depth: cx + cy + 1.0 }));                  // Sitz
+  iso.add(L, iso.box(cx, cy + 0.4, 0.6, 0.32, 1.6, 0.32, ch, { depth: cx + cy + 1.2 }));                      // linke Armlehne
+  iso.add(L, { depth: cx + cy + 1.9, svg: person(iso, cx + 1.0, cy + 1.45, 0.6, { sit: true, body: PAL.terraL, skin: '#e3b894', hair: '#d9d2c3', legs: '#6b5a49', s: 0.88 }) });
+  iso.add(L, iso.box(cx + 1.68, cy + 0.4, 0.6, 0.32, 1.6, 0.32, ch, { depth: cx + cy + 3.6 }));               // rechte Armlehne
   // Pflegekraft mit Tablet am Bett
-  iso.add(L, { depth: x0 + y0 + 8, svg: person(iso, x0 + 3.5, y0 + 3.2, 0.14, { body: PAL.oliveD, accent: PAL.ochre, tablet: true, skin: '#c8956d', hair: '#2b1d14' }) });
+  iso.add(L, { depth: x0 + y0 + 8, svg: person(iso, x0 + 3.3, y0 + 3.9, 0.14, { body: PAL.oliveD, accent: PAL.ochre, tablet: true, skin: '#c8956d', hair: '#2b1d14' }) });
   // Pflanze
   iso.add(L, { depth: x0 + y0 + 9, svg: plant(iso, x0 + 6.3, y0 + 0.6, 0.14, 1) });
 }
@@ -247,7 +247,7 @@ export function buildStationaer() {
   const at = (x, y, z) => iso.peek(x, y, z);
   const tab = (x, y) => { const q = iso.peek(x, y, 0.14); return [q[0] + 22, q[1] - 66]; };
   const pops = [
-    { i: 1, at: at(R1[0] + 3.4, 3.4, 4.9), to: tab(R1[0] + 3.5, 3.2), svg: popVoice },
+    { i: 1, at: at(R1[0] + 3.4, 3.4, 4.9), to: tab(R1[0] + 3.3, 3.9), svg: popVoice },
     { i: 2, at: at(R2[0] + 3.4, 3.4, 4.9), to: iso.peek(R2[0] + 3.3, 0.03, 2.0), svg: popPlan },
     { i: 3, at: at(R3[0] + 3.4, 3.4, 4.9), to: tab(R3[0] + 2.3, 3.9), svg: popMeds },
   ];

@@ -71,8 +71,8 @@ export function person(iso, wx, wy, wz, o = {}) {
   const h = sit ? 58 : 84, w = 22;           // Rumpf
   const legH = sit ? 14 : 30;
   const parts = [];
-  // Schatten
-  parts.push(`<ellipse cx="0" cy="2" rx="${w * 0.9}" ry="5.5" fill="#000" opacity=".18"/>`);
+  // Schatten (sitzende Figuren werfen ihn nicht auf den Sitz)
+  if (!sit) parts.push(`<ellipse cx="0" cy="2" rx="${w * 0.9}" ry="5.5" fill="#000" opacity=".18"/>`);
   // Beine
   parts.push(`<rect x="${-w / 2 + 2}" y="${-legH}" width="7" height="${legH}" rx="3" fill="${o.legs || '#2b2218'}"/><rect x="${w / 2 - 9}" y="${-legH}" width="7" height="${legH}" rx="3" fill="${o.legs || '#2b2218'}"/>`);
   // Rumpf
