@@ -92,6 +92,8 @@ export function person(iso, wx, wy, wz, o = {}) {
     };
     parts.push(leg(-1), leg(1));
   }
+  // Funk-Rufknopf an einer Kordel um den Hals
+  if (o.pendant) parts.push(`<path d="M-5 ${-h + 1} L0 ${-h + 24} L5 ${-h + 1}" stroke="${o.pendant}" stroke-width="1.6" fill="none"/><circle cx="0" cy="${-h + 26}" r="5" fill="${o.pendant}"/><circle cx="0" cy="${-h + 26}" r="2" fill="#fffaf0"/>`);
   // Arme
   if (o.tablet) {
     parts.push(`<rect x="${w / 2 - 3}" y="${-h + 14}" width="7" height="26" rx="3.5" fill="${body}" transform="rotate(-24 ${w / 2} ${-h + 14})"/>`);

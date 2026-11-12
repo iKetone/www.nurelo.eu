@@ -126,7 +126,7 @@ export function car(iso, x, y, o = {}) {
   const yc = y + 1.43;
   items.push({ depth: 11.5, svg: iso.planeY(yc, x + 0.9, x + 1.6, 0.86, 1.27, win) + iso.planeY(yc, x + 1.75, x + 2.5, 0.86, 1.27, win) + iso.planeX(x + 2.61, y + 0.2, y + 1.3, 0.86, 1.27, mix(win, '#000000', 0.08)) });
   items.push({ depth: 11.6, svg: iso.planeY(y + 1.51, x + 0.05, x + 3.35, 0.4, 0.52, PAL.ochre) + iso.planeX(x + 3.41, y + 0.12, y + 0.42, 0.5, 0.66, '#fff3d1') + iso.planeX(x + 3.41, y + 1.08, y + 1.38, 0.5, 0.66, '#fff3d1') });
-  items.push(iso.box(x + 1.3, y + 0.5, 1.32, 0.5, 0.5, 0.16, PAL.cream, { depth: 11.7 }));
+  items.push(iso.box(x + 1.3, y + 0.5, 1.32, 0.5, 0.5, 0.16, o.sign || PAL.cream, { depth: 11.7 }));
   for (const wx of [x + 0.75, x + 2.65]) items.push({ depth: 12, svg: discY(iso, wx, y + 1.52, 0.32, 0.34, '#2b2218') + discY(iso, wx, y + 1.53, 0.32, 0.16, '#d9d2c3') });
   return items.sort((a, b) => a.depth - b.depth).map((i) => i.svg).join('');
 }

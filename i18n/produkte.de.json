@@ -102,5 +102,21 @@
   "am_sc_3_p": "Leistungen nach SGB XI und V werden in einem Ablauf erfasst. Die Abrechnung nach §&nbsp;302 geht direkt an die Kostenträger.",
   "am_sc_4_tag": "Der ganze Tag",
   "am_sc_4_h": "Von der Tour bis zur Abrechnung.",
-  "am_sc_4_p": "Planung, Dokumentation und Abrechnung laufen in einem Ablauf. Was unterwegs erfasst wird, steht im Büro bereit."
+  "am_sc_4_p": "Planung, Dokumentation und Abrechnung laufen in einem Ablauf. Was unterwegs erfasst wird, steht im Büro bereit.",
+
+  "hn_sc_kicker": "Ein Blick hinter den Alarm",
+  "hn_sc_h2": "Was nach dem Knopfdruck passiert.",
+  "hn_sc_lead": "Folgen Sie einem Alarm vom Funk-Rufknopf bis zur Abrechnung und sehen Sie, wo Nurelo mitarbeitet.",
+  "hn_sc_1_tag": "Beim Teilnehmer",
+  "hn_sc_1_h": "Ein Knopfdruck, ein dokumentierter Einsatz.",
+  "hn_sc_1_p": "Der Alarm wird dem Teilnehmer und seinem Gerät zugeordnet. Kommt jemand zum Einsatz, wird er dokumentiert.",
+  "hn_sc_2_tag": "In der Zentrale",
+  "hn_sc_2_h": "Der Alarm kommt dort an, wo er gebraucht wird.",
+  "hn_sc_2_p": "Nurelo leitet den Alarm an die Hausnotrufzentrale weiter. Fehl- und Probealarme werden erfasst und ausgewertet.",
+  "hn_sc_3_tag": "Verwaltung",
+  "hn_sc_3_h": "Die Monatspauschale rechnet sich ab.",
+  "hn_sc_3_p": "Teilnehmer, Geräte und Verträge verwalten Sie an einem Ort. Die Monatspauschale wird automatisch abgerechnet.",
+  "hn_sc_4_tag": "Vom Alarm bis zur Abrechnung",
+  "hn_sc_4_h": "Jeder Schritt nachvollziehbar.",
+  "hn_sc_4_p": "Vom Alarm über den Einsatz bis zur Abrechnung bleibt jeder Schritt dokumentiert, auch bei Fehl- und Probealarmen."
 }

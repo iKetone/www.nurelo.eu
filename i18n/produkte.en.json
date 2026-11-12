@@ -102,5 +102,21 @@
   "am_sc_3_p": "Services under SGB XI and V are recorded in one flow. Billing under §&nbsp;302 goes straight to the payers.",
   "am_sc_4_tag": "The whole day",
   "am_sc_4_h": "From the round to the invoice.",
-  "am_sc_4_p": "Planning, documentation and billing run in one flow. What is captured on the road is ready in the office."
+  "am_sc_4_p": "Planning, documentation and billing run in one flow. What is captured on the road is ready in the office.",
+
+  "hn_sc_kicker": "A look behind the alarm",
+  "hn_sc_h2": "What happens after the button is pressed.",
+  "hn_sc_lead": "Follow an alarm from the wireless call button to billing and see where Nurelo takes part.",
+  "hn_sc_1_tag": "At the participant's home",
+  "hn_sc_1_h": "One press, one documented call-out.",
+  "hn_sc_1_p": "The alarm is matched to the participant and their device. When someone attends, the call-out is documented.",
+  "hn_sc_2_tag": "In the call centre",
+  "hn_sc_2_h": "The alarm arrives where it is needed.",
+  "hn_sc_2_p": "Nurelo forwards the alarm to the emergency call centre. False and test alarms are recorded and evaluated.",
+  "hn_sc_3_tag": "Administration",
+  "hn_sc_3_h": "The monthly fee bills itself.",
+  "hn_sc_3_p": "Manage participants, devices and contracts in one place. The monthly flat fee is billed automatically.",
+  "hn_sc_4_tag": "From alarm to billing",
+  "hn_sc_4_h": "Every step traceable.",
+  "hn_sc_4_p": "From the alarm through the call-out to billing, every step stays documented, including false and test alarms."
 }
