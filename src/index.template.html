@@ -28,6 +28,17 @@
   <link rel="stylesheet" href="/tunnel.css" />
   <link rel="stylesheet" href="/land.css" />
   <script>
+  /* Vergleich: ?illu zeigt die Kacheln im illustrierten Stil statt in 3D und gilt in diesem Tab, bis ?3d aufgerufen wird */
+  (function () {
+    var q = location.search, k = 'nurelo-kacheln', on = /[?&]illu(?:[=&]|$)/.test(q);
+    try {
+      if (on) sessionStorage.setItem(k, 'illu'); else if (/[?&]3d(?:[=&]|$)/.test(q)) sessionStorage.removeItem(k);
+      on = sessionStorage.getItem(k) === 'illu';
+    } catch (e) { /* ohne Speicher gilt der Schalter nur für diese Seite */ }
+    if (on) document.documentElement.classList.add('tiles-illu');
+  })();
+  </script>
+  <script>
   /* Hero: Startzustand der Scroll-Sequenz schon im ersten Bild (siehe styles.css, html.hero-boot); entfällt bei reduzierter Bewegung */
   (function () {
     var d = document.documentElement;
