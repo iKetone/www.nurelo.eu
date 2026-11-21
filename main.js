@@ -16,6 +16,34 @@
   links.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
 
+  // ---------- Navigation: beim Runterscrollen aus dem Bild, beim Hochscrollen wieder herein ----------
+  // Offen gehaltenes Menü, Sprachwähler und Tastaturfokus in der Leiste halten sie sichtbar; ganz oben ist sie immer da.
+  var nav = document.querySelector('header.nav');
+  if (nav) {
+    var navY = window.scrollY, navDist = 0, navAway = false, navTick = false;
+    var navShow = function (show) {
+      if (show === !navAway) return;
+      navAway = !show;
+      nav.classList.toggle('nav-away', navAway);
+    };
+    var navHold = function () {
+      return links.classList.contains('open') || (document.querySelector('details.lang') || {}).open || nav.contains(document.activeElement);
+    };
+    var navScroll = function () {
+      navTick = false;
+      var y = window.scrollY, dy = y - navY;
+      navY = y;
+      if (y < 80 || navHold()) { navDist = 0; navShow(true); return; }
+      if (dy === 0) return;
+      if ((dy > 0) !== (navDist > 0)) navDist = 0;          // Richtungswechsel: Weg neu zählen
+      navDist += dy;
+      if (navDist > 28) navShow(false);                      // runter: erst nach einem kleinen Stück ausblenden
+      else if (navDist < -10) navShow(true);                 // hoch: sofort wieder herein
+    };
+    window.addEventListener('scroll', function () { if (!navTick) { navTick = true; requestAnimationFrame(navScroll); } }, { passive: true });
+    nav.addEventListener('focusin', function () { navShow(true); });
+  }
+
   // ---------- Sprachwähler ----------
   var langBox = document.querySelector('details.lang');
   if (langBox) {
