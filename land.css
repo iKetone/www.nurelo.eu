@@ -69,7 +69,7 @@ html.land .scn.scn-on > .seam { margin-bottom: 0; }
     /* Hero: Das Kapitel Stationär ist die Fläche, die die Bühne überfährt (Zeitverlauf über main, damit die Ebenen ihn nutzen können) */
     html.land main { timeline-scope: --land-in; }
     html.land #stationaer { view-timeline-name: --ch, --land-in; view-timeline-axis: block, block; }
-    html.land .ls-l:not(.ls-cl), html.land .ls-fill { animation: land-rise linear both; animation-timeline: --land-in; animation-range: entry 0% entry 100%; }
+    html.land .ls-l:not(.ls-cl), html.land .ls-fill, html.land .ls-grain { animation: land-rise linear both; animation-timeline: --land-in; animation-range: entry 0% entry 100%; }
     /* Die vorderste Ebene steigt etwas weiter als das Kapitel (--s: 1.12): Ihre Kuppe bleibt immer über der Kante des Kapitels, auch wenn der Browser die Fensterhöhe
        (svh) und die Länge der Scroll-Strecke am Handy minimal anders rechnet. Dazwischen liegt nur ebenes Oliv, die Naht ist unsichtbar. */
     @keyframes land-rise { to { transform: translate3d(0, calc(var(--s) * -100svh), 0); } }
@@ -82,4 +82,23 @@ html.land .scn.scn-on > .seam { margin-bottom: 0; }
     html.land .seam-l:not(.seam-edge) { animation: seam-rise linear both; animation-timeline: --ch; animation-range: entry 0% entry 55%; }
     @keyframes seam-rise { from { transform: translate3d(0, calc(var(--s) * var(--seam-h) * .62), 0); } }
   }
+}
+
+/* ---------- Körnung (Vorschau mit ?korn, zusätzlich zu ?landschaft) ----------
+   Dieselbe feine Körnung wie auf den Kapitelflächen (--grain), jetzt auch auf der vordersten Ebene jeder Naht, die in ein Kapitel mit Körnung
+   läuft: Boden und Kapitel sind dann eine Fläche. Die hinteren Ebenen bleiben glatt (Dunst in der Ferne), das verstärkt die Tiefe.
+   Die Körnung liegt als eigene Fläche über der Ebene und wird mit deren Umriss maskiert, sie bewegt sich mit ihr. */
+.ls-grain, .seam-grain { display: none; }
+html.land.korn .c-st, html.land.korn .c-am, html.land.korn .c-hn { background-image: var(--grain); }
+html.land.korn .ls-fill { background-image: var(--grain); }
+html.land.korn .ls-grain { display: block; position: absolute; left: 0; bottom: -48px; width: 100%; height: calc(100% + 48px); pointer-events: none; will-change: transform;
+  background-image: var(--grain); -webkit-mask: var(--m) 50% 100% / cover no-repeat; mask: var(--m) 50% 100% / cover no-repeat; }
+html.land.korn .seam-grain { display: block; position: absolute; left: 0; bottom: 0; width: 100%; height: 100%; pointer-events: none;
+  background-image: var(--grain); -webkit-mask: var(--m) 50% 100% / cover no-repeat; mask: var(--m) 50% 100% / cover no-repeat; }
+/* Bänder im Fluss tragen dieselbe Körnung wie das Kapitel davor. Den Überstand über der Kante bildet hier das Band selbst (3px höher, 3px nach oben),
+   denn ein Schatten wäre glatt und risse als feiner Streifen aus der Körnung. */
+html.land.korn .scn > .seam { background-image: var(--grain); box-shadow: none; top: -3px; height: calc(var(--seam-h) + 3px); }
+@media (max-width: 860px), (max-height: 700px) {
+  html.land.korn .chapters > .platform > .seam { background-image: var(--grain); box-shadow: none; top: -3px; height: calc(var(--seam-h) + 3px); }
+  html.land.korn .chapter > .seam { background-image: var(--grain); box-shadow: none; top: -3px; height: calc(var(--seam-h) + 3px); }
 }
