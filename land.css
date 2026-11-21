@@ -44,17 +44,20 @@ html.land .seam { display: block; position: absolute; left: 0; right: 0; bottom:
 
 /* Naht als eigenes Band am Kopf des Abschnitts (Ablauf, Szene der Produktseiten immer; Kapitel und Plattform, wenn sie nicht kleben, also am Handy):
    Das Band hat die Farbe des vorigen Abschnitts und schiebt den eigenen Inhalt nach unten, nichts wird überdeckt. */
-html.land .steps-sec > .seam, html.land .scn > .seam, html.land .chapters > .platform > .seam { position: relative; bottom: auto; background: var(--seam-from); margin-bottom: clamp(2.5rem, 6vw, 5rem); }
+html.land .steps-sec > .seam, html.land .scn > .seam, html.land .chapters > .platform > .seam { position: relative; bottom: auto; background: var(--seam-from); margin-bottom: clamp(2.5rem, 6vw, 5rem);
+  /* 3px Überstand nach oben in der Farbe des vorigen Abschnitts: Fällt die Kante zwischen beiden auf einen Bruchteil eines Bildschirmpunkts, scheint sonst
+     in manchen Browsern die helle Seitenfläche als feine Linie durch. Der Streifen liegt auf gleicher Farbe und ist unsichtbar. */
+  box-shadow: 0 -3px 0 0 var(--seam-from); }
 html.land .steps-sec, html.land .scn:not(.scn-on), html.land .chapters > .platform { padding-top: 0; }
 html.land .steps-sec { margin-top: 0; }
 html.land .scn.scn-on > .seam { margin-bottom: 0; }
 @media (min-width: 861px) and (min-height: 701px) {
-  html.land .chapters > .platform > .seam { position: absolute; bottom: calc(100% - 1px); background: none; margin: 0; }
+  html.land .chapters > .platform > .seam { position: absolute; bottom: calc(100% - 1px); background: none; margin: 0; box-shadow: none; }
   html.land .chapters > .platform { padding-top: clamp(5rem, 10vw, 8rem); }
 }
 @media (max-width: 860px), (max-height: 700px) {
   html.land .chapter + .chapter, html.land .chapter + .platform { margin-top: 0; }
-  html.land .chapter > .seam { top: 0; bottom: auto; background: var(--seam-from); }
+  html.land .chapter > .seam { top: 0; bottom: auto; background: var(--seam-from); box-shadow: 0 -3px 0 0 var(--seam-from); }
   html.land .chapter:has(> .seam) { padding-top: calc(var(--seam-h) + 2.5rem); }
 }
 @media (max-width: 860px) { html.land .chapter, html.land .chapters > .platform, html.land .steps-sec, html.land .scn { --seam-h: clamp(170px, 42vw, 260px); } }
