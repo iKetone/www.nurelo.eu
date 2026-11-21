@@ -251,7 +251,8 @@
   if (window.matchMedia('(max-width: 860px) and (pointer: coarse)').matches &&
       navigator.deviceMemory && navigator.deviceMemory <= 2) root.classList.add('no-blur');
   function load3d() {
-    if (lowPower()) { window.dispatchEvent(new Event('nurelo3d')); return; }
+    // Schalter ?illu (siehe Kopf der Seite): illustrierte Kacheln in CSS, kein WebGL
+    if (lowPower() || root.classList.contains('tiles-illu')) { window.dispatchEvent(new Event('nurelo3d')); return; }
     var s = document.createElement('script');
     s.src = '/tiles3d.js'; s.async = true;
     document.body.appendChild(s);
