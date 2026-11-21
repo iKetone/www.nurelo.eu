@@ -740,7 +740,7 @@ html:not(.hero-boot) .hero:not(.pinned) .h1-a { display: block; color: var(--ink
 
 /* ---------- Menü am Handy ----------
    Fläche über den ganzen Bildschirm in der Farbe der App-Fenster, darüber bleibt die Leiste (Knopf wird zum Schließen-Kreuz).
-   Die Form zeichnet main.js als SVG-Pfad: Welle von rechts, mit dem Schalter ?huegel ein Hügelkamm von unten (html.mnav-hills).
+   Die Form zeichnet main.js als SVG-Pfad: eine weiche Welle, die von rechts hereinläuft.
    Die Einträge kommen versetzt herein, die Verzögerung je Eintrag (--d) setzt main.js. */
 .mnav, .mb-x { display: none; }
 @media (max-width: 860px) {
@@ -749,7 +749,6 @@ html:not(.hero-boot) .hero:not(.pinned) .h1-a { display: block; color: var(--ink
     overflow-y: auto; overscroll-behavior: contain; }
   .mnav-shape { position: fixed; left: 0; top: 0; width: 100%; height: 100vh; height: 100lvh; pointer-events: none; }
   .mnav-shape path { fill: var(--ink); }
-  .mnav-shape .mnav-lead { fill: #3a2e24; }   /* hintere Hügelebene, nur bei ?huegel sichtbar */
   .mnav-in { position: relative; min-height: 100%; display: flex; flex-direction: column; align-items: flex-start; gap: 1.35rem;
     padding: calc(max(12px, env(safe-area-inset-top)) + 84px) max(26px, env(safe-area-inset-right)) calc(max(18px, env(safe-area-inset-bottom)) + 10px) max(26px, env(safe-area-inset-left)); }
   .mnav nav { width: 100%; }
@@ -769,9 +768,8 @@ html:not(.hero-boot) .hero:not(.pinned) .h1-a { display: block; color: var(--ink
   html.mnav-open { overflow: hidden; }
   html.mnav-open .to-top { visibility: hidden; opacity: 0; }
 
-  /* Einträge: beim Öffnen versetzt herein (von rechts bzw. von unten), beim Schließen schnell und gemeinsam hinaus */
+  /* Einträge: beim Öffnen versetzt von rechts herein, beim Schließen schnell und gemeinsam hinaus */
   .mnav-links li, .mnav-item { opacity: 0; transform: translate3d(32px, 0, 0); transition: opacity .14s ease-in, transform .2s ease-in; }
-  .mnav-hills .mnav-links li, .mnav-hills .mnav-item { transform: translate3d(0, 26px, 0); }
   .mnav.is-open .mnav-links li, .mnav.is-open .mnav-item { opacity: 1; transform: none;
     transition: opacity .42s ease-out calc(var(--d, 0) * 1ms), transform .75s cubic-bezier(.16, .84, .24, 1) calc(var(--d, 0) * 1ms); }
 }
@@ -782,7 +780,7 @@ html:not(.hero-boot) .hero:not(.pinned) .h1-a { display: block; color: var(--ink
   .mnav-langs a { padding: .3rem .3rem; }
 }
 @media (max-width: 860px) and (prefers-reduced-motion: reduce) {
-  .mnav-links li, .mnav-item, .mnav-hills .mnav-links li, .mnav-hills .mnav-item { transform: none; }
+  .mnav-links li, .mnav-item { transform: none; }
   .mnav.is-open .mnav-links li, .mnav.is-open .mnav-item { transition: opacity .2s ease-out; }
 }
 

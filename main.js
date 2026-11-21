@@ -7,18 +7,16 @@
 
   // ---------- Menü am Handy ----------
   // Eine Fläche über den ganzen Bildschirm (styles.css, „Menü am Handy“). Ihre Form ist ein SVG-Pfad, der während der Bewegung
-  // in jedem Bild neu berechnet wird: eine weiche Welle, die von rechts hereinläuft, oder (Schalter ?huegel, html.mnav-hills)
-  // ein Hügelkamm, der von unten aufsteigt, mit einer helleren Ebene davor wie in der Landschaft.
+  // in jedem Bild neu berechnet wird: eine weiche Welle, die von rechts hereinläuft (angelehnt an hellomonday.com).
   var links = document.getElementById('nav-links');
   var menuBtn = document.getElementById('menu-btn');
   var mnav = document.getElementById('mnav');
   var menuOpen = false;
   if (menuBtn && mnav) (function () {
     var svg = mnav.querySelector('.mnav-shape');
-    var lead = svg.querySelector('.mnav-lead'), face = svg.querySelectorAll('path')[1];
+    var face = svg.querySelector('path');
     var items = [].slice.call(mnav.querySelectorAll('.mnav-links li, .mnav-item'));
     var W = 0, H = 0, p = 0, from = 0, to = 0, t0 = 0, dur = 1, raf = 0, closeTimer = 0;
-    var hills = function () { return root.classList.contains('mnav-hills'); };
     var f1 = function (n) { return Math.round(n * 10) / 10; };
     // Schneller Start, weiches Auslaufen (beim Schließen umgekehrt: sanft los, dann zügig hinaus)
     var ease = function (t) { return 1 - Math.pow(1 - t, 3); };
@@ -42,21 +40,7 @@
       var last = pts[pts.length - 1];
       return 'M' + (W + 2) + ' -2L' + f1(pts[0][0]) + ' -2L' + f1(pts[0][0]) + ' 0' + through(pts) + 'L' + f1(last[0]) + ' ' + (H + 2) + 'L' + (W + 2) + ' ' + (H + 2) + 'Z';
     }
-    // Hügel: Der Kamm steigt von unten bis über den oberen Rand; bei e = 0 liegt er ganz unter dem Bild, bei e = 1 ganz darüber
-    function hill(e, ph) {
-      var R = Math.min(H * 0.11, 110), n = 8, pts = [];
-      for (var i = 0; i <= n; i++) {
-        var u = i / n;
-        var h = 0.5 + 0.32 * Math.sin(Math.PI * 2 * (u * 1.15 + 0.12 + ph)) + 0.18 * Math.sin(Math.PI * 2 * (u * 2.4 + 0.55 - ph));
-        pts.push([u * W, (H + R) * (1 - e) - R * h]);
-      }
-      return 'M-2 ' + (H + 2) + 'L-2 ' + f1(pts[0][1]) + 'L0 ' + f1(pts[0][1]) + through(pts) + 'L' + (W + 2) + ' ' + f1(pts[n][1]) + 'L' + (W + 2) + ' ' + (H + 2) + 'Z';
-    }
-    function draw() {
-      var e = ease(p);
-      if (hills()) { lead.setAttribute('d', hill(Math.min(1, e * 1.14), 0.21)); face.setAttribute('d', hill(e, 0)); }
-      else { lead.setAttribute('d', ''); face.setAttribute('d', wave(e)); }
-    }
+    function draw() { face.setAttribute('d', wave(ease(p))); }
     function tick(now) {
       var k = Math.min(1, (now - t0) / dur);
       p = from + (to - from) * k;
@@ -73,8 +57,8 @@
       W = Math.round(r.width) || window.innerWidth; H = Math.round(r.height) || window.innerHeight;
       svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
     }
-    // Die Einträge kommen, sobald die Fläche sie erreicht hat: bei der Welle früher, beim Hügelkamm (steigt von unten) später
-    items.forEach(function (el, i) { el.style.setProperty('--d', String((hills() ? 300 : 220) + i * 45)); });
+    // Die Einträge kommen, sobald die Welle sie erreicht hat
+    items.forEach(function (el, i) { el.style.setProperty('--d', String(220 + i * 45)); });
 
     function open() {
       if (menuOpen) return;
@@ -84,7 +68,7 @@
       size();
       root.classList.add('mnav-open');
       menuBtn.setAttribute('aria-expanded', 'true');
-      if (reduce.matches) { if (raf) { cancelAnimationFrame(raf); raf = 0; } p = 1; draw(); } else run(1, hills() ? 680 : 560);
+      if (reduce.matches) { if (raf) { cancelAnimationFrame(raf); raf = 0; } p = 1; draw(); } else run(1, 560);
       // Einträge erst im nächsten Bild auf „offen“, damit ihr Übergang startet
       requestAnimationFrame(function () { if (menuOpen) mnav.classList.add('is-open'); });
       var first = mnav.querySelector('a');
@@ -99,7 +83,7 @@
       if (mnav.contains(document.activeElement)) menuBtn.focus({ preventScroll: true });
       if (instant || reduce.matches) { if (raf) { cancelAnimationFrame(raf); raf = 0; } p = 0; draw(); mnav.hidden = true; return; }
       // Die Einträge gehen zuerst, dann zieht sich die Fläche zurück
-      closeTimer = setTimeout(function () { if (!menuOpen) run(0, hills() ? 520 : 480); }, 90);
+      closeTimer = setTimeout(function () { if (!menuOpen) run(0, 480); }, 90);
     }
     menuBtn.addEventListener('click', function () { if (menuOpen) close(); else open(); });
     mnav.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('a')) close(); });

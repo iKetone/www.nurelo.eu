@@ -28,18 +28,6 @@
   <link rel="stylesheet" href="/tunnel.css" />
   <link rel="stylesheet" href="/land.css" />
   <script>
-  /* Vergleich Menü am Handy: ?huegel lässt die Menüfläche von unten mit einem Hügelkamm aufsteigen statt als Welle von rechts.
-     Gilt in diesem Tab, bis ?welle aufgerufen wird. */
-  (function () {
-    var q = location.search, k = 'nurelo-menue', on = /[?&]huegel(?:[=&]|$)/.test(q);
-    try {
-      if (on) sessionStorage.setItem(k, 'huegel'); else if (/[?&]welle(?:[=&]|$)/.test(q)) sessionStorage.removeItem(k);
-      on = sessionStorage.getItem(k) === 'huegel';
-    } catch (e) { /* ohne Speicher gilt der Schalter nur für diese Seite */ }
-    if (on) document.documentElement.classList.add('mnav-hills');
-  })();
-  </script>
-  <script>
   /* Hero: Startzustand der Scroll-Sequenz schon im ersten Bild (siehe styles.css, html.hero-boot); entfällt bei reduzierter Bewegung */
   (function () {
     var d = document.documentElement;
@@ -123,7 +111,7 @@
 
   <!-- Menü am Handy: Fläche über den ganzen Bildschirm. Form und Bewegung in main.js („Menü am Handy“), Gestaltung in styles.css -->
   <div class="mnav" id="mnav" hidden>
-    <svg class="mnav-shape" aria-hidden="true" focusable="false" preserveAspectRatio="none"><path class="mnav-lead"/><path/></svg>
+    <svg class="mnav-shape" aria-hidden="true" focusable="false" preserveAspectRatio="none"><path/></svg>
     <div class="mnav-in">
       <nav aria-label="{{a:nav_aria}}">
         <ul class="mnav-links">
