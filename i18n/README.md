@@ -57,6 +57,8 @@ Weitere Festlegungen für alle Sprachen:
 - **Meta-Texte:** `meta_title` möglichst 60 Zeichen (in den Sprachen mit langen Wörtern bis etwa 65), `meta_desc` höchstens 155 Zeichen. Der Satz zum Hosting entfällt, wo der Platz fehlt (steht auf der Seite).
 - **Fußzeile:** `ft_legal` und `ft_imprint` dürfen nicht gleich lauten.
 - **Buttons:** pro Sprache eine Anredeform (kein Mix aus Du-Imperativ und Sie-Form).
+- **Zusätzliche Sprachen (nicht EU):** Türkisch (`tr`), Bosnisch (`bs`), Serbisch (`sr`, kyrillisch), Ukrainisch (`uk`), Albanisch (`sq`) und Vietnamesisch (`vi`), ausgewählt nach den größten Gruppen internationaler Pflegekräfte in Deutschland. Übersetzt mit DeepL aus dem Englischen, offensichtliche Fehler korrigiert. Muttersprachler-Review steht aus. Vietnamesisch nutzt Manrope (`html:lang(vi)` in `styles.css`), weil Karla die vietnamesischen Zeichen nicht hat.
+- **Abschnitt „Mehrsprachig“** (`ml_*`, im Plattform-Teil): Die Beispielnotiz `ml_orig` steht in der Sprache der Seite, auf der deutschen Seite auf Türkisch. Die deutsche Übersetzung steht fest in der Vorlage. „Über 10 Sprachen“ bezieht sich auf die Oberfläche der Software, nicht auf die Webseite.
 
 ## Produktseiten
 

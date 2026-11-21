@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="vi" class="land">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Nurelo: phần mềm chăm sóc tại nhà, tại cơ sở và gọi cấp cứu</title>
+  <meta name="description" content="Nurelo tích hợp chăm sóc tại nhà, chăm sóc tại cơ sở và dịch vụ gọi cấp cứu trên một nền tảng: lập lộ trình, hồ sơ, thanh toán và TI-KIM." />
+  <!-- TODO: noindex vor dem Live-Gang entfernen -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#241B14" />
+  <link rel="canonical" href="https://www.nurelo.eu/vi/" />
+  <link rel="alternate" hreflang="de" href="https://www.nurelo.eu/" />
+  <link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/" />
+  <link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/" />
+  <link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/" />
+  <link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/" />
+  <link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/" />
+  <link rel="alternate" hreflang="en" href="https://www.nurelo.eu/en/" />
+  <link rel="alternate" hreflang="es" href="https://www.nurelo.eu/es/" />
+  <link rel="alternate" hreflang="et" href="https://www.nurelo.eu/et/" />
+  <link rel="alternate" hreflang="fi" href="https://www.nurelo.eu/fi/" />
+  <link rel="alternate" hreflang="fr" href="https://www.nurelo.eu/fr/" />
+  <link rel="alternate" hreflang="ga" href="https://www.nurelo.eu/ga/" />
+  <link rel="alternate" hreflang="hr" href="https://www.nurelo.eu/hr/" />
+  <link rel="alternate" hreflang="hu" href="https://www.nurelo.eu/hu/" />
+  <link rel="alternate" hreflang="it" href="https://www.nurelo.eu/it/" />
+  <link rel="alternate" hreflang="lt" href="https://www.nurelo.eu/lt/" />
+  <link rel="alternate" hreflang="lv" href="https://www.nurelo.eu/lv/" />
+  <link rel="alternate" hreflang="mt" href="https://www.nurelo.eu/mt/" />
+  <link rel="alternate" hreflang="nl" href="https://www.nurelo.eu/nl/" />
+  <link rel="alternate" hreflang="pl" href="https://www.nurelo.eu/pl/" />
+  <link rel="alternate" hreflang="pt" href="https://www.nurelo.eu/pt/" />
+  <link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/" />
+  <link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/" />
+  <link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/" />
+  <link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/" />
+  <link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/" />
+  <link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/" />
+  <link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/" />
+  <link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/" />
+  <link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="vi_VN" />
+  <meta property="og:title" content="Nurelo: phần mềm chăm sóc tại nhà, tại cơ sở và gọi cấp cứu" />
+  <meta property="og:description" content="Ba lĩnh vực chăm sóc, một nền tảng: lập kế hoạch lộ trình, hồ sơ chăm sóc, thanh toán và TI-KIM." />
+  <meta property="og:url" content="https://www.nurelo.eu/vi/" />
+  <meta property="og:site_name" content="Nurelo" />
+  <meta property="og:image" content="https://www.nurelo.eu/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Nurelo" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
+  <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/styles.css?v=b5b2493a" />
+  <link rel="stylesheet" href="/tunnel.css?v=60e56e66" />
+  <link rel="stylesheet" href="/land.css?v=849b8908" />
+  <script>
+  /* Hero: Startzustand der Scroll-Sequenz schon im ersten Bild (siehe styles.css, html.hero-boot); entfällt bei reduzierter Bewegung */
+  (function () {
+    var d = document.documentElement;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    d.classList.add('hero-boot');
+    setTimeout(function () { d.classList.remove('hero-boot'); }, 3000);
+  })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.nurelo.eu/#organization",
+        "name": "Nurelo",
+        "url": "https://www.nurelo.eu/",
+        "logo": "https://www.nurelo.eu/logo.png",
+        "email": "contact@nurelo.eu"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.nurelo.eu/#website",
+        "name": "Nurelo",
+        "url": "https://www.nurelo.eu/",
+        "inLanguage": "vi",
+        "publisher": { "@id": "https://www.nurelo.eu/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Nurelo",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Phần mềm quản lý chăm sóc dành cho các dịch vụ chăm sóc tại nhà, cơ sở chăm sóc nội trú và các nhà cung cấp dịch vụ gọi cấp cứu tại nhà.",
+        "url": "https://www.nurelo.eu/vi/",
+        "inLanguage": "vi",
+        "publisher": { "@id": "https://www.nurelo.eu/#organization" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="g-st" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2.6" fill="currentColor"/><rect x="13" y="3" width="8" height="8" rx="2.6" fill="currentColor" opacity=".55"/><rect x="3" y="13" width="8" height="8" rx="2.6" fill="currentColor" opacity=".55"/><rect x="13" y="13" width="8" height="8" rx="2.6" fill="currentColor"/></symbol>
+      <symbol id="g-am" viewBox="0 0 24 24"><path d="M6 19h9a3.5 3.5 0 000-7H9a3.5 3.5 0 010-7h9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="5" cy="19" r="2.6" fill="currentColor"/><circle cx="19" cy="5" r="2.6" fill="currentColor"/></symbol>
+      <symbol id="g-hn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.8" fill="currentColor"/><path d="M8 8a5.7 5.7 0 000 8M16 8a5.7 5.7 0 010 8M4.6 4.6a10.5 10.5 0 000 14.8M19.4 4.6a10.5 10.5 0 010 14.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+      <symbol id="m-tour" viewBox="0 0 24 24"><path d="M6 19h9a3.5 3.5 0 000-7H9a3.5 3.5 0 010-7h9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="5" cy="19" r="2.4" fill="currentColor"/><circle cx="19" cy="5" r="2.4" fill="currentColor"/></symbol>
+      <symbol id="m-med" viewBox="0 0 24 24"><rect x="2.5" y="8.5" width="19" height="7" rx="3.5" transform="rotate(-35 12 12)" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M9.2 9.3l5.6 5.4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+      <symbol id="m-doc" viewBox="0 0 24 24"><path d="M3.5 7a2 2 0 012-2h4l2 2.2h7a2 2 0 012 2V17a2 2 0 01-2 2h-13a2 2 0 01-2-2z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></symbol>
+      <symbol id="m-duty" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M3.5 10h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="8.5" cy="14.5" r="1.4" fill="currentColor"/><circle cx="12" cy="14.5" r="1.4" fill="currentColor"/></symbol>
+      <symbol id="m-bill" viewBox="0 0 24 24"><path d="M6 3.5h12v17l-3-2-3 2-3-2-3 2z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M9.5 9h5M9.5 13h5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+      <symbol id="m-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M3.5 8l8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="m-rep" viewBox="0 0 24 24"><path d="M5 20V12M12 20V5M19 20v-9" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></symbol>
+      <symbol id="m-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M4.5 20a7.5 7.5 0 0115 0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">Chuyển đến nội dung</a>
+
+  <!-- Schwebende Navigation -->
+  <header class="nav">
+    <div class="pill nav-left">
+      <a class="brand" href="#top" aria-label="Trang chủ Nurelo">
+        <img src="/logo-96.webp" width="30" height="30" alt="" />
+        <span>Nurelo</span>
+      </a>
+      <nav aria-label="Thanh điều hướng chính">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#stationaer">Chăm sóc tại cơ sở</a></li>
+          <li><a href="#ambulant">Chăm sóc tại nhà</a></li>
+          <li><a href="#hausnotruf">Gọi cấp cứu</a></li>
+          <li><a href="#plattform">Nền tảng</a></li>
+          <li><a href="#preise">Bảng giá</a></li>
+        </ul>
+      </nav>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="fl-de" viewBox="0 0 24 16"><rect width="24" height="16" fill="#2a2018"/><rect y="5.33" width="24" height="10.67" fill="#c0462f"/><rect y="10.67" width="24" height="5.33" fill="#d9a53b"/></symbol><symbol id="fl-bg" viewBox="0 0 24 16"><rect width="24" height="16" fill="#fbf7f0"/><rect y="5.33" width="24" height="10.67" fill="#5f8350"/><rect y="10.67" width="24" height="5.33" fill="#c0462f"/></symbol><symbol id="fl-bs" viewBox="0 0 24 16"><rect width="24" height="16" fill="#2f5384"/><path d="M6.4 0H17.6V16z" fill="#d9a53b"/><polygon points="4.90,0.45 5.09,1.04 5.71,1.04 5.21,1.40 5.40,1.99 4.90,1.62 4.40,1.99 4.59,1.40 4.09,1.04 4.71,1.04" fill="#fbf7f0"/><polygon points="6.95,3.35 7.14,3.94 7.76,3.94 7.26,4.30 7.45,4.89 6.95,4.52 6.45,4.89 6.64,4.30 6.14,3.94 6.76,3.94" fill="#fbf7f0"/><polygon points="9.00,6.25 9.19,6.84 9.81,6.84 9.31,7.20 9.50,7.79 9.00,7.42 8.50,7.79 8.69,7.20 8.19,6.84 8.81,6.84" fill="#fbf7f0"/><polygon points="11.05,9.15 11.24,9.74 11.86,9.74 11.36,10.10 11.55,10.69 11.05,10.32 10.55,10.69 10.74,10.10 10.24,9.74 10.86,9.74" fill="#fbf7f0"/><polygon points="13.10,12.05 13.29,12.64 13.91,12.64 13.41,13.00 13.60,13.59 13.10,13.22 12.60,13.59 12.79,13.00 12.29,12.64 12.91,12.64" fill="#fbf7f0"/><polygon points="15.15,14.95 15.34,15.54 15.96,15.54 15.46,15.90 15.65,16.49 15.15,16.12 14.65,16.49 14.84,15.90 14.34,15.54 14.96,15.54" fill="#fbf7f0"/></symbol><symbol id="fl-cs" viewBox="0 0 24 16"><rect width="24" height="16" fill="#fbf7f0"/><rect y="8" width="24" height="8" fill="#c0462f"/><path d="M0 0L12 8L0 16z" fill="#2f5384"/></symbol><symbol id="fl-da" viewBox="0 0 24 16"><rect width="24" height="16" fill="#c0462f"/><rect x="7" width="3" height="16" fill="#fbf7f0"/><rect y="6.5" width="24" height="3" fill="#fbf7f0"/></symbol><symbol id="fl-el" viewBox="0 0 24 16"><rect width="24" height="16" fill="#3f78ad"/><rect y="1.78" width="24" height="1.78" fill="#fbf7f0"/><rect y="5.33" width="24" height="1.78" fill="#fbf7f0"/><rect y="8.89" width="24" height="1.78" fill="#fbf7f0"/><rect y="12.44" width="24" height="1.78" fill="#fbf7f0"/><rect width="8.89" height="8.89" fill="#3f78ad"/><rect x="3.56" width="1.78" height="8.89" fill="#fbf7f0"/><rect y="3.56" width="8.89" height="1.78" fill="#fbf7f0"/></symbol><symbol id="fl-en" viewBox="0 0 24 16"><rect width="24" height="16" fill="#2f5384"/><path d="M0 0L24 16M24 0L0 16" stroke="#fbf7f0" stroke-width="3.2"/><path d="M0 0L24 16M24 0L0 16" stroke="#c0462f" stroke-width="1.1"/><rect x="9.6" width="4.8" height="16" fill="#fbf7f0"/><rect y="5.6" width="24" height="4.8" fill="#fbf7f0"/><rect x="10.8" width="2.4" height="16" fill="#c0462f"/><rect y="6.8" width="24" height="2.4" fill="#c0462f"/></symbol><symbol id="fl-es" viewBox="0 0 24 16"><rect width="24" height="16" fill="#c0462f"/><rect y="4" width="24" height="8" fill="#d9a53b"/></symbol><symbol id="fl-et" viewBox="0 0 24 16"><rect width="24" height="16" fill="#3f78ad"/><rect y="5.33" width="24" height="10.67" fill="#2a2018"/><rect y="10.67" width="24" height="5.33" fill="#fbf7f0"/></symbol><symbol id="fl-fi" viewBox="0 0 24 16"><rect width="24" height="16" fill="#fbf7f0"/><rect x="6.5" width="3" height="16" fill="#2f5384"/><rect y="6.5" width="24" height="3" fill="#2f5384"/></symbol><symbol id="fl-fr" viewBox="0 0 24 16"><rect width="24" height="16" fill="#2f5384"/><rect x="8" width="16" height="16" fill="#fbf7f0"/><rect x="16" width="8" height="16" fill="#c0462f"/></symbol><symbol id="fl-ga" viewBox="0 0 24 16"><rect width="24" height="16" fill="#5f8350"/><rect x="8" width="16" height="16" fill="#fbf7f0"/><rect x="16" width="8" height="16" fill="#dd8a45"/></symbol><symbol id="fl-hr" viewBox="0 0 24 16"><rect width="24" height="16" fill="#c0462f"/><rect y="5.33" width="24" height="10.67" fill="#fbf7f0"/><rect y="10.67" width="24" height="5.33" fill="#2f5384"/><path d="M10.2 5.4h3.6v3.2q0 1.5 -1.8 2.2q-1.8 -.7 -1.8 -2.2z" fill="#fbf7f0" stroke="#2a2018" stroke-width=".35"/><path d="M10.5 5.7h1.2v1.2h-1.2zM12.3 5.7h1.2v1.2h-1.2zM11.4 6.9h1.2v1.2h-1.2zM10.5 8.1h1.2v.8q0 .3 .1 .5h-1.3zM12.3 8.1h1.2v.8q0 .3 -.1 .5h-1.1z" fill="#c0462f"/></symbol><symbol id="fl-hu" viewBox="0 0 24 16"><rect width="24" height="16" fill="#c0462f"/><rect y="5.33" width="24" height="10.67" fill="#fbf7f0"/><rect y="10.67" width="24" height="5.33" fill="#5f8350"/></symbol><symbol id="fl-it" viewBox="0 0 24 16"><rect width="24" height="16" fill="#5f8350"/><rect x="8" width="16" height="16" fill="#fbf7f0"/><rect x="16" width="8" height="16" fill="#c0462f"/></symbol><symbol id="fl-lt" viewBox="0 0 24 16"><rect width="24" height="16" fill="#d9a53b"/><rect y="5.33" width="24" height="10.67" fill="#5f8350"/><rect y="10.67" width="24" height="5.33" fill="#c0462f"/></symbol><symbol id="fl-lv" viewBox="0 0 24 16"><rect width="24" height="16" fill="#98303a"/><rect y="6.4" width="24" height="3.2" fill="#fbf7f0"/></symbol><symbol id="fl-mt" viewBox="0 0 24 16"><rect width="24" height="16" fill="#fbf7f0"/><rect x="12" width="12" height="16" fill="#c0462f"/><path d="M2.6 1.3h1.3v1.5h1.5v1.3h-1.5v1.5h-1.3v-1.5h-1.5v-1.3h1.5z" fill="#a9a59b"/></symbol><symbol id="fl-nl" viewBox="0 0 24 16"><rect width="24" height="16" fill="#c0462f"/><rect y="5.33" width="24" height="10.67" fill="#fbf7f0"/><rect y="10.67" width="24" height="5.33" fill="#2f5384"/></symbol><symbol id="fl-pl" viewBox="0 0 24 16"><rect width="24" height="16" fill="#fbf7f0"/><rect y="8" width="24" height="8" fill="#c0462f"/></symbol><symbol id="fl-pt" viewBox="0 0 24 16"><rect width="24" height="16" fill="#c0462f"/><rect width="9.6" height="16" fill="#5f8350"/><circle cx="9.6" cy="8" r="3.4" fill="#d9a53b"/><path d="M8.3 6.3h2.6v2.3q0 1.1 -1.3 1.6q-1.3 -.5 -1.3 -1.6z" fill="#c0462f" stroke="#fbf7f0" stroke-width=".5"/></symbol><symbol id="fl-ro" viewBox="0 0 24 16"><rect width="24" height="16" fill="#2f5384"/><rect x="8" width="16" height="16" fill="#d9a53b"/><rect x="16" width="8" height="16" fill="#c0462f"/></symbol><symbol id="fl-sk" viewBox="0 0 24 16"><rect width="24" height="16" fill="#fbf7f0"/><rect y="5.33" width="24" height="10.67" fill="#2f5384"/><rect y="10.67" width="24" height="5.33" fill="#c0462f"/><path d="M3.6 3.4h5.6v5.52q0 2.944 -2.8 3.6799999999999997q-2.8 -0.736 -2.8 -3.6799999999999997z" fill="#c0462f" stroke="#fbf7f0" stroke-width=".5"/><rect x="6.15" y="4.8" width=".5" height="5.2" fill="#fbf7f0"/><rect x="5.3" y="6" width="2.2" height=".5" fill="#fbf7f0"/><rect x="5.5" y="7.4" width="1.8" height=".5" fill="#fbf7f0"/><path d="M4.6 11.2l1.4 -1.6l.6 .6l.7 -.9l1 1.9q-.8 .7 -1.4 .9q-1.4 -.5 -2.3 -.9z" fill="#2f5384"/></symbol><symbol id="fl-sl" viewBox="0 0 24 16"><rect width="24" height="16" fill="#fbf7f0"/><rect y="5.33" width="24" height="10.67" fill="#2f5384"/><rect y="10.67" width="24" height="5.33" fill="#c0462f"/><path d="M3.4 2.8h5.2v5.04q0 2.688 -2.6 3.3600000000000003q-2.6 -0.672 -2.6 -3.3600000000000003z" fill="#2f5384" stroke="#fbf7f0" stroke-width=".5"/><path d="M4.4 8.4l1.6 -2.6l.7 1.1l.5 -.8l1 2.3z" fill="#fbf7f0"/></symbol><symbol id="fl-sq" viewBox="0 0 24 16"><rect width="24" height="16" fill="#c0462f"/><polygon points="12,5.2 10.6,4.6 10,3.2 10.6,2.4 11.3,3.1 11.2,4.2 11.7,4.6 10.4,5.2 8.2,3.9 7,4.4 7.9,5.4 6.9,6.1 8.1,6.8 7.2,7.7 8.6,8.2 8,9.2 9.6,9.3 10.6,10.4 10.2,12.8 11.3,11.8 12,13.2 12,13.2 12.7,11.8 13.8,12.8 13.4,10.4 14.4,9.3 16,9.2 15.4,8.2 16.8,7.7 15.9,6.8 17.1,6.1 16.1,5.4 17,4.4 15.8,3.9 13.6,5.2 12.3,4.6 12.8,4.2 12.7,3.1 13.4,2.4 14,3.2 13.4,4.6 12,5.2" fill="#2a2018"/></symbol><symbol id="fl-sr" viewBox="0 0 24 16"><rect width="24" height="16" fill="#c0462f"/><rect y="5.33" width="24" height="10.67" fill="#2f5384"/><rect y="10.67" width="24" height="5.33" fill="#fbf7f0"/><path d="M5.2 4.4h4.4v4.2q0 2.3 -2.2 3.2q-2.2 -.9 -2.2 -3.2z" fill="#c0462f" stroke="#d9a53b" stroke-width=".5"/><path d="M7.4 5.6v4.6M5.9 7.3h3" stroke="#fbf7f0" stroke-width=".7"/></symbol><symbol id="fl-sv" viewBox="0 0 24 16"><rect width="24" height="16" fill="#3f78ad"/><rect x="6" width="3" height="16" fill="#d9a53b"/><rect y="6.5" width="24" height="3" fill="#d9a53b"/></symbol><symbol id="fl-tr" viewBox="0 0 24 16"><rect width="24" height="16" fill="#c0462f"/><circle cx="8.6" cy="8" r="4" fill="#fbf7f0"/><circle cx="9.6" cy="8" r="3.2" fill="#c0462f"/><polygon points="13.40,6.25 13.79,7.46 15.06,7.46 14.04,8.21 14.43,9.42 13.40,8.67 12.37,9.42 12.76,8.21 11.74,7.46 13.01,7.46" fill="#fbf7f0"/></symbol><symbol id="fl-uk" viewBox="0 0 24 16"><rect width="24" height="16" fill="#3f78ad"/><rect y="8" width="24" height="8" fill="#d9a53b"/></symbol><symbol id="fl-vi" viewBox="0 0 24 16"><rect width="24" height="16" fill="#c0462f"/><polygon points="12.00,3.70 13.03,6.88 16.37,6.88 13.67,8.84 14.70,12.02 12.00,10.06 9.30,12.02 10.33,8.84 7.63,6.88 10.97,6.88" fill="#d9a53b"/></symbol></svg>
+      <details class="lang">
+        <summary aria-label="VI: Chọn ngôn ngữ"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-vi"/></svg></span><span aria-hidden="true">VI</span></summary>
+        <ul class="lang-list">
+          <li><a href="/" hreflang="de" lang="de" title="Deutsch" aria-label="Deutsch (DE)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-de"/></svg></span><span class="lang-code" aria-hidden="true">DE</span></a></li>
+          <li><a href="/bg/" hreflang="bg" lang="bg" title="Български" aria-label="Български (BG)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-bg"/></svg></span><span class="lang-code" aria-hidden="true">BG</span></a></li>
+          <li><a href="/bs/" hreflang="bs" lang="bs" title="Bosanski" aria-label="Bosanski (BS)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-bs"/></svg></span><span class="lang-code" aria-hidden="true">BS</span></a></li>
+          <li><a href="/cs/" hreflang="cs" lang="cs" title="Čeština" aria-label="Čeština (CS)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-cs"/></svg></span><span class="lang-code" aria-hidden="true">CS</span></a></li>
+          <li><a href="/da/" hreflang="da" lang="da" title="Dansk" aria-label="Dansk (DA)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-da"/></svg></span><span class="lang-code" aria-hidden="true">DA</span></a></li>
+          <li><a href="/el/" hreflang="el" lang="el" title="Ελληνικά" aria-label="Ελληνικά (EL)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-el"/></svg></span><span class="lang-code" aria-hidden="true">EL</span></a></li>
+          <li><a href="/en/" hreflang="en" lang="en" title="English" aria-label="English (EN)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-en"/></svg></span><span class="lang-code" aria-hidden="true">EN</span></a></li>
+          <li><a href="/es/" hreflang="es" lang="es" title="Español" aria-label="Español (ES)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-es"/></svg></span><span class="lang-code" aria-hidden="true">ES</span></a></li>
+          <li><a href="/et/" hreflang="et" lang="et" title="Eesti" aria-label="Eesti (ET)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-et"/></svg></span><span class="lang-code" aria-hidden="true">ET</span></a></li>
+          <li><a href="/fi/" hreflang="fi" lang="fi" title="Suomi" aria-label="Suomi (FI)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-fi"/></svg></span><span class="lang-code" aria-hidden="true">FI</span></a></li>
+          <li><a href="/fr/" hreflang="fr" lang="fr" title="Français" aria-label="Français (FR)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-fr"/></svg></span><span class="lang-code" aria-hidden="true">FR</span></a></li>
+          <li><a href="/ga/" hreflang="ga" lang="ga" title="Gaeilge" aria-label="Gaeilge (GA)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-ga"/></svg></span><span class="lang-code" aria-hidden="true">GA</span></a></li>
+          <li><a href="/hr/" hreflang="hr" lang="hr" title="Hrvatski" aria-label="Hrvatski (HR)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-hr"/></svg></span><span class="lang-code" aria-hidden="true">HR</span></a></li>
+          <li><a href="/hu/" hreflang="hu" lang="hu" title="Magyar" aria-label="Magyar (HU)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-hu"/></svg></span><span class="lang-code" aria-hidden="true">HU</span></a></li>
+          <li><a href="/it/" hreflang="it" lang="it" title="Italiano" aria-label="Italiano (IT)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-it"/></svg></span><span class="lang-code" aria-hidden="true">IT</span></a></li>
+          <li><a href="/lt/" hreflang="lt" lang="lt" title="Lietuvių" aria-label="Lietuvių (LT)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-lt"/></svg></span><span class="lang-code" aria-hidden="true">LT</span></a></li>
+          <li><a href="/lv/" hreflang="lv" lang="lv" title="Latviešu" aria-label="Latviešu (LV)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-lv"/></svg></span><span class="lang-code" aria-hidden="true">LV</span></a></li>
+          <li><a href="/mt/" hreflang="mt" lang="mt" title="Malti" aria-label="Malti (MT)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-mt"/></svg></span><span class="lang-code" aria-hidden="true">MT</span></a></li>
+          <li><a href="/nl/" hreflang="nl" lang="nl" title="Nederlands" aria-label="Nederlands (NL)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-nl"/></svg></span><span class="lang-code" aria-hidden="true">NL</span></a></li>
+          <li><a href="/pl/" hreflang="pl" lang="pl" title="Polski" aria-label="Polski (PL)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-pl"/></svg></span><span class="lang-code" aria-hidden="true">PL</span></a></li>
+          <li><a href="/pt/" hreflang="pt" lang="pt" title="Português" aria-label="Português (PT)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-pt"/></svg></span><span class="lang-code" aria-hidden="true">PT</span></a></li>
+          <li><a href="/ro/" hreflang="ro" lang="ro" title="Română" aria-label="Română (RO)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-ro"/></svg></span><span class="lang-code" aria-hidden="true">RO</span></a></li>
+          <li><a href="/sk/" hreflang="sk" lang="sk" title="Slovenčina" aria-label="Slovenčina (SK)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-sk"/></svg></span><span class="lang-code" aria-hidden="true">SK</span></a></li>
+          <li><a href="/sl/" hreflang="sl" lang="sl" title="Slovenščina" aria-label="Slovenščina (SL)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-sl"/></svg></span><span class="lang-code" aria-hidden="true">SL</span></a></li>
+          <li><a href="/sq/" hreflang="sq" lang="sq" title="Shqip" aria-label="Shqip (SQ)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-sq"/></svg></span><span class="lang-code" aria-hidden="true">SQ</span></a></li>
+          <li><a href="/sr/" hreflang="sr" lang="sr" title="Српски" aria-label="Српски (SR)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-sr"/></svg></span><span class="lang-code" aria-hidden="true">SR</span></a></li>
+          <li><a href="/sv/" hreflang="sv" lang="sv" title="Svenska" aria-label="Svenska (SV)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-sv"/></svg></span><span class="lang-code" aria-hidden="true">SV</span></a></li>
+          <li><a href="/tr/" hreflang="tr" lang="tr" title="Türkçe" aria-label="Türkçe (TR)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-tr"/></svg></span><span class="lang-code" aria-hidden="true">TR</span></a></li>
+          <li><a href="/uk/" hreflang="uk" lang="uk" title="Українська" aria-label="Українська (UK)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-uk"/></svg></span><span class="lang-code" aria-hidden="true">UK</span></a></li>
+          <li><a href="/vi/" hreflang="vi" lang="vi" title="Tiếng Việt" aria-label="Tiếng Việt (VI)" aria-current="true"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-vi"/></svg></span><span class="lang-code" aria-hidden="true">VI</span></a></li>
+        </ul>
+      </details>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    </div>
+    <div class="pill nav-right">
+      <a class="btn btn-dark btn-sm" href="#kontakt">Yêu cầu demo</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="stage-pin" id="stage">
+        <!-- Landschaft (erzeugt von tools/landscape/build.mjs, nicht von Hand ändern) -->
+        <div class="ls-sky" aria-hidden="true"></div>
+        <div class="ls" aria-hidden="true">
+          <img class="ls-l ls-cl" style="--s:0.02" src="/landscape/hero-sky.svg" alt="" width="1600" height="640" decoding="async">
+          <div class="ls-sun"></div>
+          <img class="ls-l" style="--s:0.04" src="/landscape/hero-1.svg" alt="" width="1600" height="640" decoding="async">
+          <img class="ls-l" style="--s:0.08" src="/landscape/hero-2.svg" alt="" width="1600" height="640" decoding="async">
+          <img class="ls-l" style="--s:0.16" src="/landscape/hero-3.svg" alt="" width="1600" height="640" decoding="async">
+          <img class="ls-l" style="--s:0.28" src="/landscape/hero-4.svg" alt="" width="1600" height="640" decoding="async">
+          <img class="ls-l" style="--s:0.46" src="/landscape/hero-5.svg" alt="" width="1600" height="640" decoding="async">
+          <img class="ls-l" style="--s:0.7" src="/landscape/hero-6.svg" alt="" width="1600" height="640" decoding="async">
+          <div class="ls-fill" style="--s:1.12"></div>
+          <img class="ls-l" style="--s:1.12" src="/landscape/hero-7.svg" alt="" width="1600" height="640" decoding="async">
+          <div class="ls-haze"></div>
+        </div>
+        <div class="wordmark" aria-hidden="true">Nurelo</div>
+
+        <div class="hero-copy">
+          <h1>
+            <span class="sr-only">Nurelo: phần mềm chăm sóc tại nhà, tại cơ sở và gọi cấp cứu</span>
+            <span class="h1-a" aria-hidden="true">Công việc hành chính lấy đi thời gian chăm sóc.</span>
+            <span class="h1-b" aria-hidden="true"><em>Nurelo</em> trả lại thời gian đó.</span>
+          </h1>
+          <div class="hero-lower">
+          <div class="hero-more">
+            <p class="lead">Nurelo tích hợp các dịch vụ chăm sóc tại nhà, chăm sóc tại cơ sở và dịch vụ gọi cấp cứu tại nhà trên một nền tảng duy nhất, bao gồm các tính năng lập kế hoạch lộ trình, lập hồ sơ, thanh toán và kết nối với <span class="nb">TI-KIM</span>.</p>
+          </div>
+          <p class="scroll-hint" aria-hidden="true">Cuộn xuống</p>
+          </div>
+        </div>
+
+        <div class="win-wrap">
+          <div class="app-window" role="img" aria-label="Xem trước giao diện Nurelo: dòng thời gian với các mô-đun chăm sóc tại cơ sở, chăm sóc tại nhà và gọi cấp cứu">
+            <div class="win-bar"><b>Nurelo</b><span class="win-time">Hôm nay</span></div>
+            <div class="track">
+              <span>06:00</span><span>09:00</span><span>12:00</span><span>15:00</span><span>18:00</span>
+              <i class="anchor" data-anchor="st"></i>
+              <i class="anchor" data-anchor="am"></i>
+              <i class="anchor" data-anchor="hn"></i>
+            </div>
+            <ul class="win-rows">
+              <li><span class="dot st"></span>Phòng 12: đã hoàn tất hồ sơ<time>07:45</time></li>
+              <li><span class="dot am"></span>Tuyến 2 Bắc: 4 lượt thăm, xe 03<time>08:30</time></li>
+              <li><span class="dot hn"></span>Báo động 0147: đã chuyển đến trung tâm<time>14:02</time></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Kacheln: 3 große, 9 Satelliten -->
+        <div class="tile big st" data-tile="big" data-kind="st" data-depth="1"><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-st"/></svg></div></div></div>
+        <div class="tile big am" data-tile="big" data-kind="am" data-depth="1.35"><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-am"/></svg></div></div></div>
+        <div class="tile big hn" data-tile="big" data-kind="hn" data-depth="0.8"><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-hn"/></svg></div></div></div>
+
+        <div class="tile sat st" data-tile="sat" data-kind="st" data-i="0" data-sx="-.42" data-sy="-.30" data-sr="-24"><div class="tile-body"></div></div>
+        <div class="tile sat st" data-tile="sat" data-kind="st" data-i="1" data-sx="-.18" data-sy=".30" data-sr="18"><div class="tile-body"></div></div>
+        <div class="tile sat st" data-tile="sat" data-kind="st" data-i="2" data-sx=".30" data-sy="-.22" data-sr="40"><div class="tile-body"></div></div>
+        <div class="tile sat am" data-tile="sat" data-kind="am" data-i="0" data-sx=".40" data-sy=".18" data-sr="-32"><div class="tile-body"></div></div>
+        <div class="tile sat am" data-tile="sat" data-kind="am" data-i="1" data-sx="-.36" data-sy=".08" data-sr="26"><div class="tile-body"></div></div>
+        <div class="tile sat am" data-tile="sat" data-kind="am" data-i="2" data-sx=".08" data-sy="-.1" data-sr="-14"><div class="tile-body"></div></div>
+        <div class="tile sat hn" data-tile="sat" data-kind="hn" data-i="0" data-sx="-.06" data-sy=".38" data-sr="34"><div class="tile-body"></div></div>
+        <div class="tile sat hn" data-tile="sat" data-kind="hn" data-i="1" data-sx=".44" data-sy="-.34" data-sr="-38"><div class="tile-body"></div></div>
+        <div class="tile sat hn" data-tile="sat" data-kind="hn" data-i="2" data-sx="-.46" data-sy=".36" data-sr="12"><div class="tile-body"></div></div>
+      </div>
+    </section>
+
+    <!-- KAPITEL -->
+    <div class="chapters">
+      <section class="chapter c-st" id="stationaer" style="--i:0">
+        <div class="wrap chapter-grid">
+          <div class="chapter-text">
+            <p class="kicker">Chăm sóc tại cơ sở</p>
+            <h2>Mọi thông tin về cư dân ở một nơi.</h2>
+            <p class="chapter-lead">Hồ sơ cư dân, kế hoạch chăm sóc, lịch làm việc và thanh toán trong một hệ thống, được điều chỉnh cho cơ sở của quý vị. Lập hồ sơ chỉ trong vài phút, và Nurelo ghi nhận và gửi dữ liệu chỉ số nửa năm thay quý vị.</p>
+            <ul class="ticks">
+              <li>Mô hình cấu trúc: SIS, kế hoạch biện pháp, phiếu báo cáo và đánh giá</li>
+              <li>Thu thập dữ liệu chỉ số nửa năm kèm theo việc gửi</li>
+              <li>Lịch làm việc và thanh toán có thể tùy chỉnh hoàn toàn</li>
+              <li>Thuốc kèm sổ theo dõi dùng thuốc</li>
+            </ul>
+            <a class="chapter-more" href="/en/residential/" hreflang="en">Tìm hiểu thêm</a>
+          </div>
+          <div class="chapter-visual">
+            <div class="app-window dark">
+  <div class="win-bar"><b>Nurelo Chăm sóc tại cơ sở</b></div>
+  <ul class="win-rows big-rows">
+    <li><span class="dot st"></span><div>Müller, Herbert<small>Phòng 12 · Mức độ chăm sóc 3</small></div><time>đã ghi chép</time></li>
+    <li><span class="dot st"></span><div>Vòng phát thuốc<small>Khu B</small></div><time>09:00</time></li>
+    <li><span class="dot st"></span><div>Lịch làm việc tuần 40<small>Ca sớm, ca muộn, ca đêm</small></div><time>2 chỗ trống</time></li>
+  </ul>
+</div>
+
+            <div class="tile chap st" data-depth="1" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-st"/></svg></div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter c-am" id="ambulant" style="--i:1">
+        <div class="seam" aria-hidden="true" style="--seam-from:#5a5533"><img class="seam-l" style="--s:0.14" src="/landscape/seam-am-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.34" src="/landscape/seam-am-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.62" src="/landscape/seam-am-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge" style="--s:1" src="/landscape/seam-am-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"></div>
+        <div class="wrap chapter-grid">
+          <div class="chapter-text">
+            <p class="kicker">Chăm sóc tại nhà</p>
+            <h2>Ghi một lần. Thanh toán chính xác.</h2>
+            <p class="chapter-lead">Lập kế hoạch, lập hồ sơ và lập hóa đơn trong một quy trình làm việc duy nhất: từ việc lên lộ trình đến chuyến thăm nhà khách hàng, ngay cả khi không có kết nối mạng và sử dụng chữ ký điện tử, cho đến việc lập hóa đơn theo §&nbsp;302 với các bên chi trả.</p>
+            <ul class="ticks">
+              <li>Lập kế hoạch lộ trình và ca làm việc kèm theo việc phân công phương tiện và nhân viên</li>
+              <li>Lập hồ sơ trên thiết bị di động ngay tại hiện trường, kể cả khi không có kết nối mạng, kèm theo chữ ký điện tử</li>
+              <li>Ghi chép các dịch vụ theo SGB XI và V trong một quy trình làm việc</li>
+              <li>Hóa đơn theo §&nbsp;302, gửi trực tiếp cho các bên chi trả</li>
+            </ul>
+            <a class="chapter-more" href="/en/home-care/" hreflang="en">Tìm hiểu thêm</a>
+          </div>
+          <div class="chapter-visual">
+            <div class="app-window dark">
+  <div class="win-bar"><b>Nurelo Chăm sóc tại nhà · Tuyến 2 Bắc</b></div>
+  <div class="route-box">
+  <svg class="route" viewBox="0 0 400 200" role="img" aria-label="Lộ trình với bốn lượt thăm">
+    <path d="M30 160 C 110 160, 90 60, 170 60 S 250 150, 310 120 S 350 50, 372 40" fill="none" stroke="#C59045" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 12"/>
+    <g fill="#C59045"><circle cx="30" cy="160" r="9"/><circle cx="170" cy="60" r="9"/><circle cx="310" cy="120" r="9"/><circle cx="372" cy="40" r="9"/></g>
+    <g fill="#F2EADD" font-size="13" font-weight="700" text-anchor="middle"><text x="30" y="186">08:30</text><text x="170" y="40">09:10</text><text x="310" y="150">09:55</text><text x="372" y="24">10:30</text></g>
+  </svg>
+  <div class="route-live" aria-hidden="true">
+    <i class="ping" style="--x:7.5%;--y:80%;--d:.01s"></i>
+    <i class="ping" style="--x:42.5%;--y:30%;--d:3.04s"></i>
+    <i class="ping" style="--x:77.5%;--y:60%;--d:5.75s"></i>
+    <i class="ping" style="--x:93%;--y:20%;--d:7.5s"></i>
+    <i class="veh"></i>
+  </div>
+  </div>
+</div>
+
+            <div class="tile chap am" data-depth="1.3" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-am"/></svg></div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter c-hn" id="hausnotruf" style="--i:2">
+        <div class="seam" aria-hidden="true" style="--seam-from:#c59045"><img class="seam-l" style="--s:0.14" src="/landscape/seam-hn-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.34" src="/landscape/seam-hn-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.62" src="/landscape/seam-hn-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge" style="--s:1" src="/landscape/seam-hn-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"></div>
+        <div class="wrap chapter-grid">
+          <div class="chapter-text">
+            <p class="kicker">Gọi cấp cứu</p>
+            <h2>Từ báo động đến thanh toán. Ghi chép đầy đủ.</h2>
+            <p class="chapter-lead">Tín hiệu báo động được chuyển đến trung tâm cuộc gọi khẩn cấp, việc xử lý được ghi chép và phí cố định hàng tháng được tính tự động. Mọi bước đều có thể truy vết, kể cả báo động giả và báo động thử.</p>
+            <ul class="ticks">
+              <li>Quản lý người dùng dịch vụ và thiết bị</li>
+              <li>Chuyển tiếp báo động đến trung tâm cuộc gọi khẩn cấp</li>
+              <li>Báo động giả và báo động thử được ghi lại và phân tích</li>
+              <li>Phí cố định hàng tháng được tính tự động</li>
+            </ul>
+            <a class="chapter-more" href="/en/emergency-call/" hreflang="en">Tìm hiểu thêm</a>
+          </div>
+          <div class="chapter-visual">
+            <div class="app-window dark">
+  <div class="win-bar"><b>Nurelo Gọi cấp cứu · Chuỗi báo động</b></div>
+  <ol class="chain">
+    <li><i class="ring" aria-hidden="true"></i><i class="ring r2" aria-hidden="true"></i><b>Thiết bị</b><small>Báo động đã kích hoạt</small></li>
+    <li><b>Nurelo</b><small>Đã nhận diện người dùng</small></li>
+    <li><b>Trung tâm</b><small>Chuyển tiếp</small></li>
+    <li><b>Xử lý</b><small>Đã ghi chép</small></li>
+  </ol>
+</div>
+
+            <div class="tile chap hn" data-depth="0.9" data-scroll><div class="tilt"><div class="tile-body"><svg aria-hidden="true"><use href="#g-hn"/></svg></div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLATTFORM -->
+      <section class="platform" id="plattform" style="--i:3">
+        <div class="seam" aria-hidden="true" style="--seam-from:#9e4e2e"><img class="seam-l" style="--s:0.14" src="/landscape/seam-pf-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.34" src="/landscape/seam-pf-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.62" src="/landscape/seam-pf-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge" style="--s:1" src="/landscape/seam-pf-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"></div>
+      <div class="wrap">
+        <div class="platform-head reveal">
+          <img src="/logo-240.webp" width="120" height="120" alt="" />
+          <p class="kicker light">Một nền tảng</p>
+          <h2>Ba thế giới. Một hệ thống.</h2>
+          <p class="chapter-lead">Theo mặc định, mỗi sản phẩm hoạt động dựa trên dữ liệu chính và các <span class="nb">mô-đun</span> riêng của mình. Nếu có yêu cầu, một số sản phẩm có thể chia sẻ chung một cơ sở dữ liệu.</p>
+        </div>
+        <ol class="feat-list">
+          <li class="reveal"><h3>Hồ sơ hỗ trợ bởi AI</h3><p>Nhập liệu bằng giọng nói và gợi ý văn bản giúp giảm công sức lập hồ sơ. Nurelo học hỏi từ thói quen của quý vị.</p>
+            <div class="doc-demo" aria-hidden="true">
+              <div class="wave"><i style="--i:0;--h:0.28"></i><i style="--i:1;--h:0.57"></i><i style="--i:2;--h:0.66"></i><i style="--i:3;--h:0.55"></i><i style="--i:4;--h:0.37"></i><i style="--i:5;--h:0.28"></i><i style="--i:6;--h:0.35"></i><i style="--i:7;--h:0.53"></i><i style="--i:8;--h:0.65"></i><i style="--i:9;--h:0.59"></i><i style="--i:10;--h:0.33"></i><i style="--i:11;--h:0.59"></i><i style="--i:12;--h:0.85"></i><i style="--i:13;--h:0.87"></i><i style="--i:14;--h:0.65"></i><i style="--i:15;--h:0.34"></i><i style="--i:16;--h:0.45"></i><i style="--i:17;--h:0.50"></i><i style="--i:18;--h:0.38"></i><i style="--i:19;--h:0.31"></i><i style="--i:20;--h:0.31"></i><i style="--i:21;--h:0.41"></i><i style="--i:22;--h:0.65"></i><i style="--i:23;--h:0.79"></i><i style="--i:24;--h:0.71"></i><i style="--i:25;--h:0.41"></i></div>
+              <div class="doc-card"><b></b><b></b><b></b><span class="dots"><s></s><s></s><s></s></span></div>
+            </div>
+          </li>
+          <li class="reveal"><h3>Thanh toán tích hợp</h3><p>Thanh toán với các bên chi trả, tạo hóa đơn tự động và xuất dữ liệu cho kế toán và tính lương.</p>
+            <div class="demo g-bill" aria-hidden="true">
+              <div class="bill-card">
+                <div class="bill-row" style="--n:0"><i></i><b></b><u></u></div>
+                <div class="bill-row" style="--n:1"><i></i><b></b><u></u></div>
+                <div class="bill-row" style="--n:2"><i></i><b></b><u></u></div>
+                <div class="bill-sum"><b></b><u></u></div>
+              </div>
+            </div>
+          </li>
+          <li class="reveal"><h3>Nhắn tin <span class="nb">TI-KIM</span></h3><p>Giao tiếp an toàn với bác sĩ, công ty bảo hiểm y tế và các nhà cung cấp khác qua hạ tầng viễn thông y tế của Đức.</p>
+            <div class="demo g-chat" aria-hidden="true">
+              <div class="bub bub-in"><b></b><b></b></div>
+              <div class="bub bub-out"><b></b><svg class="ck" viewBox="0 0 24 24"><path d="M2.5 12.5l4.5 4.5L14 9.5M10 16.5l1 1L21.5 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="lock"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2.5" fill="currentColor"/><path d="M8 11V8a4 4 0 018 0v3" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span>
+            </div>
+          </li>
+          <li class="reveal"><h3>Vai trò &amp; quyền hạn</h3><p>Kiểm soát truy cập chi tiết dành cho các trưởng khoa điều dưỡng, nhân viên chăm sóc, bộ phận kế toán và hành chính, kèm theo nhật ký kiểm tra.</p>
+            <div class="demo g-roles" aria-hidden="true">
+              <div class="role" style="--c:var(--olive)"><i></i><b></b><span class="tg on"><s></s></span><span class="tg"><s></s></span><span class="tg on flip"><s></s></span></div>
+              <div class="role" style="--c:var(--terra)"><i></i><b></b><span class="tg on"><s></s></span><span class="tg on flip"><s></s></span><span class="tg"><s></s></span></div>
+              <div class="role" style="--c:var(--ochre)"><i></i><b></b><span class="tg"><s></s></span><span class="tg on"><s></s></span><span class="tg flip"><s></s></span></div>
+            </div>
+          </li>
+          <li class="reveal"><h3>Báo cáo &amp; thiết kế</h3><p>Thống kê cho kiểm tra chất lượng và công cụ thiết kế báo cáo cho mẫu in riêng của quý vị.</p>
+            <div class="demo g-report" aria-hidden="true">
+              <div class="chart"><i style="--h:0.42;--n:0"></i><i style="--h:0.7;--n:1"></i><i style="--h:0.52;--n:2"></i><i style="--h:0.92;--n:3"></i><i style="--h:0.6;--n:4"></i><i style="--h:0.8;--n:5"></i><span class="sel"><s></s><s></s><s></s><s></s></span></div>
+            </div>
+          </li>
+          <li class="reveal"><h3>Cập nhật tự động</h3><p>Không cần cài đặt, không cần bộ phận CNTT nội bộ. Các tính năng mới và những thay đổi về mặt pháp lý sẽ được cập nhật tự động.</p>
+            <div class="demo g-update" aria-hidden="true">
+              <div class="up-bar"><span class="up-ico"><svg viewBox="0 0 24 24"><path d="M12 4v13M6.5 12l5.5 5.5 5.5-5.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="up-track"><i></i></span></div>
+              <div class="up-vers"><span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="now"><s></s></span></div>
+            </div>
+          </li>
+        </ol>
+
+        <!-- MEHRSPRACHIG -->
+        <div class="ml-band reveal">
+          <div class="ml-text">
+            <p class="kicker light">Đa ngôn ngữ</p>
+            <h3 class="ml-h">Một đội ngũ, nhiều ngôn ngữ.</h3>
+            <p class="ml-lead">Các nhân viên y tế ghi âm ghi chú bằng ngôn ngữ của mình, Nurelo sẽ chuyển chúng sang tiếng Đức và đưa trực tiếp vào hồ sơ. Nhờ đó, các đồng nghiệp đến từ nước ngoài có thể hòa nhập hoàn toàn vào đội ngũ ngay từ ngày đầu tiên, trong khi vẫn đang học tiếng Đức.</p>
+            <ul class="ml-points">
+              <li>Giao diện hỗ trợ hơn 10 ngôn ngữ, các ngôn ngữ khác sẽ được bổ sung sau</li>
+              <li>Ghi chú bằng giọng nói bằng bất kỳ ngôn ngữ nào, được ghi lại bằng tiếng Đức</li>
+              <li>Kiểm tra và chỉnh sửa bản dịch trước khi lưu</li>
+              <li>Bản gốc vẫn được giữ nguyên và có thể xóa khi cần thiết</li>
+              <li>Dịch tại chỗ tại cơ sở của quý khách hoặc trên các máy chủ của chúng tôi tại Đức</li>
+            </ul>
+          </div>
+          <div class="ml-demo">
+            <div class="ml-card ml-in">
+              <div class="ml-head"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-vi"/></svg></span><b>VI</b><span>Ghi chú bằng giọng nói</span><time aria-hidden="true">0:14</time></div>
+              <div class="wave ml-wave" aria-hidden="true"><i style="--i:0;--h:0.32"></i><i style="--i:1;--h:0.55"></i><i style="--i:2;--h:0.7"></i><i style="--i:3;--h:0.48"></i><i style="--i:4;--h:0.3"></i><i style="--i:5;--h:0.42"></i><i style="--i:6;--h:0.66"></i><i style="--i:7;--h:0.8"></i><i style="--i:8;--h:0.58"></i><i style="--i:9;--h:0.36"></i><i style="--i:10;--h:0.5"></i><i style="--i:11;--h:0.74"></i><i style="--i:12;--h:0.62"></i><i style="--i:13;--h:0.4"></i><i style="--i:14;--h:0.28"></i><i style="--i:15;--h:0.46"></i><i style="--i:16;--h:0.68"></i><i style="--i:17;--h:0.52"></i><i style="--i:18;--h:0.34"></i><i style="--i:19;--h:0.44"></i><i style="--i:20;--h:0.6"></i><i style="--i:21;--h:0.38"></i></div>
+              <p lang="vi">Bà Weber đã ăn hết bữa trưa và uống hai ly nước. Việc chuyển sang xe lăn diễn ra suôn sẻ.</p>
+            </div>
+            <div class="ml-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v14M6.5 12.5L12 18l5.5-5.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="ml-card ml-out">
+              <div class="ml-head"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-de"/></svg></span><b>DE</b><span>Dịch sang tiếng Đức</span></div>
+              <p lang="de">Frau Weber hat das Mittagessen vollständig gegessen und zwei Gläser Wasser getrunken. Transfer in den Rollstuhl ohne Probleme.</p>
+              <div class="ml-actions" aria-hidden="true"><span>Chỉnh sửa</span><span class="on">Lưu</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chip-block reveal">
+          <div>
+            <h3><span class="nb">Mô-đun</span> theo nhu cầu</h3>
+            <ul class="mods">
+              <li class="mod on"><svg aria-hidden="true"><use href="#m-tour"/></svg><span class="n">Lập kế hoạch lộ trình</span><span class="sw" aria-hidden="true"><s></s></span></li>
+              <li class="mod on"><svg aria-hidden="true"><use href="#m-med"/></svg><span class="n">Quản lý thuốc</span><span class="sw" aria-hidden="true"><s></s></span></li>
+              <li class="mod flip"><svg aria-hidden="true"><use href="#m-doc"/></svg><span class="n">Kho lưu trữ tài liệu</span><span class="sw" aria-hidden="true"><s></s></span></li>
+              <li class="mod on"><svg aria-hidden="true"><use href="#m-duty"/></svg><span class="n">Lịch làm việc</span><span class="sw" aria-hidden="true"><s></s></span></li>
+              <li class="mod on"><svg aria-hidden="true"><use href="#m-bill"/></svg><span class="n">Thanh toán</span><span class="sw" aria-hidden="true"><s></s></span></li>
+              <li class="mod "><svg aria-hidden="true"><use href="#m-mail"/></svg><span class="n">Hộp thư <span class="nb">TI-KIM</span></span><span class="sw" aria-hidden="true"><s></s></span></li>
+              <li class="mod flip"><svg aria-hidden="true"><use href="#m-rep"/></svg><span class="n">Thiết kế báo cáo</span><span class="sw" aria-hidden="true"><s></s></span></li>
+              <li class="mod on"><svg aria-hidden="true"><use href="#m-user"/></svg><span class="n">Quản lý người dùng</span><span class="sw" aria-hidden="true"><s></s></span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Giao diện kết nối</h3>
+            <ul class="sr-only"><li>DATEV v700</li><li>Lexware</li><li>ADDISON</li><li>SAP FI</li><li><span class="nb">TI-KIM</span></li><li>CSV / FHIR</li><li>Diamant</li><li>KIDICAP</li><li>LogaHR</li></ul>
+<div class="band" aria-hidden="true">
+  <div class="row"><span class="plate f">DATEV v700</span><span class="plate">Lexware</span><span class="plate o">ADDISON</span><span class="plate f">SAP FI</span><span class="plate"><span class="nb">TI-KIM</span></span><span class="plate o">CSV / FHIR</span><span class="plate f">Diamant</span><span class="plate">KIDICAP</span><span class="plate o">LogaHR</span><span class="plate f dup">DATEV v700</span><span class="plate dup">Lexware</span><span class="plate o dup">ADDISON</span><span class="plate f dup">SAP FI</span><span class="plate dup"><span class="nb">TI-KIM</span></span><span class="plate o dup">CSV / FHIR</span><span class="plate f dup">Diamant</span><span class="plate dup">KIDICAP</span><span class="plate o dup">LogaHR</span><span class="plate f dup">DATEV v700</span><span class="plate dup">Lexware</span><span class="plate o dup">ADDISON</span><span class="plate f dup">SAP FI</span><span class="plate dup"><span class="nb">TI-KIM</span></span><span class="plate o dup">CSV / FHIR</span><span class="plate f dup">Diamant</span><span class="plate dup">KIDICAP</span><span class="plate o dup">LogaHR</span><span class="plate f dup">DATEV v700</span><span class="plate dup">Lexware</span><span class="plate o dup">ADDISON</span><span class="plate f dup">SAP FI</span><span class="plate dup"><span class="nb">TI-KIM</span></span><span class="plate o dup">CSV / FHIR</span><span class="plate f dup">Diamant</span><span class="plate dup">KIDICAP</span><span class="plate o dup">LogaHR</span></div>
+  <div class="row r2"><span class="plate o"><span class="nb">TI-KIM</span></span><span class="plate f">CSV / FHIR</span><span class="plate">Diamant</span><span class="plate o">KIDICAP</span><span class="plate f">LogaHR</span><span class="plate">DATEV v700</span><span class="plate o">Lexware</span><span class="plate f">ADDISON</span><span class="plate">SAP FI</span><span class="plate o dup"><span class="nb">TI-KIM</span></span><span class="plate f dup">CSV / FHIR</span><span class="plate dup">Diamant</span><span class="plate o dup">KIDICAP</span><span class="plate f dup">LogaHR</span><span class="plate dup">DATEV v700</span><span class="plate o dup">Lexware</span><span class="plate f dup">ADDISON</span><span class="plate dup">SAP FI</span><span class="plate o dup"><span class="nb">TI-KIM</span></span><span class="plate f dup">CSV / FHIR</span><span class="plate dup">Diamant</span><span class="plate o dup">KIDICAP</span><span class="plate f dup">LogaHR</span><span class="plate dup">DATEV v700</span><span class="plate o dup">Lexware</span><span class="plate f dup">ADDISON</span><span class="plate dup">SAP FI</span><span class="plate o dup"><span class="nb">TI-KIM</span></span><span class="plate f dup">CSV / FHIR</span><span class="plate dup">Diamant</span><span class="plate o dup">KIDICAP</span><span class="plate f dup">LogaHR</span><span class="plate dup">DATEV v700</span><span class="plate o dup">Lexware</span><span class="plate f dup">ADDISON</span><span class="plate dup">SAP FI</span></div>
+</div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <!-- ABLAUF -->
+    <section class="steps-sec" id="ablauf">
+        <div class="seam" aria-hidden="true" style="--seam-from:#241b14"><img class="seam-l" style="--s:0.14" src="/landscape/seam-ab-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.34" src="/landscape/seam-ab-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.62" src="/landscape/seam-ab-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge" style="--s:1" src="/landscape/seam-ab-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"></div>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker dark">Triển khai</p>
+          <h2>Vận hành sau bốn bước.</h2>
+          <p class="lead">Nurelo sẵn sàng sử dụng trong vài ngày, kèm hỗ trợ cá nhân.</p>
+        </div>
+        <ol class="steps">
+          <li class="reveal"><h3>Demo &amp; tư vấn</h3><p>Chúng tôi cùng quý vị phân tích các yêu cầu.</p></li>
+          <li class="reveal"><h3>Cấu hình</h3><p>Thiết lập theo loại hình chăm sóc của quý vị, bao gồm nhập dữ liệu gốc.</p></li>
+          <li class="reveal"><h3>Đào tạo</h3><p>Các khóa đào tạo tại chỗ hoặc trực tuyến dành cho ban lãnh đạo và đội ngũ nhân viên dịch vụ chăm sóc, kèm theo thư viện video.</p></li>
+          <li class="reveal"><h3>Vận hành &amp; hỗ trợ</h3><p>Đi vào vận hành với hỗ trợ cá nhân trong những tuần đầu.</p></li>
+        </ol>
+        <div class="trust-wrap">
+          <p class="kicker dark reveal">Cam kết của chúng tôi</p>
+          <ul class="trust">
+            <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path pathLength="1" d="M12 3.2l7.3 2.7v5.5c0 4.4-3 7.7-7.3 9.4-4.3-1.7-7.3-5-7.3-9.4V5.9z"/><path pathLength="1" d="M8.6 12.1l2.4 2.4 4.5-4.8"/></svg><span>Tuân thủ GDPR</span></li>
+            <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path pathLength="1" d="M12 21.2s-6.8-5.7-6.8-11.2a6.8 6.8 0 0113.6 0c0 5.5-6.8 11.2-6.8 11.2z"/><circle pathLength="1" cx="12" cy="10" r="2.5"/></svg><span>Lưu trữ tại Đức</span></li>
+            <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path pathLength="1" d="M19.6 11A7.7 7.7 0 006.2 7L4.4 9"/><path pathLength="1" d="M4.3 4.6V9h4.4"/><path pathLength="1" d="M4.4 13a7.7 7.7 0 0013.4 4l1.8-2"/><path pathLength="1" d="M19.7 19.4V15h-4.4"/></svg><span>Cập nhật tự động</span></li>
+            <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path pathLength="1" d="M4.5 14.4v-2.1a7.5 7.5 0 0115 0v2.1"/><rect pathLength="1" x="3.2" y="13.4" width="4" height="6.4" rx="1.8"/><rect pathLength="1" x="16.8" y="13.4" width="4" height="6.4" rx="1.8"/><path pathLength="1" d="M18.8 19.8c0 1.4-1.6 2-4 2h-1.9"/></svg><span>Hỗ trợ cá nhân</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREISE -->
+    <section class="pricing" id="preise">
+      <div class="wrap price-grid">
+        <div class="reveal">
+          <p class="kicker dark">Giấy phép</p>
+          <h2>Giá theo quy mô cơ sở.</h2>
+          <p class="lead">Chúng tôi sẽ lập báo giá phù hợp với cơ sở của quý vị, không có chi phí ẩn.</p>
+          <a class="btn btn-terra" href="#kontakt">Yêu cầu báo giá</a>
+        </div>
+        <dl class="price-factors">
+          <div class="reveal"><dt>Loại hình chăm sóc</dt><dd>Một loại hình hoặc cả ba: chăm sóc tại cơ sở, chăm sóc tại nhà và gọi cấp cứu.</dd></div>
+          <div class="reveal"><dt>Người dùng</dt><dd>Dịch vụ nhỏ đến 20 tài khoản người dùng, tổ chức lớn hơn không giới hạn.</dd></div>
+          <div class="reveal"><dt><span class="nb">Mô-đun</span></dt><dd>Các <span class="nb">mô-đun</span> mở rộng như lập kế hoạch lộ trình, kho lưu trữ tài liệu hoặc thiết kế báo cáo, tùy theo nhu cầu.</dd></div>
+          <div class="reveal"><dt>Giao diện kết nối</dt><dd>Xuất dữ liệu cho DATEV và SAP cùng kết nối <span class="nb">TI-KIM</span>.</dd></div>
+          <div class="reveal"><dt>Hỗ trợ</dt><dd>Hỗ trợ qua email hoặc hỗ trợ ưu tiên, với chuyên viên quản lý khách hàng riêng cho các đơn vị vận hành.</dd></div>
+          <div class="reveal"><dt>Đơn vị vận hành và hiệp hội</dt><dd>Giải pháp riêng cho nhiều cơ sở, SLA theo thỏa thuận.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- KONTAKT: zugleich Ziel der Schlussfahrt (tunnel.js); Grundzustand ohne Skript wie bisher -->
+    <section class="contact tn tn-out" id="kontakt" data-tn="out" data-len="260">
+      <div class="tn-stage">
+        <canvas class="tn-cv" aria-hidden="true"></canvas>
+        <div class="tn-world">
+          <div class="wrap tn-card tn-final" data-z="-14">
+            <div class="cta-box reveal">
+              <div class="cta-tiles" aria-hidden="true">
+                <div class="tile mini st"><div class="tile-body"><svg><use href="#g-st"/></svg></div></div>
+                <div class="tile mini am"><div class="tile-body"><svg><use href="#g-am"/></svg></div></div>
+                <div class="tile mini hn"><div class="tile-body"><svg><use href="#g-hn"/></svg></div></div>
+              </div>
+              <h2>Quý vị đã sẵn sàng cho bước tiếp theo?</h2>
+              <p class="lead">Chúng tôi sẽ giới thiệu Nurelo trong một buổi demo riêng và giải đáp thắc mắc của quý vị. Đội ngũ của chúng tôi đồng hành cùng quý vị ngay từ đầu.</p>
+              <div class="cta-actions">
+                <a class="btn btn-terra" href="mailto:contact@nurelo.eu?subject=L%E1%BB%8Bch%20h%E1%BA%B9n%20demo%20Nurelo">Đặt lịch demo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a class="brand" href="#top"><img src="/logo-96.webp" width="30" height="30" alt="" /><span>Nurelo</span></a>
+          <p>Phần mềm quản lý chăm sóc dành cho dịch vụ chăm sóc tại nhà, cơ sở chăm sóc nội trú và nhà cung cấp dịch vụ gọi cấp cứu tại nhà. Phát triển tại Đức.</p>
+        </div>
+        <nav aria-label="Sản phẩm">
+          <h2>Sản phẩm</h2>
+          <ul>
+            <li><a href="/en/residential/" hreflang="en">Nurelo Chăm sóc tại cơ sở</a></li>
+            <li><a href="/en/home-care/" hreflang="en">Nurelo Chăm sóc tại nhà</a></li>
+            <li><a href="/en/emergency-call/" hreflang="en">Nurelo Gọi cấp cứu</a></li>
+            <li><a href="#plattform">Nền tảng</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Công ty">
+          <h2>Công ty</h2>
+          <ul>
+            <li><a href="#kontakt">Liên hệ</a></li>
+            <li><a href="#ablauf">Triển khai</a></li>
+            <li><a href="#preise">Bảng giá</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Pháp lý">
+          <h2>Pháp lý</h2>
+          <ul>
+            <li><a href="/datenschutz.html" hreflang="de">Chính sách bảo mật (DE)</a></li>
+            <li><a href="/impressum.html" hreflang="de">Thông tin doanh nghiệp (DE)</a></li>
+            <li><a href="/agb.html" hreflang="de">Điều khoản sử dụng (DE)</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 Nurelo · Bảo lưu mọi quyền</span>
+        <span>Phát triển tại Đức</span>
+      </div>
+    </div>
+    <a class="to-top" href="#top" aria-label="Lên đầu trang" title="Lên đầu trang"><span aria-hidden="true"></span></a>
+  </footer>
+
+
+  <script src="/main.js?v=425d5480" defer></script>
+  <script src="/tunnel.js?v=e7acdda9" defer></script>
+</body>
+</html>

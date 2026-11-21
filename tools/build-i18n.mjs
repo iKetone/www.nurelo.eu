@@ -26,14 +26,17 @@ const SITE = 'https://www.nurelo.eu';
 
 // code, Eigenname der Sprache, og:locale
 const LANGS = [
-  ['de', 'Deutsch', 'de_DE'], ['bg', 'Български', 'bg_BG'], ['cs', 'Čeština', 'cs_CZ'],
+  ['de', 'Deutsch', 'de_DE'], ['bg', 'Български', 'bg_BG'], ['bs', 'Bosanski', 'bs_BA'],
+  ['cs', 'Čeština', 'cs_CZ'],
   ['da', 'Dansk', 'da_DK'], ['el', 'Ελληνικά', 'el_GR'], ['en', 'English', 'en_GB'],
   ['es', 'Español', 'es_ES'], ['et', 'Eesti', 'et_EE'], ['fi', 'Suomi', 'fi_FI'],
   ['fr', 'Français', 'fr_FR'], ['ga', 'Gaeilge', 'ga_IE'], ['hr', 'Hrvatski', 'hr_HR'],
   ['hu', 'Magyar', 'hu_HU'], ['it', 'Italiano', 'it_IT'], ['lt', 'Lietuvių', 'lt_LT'],
   ['lv', 'Latviešu', 'lv_LV'], ['mt', 'Malti', 'mt_MT'], ['nl', 'Nederlands', 'nl_NL'],
   ['pl', 'Polski', 'pl_PL'], ['pt', 'Português', 'pt_PT'], ['ro', 'Română', 'ro_RO'],
-  ['sk', 'Slovenčina', 'sk_SK'], ['sl', 'Slovenščina', 'sl_SI'], ['sv', 'Svenska', 'sv_SE'],
+  ['sk', 'Slovenčina', 'sk_SK'], ['sl', 'Slovenščina', 'sl_SI'], ['sq', 'Shqip', 'sq_AL'],
+  ['sr', 'Српски', 'sr_RS'], ['sv', 'Svenska', 'sv_SE'], ['tr', 'Türkçe', 'tr_TR'],
+  ['uk', 'Українська', 'uk_UA'], ['vi', 'Tiếng Việt', 'vi_VN'],
 ];
 const LOCALE = Object.fromEntries(LANGS.map(([c, , l]) => [c, l]));
 const LANGNAME = Object.fromEntries(LANGS.map(([c, n]) => [c, n]));
@@ -218,6 +221,9 @@ for (const [code] of LANGS) {
     hreflang: hreflangHtml(LANGS.map((l) => l[0]), pathFor),
     autolang: code === 'de' ? autoLangScript : '',
     switcher: switcherHtml(code, LANGS.map((l) => l[0]), pathFor, t.lang_aria),
+    // Beispiel im Abschnitt „Mehrsprachig“: Sprachnotiz in der Sprache der Seite (auf Deutsch: Türkisch) und ihre deutsche Übersetzung
+    ml_lang: code === 'de' ? 'tr' : code, ml_code: (code === 'de' ? 'tr' : code).toUpperCase(),
+    ml_flag: flagIcon(code === 'de' ? 'tr' : code), ml_flag_de: flagIcon('de'),
     nav_links: [
       ['#stationaer', 'nav_st'], ['#ambulant', 'nav_am'], ['#hausnotruf', 'nav_hn'], ['#plattform', 'nav_pf'], ['#preise', 'nav_pr'],
     ].map(([h, k]) => `          <li><a href="${h}">${t[k]}</a></li>`).join('\n'),
