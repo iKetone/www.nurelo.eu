@@ -66,10 +66,12 @@ html.land .scn.scn-on > .seam { margin-bottom: 0; }
 /* ---------- Bewegung ---------- */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    /* Hero: Das Kapitel Stationär ist die Fläche, die die Bühne überfährt (Zeitverlauf über main, damit die Ebenen ihn nutzen können) */
-    html.land main { timeline-scope: --land-in; }
-    html.land #stationaer { view-timeline-name: --ch, --land-in; view-timeline-axis: block, block; }
-    html.land .ls-l:not(.ls-cl), html.land .ls-fill { animation: land-rise linear both; animation-timeline: --land-in; animation-range: entry 0% entry 100%; }
+    /* Hero: Das Kapitel Stationär ist die Fläche, die die Bühne überfährt. Es beginnt bei 345svh (Hero 445svh minus 100svh Überlappung),
+       die Ebenen steigen, während es auf dem Scrollweg von 245svh bis 345svh über die Bühne fährt.
+       Zeitverlauf ist die Scrollposition der Seite in svh, nicht das Einfahren des Kapitels (view()): Das misst der Browser an der aktuellen
+       Fensterhöhe, und die ändert sich am Handy, wenn die Browserleiste ein- oder ausklappt. Dann sprang die Landschaft um die Höhe der Leiste.
+       svh bleibt dabei fest. Ändert sich die Höhe des Heros (445svh) oder die Überlappung (100svh), die Werte hier mit anpassen. */
+    html.land .ls-l:not(.ls-cl), html.land .ls-fill { animation: land-rise linear both; animation-timeline: scroll(root block); animation-range: 245svh 345svh; }
     /* Die vorderste Ebene steigt etwas weiter als das Kapitel (--s: 1.12): Ihre Kuppe bleibt immer über der Kante des Kapitels, auch wenn der Browser die Fensterhöhe
        (svh) und die Länge der Scroll-Strecke am Handy minimal anders rechnet. Dazwischen liegt nur ebenes Oliv, die Naht ist unsichtbar. */
     @keyframes land-rise { to { transform: translate3d(0, calc(var(--s) * -100svh), 0); } }
@@ -77,7 +79,7 @@ html.land .scn.scn-on > .seam { margin-bottom: 0; }
        (je näher, desto weiter); nichts rutscht nach unten. Die vorderste Ebene, die Farbe des Kapitels, ist fest. Der Weg ist an die Höhe der Naht gebunden. */
     html.land .platform, html.land .steps-sec, html.land .scn { view-timeline: --ch block; }
     /* Der Hero-Text bleibt nicht unter den aufsteigenden Ebenen stehen, sondern blendet aus, sobald das Kapitel über die Bühne fährt */
-    html.land .hero-copy { animation: land-text linear both; animation-timeline: --land-in; animation-range: entry 0% entry 50%; }
+    html.land .hero-copy { animation: land-text linear both; animation-timeline: scroll(root block); animation-range: 245svh 295svh; }
     @keyframes land-text { to { opacity: 0; } }
     html.land .seam-l:not(.seam-edge) { animation: seam-rise linear both; animation-timeline: --ch; animation-range: entry 0% entry 55%; }
     @keyframes seam-rise { from { transform: translate3d(0, calc(var(--s) * var(--seam-h) * .62), 0); } }
