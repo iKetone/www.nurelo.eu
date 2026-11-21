@@ -84,7 +84,7 @@ export function layerSvg(o, seed) {
       const hs = house(x, yAt(pts, x + 12) + 2, o.houses.s * (0.85 + rand() * 0.35), rand);
       d += hs.body;
       hs.win.forEach(([wx, wy, ww, wh], wi) => {
-        const on = rand() < 0.75 || o.houses.all; // all: alle Fenster leuchten (Vorschau ?motive)
+        const on = rand() < 0.75 || o.houses.all; // all: alle Fenster leuchten
         if (!on) return;
         const hi = o.houses.hi === i; // hi: dieses Haus hat ein besonders helles Fenster
         if (hi && wi === 0) win += `<rect x="${f1(wx - 4)}" y="${f1(wy - 4)}" width="${f1(ww + 8)}" height="${f1(wh + 8)}" rx="4" fill="#ffe9a8" opacity=".3"/>`;
@@ -100,7 +100,7 @@ export function layerSvg(o, seed) {
       body += `<path d="${c}" fill="none" stroke="${o.houses.light || '#ffd98a'}" stroke-width="1.3" opacity=".55"/>` + nodes.map(([x, y]) => `<circle cx="${f1(x)}" cy="${f1(y)}" r="5" fill="${o.houses.light || '#ffd98a'}" opacity=".2"/>`).join('');
     }
   }
-  // Haken für die Motive (Vorschau ?motive): back liegt hinter der Silhouette (Sonne, Mond, Sterne), extra davor. Eigene Zufallsfolge, die Silhouette bleibt gleich.
+  // Haken für die Motive (motive.mjs): back liegt hinter der Silhouette (Sonne, Mond, Sterne), extra davor. Eigene Zufallsfolge, die Silhouette bleibt gleich.
   const r2 = prng((seed ^ 0x5bd1e995) >>> 0);
   const back = o.back ? o.back(r2, pts, W, H) : '';
   if (o.extra) extra = o.extra(r2, pts, W, H);
@@ -121,9 +121,9 @@ export const HERO = {
   ],
   speeds: [0.04, 0.08, 0.16, 0.28, 0.46, 0.7, 1.12], // die vorderste steigt etwas weiter als das Kapitel (siehe land.css, land-rise)
 };
-export function heroLayers(mot = false) {
+export function heroLayers() {
   const os = HERO.layers.map((l, i) => ({ ...l, ridge: { ...l.ridge }, trees: l.trees && { ...l.trees }, W: HERO.W, H: HERO.H }));
-  if (mot) os.forEach((o, i) => { const seed = 101 + i * 17; motiveHero(i, o, { yAt, round, pts: ridge(prng(seed), HERO.W, o.ridge) }); });
+  os.forEach((o, i) => { const seed = 101 + i * 17; motiveHero(i, o, { yAt, round, pts: ridge(prng(seed), HERO.W, o.ridge) }); });
   return os.map((o, i) => layerSvg(o, 101 + i * 17));
 }
 
@@ -153,8 +153,8 @@ export const SEAMS = {
   'p-hn': { from: '#9e4e2e', to: '#f2eadd', motif: 'house' },
 };
 export const SEAM_SPEEDS = [0.14, 0.34, 0.62, 1];
-// mot: Vorschau ?motive mit den neuen Motiven (motive.mjs); ohne mot bleibt alles wie es war
-export function seamLayers(id, mot = false) {
+// Die Motive jeder Naht (Pflegeauto, Funkmast, Nacht, Sonnenaufgang, Obstwiese) kommen aus motive.mjs
+export function seamLayers(id) {
   const s = SEAMS[id], W = 1600, H = 300, ts = [0.24, 0.48, 0.74, 1];
   const col = (t) => mix(s.from, s.to, t);
   // Läuft die Naht in eine helle Fläche, tragen nur die hinteren Ebenen Bäume; helle Bäume vor dunklem Grund sähen wie Schnee aus
@@ -171,7 +171,7 @@ export function seamLayers(id, mot = false) {
     if (light && k >= 2) { delete o.trees; if (k === 2 && o.houses) o.houses.s *= 0.8; }
     return o;
   });
-  if (mot && MOTIVE[id]) {
+  if (MOTIVE[id]) {
     const ptsOf = (j) => ridge(prng(seed(j)), W, os[j].ridge);
     os.forEach((o, k) => motiveSeam(MOTIVE[id], k, o, { W, H, k, color: o.color, light, yAt, pts: ptsOf(k), ptsOf, round }));
   }
