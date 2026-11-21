@@ -28,6 +28,18 @@
   <link rel="stylesheet" href="/tunnel.css" />
   <link rel="stylesheet" href="/land.css" />
   <script>
+  /* Vergleich Menü am Handy: ?huegel lässt die Menüfläche von unten mit einem Hügelkamm aufsteigen statt als Welle von rechts.
+     Gilt in diesem Tab, bis ?welle aufgerufen wird. */
+  (function () {
+    var q = location.search, k = 'nurelo-menue', on = /[?&]huegel(?:[=&]|$)/.test(q);
+    try {
+      if (on) sessionStorage.setItem(k, 'huegel'); else if (/[?&]welle(?:[=&]|$)/.test(q)) sessionStorage.removeItem(k);
+      on = sessionStorage.getItem(k) === 'huegel';
+    } catch (e) { /* ohne Speicher gilt der Schalter nur für diese Seite */ }
+    if (on) document.documentElement.classList.add('mnav-hills');
+  })();
+  </script>
+  <script>
   /* Hero: Startzustand der Scroll-Sequenz schon im ersten Bild (siehe styles.css, html.hero-boot); entfällt bei reduzierter Bewegung */
   (function () {
     var d = document.documentElement;
@@ -102,12 +114,31 @@
         </ul>
       </nav>
 {{switcher}}
-      <button class="menu-btn" id="menu-btn" type="button" aria-label="{{a:menu}}" aria-expanded="false" aria-controls="nav-links">{{menu}}</button>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="{{a:menu}}" aria-expanded="false" aria-controls="mnav"><span class="mb-text">{{menu}}</span><svg class="mb-x" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
     </div>
     <div class="pill nav-right">
       <a class="btn btn-dark btn-sm" href="#kontakt">{{cta_demo}}</a>
     </div>
   </header>
+
+  <!-- Menü am Handy: Fläche über den ganzen Bildschirm. Form und Bewegung in main.js („Menü am Handy“), Gestaltung in styles.css -->
+  <div class="mnav" id="mnav" hidden>
+    <svg class="mnav-shape" aria-hidden="true" focusable="false" preserveAspectRatio="none"><path class="mnav-lead"/><path/></svg>
+    <div class="mnav-in">
+      <nav aria-label="{{a:nav_aria}}">
+        <ul class="mnav-links">
+{{nav_links}}
+        </ul>
+      </nav>
+      <a class="btn btn-terra mnav-cta mnav-item" href="#kontakt">{{cta_demo}}</a>
+      <div class="mnav-foot">
+        <ul class="mnav-langs mnav-item" aria-label="{{a:lang_aria}}">
+{{mnav_langs}}
+        </ul>
+        <a class="mnav-mail mnav-item" href="mailto:contact@nurelo.eu">contact@nurelo.eu</a>
+      </div>
+    </div>
+  </div>
 
   <main id="main">
     <!-- HERO -->

@@ -54,9 +54,21 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/styles.css?v=2dce6a6b" />
+  <link rel="stylesheet" href="/styles.css?v=5423f6ab" />
   <link rel="stylesheet" href="/tunnel.css?v=60e56e66" />
   <link rel="stylesheet" href="/land.css?v=891c9d64" />
+  <script>
+  /* Vergleich Menü am Handy: ?huegel lässt die Menüfläche von unten mit einem Hügelkamm aufsteigen statt als Welle von rechts.
+     Gilt in diesem Tab, bis ?welle aufgerufen wird. */
+  (function () {
+    var q = location.search, k = 'nurelo-menue', on = /[?&]huegel(?:[=&]|$)/.test(q);
+    try {
+      if (on) sessionStorage.setItem(k, 'huegel'); else if (/[?&]welle(?:[=&]|$)/.test(q)) sessionStorage.removeItem(k);
+      on = sessionStorage.getItem(k) === 'huegel';
+    } catch (e) { /* ohne Speicher gilt der Schalter nur für diese Seite */ }
+    if (on) document.documentElement.classList.add('mnav-hills');
+  })();
+  </script>
   <script>
   /* Hero: Startzustand der Scroll-Sequenz schon im ersten Bild (siehe styles.css, html.hero-boot); entfällt bei reduzierter Bewegung */
   (function () {
@@ -171,12 +183,64 @@
           <li><a href="/vi/" hreflang="vi" lang="vi" title="Tiếng Việt" aria-label="Tiếng Việt (VI)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-vi"/></svg></span><span class="lang-code" aria-hidden="true">VI</span></a></li>
         </ul>
       </details>
-      <button class="menu-btn" id="menu-btn" type="button" aria-label="Meny" aria-expanded="false" aria-controls="nav-links">Meny</button>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Meny" aria-expanded="false" aria-controls="mnav"><span class="mb-text">Meny</span><svg class="mb-x" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
     </div>
     <div class="pill nav-right">
       <a class="btn btn-dark btn-sm" href="#kontakt">Begär demo</a>
     </div>
   </header>
+
+  <!-- Menü am Handy: Fläche über den ganzen Bildschirm. Form und Bewegung in main.js („Menü am Handy“), Gestaltung in styles.css -->
+  <div class="mnav" id="mnav" hidden>
+    <svg class="mnav-shape" aria-hidden="true" focusable="false" preserveAspectRatio="none"><path class="mnav-lead"/><path/></svg>
+    <div class="mnav-in">
+      <nav aria-label="Huvudnavigering">
+        <ul class="mnav-links">
+          <li><a href="#stationaer">Äldreboende</a></li>
+          <li><a href="#ambulant">Hemtjänst</a></li>
+          <li><a href="#hausnotruf">Trygghetslarm</a></li>
+          <li><a href="#plattform">Plattform</a></li>
+          <li><a href="#preise">Priser</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-terra mnav-cta mnav-item" href="#kontakt">Begär demo</a>
+      <div class="mnav-foot">
+        <ul class="mnav-langs mnav-item" aria-label="Välj språk">
+            <li><a href="/" hreflang="de" lang="de" title="Deutsch" aria-label="Deutsch (DE)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-de"/></svg></span><span class="lang-code" aria-hidden="true">DE</span></a></li>
+            <li><a href="/bg/" hreflang="bg" lang="bg" title="Български" aria-label="Български (BG)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-bg"/></svg></span><span class="lang-code" aria-hidden="true">BG</span></a></li>
+            <li><a href="/bs/" hreflang="bs" lang="bs" title="Bosanski" aria-label="Bosanski (BS)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-bs"/></svg></span><span class="lang-code" aria-hidden="true">BS</span></a></li>
+            <li><a href="/cs/" hreflang="cs" lang="cs" title="Čeština" aria-label="Čeština (CS)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-cs"/></svg></span><span class="lang-code" aria-hidden="true">CS</span></a></li>
+            <li><a href="/da/" hreflang="da" lang="da" title="Dansk" aria-label="Dansk (DA)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-da"/></svg></span><span class="lang-code" aria-hidden="true">DA</span></a></li>
+            <li><a href="/el/" hreflang="el" lang="el" title="Ελληνικά" aria-label="Ελληνικά (EL)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-el"/></svg></span><span class="lang-code" aria-hidden="true">EL</span></a></li>
+            <li><a href="/en/" hreflang="en" lang="en" title="English" aria-label="English (EN)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-en"/></svg></span><span class="lang-code" aria-hidden="true">EN</span></a></li>
+            <li><a href="/es/" hreflang="es" lang="es" title="Español" aria-label="Español (ES)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-es"/></svg></span><span class="lang-code" aria-hidden="true">ES</span></a></li>
+            <li><a href="/et/" hreflang="et" lang="et" title="Eesti" aria-label="Eesti (ET)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-et"/></svg></span><span class="lang-code" aria-hidden="true">ET</span></a></li>
+            <li><a href="/fi/" hreflang="fi" lang="fi" title="Suomi" aria-label="Suomi (FI)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-fi"/></svg></span><span class="lang-code" aria-hidden="true">FI</span></a></li>
+            <li><a href="/fr/" hreflang="fr" lang="fr" title="Français" aria-label="Français (FR)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-fr"/></svg></span><span class="lang-code" aria-hidden="true">FR</span></a></li>
+            <li><a href="/ga/" hreflang="ga" lang="ga" title="Gaeilge" aria-label="Gaeilge (GA)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-ga"/></svg></span><span class="lang-code" aria-hidden="true">GA</span></a></li>
+            <li><a href="/hr/" hreflang="hr" lang="hr" title="Hrvatski" aria-label="Hrvatski (HR)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-hr"/></svg></span><span class="lang-code" aria-hidden="true">HR</span></a></li>
+            <li><a href="/hu/" hreflang="hu" lang="hu" title="Magyar" aria-label="Magyar (HU)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-hu"/></svg></span><span class="lang-code" aria-hidden="true">HU</span></a></li>
+            <li><a href="/it/" hreflang="it" lang="it" title="Italiano" aria-label="Italiano (IT)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-it"/></svg></span><span class="lang-code" aria-hidden="true">IT</span></a></li>
+            <li><a href="/lt/" hreflang="lt" lang="lt" title="Lietuvių" aria-label="Lietuvių (LT)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-lt"/></svg></span><span class="lang-code" aria-hidden="true">LT</span></a></li>
+            <li><a href="/lv/" hreflang="lv" lang="lv" title="Latviešu" aria-label="Latviešu (LV)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-lv"/></svg></span><span class="lang-code" aria-hidden="true">LV</span></a></li>
+            <li><a href="/mt/" hreflang="mt" lang="mt" title="Malti" aria-label="Malti (MT)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-mt"/></svg></span><span class="lang-code" aria-hidden="true">MT</span></a></li>
+            <li><a href="/nl/" hreflang="nl" lang="nl" title="Nederlands" aria-label="Nederlands (NL)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-nl"/></svg></span><span class="lang-code" aria-hidden="true">NL</span></a></li>
+            <li><a href="/pl/" hreflang="pl" lang="pl" title="Polski" aria-label="Polski (PL)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-pl"/></svg></span><span class="lang-code" aria-hidden="true">PL</span></a></li>
+            <li><a href="/pt/" hreflang="pt" lang="pt" title="Português" aria-label="Português (PT)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-pt"/></svg></span><span class="lang-code" aria-hidden="true">PT</span></a></li>
+            <li><a href="/ro/" hreflang="ro" lang="ro" title="Română" aria-label="Română (RO)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-ro"/></svg></span><span class="lang-code" aria-hidden="true">RO</span></a></li>
+            <li><a href="/sk/" hreflang="sk" lang="sk" title="Slovenčina" aria-label="Slovenčina (SK)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-sk"/></svg></span><span class="lang-code" aria-hidden="true">SK</span></a></li>
+            <li><a href="/sl/" hreflang="sl" lang="sl" title="Slovenščina" aria-label="Slovenščina (SL)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-sl"/></svg></span><span class="lang-code" aria-hidden="true">SL</span></a></li>
+            <li><a href="/sq/" hreflang="sq" lang="sq" title="Shqip" aria-label="Shqip (SQ)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-sq"/></svg></span><span class="lang-code" aria-hidden="true">SQ</span></a></li>
+            <li><a href="/sr/" hreflang="sr" lang="sr" title="Српски" aria-label="Српски (SR)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-sr"/></svg></span><span class="lang-code" aria-hidden="true">SR</span></a></li>
+            <li><a href="/sv/" hreflang="sv" lang="sv" title="Svenska" aria-label="Svenska (SV)" aria-current="true"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-sv"/></svg></span><span class="lang-code" aria-hidden="true">SV</span></a></li>
+            <li><a href="/tr/" hreflang="tr" lang="tr" title="Türkçe" aria-label="Türkçe (TR)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-tr"/></svg></span><span class="lang-code" aria-hidden="true">TR</span></a></li>
+            <li><a href="/uk/" hreflang="uk" lang="uk" title="Українська" aria-label="Українська (UK)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-uk"/></svg></span><span class="lang-code" aria-hidden="true">UK</span></a></li>
+            <li><a href="/vi/" hreflang="vi" lang="vi" title="Tiếng Việt" aria-label="Tiếng Việt (VI)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-vi"/></svg></span><span class="lang-code" aria-hidden="true">VI</span></a></li>
+        </ul>
+        <a class="mnav-mail mnav-item" href="mailto:contact@nurelo.eu">contact@nurelo.eu</a>
+      </div>
+    </div>
+  </div>
 
   <main id="main">
     <!-- HERO -->
@@ -549,7 +613,7 @@
   </footer>
 
 
-  <script src="/main.js?v=de3f5b62" defer></script>
+  <script src="/main.js?v=24fc75a9" defer></script>
   <script src="/tunnel.js?v=e7acdda9" defer></script>
 </body>
 </html>
