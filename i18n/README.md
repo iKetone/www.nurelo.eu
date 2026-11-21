@@ -27,7 +27,7 @@ Das Skript meldet fehlende oder unbekannte Schlüssel und bricht dann ab.
 - In `*_h`-Schlüsseln steht `&amp;` für ein Und-Zeichen, in Attributen wie `meta_desc` steht Klartext.
 - Der Sprachwähler zeigt Flagge und Sprachcode (ISO 639-1, z. B. „DE“). Der ausgeschriebene Name steht im Tooltip und im Namen für Screenreader (aus `LANGS`).
 - Eigene CSS- und JS-Dateien bekommen beim Bauen eine Versionsangabe (`/styles.css?v=<Prüfsumme>`, auch in den statischen Seiten wie Impressum und 404). Nach jeder Änderung an CSS oder JS deshalb bauen, sonst sehen Besucher bis zu 10 Minuten lang die alte Datei.
-- **Kacheln im Vergleich:** Mit `?illu` an der Adresse (z. B. `/?illu`) erscheinen die Kacheln Stationär, Ambulant und Hausnotruf im illustrierten Stil statt in 3D: flach, mit Hügeln in den Farben der Kapitel-Landschaft, ohne WebGL. Der Schalter gilt im selben Browser-Tab auch für alle weiteren Seiten, `?3d` stellt wieder auf 3D um. Die Gestaltung steht in `styles.css` unter „Illustrierte Kacheln“.
+- **Kacheln** (Stationär, Ambulant, Hausnotruf): flach im Stil der Landschaft, gezeichnet nur mit CSS (`styles.css`, „Kacheln im Stil der Landschaft“). Die Hügel tragen die Farben der jeweiligen Kapitel-Landschaft. Die Kapitel-Kacheln bleiben beim Scrollen fest am Fenster und schwenken nur leicht (`updateTilt` in `main.js`).
 - Impressum, Datenschutz und AGB gibt es nur auf Deutsch (`/impressum.html` usw.).
 - Die Übersetzungen sind Entwürfe und sollten vor dem Live-Gang von Muttersprachlern geprüft werden.
 

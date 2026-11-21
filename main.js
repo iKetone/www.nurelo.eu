@@ -240,34 +240,65 @@
   function lerp(a, b, t) { return a + (b - a) * t; }
   function smooth(a, b, v) { var t = clamp((v - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); }
 
-  // 3D-Kacheln erst nach dem Laden und im Leerlauf nachladen, damit nichts ruckelt
-  // Nur sehr schwache Touch-Geräte (höchstens 2 GB Speicher gemeldet) behalten die Kacheln in CSS, das Treiben startet dann sofort.
-  // Kernzahl und Fensterhöhe zählen nicht: Safari meldet die Kerne gedeckelt und den Speicher gar nicht, ein iPhone bekommt 3D.
-  function lowPower() {
-    return window.matchMedia('(pointer: coarse)').matches && !!navigator.deviceMemory && navigator.deviceMemory <= 2;
-  }
   // Glasflächen (siehe styles.css, .no-blur): nur auf Touch-Geräten, die höchstens 2 GB Speicher melden.
   // Die Kernzahl zählt hier nicht: Safari meldet sie gedeckelt und deviceMemory gar nicht, ein iPhone soll das Glas zeigen.
   if (window.matchMedia('(max-width: 860px) and (pointer: coarse)').matches &&
       navigator.deviceMemory && navigator.deviceMemory <= 2) root.classList.add('no-blur');
-  function load3d() {
-    // Schalter ?illu (siehe Kopf der Seite): illustrierte Kacheln in CSS, kein WebGL
-    if (lowPower() || root.classList.contains('tiles-illu')) { window.dispatchEvent(new Event('nurelo3d')); return; }
-    var s = document.createElement('script');
-    s.src = '/tiles3d.js'; s.async = true;
-    document.body.appendChild(s);
+
+  // ---------- Kachel-Neigung (Maus + Scroll) ----------
+  // Die Kacheln sind flach illustriert (styles.css), die Tiefe entsteht durch CSS-Neigung mit Perspektive.
+  var pointer = { x: 0, y: 0 };
+  var tilts = [].slice.call(document.querySelectorAll('.tile .tilt'));
+  tilts.forEach(function (el) { el._cur = { rx: 0, ry: 0 }; });
+  var needTilt = false;
+  function updateTilt() {
+    var moving = false;
+    var still = reduce.matches;
+    var live = tilts.filter(function (el) { return el.parentNode._vis; });
+    // erst alle Positionen lesen, dann schreiben (kein Lesen nach Schreiben)
+    var tops = live.map(function (el) {
+      var tile = el.parentNode;
+      return tile.hasAttribute('data-scroll') && !still ? tile.getBoundingClientRect() : null;
+    });
+    live.forEach(function (el, i) {
+      var tile = el.parentNode;
+      var depth = parseFloat(tile.dataset.depth || 1);
+      var tx = still ? 0 : pointer.x, ty = still ? 0 : pointer.y;
+      var ry = tx * 24 * depth, rx = -ty * 24 * depth;
+      var r = tops[i];
+      if (r) {
+        // Kapitel-Kacheln: Position bleibt fest am Fenster, nur ein leichtes Schwenken um die senkrechte Achse (Scroll und Maus)
+        var s = clamp(((r.top + r.height / 2) / window.innerHeight - 0.5) * 2, -1.5, 1.5);
+        ry = clamp(tx * 8 + s * 9, -14, 14); rx = 0;
+      }
+      var c = el._cur;
+      c.rx = lerp(c.rx, rx, 0.14); c.ry = lerp(c.ry, ry, 0.14);
+      if (Math.abs(c.rx - rx) > 0.05 || Math.abs(c.ry - ry) > 0.05) moving = true;
+      el.style.transform = 'perspective(700px) rotateX(' + c.rx.toFixed(2) + 'deg) rotateY(' + c.ry.toFixed(2) + 'deg)';
+    });
+    if (moving && !needTilt) { needTilt = true; requestAnimationFrame(tiltFrame); }
   }
-  function later() {
-    if ('requestIdleCallback' in window) window.requestIdleCallback(load3d, { timeout: 3000 });
-    else setTimeout(load3d, 1200);
-  }
-  if (document.readyState === 'complete') later(); else window.addEventListener('load', later);
+  function tiltFrame() { needTilt = false; updateTilt(); }
 
   // ---------- Hero-Bühne ----------
   var hero = document.getElementById('top');
   var stage = document.getElementById('stage');
-  // Unterseiten haben keine Hero-Bühne, der Rest gilt nur für die Startseite
-  if (!hero || !stage) return;
+  // Unterseiten haben keine Hero-Bühne, dort neigt sich nur die Kachel; der Rest gilt nur für die Startseite
+  if (!hero || !stage) {
+    if (tilts.length) {
+      tilts.forEach(function (el) { el.parentNode._vis = true; });
+      var kick = function () { if (!needTilt) { needTilt = true; requestAnimationFrame(tiltFrame); } };
+      window.addEventListener('scroll', kick, { passive: true });
+      window.addEventListener('pointermove', function (e) {
+        if (e.pointerType === 'touch') return;
+        pointer.x = (e.clientX / window.innerWidth - 0.5) * 2;
+        pointer.y = (e.clientY / window.innerHeight - 0.5) * 2;
+        kick();
+      }, { passive: true });
+      kick();
+    }
+    return;
+  }
   var bigs = [].slice.call(stage.querySelectorAll('[data-tile="big"]'));
   var sats = [].slice.call(stage.querySelectorAll('[data-tile="sat"]'));
   var h1a = stage.querySelector('.h1-a');
@@ -293,24 +324,18 @@
   // Die Scroll-Sequenz läuft auch mobil; nur bei reduzierter Bewegung bleibt der Hero statisch
   function animated() { return !reduce.matches; }
 
-  var pointer = { x: 0, y: 0 };
-  var tilts = [].slice.call(document.querySelectorAll('.tile .tilt'));
-  tilts.forEach(function (el) { el._cur = { rx: 0, ry: 0 }; });
-  var needTilt = false;
   // Neigung nur für Kacheln im Bild berechnen (spart Stilarbeit, wenn der Mauszeiger über anderen Abschnitten liegt)
   var tilesSeen = 0;
   [].slice.call(document.querySelectorAll('.tile')).forEach(function (t) { t._vis = true; tilesSeen++; });
 
   // Sanftes Treiben und Mitreagieren der Satelliten (nur in der verstreuten Phase)
   var DRIFT = { raf: 0, visible: true, enabled: false, t0: 0, last: 0, ps: { x: 0, y: 0 }, t1: 0, t2: 0 };
-  // Das Treiben startet erst, wenn die 3D-Einrichtung fertig ist (oder nach einer Wartezeit),
-  // damit ihre kurzen Blockaden in einen Moment fallen, in dem sich noch nichts bewegt.
+  // Das Treiben startet nach dem Laden im Leerlauf, damit der Seitenaufbau ruhig bleibt (siehe Ende der Datei).
   function enableDrift() {
     if (DRIFT.enabled) return;
     DRIFT.enabled = true; DRIFT.t0 = performance.now();
     driftKick();
   }
-  window.addEventListener('nurelo3d', enableDrift);
   function driftAllowed() {
     return DRIFT.enabled && hero.classList.contains('pinned') && !reduce.matches && DRIFT.visible && !document.hidden && DRIFT.t2 < 1;
   }
@@ -424,39 +449,6 @@
     driftKick();
   }
 
-  // ---------- Kachel-Neigung (Maus + Scroll) ----------
-  function updateTilt() {
-    var moving = false;
-    var still = reduce.matches;
-    var live = tilts.filter(function (el) {
-      var tile = el.parentNode;
-      if (tile.classList.contains('tile3d')) { if (el.style.transform) el.style.transform = ''; return false; }
-      return tile._vis;
-    });
-    // erst alle Positionen lesen, dann schreiben (kein Lesen nach Schreiben)
-    var tops = live.map(function (el) {
-      var tile = el.parentNode;
-      return tile.hasAttribute('data-scroll') && !still ? tile.getBoundingClientRect() : null;
-    });
-    live.forEach(function (el, i) {
-      var tile = el.parentNode;
-      var depth = parseFloat(tile.dataset.depth || 1);
-      var tx = still ? 0 : pointer.x, ty = still ? 0 : pointer.y;
-      var ry = tx * 24 * depth, rx = -ty * 24 * depth;
-      var r = tops[i];
-      if (r) {
-        // Kapitel-Kacheln: Position bleibt fest am Fenster, nur ein leichtes Schwenken um die senkrechte Achse (Scroll und Maus)
-        var s = clamp(((r.top + r.height / 2) / window.innerHeight - 0.5) * 2, -1.5, 1.5);
-        ry = clamp(tx * 8 + s * 9, -14, 14); rx = 0;
-      }
-      var c = el._cur;
-      c.rx = lerp(c.rx, rx, 0.14); c.ry = lerp(c.ry, ry, 0.14);
-      if (Math.abs(c.rx - rx) > 0.05 || Math.abs(c.ry - ry) > 0.05) moving = true;
-      el.style.transform = 'perspective(700px) rotateX(' + c.rx.toFixed(2) + 'deg) rotateY(' + c.ry.toFixed(2) + 'deg)';
-    });
-    if (moving && !needTilt) { needTilt = true; requestAnimationFrame(tiltFrame); }
-  }
-  function tiltFrame() { needTilt = false; updateTilt(); }
 
   // ---------- Events ----------
   var ticking = false;
@@ -501,7 +493,10 @@
   update();
   root.classList.remove('hero-boot');   // ab jetzt zeichnet das Skript den Hero (siehe styles.css, html.hero-boot)
 
-  // Notfalls ohne 3D starten (Skript blockiert, sehr langsames Gerät)
-  function failsafe() { setTimeout(enableDrift, 4500); }
-  if (document.readyState === 'complete') failsafe(); else window.addEventListener('load', failsafe);
+  // Treiben nach dem Laden im Leerlauf starten
+  function startDrift() {
+    if ('requestIdleCallback' in window) window.requestIdleCallback(enableDrift, { timeout: 3000 });
+    else setTimeout(enableDrift, 1200);
+  }
+  if (document.readyState === 'complete') startDrift(); else window.addEventListener('load', startDrift);
 })();

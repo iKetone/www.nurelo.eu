@@ -54,20 +54,9 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/styles.css?v=361898ec" />
+  <link rel="stylesheet" href="/styles.css?v=c396c273" />
   <link rel="stylesheet" href="/tunnel.css?v=60e56e66" />
   <link rel="stylesheet" href="/land.css?v=849b8908" />
-  <script>
-  /* Vergleich: ?illu zeigt die Kacheln im illustrierten Stil statt in 3D und gilt in diesem Tab, bis ?3d aufgerufen wird */
-  (function () {
-    var q = location.search, k = 'nurelo-kacheln', on = /[?&]illu(?:[=&]|$)/.test(q);
-    try {
-      if (on) sessionStorage.setItem(k, 'illu'); else if (/[?&]3d(?:[=&]|$)/.test(q)) sessionStorage.removeItem(k);
-      on = sessionStorage.getItem(k) === 'illu';
-    } catch (e) { /* ohne Speicher gilt der Schalter nur für diese Seite */ }
-    if (on) document.documentElement.classList.add('tiles-illu');
-  })();
-  </script>
   <script>
   /* Hero: Startzustand der Scroll-Sequenz schon im ersten Bild (siehe styles.css, html.hero-boot); entfällt bei reduzierter Bewegung */
   (function () {
@@ -560,7 +549,7 @@
   </footer>
 
 
-  <script src="/main.js?v=000407a8" defer></script>
+  <script src="/main.js?v=de3f5b62" defer></script>
   <script src="/tunnel.js?v=e7acdda9" defer></script>
 </body>
 </html>
