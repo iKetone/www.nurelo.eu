@@ -1,4 +1,4 @@
-/* Landschaft statt gerader Kanten: neun Ebenen im Hero, gestaffelte Nähte an den Kapitelwechseln (Vorschau, nur mit html.land).
+/* Landschaft statt gerader Kanten: neun Ebenen im Hero, gestaffelte Nähte an den Kapitelwechseln. Gilt für alle: html.land steht fest im Kopf beider Vorlagen.
    Prinzip wie bei firewatchgame.com: Ebenen mit unterschiedlicher Geschwindigkeit, von hell nach dunkel, die vorderste hat die Farbe des
    Inhalts. Der Inhalt fährt als deckende Fläche darüber, es gibt keine sichtbare Naht. Die Bewegung ist scroll-gesteuert (nur transform). */
 
@@ -83,3 +83,9 @@ html.land .scn.scn-on > .seam { margin-bottom: 0; }
     @keyframes seam-rise { from { transform: translate3d(0, calc(var(--s) * var(--seam-h) * .62), 0); } }
   }
 }
+
+/* ---------- Entwurf mit neuen Motiven (Vorschau mit ?motive) ----------
+   Ebenen, deren Motiv sich ändert, gibt es zweimal: .v-std (Standard) und .v-mot (Entwurf). html.mot wählt den Entwurf. */
+.v-mot { display: none; }
+html.mot .v-std { display: none; }
+html.mot .v-mot { display: block; }

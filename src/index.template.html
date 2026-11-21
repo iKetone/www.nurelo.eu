@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{lang}}">
+<html lang="{{lang}}" class="land">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -31,8 +31,8 @@
   /* Hero: Startzustand der Scroll-Sequenz schon im ersten Bild (siehe styles.css, html.hero-boot); entfällt bei reduzierter Bewegung */
   (function () {
     var d = document.documentElement;
-    // Vorschau: Landschaft statt der geraden Kanten, nur mit ?landschaft (siehe land.css)
-    if (/[?&]landschaft(=|&|$)/.test(location.search)) d.classList.add('land');
+    // Vorschau: Landschaft mit neuen Motiven, nur mit ?motive (siehe land.css, tools/landscape/motive.mjs)
+    if (/[?&]motive(=|&|$)/.test(location.search)) d.classList.add('mot');
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     d.classList.add('hero-boot');
     setTimeout(function () { d.classList.remove('hero-boot'); }, 3000);

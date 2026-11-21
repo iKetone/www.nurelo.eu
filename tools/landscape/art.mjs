@@ -1,6 +1,7 @@
 // Zeichnet die Landschaftsebenen (SVG als Text) für den Hero und die Kapitelübergänge. Reines Node, keine Abhängigkeiten.
 // Jede Ebene ist eine Silhouette (Hügel oder Berge, darauf Bäume, Häuser), von hinten nach vorn immer dunkler.
 import { mix } from '../scenes/iso.mjs';
+import { MOTIVE, motiveSeam, motiveHero } from './motive.mjs';
 
 export function prng(seed) {
   let a = seed >>> 0;
@@ -71,22 +72,39 @@ export function layerSvg(o, seed) {
       if (rand() > t.density * (0.25 + 0.95 * clump)) continue;
       const h = t.hmin + rand() * (t.hmax - t.hmin);
       // an Hängen und auf Graten stehen
-      d += t.kind === 'round' ? round(x, yAt(pts, x) + 2, h, rand) : fir(x, yAt(pts, x) + 2, h, h * (t.wr || 0.46), rand);
+      const tree = t.kind === 'round' ? round(x, yAt(pts, x) + 2, h, rand) : fir(x, yAt(pts, x) + 2, h, h * (t.wr || 0.46), rand);
+      if (!(t.skip && x > t.skip[0] && x < t.skip[1])) d += tree; // Lücke erst nach dem Zeichnen, damit die Zufallsfolge gleich bleibt
     }
     body += `<path d="${d}" fill="${o.top || o.color}"/>`;
   }
   if (o.houses) {
-    let d = '', win = '';
+    let d = '', win = '', nodes = [];
     for (let i = 0; i < o.houses.n; i++) {
       const x = o.houses.x0 + (W * o.houses.span * i) / Math.max(1, o.houses.n - 1) + (rand() - 0.5) * 60;
       const hs = house(x, yAt(pts, x + 12) + 2, o.houses.s * (0.85 + rand() * 0.35), rand);
       d += hs.body;
-      hs.win.forEach(([wx, wy, ww, wh]) => { if (rand() < 0.75) win += `<rect x="${f1(wx)}" y="${f1(wy)}" width="${f1(ww)}" height="${f1(wh)}" rx="1" fill="${o.houses.light || '#ffd98a'}"/>`; });
+      hs.win.forEach(([wx, wy, ww, wh], wi) => {
+        const on = rand() < 0.75 || o.houses.all; // all: alle Fenster leuchten (Vorschau ?motive)
+        if (!on) return;
+        const hi = o.houses.hi === i; // hi: dieses Haus hat ein besonders helles Fenster
+        if (hi && wi === 0) win += `<rect x="${f1(wx - 4)}" y="${f1(wy - 4)}" width="${f1(ww + 8)}" height="${f1(wh + 8)}" rx="4" fill="#ffe9a8" opacity=".3"/>`;
+        win += `<rect x="${f1(wx)}" y="${f1(wy)}" width="${f1(ww)}" height="${f1(wh)}" rx="1" fill="${hi ? '#fff3c4' : o.houses.light || '#ffd98a'}"/>`;
+        if (o.houses.link && wi === 0) nodes.push([wx + ww / 2, wy + wh / 2]);
+      });
     }
     body += `<path d="${d}" fill="${o.color}"/>` + win;
+    if (nodes.length > 1) { // Leitungen: hängende Kurven von Fenster zu Fenster, an den Fenstern ein Schein
+      nodes.sort((a, b) => a[0] - b[0]);
+      let c = `M${f1(nodes[0][0])} ${f1(nodes[0][1])}`;
+      for (let i = 1; i < nodes.length; i++) c += ` Q${f1((nodes[i - 1][0] + nodes[i][0]) / 2)} ${f1((nodes[i - 1][1] + nodes[i][1]) / 2 + o.houses.link)} ${f1(nodes[i][0])} ${f1(nodes[i][1])}`;
+      body += `<path d="${c}" fill="none" stroke="${o.houses.light || '#ffd98a'}" stroke-width="1.3" opacity=".55"/>` + nodes.map(([x, y]) => `<circle cx="${f1(x)}" cy="${f1(y)}" r="5" fill="${o.houses.light || '#ffd98a'}" opacity=".2"/>`).join('');
+    }
   }
-  if (o.extra) extra = o.extra(rand, pts, W, H);
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMax slice"><defs>${grad}</defs>${body}${extra}</svg>`;
+  // Haken für die Motive (Vorschau ?motive): back liegt hinter der Silhouette (Sonne, Mond, Sterne), extra davor. Eigene Zufallsfolge, die Silhouette bleibt gleich.
+  const r2 = prng((seed ^ 0x5bd1e995) >>> 0);
+  const back = o.back ? o.back(r2, pts, W, H) : '';
+  if (o.extra) extra = o.extra(r2, pts, W, H);
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMax slice"><defs>${grad}</defs>${back}${body}${extra}</svg>`;
 }
 
 // ---------- Hero: Morgenlandschaft in sieben Ebenen, von hellem Creme hinten bis zum Oliv des ersten Kapitels vorn ----------
@@ -103,7 +121,11 @@ export const HERO = {
   ],
   speeds: [0.04, 0.08, 0.16, 0.28, 0.46, 0.7, 1.12], // die vorderste steigt etwas weiter als das Kapitel (siehe land.css, land-rise)
 };
-export function heroLayers() { return HERO.layers.map((l, i) => layerSvg({ ...l, W: HERO.W, H: HERO.H }, 101 + i * 17)); }
+export function heroLayers(mot = false) {
+  const os = HERO.layers.map((l, i) => ({ ...l, ridge: { ...l.ridge }, trees: l.trees && { ...l.trees }, W: HERO.W, H: HERO.H }));
+  if (mot) os.forEach((o, i) => { const seed = 101 + i * 17; motiveHero(i, o, { yAt, round, pts: ridge(prng(seed), HERO.W, o.ridge) }); });
+  return os.map((o, i) => layerSvg(o, 101 + i * 17));
+}
 
 // Himmelsebene: weiche Wolkenbänke und ein paar Vögel (fast unbeweglich)
 export function heroSky() {
@@ -131,13 +153,15 @@ export const SEAMS = {
   'p-hn': { from: '#9e4e2e', to: '#f2eadd', motif: 'house' },
 };
 export const SEAM_SPEEDS = [0.14, 0.34, 0.62, 1];
-export function seamLayers(id) {
+// mot: Vorschau ?motive mit den neuen Motiven (motive.mjs); ohne mot bleibt alles wie es war
+export function seamLayers(id, mot = false) {
   const s = SEAMS[id], W = 1600, H = 300, ts = [0.24, 0.48, 0.74, 1];
   const col = (t) => mix(s.from, s.to, t);
   // Läuft die Naht in eine helle Fläche, tragen nur die hinteren Ebenen Bäume; helle Bäume vor dunklem Grund sähen wie Schnee aus
   const light = (() => { const h = mix(s.to, '#000000', 0); const r = parseInt(h.slice(1, 3), 16), g = parseInt(h.slice(3, 5), 16), b = parseInt(h.slice(5, 7), 16); return (0.299 * r + 0.587 * g + 0.114 * b) / 255 > 0.7; })();
   const base = [78, 118, 160, 214], amp = [44, 40, 34, 28], scale = [260, 190, 140, 110];
-  return ts.map((t, k) => {
+  const seed = (k) => 500 + k * 13 + id.charCodeAt(0);
+  const os = ts.map((t, k) => {
     const color = col(t), top = mix(color, '#ffffff', k === 3 ? 0 : 0.07);
     const o = { W, H, color, top, ridge: { base: base[k], amp: amp[k], scale: scale[k], peak: k === 0 && s.motif !== 'mist' ? 0.4 : 0, oct: 4 } };
     if (s.motif === 'fir') o.trees = { kind: 'fir', density: [0.35, 0.55, 0.7, 0.42][k], hmin: [12, 22, 36, 64][k], hmax: [22, 38, 62, 110][k], gap: k === 3 ? 56 : undefined };
@@ -145,6 +169,11 @@ export function seamLayers(id) {
     if (s.motif === 'house') { if (k >= 1) o.trees = { kind: 'fir', density: [0, 0.4, 0.5, 0.3][k], hmin: [0, 18, 28, 52][k], hmax: [0, 30, 48, 90][k], gap: k === 3 ? 70 : undefined }; if (k === 2) o.houses = { n: 9, x0: 90, span: 0.9, s: 1.15, light: '#ffd98a' }; if (k === 1) o.houses = { n: 7, x0: 140, span: 0.85, s: 0.7, light: '#f3c97a' }; }
     if (s.motif === 'mist') { o.ridge.amp = [60, 40, 26, 18][k]; o.ridge.scale = [200, 260, 300, 340][k]; if (k === 0) o.trees = { kind: 'fir', density: 0.5, hmin: 14, hmax: 30 }; }
     if (light && k >= 2) { delete o.trees; if (k === 2 && o.houses) o.houses.s *= 0.8; }
-    return layerSvg(o, 500 + k * 13 + id.charCodeAt(0));
+    return o;
   });
+  if (mot && MOTIVE[id]) {
+    const ptsOf = (j) => ridge(prng(seed(j)), W, os[j].ridge);
+    os.forEach((o, k) => motiveSeam(MOTIVE[id], k, o, { W, H, k, color: o.color, light, yAt, pts: ptsOf(k), ptsOf, round }));
+  }
+  return os.map((o, k) => layerSvg(o, seed(k)));
 }
