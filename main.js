@@ -78,6 +78,7 @@
       if (!menuOpen) return;
       menuOpen = false;
       mnav.classList.remove('is-open');
+      [].slice.call(mnav.querySelectorAll('details[open]')).forEach(function (d) { d.open = false; });   // offene Sprachliste mit zuklappen
       menuBtn.setAttribute('aria-expanded', 'false');
       root.classList.remove('mnav-open');   // sofort: ein Sprung zu einem Abschnitt soll schon während des Schließens scrollen können
       if (mnav.contains(document.activeElement)) menuBtn.focus({ preventScroll: true });
@@ -89,10 +90,15 @@
     mnav.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('a')) close(); });
     document.addEventListener('keydown', function (e) {
       if (!menuOpen) return;
-      if (e.key === 'Escape') { close(); menuBtn.focus({ preventScroll: true }); return; }
+      if (e.key === 'Escape') {
+        // Erst die offene Sprachliste schließen, dann das Menü
+        var dd = mnav.querySelector('details[open]');
+        if (dd) { dd.open = false; dd.querySelector('summary').focus(); return; }
+        close(); menuBtn.focus({ preventScroll: true }); return;
+      }
       if (e.key !== 'Tab') return;
-      // Fokus bleibt im Menü und am Knopf (der Rest der Seite liegt darunter)
-      var f = [menuBtn].concat([].slice.call(mnav.querySelectorAll('a')));
+      // Fokus bleibt im Menü und am Knopf (der Rest der Seite liegt darunter); Links in der geschlossenen Sprachliste zählen nicht
+      var f = [menuBtn].concat([].slice.call(mnav.querySelectorAll('a, summary')).filter(function (el) { return el.getClientRects().length > 0; }));
       var i = f.indexOf(document.activeElement);
       if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
       else if (!e.shiftKey && (i === f.length - 1 || i === -1)) { e.preventDefault(); f[0].focus(); }
@@ -114,7 +120,7 @@
       nav.classList.toggle('nav-away', navAway);
     };
     var navHold = function () {
-      return menuOpen || (document.querySelector('details.lang') || {}).open || nav.contains(document.activeElement);
+      return menuOpen || !!document.querySelector('details.lang[open]') || nav.contains(document.activeElement);
     };
     var navScroll = function () {
       navTick = false;
@@ -132,11 +138,14 @@
   }
 
   // ---------- Sprachwähler ----------
-  var langBox = document.querySelector('details.lang');
-  if (langBox) {
-    document.addEventListener('click', function (e) { if (!langBox.contains(e.target)) langBox.open = false; });
+  // Zwei Stück: in der Leiste und im Menü am Handy. Ein Klick daneben schließt die Liste, ebenso Escape
+  // (im Menü übernimmt das der Menü-Code, damit Escape nicht gleichzeitig das Menü schließt).
+  var langBoxes = [].slice.call(document.querySelectorAll('details.lang'));
+  if (langBoxes.length) {
+    document.addEventListener('click', function (e) { langBoxes.forEach(function (box) { if (!box.contains(e.target)) box.open = false; }); });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && langBox.open) { langBox.open = false; langBox.querySelector('summary').focus(); }
+      if (e.key !== 'Escape') return;
+      langBoxes.forEach(function (box) { if (box.open && !box.closest('.mnav')) { box.open = false; box.querySelector('summary').focus(); } });
     });
   }
 

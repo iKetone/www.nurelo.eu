@@ -756,12 +756,13 @@ html:not(.hero-boot) .hero:not(.pinned) .h1-a { display: block; color: var(--ink
   .mnav-links a { display: inline-block; padding: .2rem 0; font-size: clamp(1.8rem, 8.6vw, 2.5rem); font-weight: 800; letter-spacing: -.025em; line-height: 1.1;
     color: var(--cream); text-decoration: none; }
   .mnav-links a[aria-current] { color: var(--terra-l); }
-  .mnav-foot { margin-top: auto; width: 100%; display: grid; gap: .9rem; padding-top: .3rem; }
-  .mnav-langs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(62px, 1fr)); gap: 2px; }
-  .mnav-langs a { display: flex; align-items: center; gap: .45rem; padding: .4rem .35rem; border-radius: 6px; text-decoration: none;
-    color: color-mix(in srgb, var(--cream) 78%, transparent); font-weight: 700; font-size: .82rem; letter-spacing: .04em; }
-  .mnav-langs a[aria-current] { background: color-mix(in srgb, var(--cream) 13%, transparent); color: var(--cream); }
-  .mnav-mail { justify-self: start; color: color-mix(in srgb, var(--cream) 72%, transparent); font-size: .92rem; text-underline-offset: .25em; }
+  /* Unten: Sprach-Knopf (wie in der Leiste am Desktop, hell auf dunkel) und Kontakt-Adresse in einer Zeile.
+     Die Liste klappt nach oben auf, weil der Knopf am unteren Rand sitzt. */
+  .mnav-foot { margin-top: auto; width: 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .9rem 1.2rem; padding-top: .3rem; }
+  .mnav .lang { position: relative; }
+  .mnav .lang summary { color: var(--cream); border-color: color-mix(in srgb, var(--cream) 34%, transparent); }
+  .mnav .lang-list { top: auto; bottom: calc(100% + 8px); left: 0; right: auto; margin: 0; max-height: calc(100dvh - 180px); color: var(--ink); }   /* helle Karte wie in der Leiste */
+  .mnav-mail { color: color-mix(in srgb, var(--cream) 72%, transparent); font-size: .92rem; text-underline-offset: .25em; }
   .mnav :focus-visible { outline-color: var(--cream); }
   .menu-btn[aria-expanded="true"] .mb-text { display: none; }
   .menu-btn[aria-expanded="true"] .mb-x { display: block; width: 24px; height: 24px; }
@@ -777,7 +778,6 @@ html:not(.hero-boot) .hero:not(.pinned) .h1-a { display: block; color: var(--ink
 @media (max-width: 860px) and (max-height: 720px) {
   .mnav-in { gap: 1.05rem; padding-top: calc(max(12px, env(safe-area-inset-top)) + 76px); }
   .mnav-links a { font-size: clamp(1.6rem, 7.6vw, 2.1rem); }
-  .mnav-langs a { padding: .3rem .3rem; }
 }
 @media (max-width: 860px) and (prefers-reduced-motion: reduce) {
   .mnav-links li, .mnav-item { transform: none; }
@@ -864,6 +864,7 @@ html:not(.hero-boot) .hero:not(.pinned) .h1-a { display: block; color: var(--ink
 .nav-links a:active { color: var(--ink); }
 .menu-btn:active { background: var(--cream); }
 .lang summary:active { border-color: var(--ink); background: var(--cream); }
+.mnav .lang summary:active { border-color: var(--cream); background: color-mix(in srgb, var(--cream) 14%, transparent); }
 .lang-list a:active { background: var(--cream); }
 .foot-grid ul a:active { text-decoration: underline; }
 .to-top:active { background: var(--terra-d); }
@@ -960,7 +961,7 @@ html:not(.hero-boot) .hero:not(.pinned) .h1-a { display: block; color: var(--ink
   .lang-list { left: 0; right: 0; margin-inline: auto; grid-template-columns: repeat(4, auto); } /* so breit wie der Inhalt, mittig unter der Leiste */
   .nav-left { width: 100%; justify-content: space-between; padding-right: .4rem; }
   .menu-btn { display: grid; }
-  .nav-left > nav { display: none; }   /* die Links stehen am Handy im Menü (.mnav) */
+  .nav-left > nav, .nav-left > .lang { display: none; }   /* Links und Sprachwahl stehen am Handy im Menü (.mnav) */
   .stage-pin { padding-top: 96px; gap: 3rem; }
   .win-wrap { margin-top: 3.5rem; }
   .tile { --s: 78px; }
