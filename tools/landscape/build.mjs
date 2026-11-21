@@ -11,16 +11,16 @@ export function buildLandscape(root) {
   const dir = join(root, 'landscape');
   mkdirSync(dir, { recursive: true });
 
-  // Hero: Himmel, Sonne (CSS), sieben Ebenen, Dunst. TODO beim Freischalten: Hero-Bilder nicht mehr lazy laden (sie sind das erste Bild).
+  // Hero: Himmel, Sonne (CSS), sieben Ebenen, Dunst.  Die Hero-Bilder laden sofort (sie sind das erste Bild), die Nähte erst beim Heranscrollen.
   writeFileSync(join(dir, 'hero-sky.svg'), heroSky());
   const layers = heroLayers();
   layers.forEach((svg, i) => writeFileSync(join(dir, `hero-${i + 1}.svg`), svg));
   const heroHtml = `<!-- Landschaft (erzeugt von tools/landscape/build.mjs, nicht von Hand ändern) -->
         <div class="ls-sky" aria-hidden="true"></div>
         <div class="ls" aria-hidden="true">
-          ${img('ls-l ls-cl', 0.02, '/landscape/hero-sky.svg', HERO.W, HERO.H, true)}
+          ${img('ls-l ls-cl', 0.02, '/landscape/hero-sky.svg', HERO.W, HERO.H, false)}
           <div class="ls-sun"></div>
-          ${layers.map((_, i) => (i === layers.length - 1 ? '<div class="ls-fill" style="--s:' + HERO.speeds[i] + '"></div>\n          ' : '') + img('ls-l', HERO.speeds[i], `/landscape/hero-${i + 1}.svg`, HERO.W, HERO.H, true)).join('\n          ')}
+          ${layers.map((_, i) => (i === layers.length - 1 ? '<div class="ls-fill" style="--s:' + HERO.speeds[i] + '"></div>\n          ' : '') + img('ls-l', HERO.speeds[i], `/landscape/hero-${i + 1}.svg`, HERO.W, HERO.H, false)).join('\n          ')}
           <div class="ls-haze"></div>
         </div>`;
   writeFileSync(join(root, 'src/partials/land-hero.html'), heroHtml);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="land">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -55,8 +55,6 @@
   /* Hero: Startzustand der Scroll-Sequenz schon im ersten Bild (siehe styles.css, html.hero-boot); entfällt bei reduzierter Bewegung */
   (function () {
     var d = document.documentElement;
-    // Vorschau: Landschaft statt der geraden Kanten, nur mit ?landschaft (siehe land.css)
-    if (/[?&]landschaft(=|&|$)/.test(location.search)) d.classList.add('land');
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     d.classList.add('hero-boot');
     setTimeout(function () { d.classList.remove('hero-boot'); }, 3000);
@@ -174,16 +172,16 @@
         <!-- Landschaft (erzeugt von tools/landscape/build.mjs, nicht von Hand ändern) -->
         <div class="ls-sky" aria-hidden="true"></div>
         <div class="ls" aria-hidden="true">
-          <img class="ls-l ls-cl" style="--s:0.02" src="/landscape/hero-sky.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
+          <img class="ls-l ls-cl" style="--s:0.02" src="/landscape/hero-sky.svg" alt="" width="1600" height="640" decoding="async">
           <div class="ls-sun"></div>
-          <img class="ls-l" style="--s:0.04" src="/landscape/hero-1.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
-          <img class="ls-l" style="--s:0.08" src="/landscape/hero-2.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
-          <img class="ls-l" style="--s:0.16" src="/landscape/hero-3.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
-          <img class="ls-l" style="--s:0.28" src="/landscape/hero-4.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
-          <img class="ls-l" style="--s:0.46" src="/landscape/hero-5.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
-          <img class="ls-l" style="--s:0.7" src="/landscape/hero-6.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
+          <img class="ls-l" style="--s:0.04" src="/landscape/hero-1.svg" alt="" width="1600" height="640" decoding="async">
+          <img class="ls-l" style="--s:0.08" src="/landscape/hero-2.svg" alt="" width="1600" height="640" decoding="async">
+          <img class="ls-l" style="--s:0.16" src="/landscape/hero-3.svg" alt="" width="1600" height="640" decoding="async">
+          <img class="ls-l" style="--s:0.28" src="/landscape/hero-4.svg" alt="" width="1600" height="640" decoding="async">
+          <img class="ls-l" style="--s:0.46" src="/landscape/hero-5.svg" alt="" width="1600" height="640" decoding="async">
+          <img class="ls-l" style="--s:0.7" src="/landscape/hero-6.svg" alt="" width="1600" height="640" decoding="async">
           <div class="ls-fill" style="--s:1.12"></div>
-          <img class="ls-l" style="--s:1.12" src="/landscape/hero-7.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
+          <img class="ls-l" style="--s:1.12" src="/landscape/hero-7.svg" alt="" width="1600" height="640" decoding="async">
           <div class="ls-haze"></div>
         </div>
         <div class="wordmark" aria-hidden="true">Nurelo</div>
