@@ -26,7 +26,19 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/styles.css?v=2dce6a6b" /><link rel="stylesheet" href="/land.css?v=891c9d64" /><link rel="stylesheet" href="/scene.css?v=1c22e8ac" />
+  <link rel="stylesheet" href="/styles.css?v=5423f6ab" /><link rel="stylesheet" href="/land.css?v=891c9d64" /><link rel="stylesheet" href="/scene.css?v=1c22e8ac" />
+  <script>
+  /* Vergleich Menü am Handy: ?huegel lässt die Menüfläche von unten mit einem Hügelkamm aufsteigen statt als Welle von rechts.
+     Gilt in diesem Tab, bis ?welle aufgerufen wird. */
+  (function () {
+    var q = location.search, k = 'nurelo-menue', on = /[?&]huegel(?:[=&]|$)/.test(q);
+    try {
+      if (on) sessionStorage.setItem(k, 'huegel'); else if (/[?&]welle(?:[=&]|$)/.test(q)) sessionStorage.removeItem(k);
+      on = sessionStorage.getItem(k) === 'huegel';
+    } catch (e) { /* ohne Speicher gilt der Schalter nur für diese Seite */ }
+    if (on) document.documentElement.classList.add('mnav-hills');
+  })();
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -86,12 +98,36 @@
           <li><a href="/en/residential/" hreflang="en" lang="en" title="English" aria-label="English (EN)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-en"/></svg></span><span class="lang-code" aria-hidden="true">EN</span></a></li>
         </ul>
       </details>
-      <button class="menu-btn" id="menu-btn" type="button" aria-label="Menü" aria-expanded="false" aria-controls="nav-links">Menü</button>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Menü" aria-expanded="false" aria-controls="mnav"><span class="mb-text">Menü</span><svg class="mb-x" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
     </div>
     <div class="pill nav-right">
       <a class="btn btn-dark btn-sm" href="#kontakt">Demo anfragen</a>
     </div>
   </header>
+
+  <!-- Menü am Handy: Fläche über den ganzen Bildschirm. Form und Bewegung in main.js („Menü am Handy“), Gestaltung in styles.css -->
+  <div class="mnav" id="mnav" hidden>
+    <svg class="mnav-shape" aria-hidden="true" focusable="false" preserveAspectRatio="none"><path class="mnav-lead"/><path/></svg>
+    <div class="mnav-in">
+      <nav aria-label="Hauptnavigation">
+        <ul class="mnav-links">
+          <li><a href="/stationaer/" aria-current="page">Stationär</a></li>
+          <li><a href="/ambulant/">Ambulant</a></li>
+          <li><a href="/hausnotruf/">Hausnotruf</a></li>
+          <li><a href="/#plattform">Plattform</a></li>
+          <li><a href="/#preise">Preise</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-terra mnav-cta mnav-item" href="#kontakt">Demo anfragen</a>
+      <div class="mnav-foot">
+        <ul class="mnav-langs mnav-item" aria-label="Sprache wählen">
+            <li><a href="/stationaer/" hreflang="de" lang="de" title="Deutsch" aria-label="Deutsch (DE)" aria-current="true"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-de"/></svg></span><span class="lang-code" aria-hidden="true">DE</span></a></li>
+            <li><a href="/en/residential/" hreflang="en" lang="en" title="English" aria-label="English (EN)"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 16" width="24" height="16" focusable="false"><use href="#fl-en"/></svg></span><span class="lang-code" aria-hidden="true">EN</span></a></li>
+        </ul>
+        <a class="mnav-mail mnav-item" href="mailto:contact@nurelo.eu">contact@nurelo.eu</a>
+      </div>
+    </div>
+  </div>
 
   <main id="main">
     <!-- Kopf -->
@@ -356,6 +392,6 @@
   </footer>
 
 
-  <script src="/main.js?v=de3f5b62" defer></script><script src="/scene.js?v=b575701a" defer></script>
+  <script src="/main.js?v=24fc75a9" defer></script><script src="/scene.js?v=b575701a" defer></script>
 </body>
 </html>

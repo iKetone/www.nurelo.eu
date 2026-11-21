@@ -5,16 +5,119 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   var narrow = window.matchMedia('(max-width: 860px), (max-height: 700px)');
 
-  // ---------- Menü ----------
-  var menuBtn = document.getElementById('menu-btn');
+  // ---------- Menü am Handy ----------
+  // Eine Fläche über den ganzen Bildschirm (styles.css, „Menü am Handy“). Ihre Form ist ein SVG-Pfad, der während der Bewegung
+  // in jedem Bild neu berechnet wird: eine weiche Welle, die von rechts hereinläuft, oder (Schalter ?huegel, html.mnav-hills)
+  // ein Hügelkamm, der von unten aufsteigt, mit einer helleren Ebene davor wie in der Landschaft.
   var links = document.getElementById('nav-links');
-  function setMenu(open) {
-    links.classList.toggle('open', open);
-    menuBtn.setAttribute('aria-expanded', String(open));
-  }
-  menuBtn.addEventListener('click', function () { setMenu(!links.classList.contains('open')); });
-  links.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+  var menuBtn = document.getElementById('menu-btn');
+  var mnav = document.getElementById('mnav');
+  var menuOpen = false;
+  if (menuBtn && mnav) (function () {
+    var svg = mnav.querySelector('.mnav-shape');
+    var lead = svg.querySelector('.mnav-lead'), face = svg.querySelectorAll('path')[1];
+    var items = [].slice.call(mnav.querySelectorAll('.mnav-links li, .mnav-item'));
+    var W = 0, H = 0, p = 0, from = 0, to = 0, t0 = 0, dur = 1, raf = 0, closeTimer = 0;
+    var hills = function () { return root.classList.contains('mnav-hills'); };
+    var f1 = function (n) { return Math.round(n * 10) / 10; };
+    // Schneller Start, weiches Auslaufen (beim Schließen umgekehrt: sanft los, dann zügig hinaus)
+    var ease = function (t) { return 1 - Math.pow(1 - t, 3); };
+    // Weiche Kurve durch Punkte (Catmull-Rom als kubische Bézier-Abschnitte)
+    function through(pts) {
+      var d = '';
+      for (var i = 0; i < pts.length - 1; i++) {
+        var a = pts[i - 1] || pts[i], b = pts[i], c = pts[i + 1], e = pts[i + 2] || c;
+        d += ' C' + f1(b[0] + (c[0] - a[0]) / 6) + ' ' + f1(b[1] + (c[1] - a[1]) / 6) + ' ' + f1(c[0] - (e[0] - b[0]) / 6) + ' ' + f1(c[1] - (e[1] - b[1]) / 6) + ' ' + f1(c[0]) + ' ' + f1(c[1]);
+      }
+      return d;
+    }
+    // Welle: Die Kante läuft von rechts nach links. Unterwegs biegt sie sich (am stärksten in der Mitte des Wegs):
+    // Die Mitte eilt voraus, oben und unten bleiben zurück, dazu eine kleine Welle, die an der Kante entlangläuft.
+    function wave(e) {
+      var A = W * 0.3 * Math.sin(Math.PI * e), x0 = W * (1 - e), prof = [1, 0.42, -0.32, 0.08, 0.62], pts = [];
+      for (var i = 0; i < prof.length; i++) {
+        var v = i / (prof.length - 1);
+        pts.push([x0 + A * (prof[i] + 0.22 * Math.sin(Math.PI * 2 * (v * 1.1 - e * 0.9))), v * H]);
+      }
+      var last = pts[pts.length - 1];
+      return 'M' + (W + 2) + ' -2L' + f1(pts[0][0]) + ' -2L' + f1(pts[0][0]) + ' 0' + through(pts) + 'L' + f1(last[0]) + ' ' + (H + 2) + 'L' + (W + 2) + ' ' + (H + 2) + 'Z';
+    }
+    // Hügel: Der Kamm steigt von unten bis über den oberen Rand; bei e = 0 liegt er ganz unter dem Bild, bei e = 1 ganz darüber
+    function hill(e, ph) {
+      var R = Math.min(H * 0.11, 110), n = 8, pts = [];
+      for (var i = 0; i <= n; i++) {
+        var u = i / n;
+        var h = 0.5 + 0.32 * Math.sin(Math.PI * 2 * (u * 1.15 + 0.12 + ph)) + 0.18 * Math.sin(Math.PI * 2 * (u * 2.4 + 0.55 - ph));
+        pts.push([u * W, (H + R) * (1 - e) - R * h]);
+      }
+      return 'M-2 ' + (H + 2) + 'L-2 ' + f1(pts[0][1]) + 'L0 ' + f1(pts[0][1]) + through(pts) + 'L' + (W + 2) + ' ' + f1(pts[n][1]) + 'L' + (W + 2) + ' ' + (H + 2) + 'Z';
+    }
+    function draw() {
+      var e = ease(p);
+      if (hills()) { lead.setAttribute('d', hill(Math.min(1, e * 1.14), 0.21)); face.setAttribute('d', hill(e, 0)); }
+      else { lead.setAttribute('d', ''); face.setAttribute('d', wave(e)); }
+    }
+    function tick(now) {
+      var k = Math.min(1, (now - t0) / dur);
+      p = from + (to - from) * k;
+      draw();
+      if (k < 1) raf = requestAnimationFrame(tick);
+      else { raf = 0; if (to === 0 && !menuOpen) mnav.hidden = true; }
+    }
+    function run(target, ms) {
+      from = p; to = target; dur = Math.max(1, ms * Math.abs(target - p)); t0 = performance.now();
+      if (!raf) raf = requestAnimationFrame(tick);
+    }
+    function size() {
+      var r = svg.getBoundingClientRect();
+      W = Math.round(r.width) || window.innerWidth; H = Math.round(r.height) || window.innerHeight;
+      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    }
+    // Die Einträge kommen, sobald die Fläche sie erreicht hat: bei der Welle früher, beim Hügelkamm (steigt von unten) später
+    items.forEach(function (el, i) { el.style.setProperty('--d', String((hills() ? 300 : 220) + i * 45)); });
+
+    function open() {
+      if (menuOpen) return;
+      menuOpen = true;
+      clearTimeout(closeTimer);
+      mnav.hidden = false;
+      size();
+      root.classList.add('mnav-open');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      if (reduce.matches) { if (raf) { cancelAnimationFrame(raf); raf = 0; } p = 1; draw(); } else run(1, hills() ? 680 : 560);
+      // Einträge erst im nächsten Bild auf „offen“, damit ihr Übergang startet
+      requestAnimationFrame(function () { if (menuOpen) mnav.classList.add('is-open'); });
+      var first = mnav.querySelector('a');
+      if (first) first.focus({ preventScroll: true });
+    }
+    function close(instant) {
+      if (!menuOpen) return;
+      menuOpen = false;
+      mnav.classList.remove('is-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      root.classList.remove('mnav-open');   // sofort: ein Sprung zu einem Abschnitt soll schon während des Schließens scrollen können
+      if (mnav.contains(document.activeElement)) menuBtn.focus({ preventScroll: true });
+      if (instant || reduce.matches) { if (raf) { cancelAnimationFrame(raf); raf = 0; } p = 0; draw(); mnav.hidden = true; return; }
+      // Die Einträge gehen zuerst, dann zieht sich die Fläche zurück
+      closeTimer = setTimeout(function () { if (!menuOpen) run(0, hills() ? 520 : 480); }, 90);
+    }
+    menuBtn.addEventListener('click', function () { if (menuOpen) close(); else open(); });
+    mnav.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('a')) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (!menuOpen) return;
+      if (e.key === 'Escape') { close(); menuBtn.focus({ preventScroll: true }); return; }
+      if (e.key !== 'Tab') return;
+      // Fokus bleibt im Menü und am Knopf (der Rest der Seite liegt darunter)
+      var f = [menuBtn].concat([].slice.call(mnav.querySelectorAll('a')));
+      var i = f.indexOf(document.activeElement);
+      if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+      else if (!e.shiftKey && (i === f.length - 1 || i === -1)) { e.preventDefault(); f[0].focus(); }
+    });
+    var mobile = window.matchMedia('(max-width: 860px)');
+    var onWide = function () { if (!mobile.matches) close(true); };
+    if (mobile.addEventListener) mobile.addEventListener('change', onWide);
+    window.addEventListener('resize', function () { if (menuOpen) { size(); if (!raf) draw(); } });
+  })();
 
   // ---------- Navigation: beim Runterscrollen aus dem Bild, beim Hochscrollen wieder herein ----------
   // Offen gehaltenes Menü, Sprachwähler und Tastaturfokus in der Leiste halten sie sichtbar; ganz oben ist sie immer da.
@@ -27,7 +130,7 @@
       nav.classList.toggle('nav-away', navAway);
     };
     var navHold = function () {
-      return links.classList.contains('open') || (document.querySelector('details.lang') || {}).open || nav.contains(document.activeElement);
+      return menuOpen || (document.querySelector('details.lang') || {}).open || nav.contains(document.activeElement);
     };
     var navScroll = function () {
       navTick = false;
@@ -134,8 +237,12 @@
   // IntersectionObserver statt Scroll-Handler, damit keine Positionen gelesen werden müssen.
   (function () {
     if (!('IntersectionObserver' in window)) return;
+    // Leiste (Desktop) und Menü am Handy tragen dieselben Links, beide bekommen die Markierung
     var linkFor = {};
-    [].slice.call(links.querySelectorAll('a[href^="#"]')).forEach(function (a) { linkFor[a.getAttribute('href').slice(1)] = a; });
+    [].slice.call(document.querySelectorAll('#nav-links a[href^="#"], #mnav .mnav-links a[href^="#"]')).forEach(function (a) {
+      var id = a.getAttribute('href').slice(1);
+      (linkFor[id] = linkFor[id] || []).push(a);
+    });
     var secs = [].slice.call(document.querySelectorAll('main > section[id], .chapters > section[id]'));
     if (!secs.length || !Object.keys(linkFor).length) return;
     secs.sort(function (a, b) { return a.compareDocumentPosition(b) & 4 ? -1 : 1; });
@@ -144,11 +251,11 @@
       entries.forEach(function (en) { inBand[en.target.id] = en.isIntersecting; });
       var cur = null;
       secs.forEach(function (sec) { if (inBand[sec.id]) cur = sec.id; });
-      var a = cur && linkFor[cur] || null;
-      if (a === shown) return;
-      if (shown) shown.removeAttribute('aria-current');
-      if (a) a.setAttribute('aria-current', 'location');
-      shown = a;
+      var id = cur && linkFor[cur] ? cur : null;
+      if (id === shown) return;
+      if (shown) linkFor[shown].forEach(function (a) { a.removeAttribute('aria-current'); });
+      if (id) linkFor[id].forEach(function (a) { a.setAttribute('aria-current', 'location'); });
+      shown = id;
     }, { rootMargin: '-40% 0px -59% 0px' });
     secs.forEach(function (sec) { spy.observe(sec); });
   })();
