@@ -746,6 +746,7 @@ html:not(.hero-boot) .hero:not(.pinned) .h1-a { display: block; color: var(--ink
 .legal p + p { margin-top: .6rem; }
 .legal ul { color: var(--ink-2); padding-left: 1.3rem; margin: .5rem 0 .8rem; }
 .legal li { margin: .25rem 0; }
+.legal .todo { background: color-mix(in srgb, var(--ochre) 28%, transparent); color: var(--ink); border-radius: 4px; padding: .05em .35em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 .legal a { color: var(--terra-d); }
 .legal-note { background: var(--paper); border: 1px solid var(--terra-d); border-radius: 6px; padding: 1rem 1.2rem; margin-bottom: 2rem; font-size: .95rem; }
 
