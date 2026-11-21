@@ -5,7 +5,9 @@
 .ls, .ls-sky, .seam { display: none; }
 
 /* ---------- Hero ---------- */
-html.land .hero { background: #ece8de; }
+/* Hinter der Bühne (nur sichtbar, wenn am Handy die Browserleiste einklappt und das Fenster höher wird als die Bühne) liegt das Oliv der vordersten Ebene:
+   Dort sieht man dann die Fortsetzung der Landschaft statt eines hellen Streifens. */
+html.land .hero { background: #5a5533; }
 html.land .stage-pin { background: #ece8de; }
 html.land .wordmark { display: none; }
 html.land .ls-sky { display: block; position: absolute; inset: 0; z-index: -2; background: linear-gradient(#fbf7f0 0%, #f9ecd2 58%, #f2d9a8 100%); opacity: var(--dawn, 1); pointer-events: none; }
@@ -15,6 +17,8 @@ html.land .ls { display: block; position: absolute; left: 0; right: 0; bottom: 0
 .ls-sun { position: absolute; left: 50%; bottom: 50%; width: clamp(120px, 14vw, 200px); aspect-ratio: 1; border-radius: 50%; margin-left: calc(clamp(120px, 14vw, 200px) / -2);
   background: radial-gradient(circle, #fff6d6 0 38%, #ffe9ad 60%, rgba(255, 233, 173, 0) 72%);
   transform: translate3d(0, calc((1 - var(--dawn, 1)) * 70%), 0); opacity: calc(.3 + .7 * var(--dawn, 1)); }
+/* Füllung unter der vordersten Ebene: steigt mit ihr und hält die Fläche bis zur Kante des Kapitels geschlossen, auch wenn die Ebene etwas schneller oder langsamer steigt als das Kapitel */
+.ls-fill { position: absolute; left: 0; right: 0; top: calc(100% + 47px); height: 150vh; height: 150svh; background: #5a5533; will-change: transform; }
 /* Dunst: liegt am Anfang über allem (alles ist grau und unsortiert) und löst sich auf, während sich die Kacheln ordnen */
 .ls-haze { position: absolute; inset: 0; background: linear-gradient(to top, rgba(205, 200, 186, .96), rgba(222, 217, 204, .78) 60%, rgba(236, 232, 222, .5)); opacity: calc((1 - var(--dawn, 1)) * .92); }
 
@@ -28,6 +32,8 @@ html.land .hero.pinned + .chapters, html.land.hero-boot .hero + .chapters { marg
 html.land .chapter, html.land .chapters > .platform, html.land .steps-sec, html.land .scn { border-radius: 0; overflow: visible; clip-path: inset(-320px 0 0 0); --seam-h: clamp(130px, 22vw, 260px); }
 html.land .chapter, html.land .chapters > .platform { top: 0; }
 html.land .chapters > section { box-shadow: none; }
+/* Keine Körnung auf den Kapitelflächen: Die Landschaftsebenen sind glatt, die Naht wäre sonst an der Körnung sichtbar */
+html.land .c-st, html.land .c-am, html.land .c-hn { background-image: none; }
 html.land .scn { clip-path: none; }
 
 /* Naht als Fläche über dem Kapitel, solange das Kapitel über das vorige fährt (klebender Stapel am großen Bildschirm):
@@ -58,7 +64,9 @@ html.land .scn.scn-on > .seam { margin-bottom: 0; }
     /* Hero: Das Kapitel Stationär ist die Fläche, die die Bühne überfährt (Zeitverlauf über main, damit die Ebenen ihn nutzen können) */
     html.land main { timeline-scope: --land-in; }
     html.land #stationaer { view-timeline-name: --ch, --land-in; view-timeline-axis: block, block; }
-    html.land .ls-l:not(.ls-cl) { animation: land-rise linear both; animation-timeline: --land-in; animation-range: entry 0% entry 100%; }
+    html.land .ls-l:not(.ls-cl), html.land .ls-fill { animation: land-rise linear both; animation-timeline: --land-in; animation-range: entry 0% entry 100%; }
+    /* Die vorderste Ebene steigt etwas weiter als das Kapitel (--s: 1.12): Ihre Kuppe bleibt immer über der Kante des Kapitels, auch wenn der Browser die Fensterhöhe
+       (svh) und die Länge der Scroll-Strecke am Handy minimal anders rechnet. Dazwischen liegt nur ebenes Oliv, die Naht ist unsichtbar. */
     @keyframes land-rise { to { transform: translate3d(0, calc(var(--s) * -100svh), 0); } }
     /* Nähte: Die hinteren Ebenen bleiben oben stehen, die vorderen steigen beim Einfahren des Kapitels langsam aus dem unteren Rand der Naht auf
        (je näher, desto weiter); nichts rutscht nach unten. Die vorderste Ebene, die Farbe des Kapitels, ist fest. Der Weg ist an die Höhe der Naht gebunden. */

@@ -101,7 +101,7 @@ export const HERO = {
     { color: '#6b6641', top: '#726d46', ridge: { base: 488, amp: 46, scale: 92, oct: 4 }, trees: { kind: 'fir', density: 0.72, hmin: 66, hmax: 118 }, houses: { n: 1, x0: 1180, span: 0, s: 1.25, light: '#ffe3a1' } },
     { color: '#5a5533', top: '#5a5533', ridge: { base: 556, amp: 34, scale: 84, oct: 4 }, trees: { kind: 'fir', density: 0.3, hmin: 110, hmax: 190, gap: 70 } },
   ],
-  speeds: [0.04, 0.08, 0.16, 0.28, 0.46, 0.7, 1],
+  speeds: [0.04, 0.08, 0.16, 0.28, 0.46, 0.7, 1.12], // die vorderste steigt etwas weiter als das Kapitel (siehe land.css, land-rise)
 };
 export function heroLayers() { return HERO.layers.map((l, i) => layerSvg({ ...l, W: HERO.W, H: HERO.H }, 101 + i * 17)); }
 
