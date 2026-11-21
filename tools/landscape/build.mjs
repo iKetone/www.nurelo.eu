@@ -20,7 +20,7 @@ export function buildLandscape(root) {
         <div class="ls" aria-hidden="true">
           ${img('ls-l ls-cl', 0.02, '/landscape/hero-sky.svg', HERO.W, HERO.H, true)}
           <div class="ls-sun"></div>
-          ${layers.map((_, i) => img('ls-l', HERO.speeds[i], `/landscape/hero-${i + 1}.svg`, HERO.W, HERO.H, true)).join('\n          ')}
+          ${layers.map((_, i) => (i === layers.length - 1 ? '<div class="ls-fill" style="--s:' + HERO.speeds[i] + '"></div>\n          ' : '') + img('ls-l', HERO.speeds[i], `/landscape/hero-${i + 1}.svg`, HERO.W, HERO.H, true)).join('\n          ')}
           <div class="ls-haze"></div>
         </div>`;
   writeFileSync(join(root, 'src/partials/land-hero.html'), heroHtml);
