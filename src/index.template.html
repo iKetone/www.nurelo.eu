@@ -24,8 +24,6 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <!-- Vergleich: ?kurz zeigt den Abschnitt „Mehrsprachig“ in der gekürzten Fassung (ein Satz, drei Punkte) -->
-  <script>if (/[?&]kurz(?:[=&]|$)/.test(location.search)) document.documentElement.classList.add('ml-kurz');</script>
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/tunnel.css" />
   <link rel="stylesheet" href="/land.css" />
@@ -271,14 +269,11 @@
           <div class="ml-text">
             <p class="kicker light">{{ml_kicker}}</p>
             <h3 class="ml-h">{{ml_h2}}</h3>
-            <p class="ml-lead ml-long">{{ml_lead}}</p>
-            <p class="ml-lead ml-short">{{ml_lead_s}}</p>
+            <p class="ml-lead">{{ml_lead}}</p>
             <ul class="ml-points">
               <li>{{ml_t1}}</li>
-              <li class="ml-x">{{ml_t2}}</li>
+              <li>{{ml_t2}}</li>
               <li>{{ml_t3}}</li>
-              <li class="ml-x">{{ml_t4}}</li>
-              <li>{{ml_t5}}</li>
             </ul>
           </div>
           <div class="ml-demo">
