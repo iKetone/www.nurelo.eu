@@ -1,4 +1,4 @@
-// Neue Motive für die Landschaft (Vorschau mit ?motive): Pflegeauto auf der Landstraße, Funkmast mit Signal, Mond und Sterne, Netz aus Fenstern,
+// Motive der Landschaft: Pflegeauto auf der Landstraße, Funkmast mit Signal, Mond und Sterne, Netz aus Fenstern,
 // Sonnenaufgang mit Pfad und vier Wegmarken, Obstwiese mit Bank und Hochbeeten. Reines Node, keine Abhängigkeiten.
 // Jede Funktion liefert SVG-Text; motiveSeam und motiveHero hängen sie an die Ebenen (Haken o.back vor, o.extra nach der Silhouette).
 import { mix } from '../scenes/iso.mjs';
