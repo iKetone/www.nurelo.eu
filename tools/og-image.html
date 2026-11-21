@@ -11,7 +11,7 @@
   .og { width: 1200px; height: 630px; position: relative; background: #fbf7f0; border: 0; display: grid; place-items: center; }
   .og::before { content: ""; position: absolute; inset: 0; background: #f2eadd; clip-path: polygon(0 62%, 100% 38%, 100% 100%, 0 100%); }
   .brand { position: relative; display: flex; align-items: center; gap: 28px; font-size: 132px; font-weight: 800; letter-spacing: -.05em; line-height: 1; color: #241b14; }
-  .brand img { width: 150px; height: 150px; }
+  .brand img { width: auto; height: 132px; }
   .tiles { position: absolute; left: 0; right: 0; bottom: 70px; display: flex; justify-content: center; gap: 36px; }
   .tiles .tile { position: relative; margin: 0; --s: 110px; }
   .tiles .tile:nth-child(1) { transform: rotate(-7deg); }
@@ -28,7 +28,7 @@
     </defs>
   </svg>
   <div class="og">
-    <div class="brand"><img src="/logo.png" alt="" /><span>Nurelo</span></div>
+    <div class="brand"><img src="/logo-mark.svg" alt="" /><span>Nurelo</span></div>
     <div class="tiles">
       <div class="tile st"><div class="tile-body"><svg><use href="#g-st"/></svg></div></div>
       <div class="tile am"><div class="tile-body"><svg><use href="#g-am"/></svg></div></div>
