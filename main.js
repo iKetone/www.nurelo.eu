@@ -66,7 +66,7 @@
       function readSticks() { sticks = cards.map(function (el) { return parseFloat(getComputedStyle(el).top) || 0; }); }
       function depth() {
         busy = false;
-        var on = deep.matches && !reduce.matches, H = window.innerHeight;
+        var on = deep.matches && !reduce.matches && !root.classList.contains('land'), H = window.innerHeight;
         var tops = cards.map(function (el) { return el.getBoundingClientRect().top; });
         cards.forEach(function (el, i) {
           if (i === cards.length - 1) return;
@@ -353,7 +353,7 @@
   function heroProgress() {
     var r = hero.getBoundingClientRect();
     // Höhe der Bühne statt der Fensterhöhe, damit die Browserleiste am Handy den Verlauf nicht springen lässt
-    var total = r.height - stage.offsetHeight;
+    var total = r.height - stage.offsetHeight - (root.classList.contains('land') ? stage.offsetHeight : 0);
     return total > 0 ? clamp(-r.top / total, 0, 1) : 1;
   }
 
@@ -384,6 +384,11 @@
       [h1a, h1b, more, hint, win].forEach(function (el) { el.style.opacity = ''; el.style.pointerEvents = ''; el.style.transform = ''; });
     }
     DRIFT.t1 = t1; DRIFT.t2 = t2;
+    if (root.classList.contains('land')) {
+      // Morgen: Dunst löst sich, Sonne steigt, Himmel wird warm, im selben Takt wie die Kacheln sich sortieren
+      var dawn = pinned ? smooth(0, 1, t1).toFixed(3) : '1';
+      if (hero._dawn !== dawn) { hero._dawn = dawn; hero.style.setProperty('--dawn', dawn); }
+    }
     setStage(t1, t2);
     updateTilt();
     driftKick();
