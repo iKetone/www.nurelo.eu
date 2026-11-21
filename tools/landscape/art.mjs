@@ -136,7 +136,7 @@ export function seamLayers(id) {
   const col = (t) => mix(s.from, s.to, t);
   // Läuft die Naht in eine helle Fläche, tragen nur die hinteren Ebenen Bäume; helle Bäume vor dunklem Grund sähen wie Schnee aus
   const light = (() => { const h = mix(s.to, '#000000', 0); const r = parseInt(h.slice(1, 3), 16), g = parseInt(h.slice(3, 5), 16), b = parseInt(h.slice(5, 7), 16); return (0.299 * r + 0.587 * g + 0.114 * b) / 255 > 0.7; })();
-  const base = [96, 136, 176, 226], amp = [44, 40, 34, 28], scale = [260, 190, 140, 110];
+  const base = [78, 118, 160, 214], amp = [44, 40, 34, 28], scale = [260, 190, 140, 110];
   return ts.map((t, k) => {
     const color = col(t), top = mix(color, '#ffffff', k === 3 ? 0 : 0.07);
     const o = { W, H, color, top, ridge: { base: base[k], amp: amp[k], scale: scale[k], peak: k === 0 && s.motif !== 'mist' ? 0.4 : 0, oct: 4 } };
