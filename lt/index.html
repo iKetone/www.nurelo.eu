@@ -57,7 +57,6 @@
     var d = document.documentElement;
     // Vorschau: Landschaft statt der geraden Kanten, nur mit ?landschaft (siehe land.css)
     if (/[?&]landschaft(=|&|$)/.test(location.search)) d.classList.add('land');
-    if (/[?&]korn(=|&|$)/.test(location.search)) d.classList.add('korn'); // Vorschau: Körnung auf der vordersten Ebene und den Flächen (land.css)
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     d.classList.add('hero-boot');
     setTimeout(function () { d.classList.remove('hero-boot'); }, 3000);
@@ -185,7 +184,6 @@
           <img class="ls-l" style="--s:0.7" src="/landscape/hero-6.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
           <div class="ls-fill" style="--s:1.12"></div>
           <img class="ls-l" style="--s:1.12" src="/landscape/hero-7.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
-          <i class="ls-grain" style="--s:1.12;--m:url(/landscape/hero-7.svg)"></i>
           <div class="ls-haze"></div>
         </div>
         <div class="wordmark" aria-hidden="true">Nurelo</div>
@@ -270,7 +268,7 @@
       </section>
 
       <section class="chapter c-am" id="ambulant" style="--i:1">
-        <div class="seam" aria-hidden="true" style="--seam-from:#5a5533"><img class="seam-l" style="--s:0.14" src="/landscape/seam-am-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.34" src="/landscape/seam-am-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.62" src="/landscape/seam-am-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge" style="--s:1" src="/landscape/seam-am-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><i class="seam-grain" style="--m:url(/landscape/seam-am-4.svg)"></i></div>
+        <div class="seam" aria-hidden="true" style="--seam-from:#5a5533"><img class="seam-l" style="--s:0.14" src="/landscape/seam-am-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.34" src="/landscape/seam-am-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.62" src="/landscape/seam-am-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge" style="--s:1" src="/landscape/seam-am-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"></div>
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Slauga namuose</p>
@@ -309,7 +307,7 @@
       </section>
 
       <section class="chapter c-hn" id="hausnotruf" style="--i:2">
-        <div class="seam" aria-hidden="true" style="--seam-from:#c59045"><img class="seam-l" style="--s:0.14" src="/landscape/seam-hn-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.34" src="/landscape/seam-hn-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.62" src="/landscape/seam-hn-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge" style="--s:1" src="/landscape/seam-hn-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><i class="seam-grain" style="--m:url(/landscape/seam-hn-4.svg)"></i></div>
+        <div class="seam" aria-hidden="true" style="--seam-from:#c59045"><img class="seam-l" style="--s:0.14" src="/landscape/seam-hn-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.34" src="/landscape/seam-hn-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.62" src="/landscape/seam-hn-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge" style="--s:1" src="/landscape/seam-hn-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"></div>
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Pagalbos iškvietimas</p>

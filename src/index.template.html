@@ -33,7 +33,6 @@
     var d = document.documentElement;
     // Vorschau: Landschaft statt der geraden Kanten, nur mit ?landschaft (siehe land.css)
     if (/[?&]landschaft(=|&|$)/.test(location.search)) d.classList.add('land');
-    if (/[?&]korn(=|&|$)/.test(location.search)) d.classList.add('korn'); // Vorschau: Körnung auf der vordersten Ebene und den Flächen (land.css)
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     d.classList.add('hero-boot');
     setTimeout(function () { d.classList.remove('hero-boot'); }, 3000);
