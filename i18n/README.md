@@ -27,7 +27,7 @@ Das Skript meldet fehlende oder unbekannte Schlüssel und bricht dann ab.
 - In `*_h`-Schlüsseln steht `&amp;` für ein Und-Zeichen, in Attributen wie `meta_desc` steht Klartext.
 - Der Sprachwähler zeigt Flagge und Sprachcode (ISO 639-1, z. B. „DE“). Der ausgeschriebene Name steht im Tooltip und im Namen für Screenreader (aus `LANGS`).
 - Eigene CSS- und JS-Dateien bekommen beim Bauen eine Versionsangabe (`/styles.css?v=<Prüfsumme>`, auch in den statischen Seiten wie Impressum und 404). Nach jeder Änderung an CSS oder JS deshalb bauen, sonst sehen Besucher bis zu 10 Minuten lang die alte Datei.
-- **Kacheln** (Stationär, Ambulant, Hausnotruf): flach im Stil der Landschaft, gezeichnet nur mit CSS (`styles.css`, „Kacheln im Stil der Landschaft“). Die Hügel tragen die Farben der jeweiligen Kapitel-Landschaft. Die Kapitel-Kacheln bleiben beim Scrollen fest am Fenster und schwenken nur leicht (`updateTilt` in `main.js`).
+- **Kacheln** (Stationär, Ambulant, Hausnotruf): flach im Stil der Landschaft, die Fläche ist je Kachelart ein SVG-Bild in `styles.css` („Kacheln im Stil der Landschaft“), erzeugt mit `python3 tools/tile-faces.py <Ordner>`. Für flüssige Bewegung im Hero: eine Bildschicht, keine Masken, kein var() im Bild, keine Körnung. Die Hügel tragen die Farben der jeweiligen Kapitel-Landschaft. Die Kapitel-Kacheln bleiben beim Scrollen fest am Fenster und schwenken nur leicht (`updateTilt` in `main.js`).
 - Impressum, Datenschutz und AGB gibt es nur auf Deutsch (`/impressum.html` usw.).
 - Die Übersetzungen sind Entwürfe und sollten vor dem Live-Gang von Muttersprachlern geprüft werden.
 

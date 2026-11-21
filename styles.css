@@ -205,33 +205,20 @@ h3 { font-size: 1.3rem; letter-spacing: -.015em; }
 .tile.mini { position: relative; --s: 84px; margin: 0; }
 html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
 /* Kacheln im Stil der Landschaft: flach, kein Glanz.
-   Fläche = Himmel mit Körnung und Hof um das Symbol, zwei Hügel mit Bäumen oder Häusern (Masken), Kante als eigene Ebene hinter der Fläche.
-   Die Neigung kommt aus main.js (updateTilt), --g (Graustufe im Hero) setzt ebenfalls main.js. */
-.tile {
-  --c-l: color-mix(in srgb, var(--c) 82%, var(--cream));
-  --c-e: color-mix(in srgb, var(--c) 46%, var(--ink));
-  --halo: color-mix(in srgb, var(--cream) 11%, transparent);
-  --win: #ffd98a;
-}
-/* Hügel in den Farben der Kapitel-Landschaften: Stationär Ocker auf Oliv, Ambulant Rost auf Ocker, Hausnotruf Tinte auf Terrakotta */
-.tile.st { --h-back: color-mix(in srgb, var(--olive) 72%, var(--ink)); --h-front: var(--ochre); }
-.tile.am { --h-back: color-mix(in srgb, var(--terra) 70%, var(--ochre)); --h-front: var(--terra-d); }
-.tile.hn { --h-back: color-mix(in srgb, var(--terra-d) 72%, var(--ink)); --h-front: #2a2018; }
+   Die Fläche ist je Kachelart ein fertiges Bild (SVG): Himmel, Hof um das Symbol, zwei Hügel in den Farben der Kapitel-Landschaft
+   (Stationär Ocker auf Oliv, Ambulant Rost auf Ocker, Hausnotruf Tinte auf Terrakotta), Bäume oder Häuser mit Fenstern.
+   Erzeugt mit tools/tile-faces.py, Ausgabe unten einsetzen. Die Kante ist eine eigene Ebene hinter der Fläche.
+   Die Neigung kommt aus main.js (updateTilt), --g (Graustufe im Hero) setzt ebenfalls main.js.
+   Wichtig für flüssige Bewegung: eine einzige Bildschicht, ohne var() im Bild, ohne Masken und ohne Körnung. Mehrere Schichten
+   (Verläufe plus Körnung) oder Bilder mit var() zeichnet Chrome bei jeder Stiländerung neu, im Hero also in jedem Bild; den
+   Rauschfilter der Körnung berechnet Safari bei jeder Größenänderung neu. */
+.tile { --c-e: color-mix(in srgb, var(--c) 46%, var(--ink)); }
 .tile-body {
   position: absolute; inset: 0; border-radius: 30%; display: grid; place-items: center;
-  overflow: hidden; isolation: isolate; filter: grayscale(var(--g, 0));
-  background: var(--grain),
-    radial-gradient(circle at 50% 41%, var(--halo) 0 27%, transparent 27.5%),
-    radial-gradient(circle at 50% 41%, var(--halo) 0 37%, transparent 37.5%),
-    linear-gradient(to bottom, var(--c-l), var(--c) 75%);
+  overflow: hidden; filter: grayscale(var(--g, 0));
+  background: var(--c) center / 100% 100% no-repeat;
   box-shadow: inset 0 calc(var(--s) * .02) 0 color-mix(in srgb, var(--cream) 22%, transparent);
 }
-.tile-body::before, .tile-body::after {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  -webkit-mask: var(--m) center / 100% 100% no-repeat; mask: var(--m) center / 100% 100% no-repeat;
-}
-.tile-body::before { background: var(--h-back); }
-.tile-body::after { background: var(--wins, none), var(--h-front); }
 .tile-body svg { width: 40%; height: 40%; color: var(--glyph); transform: translateY(-9%);
   filter: drop-shadow(0 calc(var(--s) * .018) 0 color-mix(in srgb, var(--ink) 35%, transparent)); }
 /* Kante: kleine Kacheln bekommen sie als Schatten, Kacheln mit Neigung als Ebene dahinter (echte Tiefe beim Kippen) */
@@ -242,12 +229,9 @@ html:not(.js) .tile.big, html:not(.js) .tile.sat { display: none; }
   transform: translateY(calc(var(--s) * .05)) translateZ(calc(var(--s) * -.07));
   box-shadow: 0 calc(var(--s) * .08) calc(var(--s) * .14) color-mix(in srgb, var(--ink) 28%, transparent);
 }
-.tile.st .tile-body::before { --m: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 74C16 66 34 66 52 71S84 66 100 62V100H0Z'/%3E%3C/svg%3E"); }
-.tile.st .tile-body::after { --m: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 87C22 77 46 80 64 85S88 82 100 79V100H0Z'/%3E%3Ccircle cx='20' cy='73.5' r='5.5'/%3E%3Crect x='19.3' y='76.3' width='1.4' height='8.2'/%3E%3Ccircle cx='30' cy='74.8' r='3.8'/%3E%3Crect x='29.3' y='76.7' width='1.4' height='5.7'/%3E%3Ccircle cx='81' cy='73.3' r='4.6'/%3E%3Crect x='80.3' y='75.6' width='1.4' height='6.9'/%3E%3C/svg%3E"); }
-.tile.am .tile-body::before { --m: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 70C14 66 30 72 48 70S80 62 100 66V100H0Z'/%3E%3C/svg%3E"); }
-.tile.am .tile-body::after { --m: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 86C20 80 42 82 60 86S86 80 100 78V100H0Z'/%3E%3Cpath d='M18 66.0L22.0 75.5H20.4L23.9 83.5H12.1L15.6 75.5H14.0Z'/%3E%3Crect x='17.3' y='83.1' width='1.4' height='3.0'/%3E%3Cpath d='M27 72.0L29.5 78.0H28.5L30.7 83.0H23.3L25.5 78.0H24.5Z'/%3E%3Crect x='26.3' y='82.8' width='1.4' height='1.9'/%3E%3Cpath d='M68 84V77.2L73.5 72.6L79 77.2V84Z'/%3E%3Cpath d='M88 67.0L91.0 74.0H89.7L92.3 79.9H83.7L86.3 74.0H85.0Z'/%3E%3Crect x='87.3' y='79.6' width='1.4' height='2.2'/%3E%3C/svg%3E"); --wins: radial-gradient(circle calc(var(--s) * .022) at 73.5% 79.5%, var(--win) 96%, transparent); }
-.tile.hn .tile-body::before { --m: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 68C20 63 36 70 56 69S86 64 100 67V100H0Z'/%3E%3C/svg%3E"); }
-.tile.hn .tile-body::after { --m: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 85C22 80 44 83 62 85S86 81 100 80V100H0Z'/%3E%3Cpath d='M17 84V77.2L22.5 72.6L28 77.2V84Z'/%3E%3Cpath d='M36 69.0L39.2 76.5H37.9L40.6 82.8H31.4L34.1 76.5H32.8Z'/%3E%3Crect x='35.3' y='82.5' width='1.4' height='2.4'/%3E%3Cpath d='M62 85V78.8L67.0 74.6L72 78.8V85Z'/%3E%3Cpath d='M84 64.0L87.8 73.0H86.2L89.6 80.6H78.4L81.8 73.0H80.2Z'/%3E%3Crect x='83.3' y='80.2' width='1.4' height='2.9'/%3E%3C/svg%3E"); --wins: radial-gradient(circle calc(var(--s) * .022) at 22.5% 79.5%, var(--win) 96%, transparent), radial-gradient(circle calc(var(--s) * .022) at 67% 81%, var(--win) 96%, transparent); }
+.tile.st .tile-body { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3ClinearGradient id='s' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23908864'/%3E%3Cstop offset='.75' stop-color='%237a734a'/%3E%3C/linearGradient%3E%3Crect width='100' height='100' fill='url(%23s)'/%3E%3Cg fill='%23f2eadd' fill-opacity='.11'%3E%3Ccircle cx='50' cy='41' r='28.6'/%3E%3Ccircle cx='50' cy='41' r='20.9'/%3E%3C/g%3E%3Cpath d='M0 74C16 66 34 66 52 71S84 66 100 62V100H0Z' fill='%23625a3b'/%3E%3Cg fill='%23c59045'%3E%3Cpath d='M0 87C22 77 46 80 64 85S88 82 100 79V100H0Z'/%3E%3Ccircle cx='20' cy='73.5' r='5.5'/%3E%3Crect x='19.3' y='76.3' width='1.4' height='8.2'/%3E%3Ccircle cx='30' cy='74.8' r='3.8'/%3E%3Crect x='29.3' y='76.7' width='1.4' height='5.7'/%3E%3Ccircle cx='81' cy='73.3' r='4.6'/%3E%3Crect x='80.3' y='75.6' width='1.4' height='6.9'/%3E%3C/g%3E%3C/svg%3E"); }
+.tile.am .tile-body { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3ClinearGradient id='s' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23cda060'/%3E%3Cstop offset='.75' stop-color='%23c59045'/%3E%3C/linearGradient%3E%3Crect width='100' height='100' fill='url(%23s)'/%3E%3Cg fill='%23f2eadd' fill-opacity='.11'%3E%3Ccircle cx='50' cy='41' r='28.6'/%3E%3Ccircle cx='50' cy='41' r='20.9'/%3E%3C/g%3E%3Cpath d='M0 70C14 66 30 72 48 70S80 62 100 66V100H0Z' fill='%23c17846'/%3E%3Cg fill='%239e4e2e'%3E%3Cpath d='M0 86C20 80 42 82 60 86S86 80 100 78V100H0Z'/%3E%3Cpath d='M18 66.0L22.0 75.5H20.4L23.9 83.5H12.1L15.6 75.5H14.0Z'/%3E%3Crect x='17.3' y='83.1' width='1.4' height='3.0'/%3E%3Cpath d='M27 72.0L29.5 78.0H28.5L30.7 83.0H23.3L25.5 78.0H24.5Z'/%3E%3Crect x='26.3' y='82.8' width='1.4' height='1.9'/%3E%3Cpath d='M68 84V77.2L73.5 72.6L79 77.2V84Z'/%3E%3Cpath d='M88 67.0L91.0 74.0H89.7L92.3 79.9H83.7L86.3 74.0H85.0Z'/%3E%3Crect x='87.3' y='79.6' width='1.4' height='2.2'/%3E%3C/g%3E%3Ccircle cx='73.5' cy='79.5' r='2.1' fill='%23ffd98a'/%3E%3C/svg%3E"); }
+.tile.hn .tile-body { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3ClinearGradient id='s' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23c88462'/%3E%3Cstop offset='.75' stop-color='%23bf6d47'/%3E%3C/linearGradient%3E%3Crect width='100' height='100' fill='url(%23s)'/%3E%3Cg fill='%23f2eadd' fill-opacity='.11'%3E%3Ccircle cx='50' cy='41' r='28.6'/%3E%3Ccircle cx='50' cy='41' r='20.9'/%3E%3C/g%3E%3Cpath d='M0 68C20 63 36 70 56 69S86 64 100 67V100H0Z' fill='%237c4027'/%3E%3Cg fill='%232a2018'%3E%3Cpath d='M0 85C22 80 44 83 62 85S86 81 100 80V100H0Z'/%3E%3Cpath d='M17 84V77.2L22.5 72.6L28 77.2V84Z'/%3E%3Cpath d='M36 69.0L39.2 76.5H37.9L40.6 82.8H31.4L34.1 76.5H32.8Z'/%3E%3Crect x='35.3' y='82.5' width='1.4' height='2.4'/%3E%3Cpath d='M62 85V78.8L67.0 74.6L72 78.8V85Z'/%3E%3Cpath d='M84 64.0L87.8 73.0H86.2L89.6 80.6H78.4L81.8 73.0H80.2Z'/%3E%3Crect x='83.3' y='80.2' width='1.4' height='2.9'/%3E%3C/g%3E%3Ccircle cx='22.5' cy='79.5' r='2.1' fill='%23ffd98a'/%3E%3Ccircle cx='67' cy='81' r='2.1' fill='%23ffd98a'/%3E%3C/svg%3E"); }
 
 /* Hero */
 .hero { background: var(--paper); padding: 0; }
