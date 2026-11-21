@@ -13,7 +13,7 @@
   "pg_others_h": "Die anderen Produkte",
 
   "st_pg_title": "Nurelo Stationär: Pflegesoftware für stationäre Einrichtungen",
-  "st_pg_desc": "Nurelo Stationär verwaltet Bewohner, Pflegeplanung nach dem Strukturmodell, Dienstplan, Abrechnung und Medikamente in stationären Pflegeeinrichtungen, mit eigenen Stammdaten und eigenen Modulen. Gehostet in Deutschland.",
+  "st_pg_desc": "Nurelo Stationär verwaltet Bewohner, Pflegeplanung nach dem Strukturmodell, Dienstplan, Abrechnung und Medikamente in stationären Pflegeeinrichtungen, mit eigenen Stammdaten und eigenen Modulen. Lokal oder gehostet in Deutschland.",
   "st_pg_feat_h2": "Was Nurelo Stationär abdeckt",
   "st_pg_f1_h": "Bewohnerverwaltung",
   "st_pg_f1_p": "Alle Angaben zu Bewohnerinnen und Bewohnern an einem Ort, von der Aufnahme bis zur Akte, einschließlich Erfassung und Auswertung der Pflegegrade.",
@@ -33,7 +33,7 @@
   "st_pg_f8_p": "Kosten den Bereichen Ihrer Einrichtung zuordnen und die Löhne Ihres Personals im Überblick behalten.",
 
   "am_pg_title": "Nurelo Ambulant: Pflegesoftware für ambulante Dienste",
-  "am_pg_desc": "Nurelo Ambulant plant Touren, dokumentiert Einsätze mobil und rechnet Leistungen nach SGB XI und V nach § 302 ab, mit eigenen Stammdaten und eigenen Modulen. Gehostet in Deutschland.",
+  "am_pg_desc": "Nurelo Ambulant plant Touren, dokumentiert Einsätze mobil und rechnet Leistungen nach SGB XI und V nach § 302 ab, mit eigenen Stammdaten und eigenen Modulen. Lokal oder gehostet in Deutschland.",
   "am_pg_feat_h2": "Was Nurelo Ambulant abdeckt",
   "am_pg_f1_h": "Tour- und Dienstplanung",
   "am_pg_f1_p": "Routenplanung und Dienstplan mit Fahrzeug- und Mitarbeiterzuweisung.",
@@ -53,7 +53,7 @@
   "am_pg_f8_p": "Abrechnung nach §&nbsp;302, direkt an die Kostenträger übermittelt.",
 
   "hn_pg_title": "Nurelo Hausnotruf: Software für Hausnotruf-Anbieter",
-  "hn_pg_desc": "Nurelo Hausnotruf verwaltet Teilnehmer, Geräte und die Alarmweiterleitung an die Hausnotrufzentrale, wertet Fehl- und Probealarme aus und rechnet Monatspauschalen ab, mit eigenen Stammdaten und eigenen Modulen. Gehostet in Deutschland.",
+  "hn_pg_desc": "Nurelo Hausnotruf verwaltet Teilnehmer, Geräte und die Alarmweiterleitung an die Hausnotrufzentrale, wertet Fehl- und Probealarme aus und rechnet Monatspauschalen ab, mit eigenen Stammdaten und eigenen Modulen. Lokal oder gehostet in Deutschland.",
   "hn_pg_feat_h2": "Was Nurelo Hausnotruf abdeckt",
   "hn_pg_f1_h": "Teilnehmerverwaltung",
   "hn_pg_f1_p": "Alle Angaben zu Ihren Teilnehmerinnen und Teilnehmern an einem Ort.",
