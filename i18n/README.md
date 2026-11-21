@@ -27,6 +27,26 @@ Das Skript meldet fehlende oder unbekannte Schlüssel und bricht dann ab.
 - Impressum, Datenschutz und AGB gibt es nur auf Deutsch (`/impressum.html` usw.).
 - Die Übersetzungen sind Entwürfe und sollten vor dem Live-Gang von Muttersprachlern geprüft werden.
 
+## Festgelegte Begriffe (Stand Übersetzungsaudit)
+
+Diese Begriffe sind entschieden und gelten für alle Sprachen. Weitere Sprachen sollen sich daran orientieren.
+
+| Deutsch | Englisch | Französisch |
+|---|---|---|
+| Hausnotruf (Produktname) | Emergency call | Téléassistance |
+| Hausnotruf (in Beschreibungen) | home emergency call | téléassistance |
+| Teilnehmer (Hausnotruf) | service user | abonné |
+| Monatspauschale | monthly flat rate | forfait mensuel |
+| Betriebsform | care setting | type de structure |
+| Träger | operators | gestionnaires |
+| Kostenträger | payers | organismes payeurs |
+| Tour (Ambulant) | route | tournée |
+| Berichteblatt | report sheet | feuille de transmissions |
+| Angebot (Preise) | quote | devis |
+
+Anrede: Deutsch „Sie", Französisch „vous". Englisch ist britisch (centre, analyse, licence).
+Französisch: Vor `:` `?` `!` `;` steht ein geschütztes Leerzeichen (U+00A0), damit das Zeichen nicht allein am Zeilenanfang landet.
+
 ## Produktseiten
 
 Die Produktseiten (`/stationaer/`, `/ambulant/`, `/hausnotruf/` und `/en/residential/`, `/en/home-care/`, `/en/emergency-call/`) entstehen aus `src/product.template.html`.

@@ -129,6 +129,28 @@ h3 { font-size: 1.3rem; letter-spacing: -.015em; }
 .nav-ind.on { opacity: 1; }
 .nav-ind.still { transition: none; }
 .nav-links.has-ind a[aria-current] { text-decoration: none; }
+/* Schmale Rechner und Tablets quer: Die Leiste ist nur etwas breiter als 860px, aber die Beschriftungen vieler Sprachen sind länger als die deutschen.
+   Etwas engere Abstände und kleinere Schrift halten sie in einer Zeile, ohne dass sich die beiden Kapseln berühren. */
+@media (min-width: 861px) and (max-width: 1100px) {
+  .nav { left: max(10px, env(safe-area-inset-left)); right: max(10px, env(safe-area-inset-right)); }
+  .pill { gap: .65rem; padding-left: .75rem; }
+  .brand { font-size: 1.1rem; gap: .45rem; }
+  .brand img { width: 26px; height: 26px; }
+  .nav-links { gap: .8rem; padding-right: .2rem; }
+  .nav-links a { font-size: .86rem; white-space: nowrap; }
+  .lang summary { padding: 0 .6rem; }
+  .nav-right .btn-sm { padding: .5rem .8rem; font-size: .86rem; white-space: nowrap; }
+}
+@media (min-width: 861px) and (max-width: 960px) {
+  .pill { gap: .5rem; }
+  .nav-links { gap: .6rem; }
+  .nav-links a { font-size: .82rem; }
+  .brand { font-size: 1.02rem; }
+  .nav-right .btn-sm { padding: .45rem .65rem; font-size: .82rem; }
+}
+@media (min-width: 861px) and (max-width: 900px) {
+  .brand { font-size: 0; gap: 0; } /* nur das Zeichen, der Name steht in aria-label und im Seitentitel; sonst reicht der Platz für lange Beschriftungen nicht */
+}
 
 /* Sprachwähler */
 .lang { position: static; }
