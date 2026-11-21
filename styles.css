@@ -109,6 +109,9 @@ h3 { font-size: 1.3rem; letter-spacing: -.015em; }
 
 /* Schwebende Navigation */
 .nav { position: fixed; inset: max(18px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right)) auto max(18px, env(safe-area-inset-left)); display: flex; justify-content: space-between; align-items: flex-start; z-index: 60; pointer-events: none; }
+/* Beim Runterscrollen gleitet die Leiste nach oben aus dem Bild (main.js), beim Hochscrollen kommt sie zurück */
+.nav { transition: transform .38s cubic-bezier(.2, .8, .2, 1); }
+.nav.nav-away { transform: translateY(calc(-100% - 40px - env(safe-area-inset-top))); transition-duration: .3s; transition-timing-function: cubic-bezier(.4, 0, 1, 1); }
 .pill {
   pointer-events: auto; display: flex; align-items: center; gap: 1.2rem; padding: .4rem .5rem .4rem 1rem;
   background: var(--paper); border: 1px solid var(--line); border-radius: 10px;
@@ -767,7 +770,7 @@ html:not(.hero-boot) .hero:not(.pinned) .h1-a { display: block; color: var(--ink
 @media (prefers-reduced-motion: reduce) {
   .tile-gl, .tile-body, .to-top, .btn { transition: none; }
   .lang[open] .lang-list, .nav .nav-links.open { animation: none; }
-  .nav-ind { transition: none; }
+  .nav-ind, .nav { transition: none; }
   html { scroll-behavior: auto; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
 }

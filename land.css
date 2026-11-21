@@ -29,7 +29,9 @@ html.land .chapters { margin-top: 0; }
 html.land .hero.pinned + .chapters, html.land.hero-boot .hero + .chapters { margin-top: -100vh; margin-top: -100svh; }
 
 /* ---------- Kapitel ohne Ecken und Stapelkanten, Nähte darüber ---------- */
-html.land .chapter, html.land .chapters > .platform, html.land .steps-sec, html.land .scn { border-radius: 0; overflow: visible; clip-path: inset(-320px 0 0 0); --seam-h: clamp(130px, 22vw, 260px); }
+/* Der Beschnitt reicht unten 2px über die Kante hinaus: Fällt die Kante auf einen halben Bildschirmpunkt (Handy, Browser-Zoom), schneidet clip-path sie sonst
+   mit weichem Rand ab, und die helle Fläche dahinter scheint als feine Linie durch. */
+html.land .chapter, html.land .chapters > .platform, html.land .steps-sec, html.land .scn { border-radius: 0; overflow: visible; clip-path: inset(-320px 0 -2px 0); --seam-h: clamp(130px, 22vw, 260px); }
 html.land .chapter, html.land .chapters > .platform { top: 0; }
 html.land .chapters > section { box-shadow: none; }
 /* Keine Körnung auf den Kapitelflächen: Die Landschaftsebenen sind glatt, die Naht wäre sonst an der Körnung sichtbar */
