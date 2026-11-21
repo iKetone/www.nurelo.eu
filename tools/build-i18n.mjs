@@ -110,15 +110,18 @@ function langItems(code, langs, pathFor, indent) {
     `${indent}<li><a href="${pathFor(c)}" hreflang="${c}" lang="${c}" title="${escAttr(LANGNAME[c])}" aria-label="${escAttr(LANGNAME[c])} (${c.toUpperCase()})"${c === code ? ' aria-current="true"' : ''}>${flagIcon(c)}<span class="lang-code" aria-hidden="true">${c.toUpperCase()}</span></a></li>`).join('\n');
 }
 
+// Sprach-Knopf mit Liste (in der Leiste und im Menü am Handy), ind = Einrückung des details-Elements
+function langDetails(code, langs, pathFor, ariaText, cls, ind) {
+  return `${ind}<details class="${cls}">
+${ind}  <summary aria-label="${code.toUpperCase()}: ${escAttr(stripTags(ariaText))}">${flagIcon(code)}<span aria-hidden="true">${code.toUpperCase()}</span></summary>
+${ind}  <ul class="lang-list">
+${langItems(code, langs, pathFor, ind + '    ')}
+${ind}  </ul>
+${ind}</details>`;
+}
+
 function switcherHtml(code, langs, pathFor, ariaText) {
-  const items = langItems(code, langs, pathFor, '          ');
-  return `      ${flagSprite(langs)}
-      <details class="lang">
-        <summary aria-label="${code.toUpperCase()}: ${escAttr(stripTags(ariaText))}">${flagIcon(code)}<span aria-hidden="true">${code.toUpperCase()}</span></summary>
-        <ul class="lang-list">
-${items}
-        </ul>
-      </details>`;
+  return `      ${flagSprite(langs)}\n${langDetails(code, langs, pathFor, ariaText, 'lang', '      ')}`;
 }
 
 function hreflangHtml(langs, pathFor) {
@@ -225,7 +228,7 @@ for (const [code] of LANGS) {
     hreflang: hreflangHtml(LANGS.map((l) => l[0]), pathFor),
     autolang: code === 'de' ? autoLangScript : '',
     switcher: switcherHtml(code, LANGS.map((l) => l[0]), pathFor, t.lang_aria),
-    mnav_langs: langItems(code, LANGS.map((l) => l[0]), pathFor, '            '),
+    mnav_lang: langDetails(code, LANGS.map((l) => l[0]), pathFor, t.lang_aria, 'lang mnav-item', '        '),
     // Beispiel im Abschnitt „Mehrsprachig“: Sprachnotiz in der Sprache der Seite (auf Deutsch: Türkisch) und ihre deutsche Übersetzung
     ml_lang: code === 'de' ? 'tr' : code, ml_code: (code === 'de' ? 'tr' : code).toUpperCase(),
     ml_flag: flagIcon(code === 'de' ? 'tr' : code), ml_flag_de: flagIcon('de'),
@@ -262,7 +265,7 @@ for (const code of PRODUCT_LANGS) {
       lang: code, locale: LOCALE[code], url: SITE + productPath(p, code), home: homePath(code),
       hreflang: hreflangHtml(PRODUCT_LANGS, pathFor),
       switcher: switcherHtml(code, PRODUCT_LANGS, pathFor, t.lang_aria),
-      mnav_langs: langItems(code, PRODUCT_LANGS, pathFor, '            '),
+      mnav_lang: langDetails(code, PRODUCT_LANGS, pathFor, t.lang_aria, 'lang mnav-item', '        '),
       nav_links: navLinks, others,
       scene_css: SCENE_IDS.includes(p.id) ? '<link rel="stylesheet" href="/scene.css" />' : '',
       scene_js: SCENE_IDS.includes(p.id) ? '<script src="/scene.js" defer></script>' : '',
