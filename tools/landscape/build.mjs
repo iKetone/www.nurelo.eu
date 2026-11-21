@@ -29,7 +29,7 @@ export function buildLandscape(root) {
   for (const id of Object.keys(SEAMS)) {
     const ls = seamLayers(id);
     ls.forEach((svg, i) => writeFileSync(join(dir, `seam-${id}-${i + 1}.svg`), svg));
-    const html = `<div class="seam" aria-hidden="true">${ls.map((_, i) => img(i === ls.length - 1 ? 'seam-l seam-edge' : 'seam-l', SEAM_SPEEDS[i], `/landscape/seam-${id}-${i + 1}.svg`, 1600, 300, true)).join('')}</div>`;
+    const html = `<div class="seam" aria-hidden="true" style="--seam-from:${SEAMS[id].from}">${ls.map((_, i) => img(i === ls.length - 1 ? 'seam-l seam-edge' : 'seam-l', SEAM_SPEEDS[i], `/landscape/seam-${id}-${i + 1}.svg`, 1600, 300, true)).join('')}</div>`;
     writeFileSync(join(root, `src/partials/seam-${id}.html`), html);
   }
 }

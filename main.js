@@ -353,7 +353,8 @@
   function heroProgress() {
     var r = hero.getBoundingClientRect();
     // Höhe der Bühne statt der Fensterhöhe, damit die Browserleiste am Handy den Verlauf nicht springen lässt
-    var total = r.height - stage.offsetHeight - (root.classList.contains('land') ? stage.offsetHeight : 0);
+    // Landschaft: nach der Sequenz steht die Bühne noch 45 % einer Fensterhöhe still, dann fährt das Kapitel 100 % darüber
+    var total = r.height - stage.offsetHeight - (root.classList.contains('land') ? stage.offsetHeight * 1.45 : 0);
     return total > 0 ? clamp(-r.top / total, 0, 1) : 1;
   }
 

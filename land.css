@@ -10,6 +10,7 @@ html.land .stage-pin { background: #ece8de; }
 html.land .wordmark { display: none; }
 html.land .ls-sky { display: block; position: absolute; inset: 0; z-index: -2; background: linear-gradient(#fbf7f0 0%, #f9ecd2 58%, #f2d9a8 100%); opacity: var(--dawn, 1); pointer-events: none; }
 html.land .ls { display: block; position: absolute; left: 0; right: 0; bottom: 0; height: clamp(320px, 66svh, 760px); z-index: -1; pointer-events: none; }
+@media (max-width: 860px) { html.land .ls { height: clamp(360px, 74svh, 760px); } } /* am Handy mehr Landschaft über dem Fenster */
 .ls-l { position: absolute; left: 0; bottom: -48px; width: 100%; height: calc(100% + 48px); /* 48px Überstand unten: deckt Rundungsfugen, wenn das Kapitel genauso schnell steigt wie die vorderste Ebene */ object-fit: cover; object-position: 50% 100%; max-width: none; will-change: transform; }
 .ls-sun { position: absolute; left: 50%; bottom: 50%; width: clamp(120px, 14vw, 200px); aspect-ratio: 1; border-radius: 50%; margin-left: calc(clamp(120px, 14vw, 200px) / -2);
   background: radial-gradient(circle, #fff6d6 0 38%, #ffe9ad 60%, rgba(255, 233, 173, 0) 72%);
@@ -19,20 +20,36 @@ html.land .ls { display: block; position: absolute; left: 0; right: 0; bottom: 0
 
 /* Der erste Kapitelwechsel: Das Kapitel Stationär fährt über die stehende Bühne, die Landschaft steigt mit unterschiedlicher Geschwindigkeit.
    Dafür bleibt die Bühne 100 Fenster-Höhen länger kleben und das Kapitel überlappt den Hero um genau so viel. */
-html.land .hero.pinned, html.land.hero-boot .hero { height: 400vh; height: 400svh; }
+html.land .hero.pinned, html.land.hero-boot .hero { height: 445vh; height: 445svh; } /* 300 Sequenz + 45 Ruhe (die ganze Landschaft steht) + 100 Überfahren */
 html.land .chapters { margin-top: 0; }
 html.land .hero.pinned + .chapters, html.land.hero-boot .hero + .chapters { margin-top: -100vh; margin-top: -100svh; }
 
 /* ---------- Kapitel ohne Ecken und Stapelkanten, Nähte darüber ---------- */
-html.land .chapter, html.land .chapters > .platform, html.land .steps-sec, html.land .scn { border-radius: 0; overflow: visible; clip-path: inset(-320px 0 0 0); --seam-h: clamp(110px, 20vw, 260px); }
+html.land .chapter, html.land .chapters > .platform, html.land .steps-sec, html.land .scn { border-radius: 0; overflow: visible; clip-path: inset(-320px 0 0 0); --seam-h: clamp(130px, 22vw, 260px); }
 html.land .chapter, html.land .chapters > .platform { top: 0; }
-html.land .steps-sec { margin-top: 0; }
-html.land .platform { padding-bottom: calc(var(--seam-h) * .85 + 2rem); }
-/* Produktseiten: Die Naht liegt unter dem Seitenkopf; der Kopf bekommt so viel Luft, dass seine Knöpfe nicht darunter verschwinden */
-html.land .page-hero { padding-bottom: calc(var(--seam-h) + 1.5rem); }
-html.land .scn { clip-path: none; }
 html.land .chapters > section { box-shadow: none; }
+html.land .scn { clip-path: none; }
+
+/* Naht als Fläche über dem Kapitel, solange das Kapitel über das vorige fährt (klebender Stapel am großen Bildschirm):
+   Sie liegt über dem unteren Rand des vorigen Kapitels, das hier festsitzt und ohnehin überdeckt wird. */
 html.land .seam { display: block; position: absolute; left: 0; right: 0; bottom: calc(100% - 1px); height: var(--seam-h); overflow: hidden; pointer-events: none; z-index: 0; }
+
+/* Naht als eigenes Band am Kopf des Abschnitts (Ablauf, Szene der Produktseiten immer; Kapitel und Plattform, wenn sie nicht kleben, also am Handy):
+   Das Band hat die Farbe des vorigen Abschnitts und schiebt den eigenen Inhalt nach unten, nichts wird überdeckt. */
+html.land .steps-sec > .seam, html.land .scn > .seam, html.land .chapters > .platform > .seam { position: relative; bottom: auto; background: var(--seam-from); margin-bottom: clamp(2.5rem, 6vw, 5rem); }
+html.land .steps-sec, html.land .scn:not(.scn-on), html.land .chapters > .platform { padding-top: 0; }
+html.land .steps-sec { margin-top: 0; }
+html.land .scn.scn-on > .seam { margin-bottom: 0; }
+@media (min-width: 861px) and (min-height: 701px) {
+  html.land .chapters > .platform > .seam { position: absolute; bottom: calc(100% - 1px); background: none; margin: 0; }
+  html.land .chapters > .platform { padding-top: clamp(5rem, 10vw, 8rem); }
+}
+@media (max-width: 860px), (max-height: 700px) {
+  html.land .chapter + .chapter, html.land .chapter + .platform { margin-top: 0; }
+  html.land .chapter > .seam { top: 0; bottom: auto; background: var(--seam-from); }
+  html.land .chapter:has(> .seam) { padding-top: calc(var(--seam-h) + 2.5rem); }
+}
+@media (max-width: 860px) { html.land .chapter, html.land .chapters > .platform, html.land .steps-sec, html.land .scn { --seam-h: clamp(170px, 42vw, 260px); } }
 .seam-l { position: absolute; left: 0; bottom: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; max-width: none; will-change: transform; }
 
 /* ---------- Bewegung ---------- */
@@ -43,12 +60,13 @@ html.land .seam { display: block; position: absolute; left: 0; right: 0; bottom:
     html.land #stationaer { view-timeline-name: --ch, --land-in; view-timeline-axis: block, block; }
     html.land .ls-l:not(.ls-cl) { animation: land-rise linear both; animation-timeline: --land-in; animation-range: entry 0% entry 100%; }
     @keyframes land-rise { to { transform: translate3d(0, calc(var(--s) * -100svh), 0); } }
-    /* Nähte: Die Ebenen bleiben hinter dem aufsteigenden Kapitel zurück, die hinteren am stärksten; die vorderste (Farbe des Kapitels) bewegt sich mit */
+    /* Nähte: Die Ebenen bleiben hinter dem aufsteigenden Kapitel zurück, die hinteren am stärksten; die vorderste (Farbe des Kapitels) bewegt sich mit.
+       Der Weg ist an die Höhe der Naht gebunden und über den ganzen Einfahrweg verteilt, damit die Ebenen sichtbar bleiben, solange man hinsieht. */
     html.land .platform, html.land .steps-sec, html.land .scn { view-timeline: --ch block; }
     /* Der Hero-Text bleibt nicht unter den aufsteigenden Ebenen stehen, sondern blendet aus, sobald das Kapitel über die Bühne fährt */
     html.land .hero-copy { animation: land-text linear both; animation-timeline: --land-in; animation-range: entry 0% entry 50%; }
     @keyframes land-text { to { opacity: 0; } }
     html.land .seam-l:not(.seam-edge) { animation: seam-sink linear both; animation-timeline: --ch; animation-range: entry 0% entry 100%; }
-    @keyframes seam-sink { to { transform: translate3d(0, calc((1 - var(--s)) * 100svh), 0); } }
+    @keyframes seam-sink { to { transform: translate3d(0, calc((1 - var(--s)) * var(--seam-h) * .92), 0); } }
   }
 }
