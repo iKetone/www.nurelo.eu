@@ -27,9 +27,9 @@
   "mock_r3": "Hälytys 0147: välitetty hälytyskeskukseen",
 
   "st_h2": "Kaikki asukkaasta yhdessä paikassa.",
-  "st_lead": "Asukkaan tiedot, hoitosuunnittelu, työvuorosuunnittelu ja laskutus yhdessä järjestelmässä, sovitettuna yksikköönne. Dokumentointi muutamassa minuutissa, ja puolivuosittaisen indikaattoritiedonkeruun Nurelo kirjaa ja toimittaa puolestanne.",
+  "st_lead": "Asukkaan tiedot, hoitosuunnittelu, työvuorosuunnittelu ja laskutus yhdessä järjestelmässä, sovitettuna yksikköönne. Dokumentointi muutamassa minuutissa, ja laatuindikaattoreiden puolivuosittaisen tiedonkeruun Nurelo kirjaa ja toimittaa puolestanne.",
   "st_t1": "Rakennemalli: SIS, toimenpidesuunnitelma, raporttilehti ja arviointi",
-  "st_t2": "Puolivuosittainen indikaattoritiedonkeruu toimituksineen",
+  "st_t2": "Puolivuosittainen laatuindikaattoreiden tiedonkeruu toimituksineen",
   "st_t3": "Työvuorosuunnittelu ja laskutus täysin muokattavissa",
   "st_t4": "Lääkkeet antokirjauksineen",
   "st_n1_sub": "Huone 12 · Hoitoisuusluokka 3",
