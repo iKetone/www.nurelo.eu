@@ -55,6 +55,8 @@
   /* Hero: Startzustand der Scroll-Sequenz schon im ersten Bild (siehe styles.css, html.hero-boot); entfällt bei reduzierter Bewegung */
   (function () {
     var d = document.documentElement;
+    // Vorschau: Landschaft mit neuen Motiven, nur mit ?motive (siehe land.css, tools/landscape/motive.mjs)
+    if (/[?&]motive(=|&|$)/.test(location.search)) d.classList.add('mot');
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     d.classList.add('hero-boot');
     setTimeout(function () { d.classList.remove('hero-boot'); }, 3000);
@@ -181,7 +183,7 @@
           <img class="ls-l" style="--s:0.46" src="/landscape/hero-5.svg" alt="" width="1600" height="640" decoding="async">
           <img class="ls-l" style="--s:0.7" src="/landscape/hero-6.svg" alt="" width="1600" height="640" decoding="async">
           <div class="ls-fill" style="--s:1.12"></div>
-          <img class="ls-l" style="--s:1.12" src="/landscape/hero-7.svg" alt="" width="1600" height="640" decoding="async">
+          <img class="ls-l v-std" style="--s:1.12" src="/landscape/hero-7.svg" alt="" width="1600" height="640" decoding="async"><img class="ls-l v-mot" style="--s:1.12" src="/landscape/hero-7-m.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
           <div class="ls-haze"></div>
         </div>
         <div class="wordmark" aria-hidden="true">Nurelo</div>
@@ -266,7 +268,7 @@
       </section>
 
       <section class="chapter c-am" id="ambulant" style="--i:1">
-        <div class="seam" aria-hidden="true" style="--seam-from:#5a5533"><img class="seam-l" style="--s:0.14" src="/landscape/seam-am-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.34" src="/landscape/seam-am-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.62" src="/landscape/seam-am-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge" style="--s:1" src="/landscape/seam-am-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"></div>
+        <div class="seam" aria-hidden="true" style="--seam-from:#5a5533"><img class="seam-l" style="--s:0.14" src="/landscape/seam-am-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l v-std" style="--s:0.34" src="/landscape/seam-am-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l v-mot" style="--s:0.34" src="/landscape/seam-am-2-m.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l v-std" style="--s:0.62" src="/landscape/seam-am-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l v-mot" style="--s:0.62" src="/landscape/seam-am-3-m.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge v-std" style="--s:1" src="/landscape/seam-am-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge v-mot" style="--s:1" src="/landscape/seam-am-4-m.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"></div>
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Kura <span class="nb">fid-dar</span></p>
@@ -305,7 +307,7 @@
       </section>
 
       <section class="chapter c-hn" id="hausnotruf" style="--i:2">
-        <div class="seam" aria-hidden="true" style="--seam-from:#c59045"><img class="seam-l" style="--s:0.14" src="/landscape/seam-hn-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.34" src="/landscape/seam-hn-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.62" src="/landscape/seam-hn-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge" style="--s:1" src="/landscape/seam-hn-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"></div>
+        <div class="seam" aria-hidden="true" style="--seam-from:#c59045"><img class="seam-l v-std" style="--s:0.14" src="/landscape/seam-hn-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l v-mot" style="--s:0.14" src="/landscape/seam-hn-1-m.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.34" src="/landscape/seam-hn-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l v-std" style="--s:0.62" src="/landscape/seam-hn-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l v-mot" style="--s:0.62" src="/landscape/seam-hn-3-m.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge v-std" style="--s:1" src="/landscape/seam-hn-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge v-mot" style="--s:1" src="/landscape/seam-hn-4-m.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"></div>
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Sejħa ta' emerġenza</p>
@@ -337,7 +339,7 @@
 
       <!-- PLATTFORM -->
       <section class="platform" id="plattform" style="--i:3">
-        <div class="seam" aria-hidden="true" style="--seam-from:#9e4e2e"><img class="seam-l" style="--s:0.14" src="/landscape/seam-pf-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.34" src="/landscape/seam-pf-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.62" src="/landscape/seam-pf-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge" style="--s:1" src="/landscape/seam-pf-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"></div>
+        <div class="seam" aria-hidden="true" style="--seam-from:#9e4e2e"><img class="seam-l v-std" style="--s:0.14" src="/landscape/seam-pf-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l v-mot" style="--s:0.14" src="/landscape/seam-pf-1-m.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l v-std" style="--s:0.34" src="/landscape/seam-pf-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l v-mot" style="--s:0.34" src="/landscape/seam-pf-2-m.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l v-std" style="--s:0.62" src="/landscape/seam-pf-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l v-mot" style="--s:0.62" src="/landscape/seam-pf-3-m.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge" style="--s:1" src="/landscape/seam-pf-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"></div>
       <div class="wrap">
         <div class="platform-head reveal">
           <img src="/logo-240.webp" width="120" height="120" alt="" />
@@ -419,7 +421,7 @@
 
     <!-- ABLAUF -->
     <section class="steps-sec" id="ablauf">
-        <div class="seam" aria-hidden="true" style="--seam-from:#241b14"><img class="seam-l" style="--s:0.14" src="/landscape/seam-ab-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.34" src="/landscape/seam-ab-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.62" src="/landscape/seam-ab-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge" style="--s:1" src="/landscape/seam-ab-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"></div>
+        <div class="seam" aria-hidden="true" style="--seam-from:#241b14"><img class="seam-l v-std" style="--s:0.14" src="/landscape/seam-ab-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l v-mot" style="--s:0.14" src="/landscape/seam-ab-1-m.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l v-std" style="--s:0.34" src="/landscape/seam-ab-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l v-mot" style="--s:0.34" src="/landscape/seam-ab-2-m.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l v-std" style="--s:0.62" src="/landscape/seam-ab-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l v-mot" style="--s:0.62" src="/landscape/seam-ab-3-m.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge v-std" style="--s:1" src="/landscape/seam-ab-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge v-mot" style="--s:1" src="/landscape/seam-ab-4-m.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"></div>
       <div class="wrap">
         <div class="section-head reveal">
           <p class="kicker dark">Introduzzjoni</p>
