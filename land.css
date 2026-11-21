@@ -75,6 +75,10 @@ html.land .scn.scn-on > .seam { margin-bottom: 0; }
     /* Die vorderste Ebene steigt etwas weiter als das Kapitel (--s: 1.12): Ihre Kuppe bleibt immer über der Kante des Kapitels, auch wenn der Browser die Fensterhöhe
        (svh) und die Länge der Scroll-Strecke am Handy minimal anders rechnet. Dazwischen liegt nur ebenes Oliv, die Naht ist unsichtbar. */
     @keyframes land-rise { to { transform: translate3d(0, calc(var(--s) * -100svh), 0); } }
+    /* Die Sonne steigt mit der hintersten Ebene (gleiches --s) und bleibt so über den Bergen stehen, statt von ihnen verdeckt zu werden.
+       Über translate statt transform: Ihr transform gehört dem Sonnenaufgang in der Sequenz (--dawn). */
+    html.land .ls-sun { animation: sun-rise linear both; animation-timeline: scroll(root block); animation-range: 245svh 345svh; }
+    @keyframes sun-rise { to { translate: 0 calc(var(--s) * -100svh); } }
     /* Nähte: Die hinteren Ebenen bleiben oben stehen, die vorderen steigen beim Einfahren des Kapitels langsam aus dem unteren Rand der Naht auf
        (je näher, desto weiter); nichts rutscht nach unten. Die vorderste Ebene, die Farbe des Kapitels, ist fest. Der Weg ist an die Höhe der Naht gebunden. */
     html.land .platform, html.land .steps-sec, html.land .scn { view-timeline: --ch block; }
