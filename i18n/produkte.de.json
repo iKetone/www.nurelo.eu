@@ -14,6 +14,7 @@
 
   "st_pg_title": "Nurelo Stationär: Pflegesoftware für stationäre Einrichtungen",
   "st_pg_desc": "Nurelo Stationär verwaltet Bewohner, Pflegeplanung nach dem Strukturmodell, Dienstplan, Abrechnung und Medikamente in stationären Pflegeeinrichtungen, mit eigenen Stammdaten und eigenen Modulen. Lokal oder gehostet in Deutschland.",
+  "st_pg_lead": "Bewohnerakte, Pflegeplanung, Dienstplan und Abrechnung in einem System, abgestimmt auf Ihre Einrichtung. Dokumentation in wenigen Minuten, und die halbjährliche Erhebung der Qualitätsindikatoren erfasst und übermittelt Nurelo für Sie.",
   "st_pg_feat_h2": "Was Nurelo Stationär abdeckt",
   "st_pg_f1_h": "Bewohnerverwaltung",
   "st_pg_f1_p": "Alle Angaben zu Bewohnerinnen und Bewohnern an einem Ort, von der Aufnahme bis zur Akte, einschließlich Erfassung und Auswertung der Pflegegrade.",
@@ -34,6 +35,7 @@
 
   "am_pg_title": "Nurelo Ambulant: Pflegesoftware für ambulante Dienste",
   "am_pg_desc": "Nurelo Ambulant plant Touren, dokumentiert Einsätze mobil und rechnet Leistungen nach SGB XI und V nach § 302 ab, mit eigenen Stammdaten und eigenen Modulen. Lokal oder gehostet in Deutschland.",
+  "am_pg_lead": "Planung, Dokumentation und Abrechnung in einem Ablauf: von der Tour über den Einsatz beim Klienten, auch ohne Netz und mit digitaler Unterschrift, bis zur Abrechnung nach §&nbsp;302 mit den Kostenträgern.",
   "am_pg_feat_h2": "Was Nurelo Ambulant abdeckt",
   "am_pg_f1_h": "Tour- und Dienstplanung",
   "am_pg_f1_p": "Routenplanung und Dienstplan mit Fahrzeug- und Mitarbeiterzuweisung.",
@@ -54,6 +56,7 @@
 
   "hn_pg_title": "Nurelo Hausnotruf: Software für Hausnotruf-Anbieter",
   "hn_pg_desc": "Nurelo Hausnotruf verwaltet Teilnehmer, Geräte und die Alarmweiterleitung an die Hausnotrufzentrale, wertet Fehl- und Probealarme aus und rechnet Monatspauschalen ab, mit eigenen Stammdaten und eigenen Modulen. Lokal oder gehostet in Deutschland.",
+  "hn_pg_lead": "Der Alarm wird an die Hausnotrufzentrale weitergeleitet, der Einsatz dokumentiert, und die Monatspauschale rechnet sich automatisch ab. So bleibt jeder Schritt nachvollziehbar, auch bei Fehl- und Probealarmen.",
   "hn_pg_feat_h2": "Was Nurelo Hausnotruf abdeckt",
   "hn_pg_f1_h": "Teilnehmerverwaltung",
   "hn_pg_f1_p": "Alle Angaben zu Ihren Teilnehmerinnen und Teilnehmern an einem Ort.",

@@ -14,6 +14,7 @@
 
   "st_pg_title": "Nurelo Residential: care software for residential care facilities",
   "st_pg_desc": "Nurelo Residential manages residents, care planning according to the structure model, staff rota, billing and medication in residential care facilities, with its own master data and its own modules. On-premises or hosted in Germany.",
+  "st_pg_lead": "Resident record, care planning, staff rota and billing in one system, tailored to your facility. Documentation in just a few minutes, and Nurelo records and submits the half-yearly quality indicator data for you.",
   "st_pg_feat_h2": "What Nurelo Residential covers",
   "st_pg_f1_h": "Resident records",
   "st_pg_f1_p": "All information about residents in one place, from admission to the resident file, including recording and evaluation of care levels.",
@@ -34,6 +35,7 @@
 
   "am_pg_title": "Nurelo Home care: care software for home care services",
   "am_pg_desc": "Nurelo Home care plans routes, documents visits on the go and bills services under SGB XI and V according to § 302, with its own master data and its own modules. On-premises or hosted in Germany.",
+  "am_pg_lead": "Planning, documentation and billing in one workflow: from the route to the visit at the client's home, even without a network and with an electronic signature, to billing under §&nbsp;302 with the payers.",
   "am_pg_feat_h2": "What Nurelo Home care covers",
   "am_pg_f1_h": "Route and rota planning",
   "am_pg_f1_p": "Route planning and staff rota with vehicle and staff assignment.",
@@ -54,6 +56,7 @@
 
   "hn_pg_title": "Nurelo Emergency call: software for home emergency call providers",
   "hn_pg_desc": "Nurelo Emergency call manages service users, devices and alarm forwarding to the emergency call centre, analyses false and test alarms and bills monthly flat rates, with its own master data and its own modules. On-premises or hosted in Germany.",
+  "hn_pg_lead": "The alarm is forwarded to the emergency call centre, the visit is documented, and the monthly flat rate is billed automatically. Every step stays traceable, even for false and test alarms.",
   "hn_pg_feat_h2": "What Nurelo Emergency call covers",
   "hn_pg_f1_h": "Service user management",
   "hn_pg_f1_p": "All information about your service users in one place.",
