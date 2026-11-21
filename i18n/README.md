@@ -26,6 +26,7 @@ Das Skript meldet fehlende oder unbekannte Schlüssel und bricht dann ab.
 - Keine Gedankenstriche in den Texten (das Skript prüft das).
 - In `*_h`-Schlüsseln steht `&amp;` für ein Und-Zeichen, in Attributen wie `meta_desc` steht Klartext.
 - Der Sprachwähler zeigt Flagge und Sprachcode (ISO 639-1, z. B. „DE“). Der ausgeschriebene Name steht im Tooltip und im Namen für Screenreader (aus `LANGS`).
+- Eigene CSS- und JS-Dateien bekommen beim Bauen eine Versionsangabe (`/styles.css?v=<Prüfsumme>`, auch in den statischen Seiten wie Impressum und 404). Nach jeder Änderung an CSS oder JS deshalb bauen, sonst sehen Besucher bis zu 10 Minuten lang die alte Datei.
 - Impressum, Datenschutz und AGB gibt es nur auf Deutsch (`/impressum.html` usw.).
 - Die Übersetzungen sind Entwürfe und sollten vor dem Live-Gang von Muttersprachlern geprüft werden.
 
