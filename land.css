@@ -1,0 +1,54 @@
+/* Landschaft statt gerader Kanten: neun Ebenen im Hero, gestaffelte Nähte an den Kapitelwechseln (Vorschau, nur mit html.land).
+   Prinzip wie bei firewatchgame.com: Ebenen mit unterschiedlicher Geschwindigkeit, von hell nach dunkel, die vorderste hat die Farbe des
+   Inhalts. Der Inhalt fährt als deckende Fläche darüber, es gibt keine sichtbare Naht. Die Bewegung ist scroll-gesteuert (nur transform). */
+
+.ls, .ls-sky, .seam { display: none; }
+
+/* ---------- Hero ---------- */
+html.land .hero { background: #ece8de; }
+html.land .stage-pin { background: #ece8de; }
+html.land .wordmark { display: none; }
+html.land .ls-sky { display: block; position: absolute; inset: 0; z-index: -2; background: linear-gradient(#fbf7f0 0%, #f9ecd2 58%, #f2d9a8 100%); opacity: var(--dawn, 1); pointer-events: none; }
+html.land .ls { display: block; position: absolute; left: 0; right: 0; bottom: 0; height: clamp(320px, 66svh, 760px); z-index: -1; pointer-events: none; }
+.ls-l { position: absolute; left: 0; bottom: -48px; width: 100%; height: calc(100% + 48px); /* 48px Überstand unten: deckt Rundungsfugen, wenn das Kapitel genauso schnell steigt wie die vorderste Ebene */ object-fit: cover; object-position: 50% 100%; max-width: none; will-change: transform; }
+.ls-sun { position: absolute; left: 50%; bottom: 50%; width: clamp(120px, 14vw, 200px); aspect-ratio: 1; border-radius: 50%; margin-left: calc(clamp(120px, 14vw, 200px) / -2);
+  background: radial-gradient(circle, #fff6d6 0 38%, #ffe9ad 60%, rgba(255, 233, 173, 0) 72%);
+  transform: translate3d(0, calc((1 - var(--dawn, 1)) * 70%), 0); opacity: calc(.3 + .7 * var(--dawn, 1)); }
+/* Dunst: liegt am Anfang über allem (alles ist grau und unsortiert) und löst sich auf, während sich die Kacheln ordnen */
+.ls-haze { position: absolute; inset: 0; background: linear-gradient(to top, rgba(205, 200, 186, .96), rgba(222, 217, 204, .78) 60%, rgba(236, 232, 222, .5)); opacity: calc((1 - var(--dawn, 1)) * .92); }
+
+/* Der erste Kapitelwechsel: Das Kapitel Stationär fährt über die stehende Bühne, die Landschaft steigt mit unterschiedlicher Geschwindigkeit.
+   Dafür bleibt die Bühne 100 Fenster-Höhen länger kleben und das Kapitel überlappt den Hero um genau so viel. */
+html.land .hero.pinned, html.land.hero-boot .hero { height: 400vh; height: 400svh; }
+html.land .chapters { margin-top: 0; }
+html.land .hero.pinned + .chapters, html.land.hero-boot .hero + .chapters { margin-top: -100vh; margin-top: -100svh; }
+
+/* ---------- Kapitel ohne Ecken und Stapelkanten, Nähte darüber ---------- */
+html.land .chapter, html.land .chapters > .platform, html.land .steps-sec, html.land .scn { border-radius: 0; overflow: visible; clip-path: inset(-320px 0 0 0); --seam-h: clamp(110px, 20vw, 260px); }
+html.land .chapter, html.land .chapters > .platform { top: 0; }
+html.land .steps-sec { margin-top: 0; }
+html.land .platform { padding-bottom: calc(var(--seam-h) * .85 + 2rem); }
+/* Produktseiten: Die Naht liegt unter dem Seitenkopf; der Kopf bekommt so viel Luft, dass seine Knöpfe nicht darunter verschwinden */
+html.land .page-hero { padding-bottom: calc(var(--seam-h) + 1.5rem); }
+html.land .scn { clip-path: none; }
+html.land .chapters > section { box-shadow: none; }
+html.land .seam { display: block; position: absolute; left: 0; right: 0; bottom: calc(100% - 1px); height: var(--seam-h); overflow: hidden; pointer-events: none; z-index: 0; }
+.seam-l { position: absolute; left: 0; bottom: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; max-width: none; will-change: transform; }
+
+/* ---------- Bewegung ---------- */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* Hero: Das Kapitel Stationär ist die Fläche, die die Bühne überfährt (Zeitverlauf über main, damit die Ebenen ihn nutzen können) */
+    html.land main { timeline-scope: --land-in; }
+    html.land #stationaer { view-timeline-name: --ch, --land-in; view-timeline-axis: block, block; }
+    html.land .ls-l:not(.ls-cl) { animation: land-rise linear both; animation-timeline: --land-in; animation-range: entry 0% entry 100%; }
+    @keyframes land-rise { to { transform: translate3d(0, calc(var(--s) * -100svh), 0); } }
+    /* Nähte: Die Ebenen bleiben hinter dem aufsteigenden Kapitel zurück, die hinteren am stärksten; die vorderste (Farbe des Kapitels) bewegt sich mit */
+    html.land .platform, html.land .steps-sec, html.land .scn { view-timeline: --ch block; }
+    /* Der Hero-Text bleibt nicht unter den aufsteigenden Ebenen stehen, sondern blendet aus, sobald das Kapitel über die Bühne fährt */
+    html.land .hero-copy { animation: land-text linear both; animation-timeline: --land-in; animation-range: entry 0% entry 50%; }
+    @keyframes land-text { to { opacity: 0; } }
+    html.land .seam-l:not(.seam-edge) { animation: seam-sink linear both; animation-timeline: --ch; animation-range: entry 0% entry 100%; }
+    @keyframes seam-sink { to { transform: translate3d(0, calc((1 - var(--s)) * 100svh), 0); } }
+  }
+}

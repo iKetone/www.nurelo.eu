@@ -4,6 +4,7 @@
 // Startseite:     src/index.template.html   + i18n/<code>.json            (24 Sprachen)
 // Produktseiten:  src/product.template.html + i18n/produkte.<code>.json   (siehe PRODUCT_LANGS)
 // Außerdem: sitemap.xml und robots.txt
+// Landschaft:     tools/landscape/*.mjs zeichnen die Ebenen für Hero und Kapitelübergänge (landscape/*.svg, src/partials/land-hero.html, seam-*.html)
 // Szenen:         tools/scenes/*.mjs zeichnen die isometrischen Szenen der Produktseiten und schreiben src/partials/scene-<produkt>.html
 // Bausteine:      src/partials/<name>.html, eingebunden mit {{include:name}} (auf Produktseiten auch {{include-P:name}} für <name>-st, -am, -hn)
 //
@@ -15,6 +16,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildScenes, SCENE_IDS } from './scenes/build.mjs';
+import { buildLandscape } from './landscape/build.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://www.nurelo.eu';
@@ -92,6 +94,7 @@ for (const [name, dict] of [...Object.entries(main).map(([c, d]) => [c, d]), ...
 
 // ---------- Bausteine und Umschalter ----------
 buildScenes(root);
+buildLandscape(root);
 const partial = (name) => read(`src/partials/${name}.html`);
 const partialOpt = (name) => (existsSync(join(root, `src/partials/${name}.html`)) ? partial(name) : '');
 

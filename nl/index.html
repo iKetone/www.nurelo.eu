@@ -50,10 +50,13 @@
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/tunnel.css" />
+  <link rel="stylesheet" href="/land.css" />
   <script>
   /* Hero: Startzustand der Scroll-Sequenz schon im ersten Bild (siehe styles.css, html.hero-boot); entfällt bei reduzierter Bewegung */
   (function () {
     var d = document.documentElement;
+    // Vorschau: Landschaft statt der geraden Kanten, nur mit ?landschaft (siehe land.css)
+    if (/[?&]landschaft(=|&|$)/.test(location.search)) d.classList.add('land');
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     d.classList.add('hero-boot');
     setTimeout(function () { d.classList.remove('hero-boot'); }, 3000);
@@ -168,6 +171,20 @@
     <!-- HERO -->
     <section class="hero" id="top">
       <div class="stage-pin" id="stage">
+        <!-- Landschaft (erzeugt von tools/landscape/build.mjs, nicht von Hand ändern) -->
+        <div class="ls-sky" aria-hidden="true"></div>
+        <div class="ls" aria-hidden="true">
+          <img class="ls-l ls-cl" style="--s:0.02" src="/landscape/hero-sky.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
+          <div class="ls-sun"></div>
+          <img class="ls-l" style="--s:0.04" src="/landscape/hero-1.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
+          <img class="ls-l" style="--s:0.08" src="/landscape/hero-2.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
+          <img class="ls-l" style="--s:0.16" src="/landscape/hero-3.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
+          <img class="ls-l" style="--s:0.28" src="/landscape/hero-4.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
+          <img class="ls-l" style="--s:0.46" src="/landscape/hero-5.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
+          <img class="ls-l" style="--s:0.7" src="/landscape/hero-6.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
+          <img class="ls-l" style="--s:1" src="/landscape/hero-7.svg" alt="" width="1600" height="640" decoding="async" loading="lazy">
+          <div class="ls-haze"></div>
+        </div>
         <div class="wordmark" aria-hidden="true">Nurelo</div>
 
         <div class="hero-copy">
@@ -250,6 +267,7 @@
       </section>
 
       <section class="chapter c-am" id="ambulant" style="--i:1">
+        <div class="seam" aria-hidden="true"><img class="seam-l" style="--s:0.14" src="/landscape/seam-am-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.34" src="/landscape/seam-am-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.62" src="/landscape/seam-am-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge" style="--s:1" src="/landscape/seam-am-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"></div>
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Thuiszorg</p>
@@ -288,6 +306,7 @@
       </section>
 
       <section class="chapter c-hn" id="hausnotruf" style="--i:2">
+        <div class="seam" aria-hidden="true"><img class="seam-l" style="--s:0.14" src="/landscape/seam-hn-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.34" src="/landscape/seam-hn-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.62" src="/landscape/seam-hn-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge" style="--s:1" src="/landscape/seam-hn-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"></div>
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Alarmering</p>
@@ -319,6 +338,7 @@
 
       <!-- PLATTFORM -->
       <section class="platform" id="plattform" style="--i:3">
+        <div class="seam" aria-hidden="true"><img class="seam-l" style="--s:0.14" src="/landscape/seam-pf-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.34" src="/landscape/seam-pf-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.62" src="/landscape/seam-pf-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge" style="--s:1" src="/landscape/seam-pf-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"></div>
       <div class="wrap">
         <div class="platform-head reveal">
           <img src="/logo-240.webp" width="120" height="120" alt="" />
@@ -400,6 +420,7 @@
 
     <!-- ABLAUF -->
     <section class="steps-sec" id="ablauf">
+        <div class="seam" aria-hidden="true"><img class="seam-l" style="--s:0.14" src="/landscape/seam-ab-1.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.34" src="/landscape/seam-ab-2.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l" style="--s:0.62" src="/landscape/seam-ab-3.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"><img class="seam-l seam-edge" style="--s:1" src="/landscape/seam-ab-4.svg" alt="" width="1600" height="300" decoding="async" loading="lazy"></div>
       <div class="wrap">
         <div class="section-head reveal">
           <p class="kicker dark">Onboarding</p>
