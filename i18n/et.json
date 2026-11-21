@@ -1,6 +1,6 @@
 {
-  "meta_title": "Nurelo: hooldustarkvara koduhoolduseks, hooldekodudele ja hädaabikutsete teenusele",
-  "meta_desc": "Nurelo ühendab koduhoolduse, hooldekodud ja hädaabikutsete teenuse ühel platvormil: marsruudi planeerimine, dokumenteerimine, arveldus ja TI-KIM. Majutatud Saksamaal.",
+  "meta_title": "Nurelo: tarkvara koduhooldusele, hooldekodudele, hädaabikutsetele",
+  "meta_desc": "Nurelo ühendab koduhoolduse, hooldekodud ja hädaabikutsete teenuse ühel platvormil: marsruudi planeerimine, dokumenteerimine, arveldus ja TI-KIM.",
   "og_desc": "Kolm valdkonda, üks platvorm: marsruudi planeerimine, hoolduse dokumenteerimine, arveldus ja TI-KIM.",
   "ld_desc": "Hoolduse haldustarkvara koduhooldusteenustele, hooldekodudele ja hädaabikutsete teenuse pakkujatele.",
   "skip": "Liigu sisu juurde",
@@ -91,7 +91,7 @@
   "integ_h": "Liidesed",
 
   "on_kicker": "Kasutuselevõtt",
-  "on_h2": "Töös nelja sammuga.",
+  "on_h2": "Kasutusele neljas sammus.",
   "on_lead": "Nurelo on kasutusvalmis mõne päevaga, isikliku toega.",
   "s1_h": "Demo &amp; nõustamine",
   "s1_p": "Analüüsime koos teie nõudeid.",
@@ -120,7 +120,7 @@
   "pd4": "Liidesed",
   "pdd4": "Ekspordid DATEVi ja SAP-i jaoks ning TI-KIM-ühendus.",
   "pd5": "Tugi",
-  "pdd5": "E-posti tugi või eelistugi, pidajatele oma kliendihaldur.",
+  "pdd5": "E-posti tugi või prioriteetne tugi, pidajatele oma kliendihaldur.",
   "pd6": "Pidajad ja liidud",
   "pdd6": "Individuaalsed lahendused mitmele asutusele, SLA kokkuleppel.",
 

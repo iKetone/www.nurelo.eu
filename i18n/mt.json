@@ -1,6 +1,6 @@
 {
-  "meta_title": "Nurelo: softwer tal-kura għall-kura fid-dar, id-djar residenzjali u s-servizzi ta' sejħiet ta' emerġenza",
-  "meta_desc": "Nurelo tgħaqqad il-kura fid-dar, id-djar residenzjali u s-servizzi ta' sejħiet ta' emerġenza fuq pjattaforma waħda: ippjanar tar-rotot, dokumentazzjoni, fatturazzjoni u TI-KIM. Ospitat fil-Ġermanja.",
+  "meta_title": "Nurelo: softwer għall-kura fid-dar u d-djar residenzjali",
+  "meta_desc": "Nurelo tgħaqqad il-kura fid-dar, id-djar residenzjali u s-sejħiet ta' emerġenza fuq pjattaforma waħda: ippjanar, dokumentazzjoni, fatturazzjoni u TI-KIM.",
   "og_desc": "Tliet oqsma, pjattaforma waħda: ippjanar tar-rotot, dokumentazzjoni tal-kura, fatturazzjoni u TI-KIM.",
   "ld_desc": "Softwer għall-immaniġġjar tal-kura għal servizzi ta' kura fid-dar, djar residenzjali u fornituri ta' sejħiet ta' emerġenza.",
   "skip": "Aqbeż għall-kontenut",
@@ -41,9 +41,9 @@
   "st_n3_state": "2 miftuħa",
 
   "am_h2": "Irreġistrat darba. Iffatturat sewwa.",
-  "am_lead": "Ippjanar, dokumentazzjoni u fatturazzjoni fi proċess wieħed: mir-rotta permezz taż-żjara għand il-klijent, anki mingħajr netwerk u b'firma diġitali, sal-fatturazzjoni skont §&nbsp;302 mal-pagaturi.",
+  "am_lead": "Ippjanar, dokumentazzjoni u fatturazzjoni fi proċess wieħed: mir-rotta permezz taż-żjara għand il-klijent, anki mingħajr netwerk u b'firma elettronika, sal-fatturazzjoni skont §&nbsp;302 mal-pagaturi.",
   "am_t1": "Ippjanar ta' rotot u skedi bl-assenjazzjoni ta' vetturi u persunal",
-  "am_t2": "Dokumentazzjoni mobbli fuq il-post, anki offline, b'firma diġitali",
+  "am_t2": "Dokumentazzjoni mobbli fuq il-post, anki offline, b'firma elettronika",
   "am_t3": "Reġistrazzjoni tas-servizzi SGB XI + V fi proċess wieħed",
   "am_t4": "Fatturazzjoni skont §&nbsp;302, mibgħuta direttament lill-pagaturi",
   "am_win": "Rotta 2 Tramuntana",
@@ -68,7 +68,7 @@
   "pf_h2": "Tliet dinjiet. Sistema waħda.",
   "pf_lead": "Kull prodott jaħdem awtomatikament bid-dejta ewlenija tiegħu stess u bil-moduli tiegħu stess. Fuq talba, diversi prodotti jistgħu jaqsmu database komuni.",
   "f1_h": "Dokumentazzjoni megħjuna mill-IA",
-  "f1_p": "Id-dħul bil-leħen u s-suġġerimenti tat-test inaqqsu x-xogħol tad-dokumentazzjoni. Nurelo titgħallem mill-mudelli tiegħek.",
+  "f1_p": "Id-dħul bil-leħen u s-suġġerimenti tat-test inaqqsu x-xogħol tad-dokumentazzjoni. Nurelo titgħallem mill-drawwiet tiegħek.",
   "f2_h": "Fatturazzjoni integrata",
   "f2_p": "Fatturazzjoni mal-pagaturi, ħolqien awtomatiku tal-fatturi u esportazzjonijiet għall-kontabilità u l-pagi.",
   "f3_h": "Messaġġi TI-KIM",
@@ -99,7 +99,7 @@
   "s2_p": "Twaqqif għall-qasam tiegħek, inkluż l-importazzjoni tad-dejta ewlenija.",
   "s3_h": "Taħriġ",
   "s3_p": "Taħriġ dirett għall-maniġment tal-kura u t-tim, flimkien ma' librerija tal-vidjows.",
-  "s4_h": "Tluq &amp; appoġġ",
+  "s4_h": "Bidu &amp; appoġġ",
   "s4_p": "Bidu produttiv b'appoġġ personali fl-ewwel ġimgħat.",
   "tr1": "Konformi mal-GDPR",
   "tr2": "Ospitat fil-Ġermanja",
@@ -126,7 +126,7 @@
 
   "ct_h2": "Lest għall-pass li jmiss?",
   "ct_lead": "Se nuruk Nurelo f'dimostrazzjoni personali u nwieġbu l-mistoqsijiet tiegħek. It-tim tagħna jappoġġak mill-bidu.",
-  "ct_demo": "Ifforma dimostrazzjoni",
+  "ct_demo": "Ibbukkja dimostrazzjoni",
   "ct_subj_demo": "Appuntament tad-dimostrazzjoni Nurelo",
 
   "ft_desc": "Softwer għall-immaniġġjar tal-kura għal servizzi ta' kura fid-dar, djar residenzjali u fornituri ta' sejħiet ta' emerġenza. Żviluppat fil-Ġermanja.",
@@ -135,7 +135,7 @@
   "ft_contact": "Kuntatt",
   "ft_legal": "Informazzjoni legali",
   "ft_privacy": "Privatezza (DE)",
-  "ft_imprint": "Avviż legali (DE)",
+  "ft_imprint": "Dettalji tal-kumpanija (DE)",
   "ft_terms": "Termini (DE)",
   "ft_copy": "© 2026 Nurelo · Id-drittijiet kollha riżervati",
   "ft_made": "Żviluppat fil-Ġermanja"

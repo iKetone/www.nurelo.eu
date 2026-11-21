@@ -1,6 +1,6 @@
 {
-  "meta_title": "Nurelo: aprūpes programmatūra aprūpei mājās, aprūpes namiem un trauksmes izsaukumu pakalpojumiem",
-  "meta_desc": "Nurelo vienā platformā apvieno aprūpi mājās, aprūpes namus un trauksmes izsaukumu pakalpojumus: maršrutu plānošana, dokumentēšana, rēķinu izrakstīšana un TI-KIM. Mitināts Vācijā.",
+  "meta_title": "Nurelo: aprūpes programmatūra aprūpes namiem un aprūpei mājās",
+  "meta_desc": "Nurelo vienā platformā apvieno aprūpi mājās, aprūpes namus un trauksmes izsaukumu pakalpojumus: maršrutu plānošana, dokumentēšana, norēķini un TI-KIM.",
   "og_desc": "Trīs jomas, viena platforma: maršrutu plānošana, aprūpes dokumentēšana, rēķinu izrakstīšana un TI-KIM.",
   "ld_desc": "Aprūpes pārvaldības programmatūra aprūpes mājās pakalpojumiem, aprūpes namiem un trauksmes izsaukumu pakalpojumu sniedzējiem.",
   "skip": "Pāriet uz saturu",
@@ -41,9 +41,9 @@
   "st_n3_state": "2 brīvas",
 
   "am_h2": "Reģistrēts vienreiz. Pareizi norēķināts.",
-  "am_lead": "Plānošana, dokumentēšana un norēķini vienā procesā: no maršruta caur vizīti pie klienta, arī bez tīkla un ar digitālo parakstu, līdz norēķiniem pēc §&nbsp;302 ar maksātājiem.",
+  "am_lead": "Plānošana, dokumentēšana un norēķini vienā procesā: no maršruta caur vizīti pie klienta, arī bez tīkla un ar elektronisko parakstu, līdz norēķiniem pēc §&nbsp;302 ar maksātājiem.",
   "am_t1": "Maršrutu un grafiku plānošana ar transportlīdzekļu un darbinieku piešķiršanu",
-  "am_t2": "Mobila dokumentēšana uz vietas, arī bezsaistē, ar digitālo parakstu",
+  "am_t2": "Mobila dokumentēšana uz vietas, arī bezsaistē, ar elektronisko parakstu",
   "am_t3": "Pakalpojumu reģistrēšana pēc SGB XI + V vienā procesā",
   "am_t4": "Norēķini pēc §&nbsp;302, nosūtīti tieši maksātājiem",
   "am_win": "Maršruts 2 Ziemeļi",
@@ -91,7 +91,7 @@
   "integ_h": "Saskarnes",
 
   "on_kicker": "Ieviešana",
-  "on_h2": "Darbībā četros soļos.",
+  "on_h2": "Ieviešana četros soļos.",
   "on_lead": "Nurelo ir gatavs lietošanai dažās dienās, ar personisku atbalstu.",
   "s1_h": "Demonstrācija &amp; konsultācija",
   "s1_p": "Kopā analizējam jūsu prasības.",
@@ -120,8 +120,8 @@
   "pd4": "Saskarnes",
   "pdd4": "Eksports uz DATEV un SAP, kā arī TI-KIM savienojums.",
   "pd5": "Atbalsts",
-  "pdd5": "Atbalsts pa e-pastu vai prioritārs atbalsts, dibinātājiem ar savu klientu vadītāju.",
-  "pd6": "Dibinātāji un apvienības",
+  "pdd5": "Atbalsts pa e-pastu vai prioritārs atbalsts, pakalpojumu sniedzējiem ar savu klientu vadītāju.",
+  "pd6": "Pakalpojumu sniedzēji un apvienības",
   "pdd6": "Individuāli risinājumi vairākām iestādēm, SLA pēc vienošanās.",
 
   "ct_h2": "Gatavi nākamajam solim?",

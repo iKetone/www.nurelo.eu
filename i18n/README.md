@@ -47,6 +47,14 @@ Diese Begriffe sind entschieden und gelten für alle Sprachen. Weitere Sprachen 
 Anrede: Deutsch „Sie", Französisch „vous". Englisch ist britisch (centre, analyse, licence).
 Französisch: Vor `:` `?` `!` `;` steht ein geschütztes Leerzeichen (U+00A0), damit das Zeichen nicht allein am Zeilenanfang landet.
 
+Weitere Festlegungen für alle Sprachen:
+- **Unterschrift auf dem Gerät:** Im Deutschen „digitale Unterschrift". Die Rechtsgültigkeit hängt vom Landesrecht ab. In den anderen Sprachen steht der im jeweiligen Sprachgebrauch natürlichere Begriff: meist „elektronisch" (en, fr, es, it, pt, pl, ro, cs, sk, sl, hr, sv, fi, el, bg, lv, lt, mt, ga, hu), „digital" bleibt in nl, da und et (dort üblich).
+- **eKV** (elektronischer Kostenvoranschlag) bleibt in jeder Sprache „eKV", solange es dort kein gängiges Gegenstück gibt. Er kommt nur auf den Produktseiten vor, im Englischen mit Erklärung in Klammern.
+- **Slowakisch und Slowenisch:** Hausnotruf heißt „tiesňové volanie" bzw. „klic v sili" (nicht „tiesňová starostlivosť", „varovanje z alarmom": liest sich als Angstbewältigung bzw. Alarmanlage).
+- **Meta-Texte:** `meta_title` möglichst 60 Zeichen (in den Sprachen mit langen Wörtern bis etwa 65), `meta_desc` höchstens 155 Zeichen. Der Satz zum Hosting entfällt, wo der Platz fehlt (steht auf der Seite).
+- **Fußzeile:** `ft_legal` und `ft_imprint` dürfen nicht gleich lauten.
+- **Buttons:** pro Sprache eine Anredeform (kein Mix aus Du-Imperativ und Sie-Form).
+
 ## Produktseiten
 
 Die Produktseiten (`/stationaer/`, `/ambulant/`, `/hausnotruf/` und `/en/residential/`, `/en/home-care/`, `/en/emergency-call/`) entstehen aus `src/product.template.html`.

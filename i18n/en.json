@@ -1,6 +1,6 @@
 {
-  "meta_title": "Nurelo: care software for home care, residential care and emergency call services",
-  "meta_desc": "Nurelo brings home care, residential care and home emergency call services together on one platform: route planning, documentation, billing and TI-KIM. Hosted in Germany.",
+  "meta_title": "Nurelo: software for home care, care homes and emergency call",
+  "meta_desc": "Nurelo brings home care, residential care and home emergency call services together on one platform: route planning, documentation, billing and TI-KIM.",
   "og_desc": "Three care settings, one platform: route planning, care documentation, billing and TI-KIM.",
   "ld_desc": "Care management software for home care services, residential care facilities and home emergency call providers.",
   "skip": "Skip to content",
@@ -41,9 +41,9 @@
   "st_n3_state": "2 open",
 
   "am_h2": "Recorded once. Billed correctly.",
-  "am_lead": "Planning, documentation and billing in one workflow: from the route to the visit at the client's home, even without a network and with a digital signature, to billing under §&nbsp;302 with the payers.",
+  "am_lead": "Planning, documentation and billing in one workflow: from the route to the visit at the client's home, even without a network and with an electronic signature, to billing under §&nbsp;302 with the payers.",
   "am_t1": "Route and rota planning with vehicle and staff assignment",
-  "am_t2": "Mobile documentation on site, also offline, with digital signature",
+  "am_t2": "Mobile documentation on site, also offline, with an electronic signature",
   "am_t3": "Record services under SGB XI and V in one workflow",
   "am_t4": "Billing under §&nbsp;302, submitted directly to the payers",
   "am_win": "Route 2 North",
