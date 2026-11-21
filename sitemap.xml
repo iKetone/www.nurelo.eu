@@ -4,6 +4,7 @@
     <loc>https://www.nurelo.eu/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -25,13 +26,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/bg/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -53,13 +60,53 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
+  </url>
+  <url>
+    <loc>https://www.nurelo.eu/bs/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nurelo.eu/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.nurelo.eu/es/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.nurelo.eu/et/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://www.nurelo.eu/fi/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nurelo.eu/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ga" href="https://www.nurelo.eu/ga/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://www.nurelo.eu/hr/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://www.nurelo.eu/hu/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.nurelo.eu/it/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://www.nurelo.eu/lt/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.nurelo.eu/lv/"/>
+    <xhtml:link rel="alternate" hreflang="mt" href="https://www.nurelo.eu/mt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nurelo.eu/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.nurelo.eu/pl/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.nurelo.eu/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/cs/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -81,13 +128,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/da/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -109,13 +162,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/el/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -137,13 +196,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/en/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -165,13 +230,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/es/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -193,13 +264,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/et/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -221,13 +298,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/fi/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -249,13 +332,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/fr/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -277,13 +366,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/ga/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -305,13 +400,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/hr/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -333,13 +434,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/hu/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -361,13 +468,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/it/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -389,13 +502,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/lt/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -417,13 +536,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/lv/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -445,13 +570,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/mt/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -473,13 +604,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/nl/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -501,13 +638,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/pl/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -529,13 +672,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/pt/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -557,13 +706,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/ro/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -585,13 +740,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/sk/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -613,13 +774,19 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/sl/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -641,13 +808,87 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
+  </url>
+  <url>
+    <loc>https://www.nurelo.eu/sq/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nurelo.eu/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.nurelo.eu/es/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.nurelo.eu/et/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://www.nurelo.eu/fi/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nurelo.eu/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ga" href="https://www.nurelo.eu/ga/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://www.nurelo.eu/hr/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://www.nurelo.eu/hu/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.nurelo.eu/it/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://www.nurelo.eu/lt/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.nurelo.eu/lv/"/>
+    <xhtml:link rel="alternate" hreflang="mt" href="https://www.nurelo.eu/mt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nurelo.eu/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.nurelo.eu/pl/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.nurelo.eu/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
+  </url>
+  <url>
+    <loc>https://www.nurelo.eu/sr/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nurelo.eu/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.nurelo.eu/es/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.nurelo.eu/et/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://www.nurelo.eu/fi/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nurelo.eu/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ga" href="https://www.nurelo.eu/ga/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://www.nurelo.eu/hr/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://www.nurelo.eu/hu/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.nurelo.eu/it/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://www.nurelo.eu/lt/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.nurelo.eu/lv/"/>
+    <xhtml:link rel="alternate" hreflang="mt" href="https://www.nurelo.eu/mt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nurelo.eu/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.nurelo.eu/pl/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.nurelo.eu/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>
     <loc>https://www.nurelo.eu/sv/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
     <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
@@ -669,7 +910,114 @@
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
+  </url>
+  <url>
+    <loc>https://www.nurelo.eu/tr/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nurelo.eu/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.nurelo.eu/es/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.nurelo.eu/et/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://www.nurelo.eu/fi/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nurelo.eu/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ga" href="https://www.nurelo.eu/ga/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://www.nurelo.eu/hr/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://www.nurelo.eu/hu/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.nurelo.eu/it/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://www.nurelo.eu/lt/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.nurelo.eu/lv/"/>
+    <xhtml:link rel="alternate" hreflang="mt" href="https://www.nurelo.eu/mt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nurelo.eu/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.nurelo.eu/pl/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.nurelo.eu/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
+  </url>
+  <url>
+    <loc>https://www.nurelo.eu/uk/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nurelo.eu/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.nurelo.eu/es/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.nurelo.eu/et/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://www.nurelo.eu/fi/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nurelo.eu/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ga" href="https://www.nurelo.eu/ga/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://www.nurelo.eu/hr/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://www.nurelo.eu/hu/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.nurelo.eu/it/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://www.nurelo.eu/lt/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.nurelo.eu/lv/"/>
+    <xhtml:link rel="alternate" hreflang="mt" href="https://www.nurelo.eu/mt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nurelo.eu/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.nurelo.eu/pl/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.nurelo.eu/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
+  </url>
+  <url>
+    <loc>https://www.nurelo.eu/vi/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.nurelo.eu/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://www.nurelo.eu/bg/"/>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://www.nurelo.eu/bs/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.nurelo.eu/cs/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://www.nurelo.eu/da/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://www.nurelo.eu/el/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nurelo.eu/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.nurelo.eu/es/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.nurelo.eu/et/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://www.nurelo.eu/fi/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nurelo.eu/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ga" href="https://www.nurelo.eu/ga/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://www.nurelo.eu/hr/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://www.nurelo.eu/hu/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.nurelo.eu/it/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://www.nurelo.eu/lt/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.nurelo.eu/lv/"/>
+    <xhtml:link rel="alternate" hreflang="mt" href="https://www.nurelo.eu/mt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.nurelo.eu/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.nurelo.eu/pl/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.nurelo.eu/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.nurelo.eu/ro/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://www.nurelo.eu/sk/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://www.nurelo.eu/sl/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.nurelo.eu/sq/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.nurelo.eu/sr/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.nurelo.eu/sv/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.nurelo.eu/tr/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.nurelo.eu/uk/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.nurelo.eu/vi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nurelo.eu/"/>
   </url>
   <url>

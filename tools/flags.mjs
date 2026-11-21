@@ -24,6 +24,19 @@ const v3 = (a, b, c) => `<rect width="24" height="16" fill="${a}"/><rect x="8" w
 const nordic = (bg, cross, x = 6) => `<rect width="24" height="16" fill="${bg}"/><rect x="${x}" width="3" height="16" fill="${cross}"/><rect y="6.5" width="24" height="3" fill="${cross}"/>`;
 const shield = (x, y, w, h, fill, stroke) => `<path d="M${x} ${y}h${w}v${h * 0.6}q0 ${h * 0.32} -${w / 2} ${h * 0.4}q-${w / 2} -${h * 0.08} -${w / 2} -${h * 0.4}z" fill="${fill}" stroke="${stroke}" stroke-width=".5"/>`;
 
+// Fünfzackiger Stern als Polygon (Mittelpunkt, Außenradius)
+const star = (cx, cy, r, fill) => {
+  const pts = [];
+  for (let i = 0; i < 10; i++) {
+    const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * 0.382 : r;
+    pts.push(`${(cx + rr * Math.cos(a)).toFixed(2)},${(cy + rr * Math.sin(a)).toFixed(2)}`);
+  }
+  return `<polygon points="${pts.join(' ')}" fill="${fill}"/>`;
+};
+// Spiegelt eine Punktliste an der senkrechten Mittelachse (für symmetrische Wappen)
+const mirror = (pts) => pts.concat(pts.slice().reverse().map(([x, y]) => [24 - x, y]));
+const poly = (pts, fill) => `<polygon points="${pts.map(([x, y]) => `${x},${y}`).join(' ')}" fill="${fill}"/>`;
+
 const FLAGS = {
   de: h3(C.ink, C.red, C.gold),
   bg: h3(C.paper, C.green, C.red),
@@ -49,10 +62,16 @@ const FLAGS = {
   sk: `${h3(C.paper, C.blue, C.red)}${shield(3.6, 3.4, 5.6, 9.2, C.red, C.paper)}<rect x="6.15" y="4.8" width=".5" height="5.2" fill="${C.paper}"/><rect x="5.3" y="6" width="2.2" height=".5" fill="${C.paper}"/><rect x="5.5" y="7.4" width="1.8" height=".5" fill="${C.paper}"/><path d="M4.6 11.2l1.4 -1.6l.6 .6l.7 -.9l1 1.9q-.8 .7 -1.4 .9q-1.4 -.5 -2.3 -.9z" fill="${C.blue}"/>`,
   si: `${h3(C.paper, C.blue, C.red)}${shield(3.4, 2.8, 5.2, 8.4, C.blue, C.paper)}<path d="M4.4 8.4l1.6 -2.6l.7 1.1l.5 -.8l1 2.3z" fill="${C.paper}"/>`,
   se: nordic(C.sky, C.gold, 6),
+  tr: `<rect width="24" height="16" fill="${C.red}"/><circle cx="8.6" cy="8" r="4" fill="${C.paper}"/><circle cx="9.6" cy="8" r="3.2" fill="${C.red}"/>${star(13.4, 8, 1.75, C.paper)}`,
+  ba: `<rect width="24" height="16" fill="${C.blue}"/><path d="M6.4 0H17.6V16z" fill="${C.gold}"/>${[0, 1, 2, 3, 4, 5].map((i) => star(4.9 + i * 2.05, 1.3 + i * 2.9, 0.85, C.paper)).join('')}`,
+  rs: `${h3(C.red, C.blue, C.paper)}<path d="M5.2 4.4h4.4v4.2q0 2.3 -2.2 3.2q-2.2 -.9 -2.2 -3.2z" fill="${C.red}" stroke="${C.gold}" stroke-width=".5"/><path d="M7.4 5.6v4.6M5.9 7.3h3" stroke="${C.paper}" stroke-width=".7"/>`,
+  ua: `<rect width="24" height="16" fill="${C.sky}"/><rect y="8" width="24" height="8" fill="${C.gold}"/>`,
+  al: `<rect width="24" height="16" fill="${C.red}"/>${poly(mirror([[12, 5.2], [10.6, 4.6], [10, 3.2], [10.6, 2.4], [11.3, 3.1], [11.2, 4.2], [11.7, 4.6], [10.4, 5.2], [8.2, 3.9], [7, 4.4], [7.9, 5.4], [6.9, 6.1], [8.1, 6.8], [7.2, 7.7], [8.6, 8.2], [8, 9.2], [9.6, 9.3], [10.6, 10.4], [10.2, 12.8], [11.3, 11.8], [12, 13.2]]), C.ink)}`,
+  vn: `<rect width="24" height="16" fill="${C.red}"/>${star(12, 8.3, 4.6, C.gold)}`,
 };
 
 // Sprachcode (ISO 639-1) -> Flagge (ISO 3166)
-const COUNTRY = { de: 'de', bg: 'bg', cs: 'cz', da: 'dk', el: 'gr', en: 'gb', es: 'es', et: 'ee', fi: 'fi', fr: 'fr', ga: 'ie', hr: 'hr', hu: 'hu', it: 'it', lt: 'lt', lv: 'lv', mt: 'mt', nl: 'nl', pl: 'pl', pt: 'pt', ro: 'ro', sk: 'sk', sl: 'si', sv: 'se' };
+const COUNTRY = { de: 'de', bg: 'bg', cs: 'cz', da: 'dk', el: 'gr', en: 'gb', es: 'es', et: 'ee', fi: 'fi', fr: 'fr', ga: 'ie', hr: 'hr', hu: 'hu', it: 'it', lt: 'lt', lv: 'lv', mt: 'mt', nl: 'nl', pl: 'pl', pt: 'pt', ro: 'ro', sk: 'sk', sl: 'si', sv: 'se', tr: 'tr', bs: 'ba', sr: 'rs', uk: 'ua', sq: 'al', vi: 'vn' };
 
 export function flagSprite(langs) {
   const symbols = langs.map((l) => {
