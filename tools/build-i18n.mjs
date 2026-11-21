@@ -6,6 +6,7 @@
 // Außerdem: sitemap.xml und robots.txt
 // Landschaft:     tools/landscape/*.mjs zeichnen die Ebenen für Hero und Kapitelübergänge (landscape/*.svg, src/partials/land-hero.html, seam-*.html)
 // Szenen:         tools/scenes/*.mjs zeichnen die isometrischen Szenen der Produktseiten und schreiben src/partials/scene-<produkt>.html
+// Flaggen:        tools/flags.mjs zeichnet die Flaggen des Sprachwählers (als SVG-Symbole in jeder Seite)
 // Bausteine:      src/partials/<name>.html, eingebunden mit {{include:name}} (auf Produktseiten auch {{include-P:name}} für <name>-st, -am, -hn)
 //
 // Platzhalter in den Vorlagen:
@@ -17,6 +18,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildScenes, SCENE_IDS } from './scenes/build.mjs';
 import { buildLandscape } from './landscape/build.mjs';
+import { flagSprite, flagIcon } from './flags.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://www.nurelo.eu';
@@ -99,10 +101,12 @@ const partial = (name) => read(`src/partials/${name}.html`);
 const partialOpt = (name) => (existsSync(join(root, `src/partials/${name}.html`)) ? partial(name) : '');
 
 function switcherHtml(code, langs, pathFor, ariaText) {
+  // Sichtbar sind Flagge und Sprachcode (ISO 639-1), der ausgeschriebene Name steht im Tooltip und im Namen für Screenreader
   const items = langs.map((c) =>
-    `          <li><a href="${pathFor(c)}" hreflang="${c}" lang="${c}"${c === code ? ' aria-current="true"' : ''}>${LANGNAME[c]}</a></li>`).join('\n');
-  return `      <details class="lang">
-        <summary aria-label="${code.toUpperCase()}: ${escAttr(stripTags(ariaText))}"><span aria-hidden="true">${code.toUpperCase()}</span></summary>
+    `          <li><a href="${pathFor(c)}" hreflang="${c}" lang="${c}" title="${escAttr(LANGNAME[c])}" aria-label="${escAttr(LANGNAME[c])} (${c.toUpperCase()})"${c === code ? ' aria-current="true"' : ''}>${flagIcon(c)}<span class="lang-code" aria-hidden="true">${c.toUpperCase()}</span></a></li>`).join('\n');
+  return `      ${flagSprite(langs)}
+      <details class="lang">
+        <summary aria-label="${code.toUpperCase()}: ${escAttr(stripTags(ariaText))}">${flagIcon(code)}<span aria-hidden="true">${code.toUpperCase()}</span></summary>
         <ul class="lang-list">
 ${items}
         </ul>

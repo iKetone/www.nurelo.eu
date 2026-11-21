@@ -19,11 +19,13 @@ Das Skript meldet fehlende oder unbekannte Schlüssel und bricht dann ab.
 ## Neue Sprache hinzufügen
 1. `i18n/<code>.json` anlegen (Kopie von `en.json` übersetzen).
 2. Sprache in `tools/build-i18n.mjs` in der Liste `LANGS` ergänzen (Code, Eigenname, `og:locale`).
+   Für den Sprachwähler in `tools/flags.mjs` die Flagge ergänzen (`COUNTRY`: Sprachcode zu Ländercode, `FLAGS`: Zeichnung im Format 24 x 16 mit den Farben aus `C`).
 3. Bauen und prüfen. Für Schriften ohne lateinische Zeichen die Schriften in `styles.css` ergänzen.
 
 ## Hinweise
 - Keine Gedankenstriche in den Texten (das Skript prüft das).
 - In `*_h`-Schlüsseln steht `&amp;` für ein Und-Zeichen, in Attributen wie `meta_desc` steht Klartext.
+- Der Sprachwähler zeigt Flagge und Sprachcode (ISO 639-1, z. B. „DE“). Der ausgeschriebene Name steht im Tooltip und im Namen für Screenreader (aus `LANGS`).
 - Impressum, Datenschutz und AGB gibt es nur auf Deutsch (`/impressum.html` usw.).
 - Die Übersetzungen sind Entwürfe und sollten vor dem Live-Gang von Muttersprachlern geprüft werden.
 
