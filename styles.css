@@ -263,6 +263,10 @@ html:not(.hero-boot) .hero:not(.pinned) .h1-a { display: block; color: var(--ink
 .ml-points { list-style: none; padding: 0; margin: 1.6rem 0 0; display: grid; gap: .7rem; }
 .ml-points li { position: relative; padding-left: 1.9rem; font-size: 1rem; }
 .ml-points li::before { content: ""; position: absolute; left: 0; top: .2em; width: 1.15rem; height: 1.15rem; border-radius: 50%; background: var(--olive) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4L18 8' fill='none' stroke='%23f2eadd' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 72% no-repeat; }
+/* Schalter ?kurz: gekürzte Fassung zum Vergleich */
+.ml-short { display: none; }
+html.ml-kurz .ml-long, html.ml-kurz .ml-x { display: none; }
+html.ml-kurz .ml-short { display: block; }
 .ml-demo { display: grid; justify-items: stretch; gap: .5rem; max-width: 30rem; width: 100%; justify-self: end; }
 .ml-card { padding: 1rem 1.15rem 1.15rem; border-radius: 14px; }
 .ml-card p { margin: 0; font-size: .98rem; line-height: 1.5; }

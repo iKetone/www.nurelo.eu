@@ -54,7 +54,9 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/styles.css?v=b0530c9b" />
+  <!-- Vergleich: ?kurz zeigt den Abschnitt „Mehrsprachig“ in der gekürzten Fassung (ein Satz, drei Punkte) -->
+  <script>if (/[?&]kurz(?:[=&]|$)/.test(location.search)) document.documentElement.classList.add('ml-kurz');</script>
+  <link rel="stylesheet" href="/styles.css?v=e679c27f" />
   <link rel="stylesheet" href="/tunnel.css?v=60e56e66" />
   <link rel="stylesheet" href="/land.css?v=849b8908" />
   <script>
@@ -253,14 +255,7 @@
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Pobytová starostlivosť</p>
-            <h2>Všetko o klientovi na jednom mieste.</h2>
-            <p class="chapter-lead">Karta klienta, plánovanie starostlivosti, plánovanie služieb a vyúčtovanie v jednom systéme prispôsobenom vášmu zariadeniu. Dokumentácia za niekoľko minút a polročný zber ukazovateľov kvality za vás Nurelo zaznamená a odošle.</p>
-            <ul class="ticks">
-              <li>Štruktúrny model: SIS, plán opatrení, záznamový list a evaluácia</li>
-              <li>Polročný zber ukazovateľov kvality s odoslaním</li>
-              <li>Plánovanie služieb a vyúčtovanie plne konfigurovateľné</li>
-              <li>Lieky s protokolom o podaní</li>
-            </ul>
+            <h2>Váš domov pre seniorov, spravovaný v jednom systéme.</h2>
             <a class="chapter-more" href="/en/residential/" hreflang="en">Zistiť viac</a>
           </div>
           <div class="chapter-visual">
@@ -283,14 +278,7 @@
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Domáca starostlivosť</p>
-            <h2>Zaznamenané raz. Vyúčtované správne.</h2>
-            <p class="chapter-lead">Plánovanie, dokumentácia a vyúčtovanie v jednom toku: od trasy cez návštevu u klienta, aj bez pripojenia a s elektronickým podpisom, až po vyúčtovanie podľa §&nbsp;302 platiteľom.</p>
-            <ul class="ticks">
-              <li>Plánovanie trás a služieb s pridelením vozidiel a pracovníkov</li>
-              <li>Mobilná dokumentácia na mieste, aj offline, s elektronickým podpisom</li>
-              <li>Evidencia výkonov podľa SGB XI a V v jednom toku</li>
-              <li>Vyúčtovanie podľa §&nbsp;302 odosielané priamo platiteľom</li>
-            </ul>
+            <h2>Váš pomocník na trasách a pri domácich návštevách.</h2>
             <a class="chapter-more" href="/en/home-care/" hreflang="en">Zistiť viac</a>
           </div>
           <div class="chapter-visual">
@@ -322,14 +310,7 @@
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Tiesňové volanie</p>
-            <h2>Od alarmu po vyúčtovanie. Bez medzier zdokumentované.</h2>
-            <p class="chapter-lead">Alarm sa odovzdá centrále tiesňového volania, zásah sa zdokumentuje a mesačný paušál sa vyúčtuje automaticky. Každý krok zostáva dohľadateľný, aj pri falošných a skúšobných alarmoch.</p>
-            <ul class="ticks">
-              <li>Správa používateľov a zariadení</li>
-              <li>Odovzdávanie alarmov centrále tiesňového volania</li>
-              <li>Falošné a skúšobné alarmy evidované a vyhodnotené</li>
-              <li>Mesačný paušál vyúčtovaný automaticky</li>
-            </ul>
+            <h2>Prehľad o používateľoch, zariadeniach a alarmoch.</h2>
             <a class="chapter-more" href="/en/emergency-call/" hreflang="en">Zistiť viac</a>
           </div>
           <div class="chapter-visual">
@@ -407,12 +388,13 @@
           <div class="ml-text">
             <p class="kicker light">Viacjazyčné</p>
             <h3 class="ml-h">Jeden tím, veľa jazykov.</h3>
-            <p class="ml-lead">Ošetrovatelia nahovoria svoje poznámky vo svojom rodnom jazyku a Nurelo ich preloží do nemčiny priamo do dokumentácie. Vďaka tomu sú kolegovia zo zahraničia od prvého dňa plnohodnotnou súčasťou tímu, zatiaľ čo sa učia nemčinu.</p>
+            <p class="ml-lead ml-long">Ošetrovatelia nahovoria svoje poznámky vo svojom rodnom jazyku a Nurelo ich preloží do nemčiny priamo do dokumentácie. Vďaka tomu sú kolegovia zo zahraničia od prvého dňa plnohodnotnou súčasťou tímu, zatiaľ čo sa učia nemčinu.</p>
+            <p class="ml-lead ml-short">Ošetrovateľský personál hovorí vo svojom jazyku, Nurelo vedie dokumentáciu v nemčine.</p>
             <ul class="ml-points">
               <li>Rozhranie vo viac ako 10 jazykoch, ďalšie budú nasledovať</li>
-              <li>Hlasové poznámky v akomkoľvek jazyku, zaznamenané v nemčine</li>
+              <li class="ml-x">Hlasové poznámky v akomkoľvek jazyku, zaznamenané v nemčine</li>
               <li>Pred uložením skontrolujte a opravte preklad</li>
-              <li>Pôvodný text zostane zachovaný a v prípade potreby ho možno vymazať</li>
+              <li class="ml-x">Pôvodný text zostane zachovaný a v prípade potreby ho možno vymazať</li>
               <li>Preklad lokálne u vás alebo na našich serveroch v Nemecku</li>
             </ul>
           </div>

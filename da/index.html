@@ -54,7 +54,9 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/styles.css?v=b0530c9b" />
+  <!-- Vergleich: ?kurz zeigt den Abschnitt „Mehrsprachig“ in der gekürzten Fassung (ein Satz, drei Punkte) -->
+  <script>if (/[?&]kurz(?:[=&]|$)/.test(location.search)) document.documentElement.classList.add('ml-kurz');</script>
+  <link rel="stylesheet" href="/styles.css?v=e679c27f" />
   <link rel="stylesheet" href="/tunnel.css?v=60e56e66" />
   <link rel="stylesheet" href="/land.css?v=849b8908" />
   <script>
@@ -253,14 +255,7 @@
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Plejecenter</p>
-            <h2>Alt om beboeren samlet ét sted.</h2>
-            <p class="chapter-lead">Beboerjournal, plejeplanlægning, vagtplanlægning og afregning i ét system, tilpasset jeres plejecenter. Dokumentation på få minutter, og Nurelo registrerer og indberetter den halvårlige indsamling af kvalitetsindikatorer for jer.</p>
-            <ul class="ticks">
-              <li>Strukturmodel: SIS, handlingsplan, rapportark og evaluering</li>
-              <li>Halvårlig indsamling af kvalitetsindikatorer med indberetning</li>
-              <li>Vagtplanlægning og afregning fuldt konfigurerbare</li>
-              <li>Medicin med administrationsprotokol</li>
-            </ul>
+            <h2>Jeres plejecenter, samlet i ét system.</h2>
             <a class="chapter-more" href="/en/residential/" hreflang="en">Læs mere</a>
           </div>
           <div class="chapter-visual">
@@ -283,14 +278,7 @@
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Hjemmepleje</p>
-            <h2>Registreret én gang. Afregnet korrekt.</h2>
-            <p class="chapter-lead">Planlægning, dokumentation og afregning i ét forløb: fra ruten via besøget hos borgeren, også uden netværk og med digital underskrift, til afregning efter §&nbsp;302 over for betalerne.</p>
-            <ul class="ticks">
-              <li>Rute- og vagtplanlægning med tildeling af køretøjer og medarbejdere</li>
-              <li>Mobil dokumentation på stedet, også offline, med digital underskrift</li>
-              <li>Registrering af ydelser efter SGB XI og V i ét forløb</li>
-              <li>Afregning efter §&nbsp;302, sendt direkte til betalerne</li>
-            </ul>
+            <h2>Jeres partner til plejeruter og hjemmebesøg.</h2>
             <a class="chapter-more" href="/en/home-care/" hreflang="en">Læs mere</a>
           </div>
           <div class="chapter-visual">
@@ -322,14 +310,7 @@
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Nødkald</p>
-            <h2>Fra alarm til afregning. Dokumenteret uden huller.</h2>
-            <p class="chapter-lead">Alarmen sendes videre til nødkaldscentralen, besøget dokumenteres, og det månedlige abonnement faktureres automatisk. Hvert trin kan spores, også ved falske alarmer og testalarmer.</p>
-            <ul class="ticks">
-              <li>Bruger- og enhedsadministration</li>
-              <li>Videresendelse af alarmer til nødkaldscentralen</li>
-              <li>Falske alarmer og testalarmer registreret og analyseret</li>
-              <li>Månedligt abonnement faktureres automatisk</li>
-            </ul>
+            <h2>Jeres overblik over brugere, enheder og alarmer.</h2>
             <a class="chapter-more" href="/en/emergency-call/" hreflang="en">Læs mere</a>
           </div>
           <div class="chapter-visual">
@@ -407,12 +388,13 @@
           <div class="ml-text">
             <p class="kicker light">Flersproget</p>
             <h3 class="ml-h">Et team, mange sprog.</h3>
-            <p class="ml-lead">Plejepersonalet indtaler deres noter på deres eget sprog, og Nurelo oversætter dem til tysk og indfører dem direkte i dokumentationen. På den måde er kolleger fra udlandet fuldt ud en del af teamet fra første dag, mens de lærer tysk.</p>
+            <p class="ml-lead ml-long">Plejepersonalet indtaler deres noter på deres eget sprog, og Nurelo oversætter dem til tysk og indfører dem direkte i dokumentationen. På den måde er kolleger fra udlandet fuldt ud en del af teamet fra første dag, mens de lærer tysk.</p>
+            <p class="ml-lead ml-short">Plejepersonalet taler på deres eget sprog, mens Nurelo fører journal på tysk.</p>
             <ul class="ml-points">
               <li>Brugergrænseflade på over 10 sprog, flere følger</li>
-              <li>Talemeddelelser på alle sprog, dokumenteret på tysk</li>
+              <li class="ml-x">Talemeddelelser på alle sprog, dokumenteret på tysk</li>
               <li>Kontrollér og ret oversættelsen før lagring</li>
-              <li>Originalen bevares og kan slettes, hvis det er nødvendigt</li>
+              <li class="ml-x">Originalen bevares og kan slettes, hvis det er nødvendigt</li>
               <li>Oversættelse lokalt hos jer eller på vores servere i Tyskland</li>
             </ul>
           </div>

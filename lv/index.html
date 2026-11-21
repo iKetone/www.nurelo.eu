@@ -54,7 +54,9 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/styles.css?v=b0530c9b" />
+  <!-- Vergleich: ?kurz zeigt den Abschnitt „Mehrsprachig“ in der gekürzten Fassung (ein Satz, drei Punkte) -->
+  <script>if (/[?&]kurz(?:[=&]|$)/.test(location.search)) document.documentElement.classList.add('ml-kurz');</script>
+  <link rel="stylesheet" href="/styles.css?v=e679c27f" />
   <link rel="stylesheet" href="/tunnel.css?v=60e56e66" />
   <link rel="stylesheet" href="/land.css?v=849b8908" />
   <script>
@@ -253,14 +255,7 @@
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Aprūpes nams</p>
-            <h2>Viss par iedzīvotāju vienuviet.</h2>
-            <p class="chapter-lead">Iedzīvotāja lieta, aprūpes plānošana, darba grafiks un norēķini vienā sistēmā, pielāgotā jūsu iestādei. Dokumentēšana dažās minūtēs, un pusgada kvalitātes rādītāju apkopošanu jūsu vietā reģistrē un nosūta Nurelo.</p>
-            <ul class="ticks">
-              <li>Struktūras modelis: SIS, pasākumu plāns, ziņojumu lapa un izvērtējums</li>
-              <li>Pusgada kvalitātes rādītāju apkopošana ar nosūtīšanu</li>
-              <li>Darba grafiks un norēķini pilnībā konfigurējami</li>
-              <li>Zāles ar ievadīšanas protokolu</li>
-            </ul>
+            <h2>Jūsu aprūpes nams, organizēts vienā sistēmā.</h2>
             <a class="chapter-more" href="/en/residential/" hreflang="en">Uzzināt vairāk</a>
           </div>
           <div class="chapter-visual">
@@ -283,14 +278,7 @@
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Aprūpe mājās</p>
-            <h2>Reģistrēts vienreiz. Pareizi norēķināts.</h2>
-            <p class="chapter-lead">Plānošana, dokumentēšana un norēķini vienā procesā: no maršruta caur vizīti pie klienta, arī bez tīkla un ar elektronisko parakstu, līdz norēķiniem pēc §&nbsp;302 ar maksātājiem.</p>
-            <ul class="ticks">
-              <li>Maršrutu un grafiku plānošana ar transportlīdzekļu un darbinieku piešķiršanu</li>
-              <li>Mobila dokumentēšana uz vietas, arī bezsaistē, ar elektronisko parakstu</li>
-              <li>Pakalpojumu reģistrēšana pēc SGB XI + V vienā procesā</li>
-              <li>Norēķini pēc §&nbsp;302, nosūtīti tieši maksātājiem</li>
-            </ul>
+            <h2>Jūsu palīgs maršrutos un mājas vizītēs.</h2>
             <a class="chapter-more" href="/en/home-care/" hreflang="en">Uzzināt vairāk</a>
           </div>
           <div class="chapter-visual">
@@ -322,14 +310,7 @@
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Trauksmes izsaukums</p>
-            <h2>No trauksmes līdz norēķiniem. Dokumentēts bez robiem.</h2>
-            <p class="chapter-lead">Trauksme tiek pārsūtīta trauksmes izsaukumu centram, izbraukums tiek dokumentēts, un mēneša maksa tiek izrakstīta automātiski. Katrs solis paliek izsekojams, arī viltus un pārbaudes trauksmju gadījumā.</p>
-            <ul class="ticks">
-              <li>Lietotāju un ierīču pārvaldība</li>
-              <li>Trauksmju pārsūtīšana trauksmes izsaukumu centram</li>
-              <li>Viltus un pārbaudes trauksmes reģistrētas un izvērtētas</li>
-              <li>Mēneša maksa tiek automātiski izrakstīta</li>
-            </ul>
+            <h2>Pārskats par lietotājiem, ierīcēm un trauksmēm.</h2>
             <a class="chapter-more" href="/en/emergency-call/" hreflang="en">Uzzināt vairāk</a>
           </div>
           <div class="chapter-visual">
@@ -407,12 +388,13 @@
           <div class="ml-text">
             <p class="kicker light">Daudzvalodīgs</p>
             <h3 class="ml-h">Viena komanda, daudzas valodas.</h3>
-            <p class="ml-lead">Medicīnas darbinieki ieraksta savas piezīmes savā dzimtajā valodā, un Nurelo tās pārvērš vācu valodā, tieši ievadot dokumentācijā. Tādējādi kolēģi no ārzemēm jau no pirmās dienas pilnībā iekļaujas komandā, vienlaikus apgūstot vācu valodu.</p>
+            <p class="ml-lead ml-long">Medicīnas darbinieki ieraksta savas piezīmes savā dzimtajā valodā, un Nurelo tās pārvērš vācu valodā, tieši ievadot dokumentācijā. Tādējādi kolēģi no ārzemēm jau no pirmās dienas pilnībā iekļaujas komandā, vienlaikus apgūstot vācu valodu.</p>
+            <p class="ml-lead ml-short">Aprūpes personāls runā savā valodā, Nurelo dokumentē vācu valodā.</p>
             <ul class="ml-points">
               <li>Saskarne vairāk nekā 10 valodās, drīzumā tiks pievienotas arī citas</li>
-              <li>Balss piezīmes jebkurā valodā, dokumentētas vācu valodā</li>
+              <li class="ml-x">Balss piezīmes jebkurā valodā, dokumentētas vācu valodā</li>
               <li>Pirms saglabāšanas pārbaudiet un labojiet tulkojumu</li>
-              <li>Oriģināls tiek saglabāts un vajadzības gadījumā to var dzēst</li>
+              <li class="ml-x">Oriģināls tiek saglabāts un vajadzības gadījumā to var dzēst</li>
               <li>Tulkošana notiek lokāli pie jums vai mūsu serveros Vācijā</li>
             </ul>
           </div>

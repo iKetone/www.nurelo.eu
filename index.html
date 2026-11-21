@@ -70,7 +70,9 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/styles.css?v=b0530c9b" />
+  <!-- Vergleich: ?kurz zeigt den Abschnitt „Mehrsprachig“ in der gekürzten Fassung (ein Satz, drei Punkte) -->
+  <script>if (/[?&]kurz(?:[=&]|$)/.test(location.search)) document.documentElement.classList.add('ml-kurz');</script>
+  <link rel="stylesheet" href="/styles.css?v=e679c27f" />
   <link rel="stylesheet" href="/tunnel.css?v=60e56e66" />
   <link rel="stylesheet" href="/land.css?v=849b8908" />
   <script>
@@ -269,14 +271,7 @@
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Stationär</p>
-            <h2>Alles zum Bewohner an einem Ort.</h2>
-            <p class="chapter-lead">Bewohnerakte, Pflegeplanung, Dienstplan und Abrechnung in einem System, abgestimmt auf Ihre Einrichtung. Dokumentation in wenigen Minuten, und die halbjährliche Erhebung der Qualitätsindikatoren erfasst und übermittelt Nurelo für Sie.</p>
-            <ul class="ticks">
-              <li>Strukturmodell: SIS, Maßnahmenplan, Berichteblatt und Evaluation</li>
-              <li>Halbjährliche Erhebung der Qualitätsindikatoren mit Übermittlung</li>
-              <li>Dienstplan und Abrechnung voll konfigurierbar</li>
-              <li>Medikamente mit Verabreichungsprotokoll</li>
-            </ul>
+            <h2>Ihr Pflegeheim, in einem System organisiert.</h2>
             <a class="chapter-more" href="/stationaer/">Mehr erfahren</a>
           </div>
           <div class="chapter-visual">
@@ -299,14 +294,7 @@
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Ambulant</p>
-            <h2>Einmal erfasst. Richtig abgerechnet.</h2>
-            <p class="chapter-lead">Planung, Dokumentation und Abrechnung in einem Ablauf: von der Tour über den Einsatz beim Klienten, auch ohne Netz und mit digitaler Unterschrift, bis zur Abrechnung nach §&nbsp;302 mit den Kostenträgern.</p>
-            <ul class="ticks">
-              <li>Tour- und Dienstplanung mit Fahrzeug- und Mitarbeiterzuweisung</li>
-              <li>Mobile Dokumentation vor Ort, auch offline, mit digitaler Unterschrift</li>
-              <li>Leistungen nach SGB XI und V in einem Ablauf erfassen</li>
-              <li>Abrechnung nach §&nbsp;302, direkt an die Kostenträger übermittelt</li>
-            </ul>
+            <h2>Ihr Begleiter für Touren und Einsätze.</h2>
             <a class="chapter-more" href="/ambulant/">Mehr erfahren</a>
           </div>
           <div class="chapter-visual">
@@ -338,14 +326,7 @@
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Hausnotruf</p>
-            <h2>Vom Alarm bis zur Abrechnung. Lückenlos dokumentiert.</h2>
-            <p class="chapter-lead">Der Alarm wird an die Hausnotrufzentrale weitergeleitet, der Einsatz dokumentiert, und die Monatspauschale rechnet sich automatisch ab. So bleibt jeder Schritt nachvollziehbar, auch bei Fehl- und Probealarmen.</p>
-            <ul class="ticks">
-              <li>Teilnehmer- und Gerätemanagement</li>
-              <li>Alarmweiterleitung an die Hausnotrufzentrale</li>
-              <li>Fehl- und Probealarme erfasst und ausgewertet</li>
-              <li>Monatspauschale automatisch abgerechnet</li>
-            </ul>
+            <h2>Ihr Überblick über Teilnehmer, Geräte und Alarme.</h2>
             <a class="chapter-more" href="/hausnotruf/">Mehr erfahren</a>
           </div>
           <div class="chapter-visual">
@@ -423,12 +404,13 @@
           <div class="ml-text">
             <p class="kicker light">Mehrsprachig</p>
             <h3 class="ml-h">Ein Team, viele Sprachen.</h3>
-            <p class="ml-lead">Pflegekräfte sprechen ihre Notizen in ihrer eigenen Sprache ein, Nurelo überträgt sie ins Deutsche, direkt in die Dokumentation. So sind Kolleginnen und Kollegen aus dem Ausland vom ersten Tag an voll im Team, während sie Deutsch lernen.</p>
+            <p class="ml-lead ml-long">Pflegekräfte sprechen ihre Notizen in ihrer eigenen Sprache ein, Nurelo überträgt sie ins Deutsche, direkt in die Dokumentation. So sind Kolleginnen und Kollegen aus dem Ausland vom ersten Tag an voll im Team, während sie Deutsch lernen.</p>
+            <p class="ml-lead ml-short">Pflegekräfte sprechen in ihrer Sprache, Nurelo dokumentiert auf Deutsch.</p>
             <ul class="ml-points">
               <li>Oberfläche in über 10 Sprachen, weitere folgen</li>
-              <li>Sprachnotizen in jeder Sprache, dokumentiert auf Deutsch</li>
+              <li class="ml-x">Sprachnotizen in jeder Sprache, dokumentiert auf Deutsch</li>
               <li>Übersetzung vor dem Speichern prüfen und korrigieren</li>
-              <li>Original bleibt erhalten und lässt sich bei Bedarf löschen</li>
+              <li class="ml-x">Original bleibt erhalten und lässt sich bei Bedarf löschen</li>
               <li>Übersetzung lokal bei Ihnen oder auf unseren Servern in Deutschland</li>
             </ul>
           </div>

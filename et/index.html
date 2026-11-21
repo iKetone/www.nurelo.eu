@@ -54,7 +54,9 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/styles.css?v=b0530c9b" />
+  <!-- Vergleich: ?kurz zeigt den Abschnitt „Mehrsprachig“ in der gekürzten Fassung (ein Satz, drei Punkte) -->
+  <script>if (/[?&]kurz(?:[=&]|$)/.test(location.search)) document.documentElement.classList.add('ml-kurz');</script>
+  <link rel="stylesheet" href="/styles.css?v=e679c27f" />
   <link rel="stylesheet" href="/tunnel.css?v=60e56e66" />
   <link rel="stylesheet" href="/land.css?v=849b8908" />
   <script>
@@ -253,14 +255,7 @@
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Hooldekodu</p>
-            <h2>Kõik elaniku kohta ühes kohas.</h2>
-            <p class="chapter-lead">Elaniku toimik, hoolduse planeerimine, töögraafik ja arveldus ühes süsteemis, kohandatud teie asutusele. Dokumenteerimine mõne minutiga ning poolaasta kvaliteedinäitajate kogumise registreerib ja edastab teie eest Nurelo.</p>
-            <ul class="ticks">
-              <li>Struktuurimudel: SIS, meetmeplaan, aruandeleht ja hindamine</li>
-              <li>Poolaasta kvaliteedinäitajate kogumine koos edastamisega</li>
-              <li>Töögraafik ja arveldus täielikult seadistatavad</li>
-              <li>Ravimid manustamisprotokolliga</li>
-            </ul>
+            <h2>Teie hooldekodu, kõik ühes süsteemis.</h2>
             <a class="chapter-more" href="/en/residential/" hreflang="en">Loe lähemalt</a>
           </div>
           <div class="chapter-visual">
@@ -283,14 +278,7 @@
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Koduhooldus</p>
-            <h2>Üks kord sisestatud. Õigesti arveldatud.</h2>
-            <p class="chapter-lead">Planeerimine, dokumenteerimine ja arveldus ühes töövoos: marsruudist kliendi juures käiguni, ka ilma võrguühenduseta ja digiallkirjaga, kuni arveldamiseni §&nbsp;302 alusel maksjatega.</p>
-            <ul class="ticks">
-              <li>Marsruutide ja töögraafiku planeerimine sõidukite ja töötajate määramisega</li>
-              <li>Mobiilne dokumenteerimine kohapeal, ka võrguühenduseta, digiallkirjaga</li>
-              <li>Teenuste registreerimine SGB XI + V järgi ühes töövoos</li>
-              <li>Arveldus §&nbsp;302 järgi, edastatakse otse maksjatele</li>
-            </ul>
+            <h2>Teie abiline marsruutidel ja koduvisiitidel.</h2>
             <a class="chapter-more" href="/en/home-care/" hreflang="en">Loe lähemalt</a>
           </div>
           <div class="chapter-visual">
@@ -322,14 +310,7 @@
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Hädaabikutse</p>
-            <h2>Häirest arveldamiseni. Täielikult dokumenteeritud.</h2>
-            <p class="chapter-lead">Häire edastatakse hädaabikutsete keskusele, väljakutse dokumenteeritakse ja kuutasu arveldatakse automaatselt. Iga samm jääb jälgitavaks, ka valehäirete ja proovihäirete puhul.</p>
-            <ul class="ticks">
-              <li>Kasutajate ja seadmete haldus</li>
-              <li>Häirete edastamine hädaabikutsete keskusele</li>
-              <li>Valehäired ja proovihäired registreeritud ja analüüsitud</li>
-              <li>Kuutasu arveldatakse automaatselt</li>
-            </ul>
+            <h2>Ülevaade kasutajatest, seadmetest ja häiretest.</h2>
             <a class="chapter-more" href="/en/emergency-call/" hreflang="en">Loe lähemalt</a>
           </div>
           <div class="chapter-visual">
@@ -407,12 +388,13 @@
           <div class="ml-text">
             <p class="kicker light">Mitmekeelne</p>
             <h3 class="ml-h">Üks meeskond, palju keeli.</h3>
-            <p class="ml-lead">Hooldustöötajad salvestavad oma märkmed oma emakeeles, Nurelo tõlgib need saksa keelde ja kannab otse dokumentatsiooni. Nii on välismaalt pärit kolleegid juba esimesest päevast alates täielikult meeskonna osaks, samal ajal kui nad saksa keelt õpivad.</p>
+            <p class="ml-lead ml-long">Hooldustöötajad salvestavad oma märkmed oma emakeeles, Nurelo tõlgib need saksa keelde ja kannab otse dokumentatsiooni. Nii on välismaalt pärit kolleegid juba esimesest päevast alates täielikult meeskonna osaks, samal ajal kui nad saksa keelt õpivad.</p>
+            <p class="ml-lead ml-short">Hooldustöötajad räägivad oma emakeeles, Nurelo dokumenteerib saksa keeles.</p>
             <ul class="ml-points">
               <li>Kasutajaliides on saadaval enam kui 10 keeles, teised lisanduvad peagi</li>
-              <li>Häälmärkmed mis tahes keeles, dokumenteeritud saksa keeles</li>
+              <li class="ml-x">Häälmärkmed mis tahes keeles, dokumenteeritud saksa keeles</li>
               <li>Kontrolli ja paranda tõlget enne salvestamist</li>
-              <li>Originaal säilitatakse ja seda saab vajaduse korral kustutada</li>
+              <li class="ml-x">Originaal säilitatakse ja seda saab vajaduse korral kustutada</li>
               <li>Tõlkimine kohapeal teie juures või meie serverites Saksamaal</li>
             </ul>
           </div>

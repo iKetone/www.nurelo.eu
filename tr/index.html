@@ -54,7 +54,9 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://www.nurelo.eu/og-image.png" />
   <link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/styles.css?v=b0530c9b" />
+  <!-- Vergleich: ?kurz zeigt den Abschnitt „Mehrsprachig“ in der gekürzten Fassung (ein Satz, drei Punkte) -->
+  <script>if (/[?&]kurz(?:[=&]|$)/.test(location.search)) document.documentElement.classList.add('ml-kurz');</script>
+  <link rel="stylesheet" href="/styles.css?v=e679c27f" />
   <link rel="stylesheet" href="/tunnel.css?v=60e56e66" />
   <link rel="stylesheet" href="/land.css?v=849b8908" />
   <script>
@@ -253,14 +255,7 @@
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Yatılı bakım</p>
-            <h2>Sakinle ilgili her şey tek bir yerde.</h2>
-            <p class="chapter-lead">Tesisinize özel olarak uyarlanmış tek bir sistemde sakin kayıtları, bakım planlaması, personel nöbet çizelgesi ve faturalandırma. Belgelerinizi sadece birkaç dakika içinde hazırlayın; Nurelo, altı aylık kalite göstergesi verilerinin toplanmasını sizin adınıza gerçekleştirip ilgili kurumlara iletir.</p>
-            <ul class="ticks">
-              <li>Yapı modeli: SIS, önlem planı, rapor formu ve değerlendirme</li>
-              <li>Yarı yıllık kalite göstergesi verilerinin toplanması ve iletilmesi</li>
-              <li>Personel nöbet çizelgesi ve faturalandırma tamamen yapılandırılabilir</li>
-              <li>Uygulama kaydı içeren ilaç yönetimi</li>
-            </ul>
+            <h2>Bakım eviniz, tek bir sistem altında düzenlenmiş.</h2>
             <a class="chapter-more" href="/en/residential/" hreflang="en">Daha fazla bilgi</a>
           </div>
           <div class="chapter-visual">
@@ -283,14 +278,7 @@
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Evde bakım</p>
-            <h2>Bir kez kaydedildi. Doğru faturalandı.</h2>
-            <p class="chapter-lead">Planlama, belgeleme ve faturalandırma tek bir iş akışında: güzergâhtan müşterinin evine yapılan ziyarete kadar, ağ bağlantısı olmasa bile ve elektronik imza ile, §&nbsp;302 uyarınca ödeme kurumlarına faturalandırmaya kadar.</p>
-            <ul class="ticks">
-              <li>Araç ve personel tahsisi ile güzergâh ve vardiya planlaması</li>
-              <li>Elektronik imza ile sahada, çevrimdışı olarak da gerçekleştirilebilen mobil belgeleme</li>
-              <li>SGB XI ve V kapsamındaki hizmetleri tek bir iş akışında kaydetme</li>
-              <li>§&nbsp;302 uyarınca faturalandırma, doğrudan ödeme kurumlarına iletilir</li>
-            </ul>
+            <h2>Rotalar ve ev ziyaretlerinde yol arkadaşınız.</h2>
             <a class="chapter-more" href="/en/home-care/" hreflang="en">Daha fazla bilgi</a>
           </div>
           <div class="chapter-visual">
@@ -322,14 +310,7 @@
         <div class="wrap chapter-grid">
           <div class="chapter-text">
             <p class="kicker">Acil çağrı</p>
-            <h2>Alarmdan faturalandırmaya. Eksiksiz belgelenmiş.</h2>
-            <p class="chapter-lead">Alarm acil çağrı merkezine iletilir, ziyaret kayda geçirilir ve aylık sabit ücret otomatik olarak faturalandırılır. Her adım, yanlış alarmlar ve test alarmları dahil olmak üzere izlenebilir kalır.</p>
-            <ul class="ticks">
-              <li>Hizmet kullanıcısı ve cihaz yönetimi</li>
-              <li>Acil çağrı merkezine alarm iletimi</li>
-              <li>Yanlış ve test alarmları kaydedilir ve analiz edilir</li>
-              <li>Aylık sabit ücret otomatik faturalandırılır</li>
-            </ul>
+            <h2>Hizmet kullanıcıları, cihazlar ve alarmlar için genel bakış.</h2>
             <a class="chapter-more" href="/en/emergency-call/" hreflang="en">Daha fazla bilgi</a>
           </div>
           <div class="chapter-visual">
@@ -407,12 +388,13 @@
           <div class="ml-text">
             <p class="kicker light">Çok dilli</p>
             <h3 class="ml-h">Tek bir ekip, birçok dil.</h3>
-            <p class="ml-lead">Bakım personeli notlarını kendi dillerinde sesli olarak kaydeder; Nurelo ise bunları Almancaya çevirerek doğrudan belgelere aktarır. Böylelikle yurt dışından gelen meslektaşlar, Almanca öğrenirken ilk günden itibaren ekibin tam bir parçası olurlar.</p>
+            <p class="ml-lead ml-long">Bakım personeli notlarını kendi dillerinde sesli olarak kaydeder; Nurelo ise bunları Almancaya çevirerek doğrudan belgelere aktarır. Böylelikle yurt dışından gelen meslektaşlar, Almanca öğrenirken ilk günden itibaren ekibin tam bir parçası olurlar.</p>
+            <p class="ml-lead ml-short">Bakım personeli kendi dilinde konuşur, Nurelo Almanca belgeler.</p>
             <ul class="ml-points">
               <li>10'dan fazla dilde kullanıcı arayüzü; diğer diller de yakında eklenecek</li>
-              <li>Her dilde sesli notlar, Almanca olarak belgelenir</li>
+              <li class="ml-x">Her dilde sesli notlar, Almanca olarak belgelenir</li>
               <li>Kaydetmeden önce çeviriyi kontrol edin ve düzeltin</li>
-              <li>Orijinal korunur ve gerektiğinde silinebilir</li>
+              <li class="ml-x">Orijinal korunur ve gerektiğinde silinebilir</li>
               <li>Çeviri, sizin yerinizde veya Almanya’daki sunucularımızda yapılır</li>
             </ul>
           </div>
