@@ -22,8 +22,8 @@ html.land .ls { display: block; position: absolute; left: 0; right: 0; bottom: 0
 /* Dunst: liegt am Anfang über allem (alles ist grau und unsortiert) und löst sich auf, während sich die Kacheln ordnen */
 .ls-haze { position: absolute; inset: 0; background: linear-gradient(to top, rgba(205, 200, 186, .96), rgba(222, 217, 204, .78) 60%, rgba(236, 232, 222, .5)); opacity: calc((1 - var(--dawn, 1)) * .92); }
 
-/* Der erste Kapitelwechsel: Das Kapitel Stationär fährt über die stehende Bühne, die Landschaft steigt mit unterschiedlicher Geschwindigkeit.
-   Dafür bleibt die Bühne 100 Fenster-Höhen länger kleben und das Kapitel überlappt den Hero um genau so viel. */
+/* Der erste Kapitelwechsel: Das Kapitel Stationär fährt über die stehende Bühne, die Landschaft steigt mit ihm (hintere Ebenen genauso schnell,
+   vordere etwas schneller, Werte in tools/landscape/art.mjs). Dafür bleibt die Bühne 100 Fenster-Höhen länger kleben und das Kapitel überlappt den Hero um genau so viel. */
 html.land .hero.pinned, html.land.hero-boot .hero { height: 445vh; height: 445svh; } /* 300 Sequenz + 45 Ruhe (die ganze Landschaft steht) + 100 Überfahren */
 html.land .chapters { margin-top: 0; }
 html.land .hero.pinned + .chapters, html.land.hero-boot .hero + .chapters { margin-top: -100vh; margin-top: -100svh; }
@@ -75,11 +75,16 @@ html.land .scn.scn-on > .seam { margin-bottom: 0; }
     /* Die vorderste Ebene steigt etwas weiter als das Kapitel (--s: 1.12): Ihre Kuppe bleibt immer über der Kante des Kapitels, auch wenn der Browser die Fensterhöhe
        (svh) und die Länge der Scroll-Strecke am Handy minimal anders rechnet. Dazwischen liegt nur ebenes Oliv, die Naht ist unsichtbar. */
     @keyframes land-rise { to { transform: translate3d(0, calc(var(--s) * -100svh), 0); } }
+    /* Die Sonne steigt mit der hintersten Ebene (gleiches --s) und bleibt so über den Bergen stehen, statt von ihnen verdeckt zu werden.
+       Über translate statt transform: Ihr transform gehört dem Sonnenaufgang in der Sequenz (--dawn). */
+    html.land .ls-sun { animation: sun-rise linear both; animation-timeline: scroll(root block); animation-range: 245svh 345svh; }
+    @keyframes sun-rise { to { translate: 0 calc(var(--s) * -100svh); } }
     /* Nähte: Die hinteren Ebenen bleiben oben stehen, die vorderen steigen beim Einfahren des Kapitels langsam aus dem unteren Rand der Naht auf
        (je näher, desto weiter); nichts rutscht nach unten. Die vorderste Ebene, die Farbe des Kapitels, ist fest. Der Weg ist an die Höhe der Naht gebunden. */
     html.land .platform, html.land .steps-sec, html.land .scn { view-timeline: --ch block; }
-    /* Der Hero-Text bleibt nicht unter den aufsteigenden Ebenen stehen, sondern blendet aus, sobald das Kapitel über die Bühne fährt */
-    html.land .hero-copy { animation: land-text linear both; animation-timeline: scroll(root block); animation-range: 245svh 295svh; }
+    /* Der Hero-Text bleibt nicht unter den aufsteigenden Ebenen stehen, sondern blendet aus, sobald das Kapitel über die Bühne fährt,
+       und ist weg, bevor die hinteren Ebenen ihn erreichen */
+    html.land .hero-copy { animation: land-text linear both; animation-timeline: scroll(root block); animation-range: 245svh 275svh; }
     @keyframes land-text { to { opacity: 0; } }
     html.land .seam-l:not(.seam-edge) { animation: seam-rise linear both; animation-timeline: --ch; animation-range: entry 0% entry 55%; }
     @keyframes seam-rise { from { transform: translate3d(0, calc(var(--s) * var(--seam-h) * .62), 0); } }

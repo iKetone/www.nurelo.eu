@@ -19,7 +19,7 @@ export function buildLandscape(root) {
         <div class="ls-sky" aria-hidden="true"></div>
         <div class="ls" aria-hidden="true">
           ${img('ls-l ls-cl', 0.02, '/landscape/hero-sky.svg', HERO.W, HERO.H, false)}
-          <div class="ls-sun"></div>
+          <div class="ls-sun" style="--s:${HERO.speeds[0]}"></div>
           ${layers.map((_, i) => (i === layers.length - 1 ? '<div class="ls-fill" style="--s:' + HERO.speeds[i] + '"></div>\n          ' : '') + img('ls-l', HERO.speeds[i], `/landscape/hero-${i + 1}.svg`, HERO.W, HERO.H, false)).join('\n          ')}
           <div class="ls-haze"></div>
         </div>`;

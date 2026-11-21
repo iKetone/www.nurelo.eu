@@ -119,7 +119,10 @@ export const HERO = {
     { color: '#6b6641', top: '#726d46', ridge: { base: 488, amp: 46, scale: 92, oct: 4 }, trees: { kind: 'fir', density: 0.72, hmin: 66, hmax: 118 }, houses: { n: 1, x0: 1180, span: 0, s: 1.25, light: '#ffe3a1' } },
     { color: '#5a5533', top: '#5a5533', ridge: { base: 556, amp: 34, scale: 84, oct: 4 }, trees: { kind: 'fir', density: 0.3, hmin: 110, hmax: 190, gap: 70 } },
   ],
-  speeds: [0.04, 0.08, 0.16, 0.28, 0.46, 0.7, 1.12], // die vorderste steigt etwas weiter als das Kapitel (siehe land.css, land-rise)
+  // Steigen beim Überfahren des Heros (je Scroll-Pixel, siehe land.css, land-rise): Die hinteren Ebenen laufen mit dem Kapitel mit (1),
+  // die vorderen steigen etwas schneller (je näher, desto weiter), die vorderste etwas weiter als das Kapitel, damit ihre Kuppe über dessen Kante bleibt.
+  // Vorher 0.04 bis 1.12: Die hinteren Ebenen blieben stehen und waren nach etwa einem Drittel des Wegs verdeckt (wie früher bei den Nähten).
+  speeds: [1, 1, 1.01, 1.03, 1.05, 1.08, 1.12],
 };
 export function heroLayers() {
   const os = HERO.layers.map((l, i) => ({ ...l, ridge: { ...l.ridge }, trees: l.trees && { ...l.trees }, W: HERO.W, H: HERO.H }));
