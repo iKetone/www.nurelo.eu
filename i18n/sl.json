@@ -27,9 +27,9 @@
   "mock_r3": "Alarm 0147: posredovan centru",
 
   "st_h2": "Vse o oskrbovancu na enem mestu.",
-  "st_lead": "Dosje oskrbovanca, načrtovanje oskrbe, razpored dela in obračun v enem sistemu, prilagojenem vaši ustanovi. Dokumentacija v nekaj minutah, polletno zbiranje kazalnikov pa namesto vas zabeleži in pošlje Nurelo.",
+  "st_lead": "Dosje oskrbovanca, načrtovanje oskrbe, razpored dela in obračun v enem sistemu, prilagojenem vaši ustanovi. Dokumentacija v nekaj minutah, polletno zbiranje kazalnikov kakovosti pa namesto vas zabeleži in pošlje Nurelo.",
   "st_t1": "Strukturni model: SIS, načrt ukrepov, poročevalni list in evalvacija",
-  "st_t2": "Polletno zbiranje kazalnikov s pošiljanjem",
+  "st_t2": "Polletno zbiranje kazalnikov kakovosti s pošiljanjem",
   "st_t3": "Razpored dela in obračun popolnoma nastavljiva",
   "st_t4": "Zdravila s protokolom dajanja",
   "st_n1_sub": "Soba 12 · Stopnja oskrbe 3",

@@ -27,9 +27,9 @@
   "mock_r3": "Alarm 0147: videresendt til alarmcentralen",
 
   "st_h2": "Alt om beboeren samlet ét sted.",
-  "st_lead": "Beboerjournal, plejeplanlægning, vagtplanlægning og afregning i ét system, tilpasset jeres plejecenter. Dokumentation på få minutter, og Nurelo registrerer og indberetter den halvårlige indikatorindsamling for jer.",
+  "st_lead": "Beboerjournal, plejeplanlægning, vagtplanlægning og afregning i ét system, tilpasset jeres plejecenter. Dokumentation på få minutter, og Nurelo registrerer og indberetter den halvårlige indsamling af kvalitetsindikatorer for jer.",
   "st_t1": "Strukturmodel: SIS, handlingsplan, rapportark og evaluering",
-  "st_t2": "Halvårlig indikatorindsamling med indberetning",
+  "st_t2": "Halvårlig indsamling af kvalitetsindikatorer med indberetning",
   "st_t3": "Vagtplanlægning og afregning fuldt konfigurerbare",
   "st_t4": "Medicin med administrationsprotokol",
   "st_n1_sub": "Værelse 12 · Plejeniveau 3",
