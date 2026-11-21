@@ -46,6 +46,8 @@ Diese Begriffe sind entschieden und gelten für alle Sprachen. Weitere Sprachen 
 | Tour (Ambulant) | route | tournée |
 | Berichteblatt | report sheet | feuille de transmissions |
 | Angebot (Preise) | quote | devis |
+| Indikatorenerhebung (§ 113 SGB XI) | quality indicator data (collection) | relevé des indicateurs de qualité |
+| Pflegegrad | care level | degré de dépendance (nicht „niveau“: liest sich als Nebengebäude, nicht „GIR“: französische Skala, umgekehrt gezählt) |
 
 Anrede: Deutsch „Sie", Französisch „vous". Englisch ist britisch (centre, analyse, licence).
 Französisch: Vor `:` `?` `!` `;` steht ein geschütztes Leerzeichen (U+00A0), damit das Zeichen nicht allein am Zeilenanfang landet.

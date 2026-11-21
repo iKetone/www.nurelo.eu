@@ -27,9 +27,9 @@
   "mock_r3": "Alarm 0147: forwarded to call centre",
 
   "st_h2": "Everything about the resident in one place.",
-  "st_lead": "Resident record, care planning, staff rota and billing in one system, tailored to your facility. Documentation in just a few minutes, and Nurelo records and submits the half-yearly indicator data collection for you.",
+  "st_lead": "Resident record, care planning, staff rota and billing in one system, tailored to your facility. Documentation in just a few minutes, and Nurelo records and submits the half-yearly quality indicator data for you.",
   "st_t1": "Structure model: SIS, measure plan, report sheet and evaluation",
-  "st_t2": "Half-yearly indicator data collection with submission",
+  "st_t2": "Half-yearly quality indicator collection with submission",
   "st_t3": "Staff rota and billing fully configurable",
   "st_t4": "Medication with administration log",
   "st_n1_sub": "Room 12 · Care level 3",
