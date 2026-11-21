@@ -443,16 +443,16 @@
       var depth = parseFloat(tile.dataset.depth || 1);
       var tx = still ? 0 : pointer.x, ty = still ? 0 : pointer.y;
       var ry = tx * 24 * depth, rx = -ty * 24 * depth;
-      var lift = 0;
       var r = tops[i];
       if (r) {
+        // Kapitel-Kacheln: Position bleibt fest am Fenster, nur ein leichtes Schwenken um die senkrechte Achse (Scroll und Maus)
         var s = clamp(((r.top + r.height / 2) / window.innerHeight - 0.5) * 2, -1.5, 1.5);
-        ry += s * 26 * depth; rx += -s * 12; lift = s * -14;
+        ry = clamp(tx * 8 + s * 9, -14, 14); rx = 0;
       }
       var c = el._cur;
-      c.rx = lerp(c.rx, rx, 0.14); c.ry = lerp(c.ry, ry, 0.14); c.l = lerp(c.l || 0, lift, 0.14);
+      c.rx = lerp(c.rx, rx, 0.14); c.ry = lerp(c.ry, ry, 0.14);
       if (Math.abs(c.rx - rx) > 0.05 || Math.abs(c.ry - ry) > 0.05) moving = true;
-      el.style.transform = 'perspective(700px) translateY(' + c.l.toFixed(1) + 'px) rotateX(' + c.rx.toFixed(2) + 'deg) rotateY(' + c.ry.toFixed(2) + 'deg)';
+      el.style.transform = 'perspective(700px) rotateX(' + c.rx.toFixed(2) + 'deg) rotateY(' + c.ry.toFixed(2) + 'deg)';
     });
     if (moving && !needTilt) { needTilt = true; requestAnimationFrame(tiltFrame); }
   }
