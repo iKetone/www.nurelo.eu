@@ -14,6 +14,7 @@
 //   {{u:key}} für URLs (kodiert)              {{j:key}}  für JSON (maskiert)
 //   {{P:key}} Text des Produkts (Schlüssel st_key, am_key oder hn_key), auch als {{aP:key}} und {{jP:key}}
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildScenes, SCENE_IDS } from './scenes/build.mjs';
@@ -165,8 +166,21 @@ function keepHyphenated(html) {
   return html.slice(0, bodyAt) + out.join('');
 }
 
+// Versionsangabe an CSS und JS (?v=<Prüfsumme>): Nach einem Deploy holt der Browser die neuen Dateien sofort, statt eine
+// neue Seite mit alten, noch zwischengespeicherten Stilen zu zeigen (GitHub Pages speichert 10 Minuten zwischen).
+const ASSET_RE = /((?:href|src)=")(\/?)([a-z0-9][a-z0-9\/._-]*\.(?:css|js))(?:\?v=[0-9a-f]+)?"/g;
+const assetHash = {};
+function versionAssets(html) {
+  return html.replace(ASSET_RE, (m, pre, slash, file) => {
+    if (!existsSync(join(root, file))) return m;
+    assetHash[file] ??= createHash('sha1').update(readFileSync(join(root, file))).digest('hex').slice(0, 8);
+    return `${pre}${slash}${file}?v=${assetHash[file]}"`;
+  });
+}
+
 function write(relPath, html) {
   html = keepHyphenated(html);
+  if (relPath.endsWith('.html')) html = versionAssets(html);
   const full = join(root, relPath);
   mkdirSync(dirname(full), { recursive: true });
   writeFileSync(full, html);
@@ -271,6 +285,15 @@ const entries = [
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`);
 // Bewusst ohne Disallow: Solange noindex gesetzt ist, müssen Suchmaschinen die Seiten lesen dürfen, um es zu sehen.
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
+
+// Statische Seiten (nicht aus Vorlagen gebaut) bekommen dieselben Versionsangaben
+for (const f of ['404.html', 'impressum.html', 'datenschutz.html', 'agb.html', 'maskottchen/index.html']) {
+  const full = join(root, f);
+  if (!existsSync(full)) continue;
+  const before = readFileSync(full, 'utf8');
+  const after = versionAssets(before);
+  if (after !== before) writeFileSync(full, after);
+}
 
 // ---------- Ungenutzte Schlüssel melden ----------
 for (const k of mainKeys) if (!usedMain.has(k)) fail(`Schlüssel ungenutzt: ${k}`);
