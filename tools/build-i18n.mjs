@@ -47,9 +47,9 @@ const FALLBACK_LANG = 'en';
 
 // Produkte: Adressen je Sprache (Deutsch liegt ohne Sprachordner)
 const PRODUCTS = [
-  { id: 'st', slugs: { de: 'stationaer', en: 'residential' }, glyph: 'g-st', cls: 'c-st', num: '01', depth: '1' },
-  { id: 'am', slugs: { de: 'ambulant', en: 'home-care' }, glyph: 'g-am', cls: 'c-am', num: '02', depth: '1.3' },
-  { id: 'hn', slugs: { de: 'hausnotruf', en: 'emergency-call' }, glyph: 'g-hn', cls: 'c-hn', num: '03', depth: '0.9' },
+  { id: 'st', slugs: { de: 'stationaer', en: 'residential' }, glyph: 'g-st', cls: 'c-st', num: '01', depth: '1', theme: '#5A5533' },
+  { id: 'am', slugs: { de: 'ambulant', en: 'home-care' }, glyph: 'g-am', cls: 'c-am', num: '02', depth: '1.3', theme: '#C59045' },
+  { id: 'hn', slugs: { de: 'hausnotruf', en: 'emergency-call' }, glyph: 'g-hn', cls: 'c-hn', num: '03', depth: '0.9', theme: '#9E4E2E' },
 ];
 
 const homePath = (c) => (c === 'de' ? '/' : `/${c}/`);
@@ -269,7 +269,7 @@ for (const code of PRODUCT_LANGS) {
       nav_links: navLinks, others,
       scene_css: SCENE_IDS.includes(p.id) ? '<link rel="stylesheet" href="/scene.css" />' : '',
       scene_js: SCENE_IDS.includes(p.id) ? '<script src="/scene.js" defer></script>' : '',
-      pid: p.id, pcls: p.cls, pnum: p.num, pglyph: p.glyph, pdepth: p.depth, pnav: t['nav_' + p.id],
+      theme_color: p.theme, pid: p.id, pcls: p.cls, pnum: p.num, pglyph: p.glyph, pdepth: p.depth, pnav: t['nav_' + p.id],
     };
     usedMain.add('lang_aria'); usedMain.add('more'); usedMain.add('nav_' + p.id);
     for (const o of PRODUCTS) {
