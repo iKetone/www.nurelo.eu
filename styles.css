@@ -189,6 +189,8 @@ h3 { font-size: 1.3rem; letter-spacing: -.015em; }
 }
 @media (min-width: 861px) and (max-width: 900px) {
   .brand { font-size: 0; gap: 0; } /* nur das Zeichen, der Name steht in aria-label und im Seitentitel; sonst reicht der Platz für lange Beschriftungen nicht */
+  .nav-links { gap: .45rem; }
+  .nav-links a { font-size: .8rem; }
 }
 
 /* Sprachwähler */
@@ -700,13 +702,13 @@ html:not(.hero-boot) .hero:not(.pinned) .h1-a { display: block; color: var(--ink
 }
 @keyframes ico-draw { from { stroke-dashoffset: 1.1; opacity: 0; } 12% { opacity: 1; } to { stroke-dashoffset: 0; opacity: 1; } }
 
-/* Preise */
+/* Lizenz */
 .pricing { padding: 0 0 clamp(5rem, 10vw, 8rem); background: var(--cream); }
 .price-grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(2rem, 6vw, 6rem); align-items: start; }
 .price-grid h2 { margin-bottom: 1.2rem; }
 .price-grid .btn { margin-top: 2rem; }
 .price-factors { display: grid; }
-.price-factors div { display: grid; grid-template-columns: minmax(8rem, 12rem) 1fr; gap: 1rem 1.6rem; padding: 1.5rem 0; border-top: 1px solid var(--ink); }
+.price-factors div { display: grid; grid-template-columns: minmax(8rem, 13rem) 1fr; gap: 1rem 1.6rem; padding: 1.5rem 0; border-top: 1px solid var(--ink); }
 .price-factors div:last-child { border-bottom: 1px solid var(--ink); }
 .price-factors dt { font-size: 1.35rem; font-weight: 800; line-height: 1.15; letter-spacing: -.015em; }
 .price-factors dd { margin: 0; color: var(--ink-2); }
@@ -1000,4 +1002,8 @@ html:not(.hero-boot) .hero:not(.pinned) .h1-a { display: block; color: var(--ink
   h2 { font-size: 1.9rem; letter-spacing: -.025em; }
   .cta-tiles { gap: .6rem; }
   .tile.mini { --s: 68px; }
+}
+@media (max-width: 340px) {
+  h2 { font-size: 1.7rem; } /* sehr schmale Handys: lange Wörter (z. B. „organizzazzjoni“, „funcionamento“) passen sonst nicht in die Zeile */
+  .steps-sec .section-head h2 { font-size: 2.2rem; }
 }

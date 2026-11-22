@@ -49,7 +49,9 @@ Diese Begriffe sind entschieden und gelten für alle Sprachen. Weitere Sprachen 
 | Kostenträger | payers | organismes payeurs |
 | Tour (Ambulant) | route | tournée |
 | Berichteblatt | report sheet | feuille de transmissions |
-| Angebot (Preise) | quote | devis |
+| Lizenz (Abschnitt und Menüpunkt) | Licensing | Licences |
+| Abonnement | subscription | abonnement |
+| (inklusive) | (included) | (incluse/incluses) |
 | Erhebung der Qualitätsindikatoren (§ 113 SGB XI) | quality indicator data (collection) | relevé des indicateurs de qualité |
 | Pflegegrad | care level | degré de dépendance (nicht „niveau“: liest sich als Nebengebäude, nicht „GIR“: französische Skala, umgekehrt gezählt) |
 
@@ -57,6 +59,8 @@ Anrede: Deutsch „Sie", Französisch „vous". Englisch ist britisch (centre, a
 Französisch: Vor `:` `?` `!` `;` steht ein geschütztes Leerzeichen (U+00A0), damit das Zeichen nicht allein am Zeilenanfang landet.
 
 Weitere Festlegungen für alle Sprachen:
+- **Lizenz im Menü:** Wo „Lizenzierung“ die Desktop-Navigation zwischen 861 und 960 px sprengt, steht die kurze Form „Lizenz“ (bg, el, lt, lv, sk, uk). Keine Preise und keine Nutzerzahlen nennen, das Angebot wird individuell erstellt.
+- **„(inklusive)“** heißt „im Preis enthalten“, nicht „im Lieferumfang/in der Verpackung“ (DeepL liefert in cs, sk, uk, hu, pl sonst Verpackungswörter).
 - **Unterschrift auf dem Gerät:** Im Deutschen „digitale Unterschrift". Die Rechtsgültigkeit hängt vom Landesrecht ab. In den anderen Sprachen steht der im jeweiligen Sprachgebrauch natürlichere Begriff: meist „elektronisch" (en, fr, es, it, pt, pl, ro, cs, sk, sl, hr, sv, fi, el, bg, lv, lt, mt, ga, hu), „digital" bleibt in nl, da und et (dort üblich).
 - **eKV** (elektronischer Kostenvoranschlag) bleibt in jeder Sprache „eKV", solange es dort kein gängiges Gegenstück gibt. Er kommt nur auf den Produktseiten vor, im Englischen mit Erklärung in Klammern.
 - **Slowakisch und Slowenisch:** Hausnotruf heißt „tiesňové volanie" bzw. „klic v sili" (nicht „tiesňová starostlivosť", „varovanje z alarmom": liest sich als Angstbewältigung bzw. Alarmanlage).
