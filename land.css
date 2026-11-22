@@ -90,3 +90,22 @@ html.land .scn.scn-on > .seam { margin-bottom: 0; }
     @keyframes seam-rise { from { transform: translate3d(0, calc(var(--s) * var(--seam-h) * .62), 0); } }
   }
 }
+
+/* ---------- Abendszene im Kontakt der Produktseiten ----------
+   Gegenstück zum Morgen im Hero: Himmel wird zum Horizont hin warm, die Sonne sinkt hinter warme Kämme im Gegenlicht,
+   davor Abendnebel; die vorderste Ebene hat die Farbe der Fußzeile. --p (0 bis 1) setzt main.js („Abendszene“) beim Scrollen:
+   0, wenn die Landschaft unten ins Bild kommt, 1, wenn sie ganz im Bild steht. Ohne Skript und bei reduzierter Bewegung gilt 1.
+   Bewegung nur über transform; --r ist der Weg je Ebene (je näher, desto weiter), die vorderste steht fest. */
+.contact.dusk { --dusk-h: clamp(210px, 26vw, 360px); padding-bottom: var(--dusk-h); }
+.contact.dusk::before, .contact.dusk::after, .contact.dusk .wrap::before { display: none; }   /* die Farbkreise weichen der Landschaft */
+.dusk-scene { --p: 1; position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+  background: linear-gradient(to bottom, var(--cream) 0%, var(--cream) 30%, #f7e1c4 62%, #f1c99f 100%); }
+.dusk-sun { position: absolute; left: 72%; bottom: calc(var(--dusk-h) * .6); width: clamp(110px, 13vw, 200px); aspect-ratio: 1; border-radius: 50%;
+  margin-left: calc(clamp(110px, 13vw, 200px) / -2);
+  background: radial-gradient(circle, #fff1cf 0 32%, #ffcf8a 52%, rgba(250, 178, 110, .35) 64%, rgba(250, 178, 110, 0) 72%);
+  transform: translate3d(0, calc((var(--p) * .6 - .45) * clamp(110px, 13vw, 200px)), 0); will-change: transform; }   /* sinkt, bis sie halb hinter dem hintersten Kamm steht */
+.dusk-l { position: absolute; left: 0; bottom: 0; width: 100%; height: var(--dusk-h); max-width: none; object-fit: cover; object-position: 50% 100%;
+  transform: translate3d(0, calc((1 - var(--p)) * var(--r) * var(--dusk-h) * .6), 0); will-change: transform; }
+/* Karte ohne Hintergrund-Filter: Hinter Glas würde die bewegte Landschaft in jedem Bild neu weichgezeichnet */
+.contact.dusk .cta-box { background: color-mix(in srgb, var(--paper) 90%, transparent); -webkit-backdrop-filter: none; backdrop-filter: none; }
+@media (max-width: 560px) { .contact.dusk { --dusk-h: 200px; } .dusk-sun { left: 76%; } }

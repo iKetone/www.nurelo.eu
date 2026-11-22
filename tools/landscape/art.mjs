@@ -154,6 +154,9 @@ export const SEAMS = {
   'p-st': { from: '#5a5533', to: '#f2eadd', motif: 'fir' },
   'p-am': { from: '#c59045', to: '#f2eadd', motif: 'round' },
   'p-hn': { from: '#9e4e2e', to: '#f2eadd', motif: 'house' },
+  // Kontakt der Produktseiten: Abend, warme Kämme im Gegenlicht über Nebel, die vorderste Ebene in der Farbe der Fußzeile.
+  // own: eigene Einbindung als Abendszene (src/product.template.html, land.css „Abendszene“), kein Baustein seam-kt.html
+  kt: { from: '#8a4a2c', to: '#f2eadd', motif: 'mist', own: true },
 };
 export const SEAM_SPEEDS = [0.14, 0.34, 0.62, 1];
 // Die Motive jeder Naht (Pflegeauto, Funkmast, Nacht, Sonnenaufgang, Obstwiese) kommen aus motive.mjs
