@@ -233,7 +233,7 @@ for (const [code] of LANGS) {
     ml_lang: code === 'de' ? 'tr' : code, ml_code: (code === 'de' ? 'tr' : code).toUpperCase(),
     ml_flag: flagIcon(code === 'de' ? 'tr' : code), ml_flag_de: flagIcon('de'),
     nav_links: [
-      ['#stationaer', 'nav_st'], ['#ambulant', 'nav_am'], ['#hausnotruf', 'nav_hn'], ['#plattform', 'nav_pf'], ['#preise', 'nav_pr'],
+      ['#stationaer', 'nav_st'], ['#ambulant', 'nav_am'], ['#hausnotruf', 'nav_hn'], ['#plattform', 'nav_pf'], ['#lizenz', 'nav_pr'],
     ].map(([h, k]) => `          <li><a href="${h}">${t[k]}</a></li>`).join('\n'),
   };
   usedMain.add('lang_aria');
@@ -260,7 +260,7 @@ for (const code of PRODUCT_LANGS) {
     }).join('\n');
     const navLinks = PRODUCTS.map((o) =>
       `          <li><a href="${productPath(o, code)}"${o.id === p.id ? ' aria-current="page"' : ''}>${t['nav_' + o.id]}</a></li>`).join('\n')
-      + `\n          <li><a href="${homePath(code)}#plattform">${t.nav_pf}</a></li>\n          <li><a href="${homePath(code)}#preise">${t.nav_pr}</a></li>`;
+      + `\n          <li><a href="${homePath(code)}#plattform">${t.nav_pf}</a></li>\n          <li><a href="${homePath(code)}#lizenz">${t.nav_pr}</a></li>`;
     const specials = {
       lang: code, locale: LOCALE[code], url: SITE + productPath(p, code), home: homePath(code),
       hreflang: hreflangHtml(PRODUCT_LANGS, pathFor),
