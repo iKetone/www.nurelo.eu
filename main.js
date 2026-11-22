@@ -380,6 +380,35 @@
   }
   function tiltFrame() { needTilt = false; updateTilt(); }
 
+  // ---------- Abendszene im Kontakt der Produktseiten ----------
+  // Setzt --p (0 bis 1) auf .dusk-scene (land.css „Abendszene“): 0, wenn die Landschaft am unteren Rand ins Bild kommt,
+  // 1, wenn sie ganz im Bild steht und ein Stück weitergescrollt ist; die Bewegung läuft also, solange man sie sieht.
+  // Gemessen an der kleinen Fensterhöhe (svh, fest), damit nichts springt, wenn am Handy die Browserleiste ein- oder ausklappt.
+  (function () {
+    var scene = document.querySelector('.dusk-scene');
+    if (!scene) return;
+    var sec = scene.parentNode, band = scene.querySelector('.dusk-l'), vh = 0, bh = 1, last = -1, tick = false, near = true;
+    var probe = document.createElement('div');
+    probe.style.cssText = 'position:fixed;left:0;top:0;width:0;height:100vh;height:100svh;visibility:hidden;pointer-events:none';
+    document.body.appendChild(probe);
+    function measure() { vh = probe.offsetHeight || window.innerHeight; bh = Math.max(1, band ? band.offsetHeight : 300); }
+    function update() {
+      tick = false;
+      var p = 1;
+      if (!reduce.matches) { var r = sec.getBoundingClientRect(); p = clamp((vh + bh - r.bottom) / (bh * 1.6), 0, 1); }
+      p = Math.round(p * 1000) / 1000;
+      if (p !== last) { last = p; scene.style.setProperty('--p', String(p)); }
+    }
+    function request() { if (!tick && near) { tick = true; requestAnimationFrame(update); } }
+    measure(); update();
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) { near = en[0].isIntersecting; if (near) request(); }, { rootMargin: '200px 0px' }).observe(sec);
+    }
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', function () { measure(); request(); });
+    if (reduce.addEventListener) reduce.addEventListener('change', request);
+  })();
+
   // ---------- Hero-Bühne ----------
   var hero = document.getElementById('top');
   var stage = document.getElementById('stage');

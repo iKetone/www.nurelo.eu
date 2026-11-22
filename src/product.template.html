@@ -184,8 +184,16 @@
       </div>
     </section>
 
-    <!-- Kontakt -->
-    <section class="contact" id="kontakt">
+    <!-- Kontakt als Abendszene: Beim Hineinscrollen sinkt die Sonne, die Kämme steigen aus dem Nebel (land.css und main.js „Abendszene“).
+         Ebenen aus tools/landscape (SEAMS.kt), die vorderste in der Farbe der Fußzeile. -->
+    <section class="contact dusk" id="kontakt">
+      <div class="dusk-scene" aria-hidden="true">
+        <div class="dusk-sun"></div>
+        <img class="dusk-l" style="--r:.22" src="/landscape/seam-kt-1.svg" alt="" width="1600" height="300" loading="lazy" decoding="async">
+        <img class="dusk-l" style="--r:.42" src="/landscape/seam-kt-2.svg" alt="" width="1600" height="300" loading="lazy" decoding="async">
+        <img class="dusk-l" style="--r:.66" src="/landscape/seam-kt-3.svg" alt="" width="1600" height="300" loading="lazy" decoding="async">
+        <img class="dusk-l" style="--r:0" src="/landscape/seam-kt-4.svg" alt="" width="1600" height="300" loading="lazy" decoding="async">
+      </div>
       <div class="wrap">
         <div class="cta-box reveal">
           <div class="cta-tiles" aria-hidden="true">
