@@ -60,9 +60,6 @@
     // Die Einträge kommen, sobald die Welle sie erreicht hat
     items.forEach(function (el, i) { el.style.setProperty('--d', String(220 + i * 45)); });
 
-    // Farbe der Browserleiste (Android): beim offenen Menü wie die dunkle Fläche, sonst wieder die Farbe der Seite
-    var themeMeta = document.querySelector('meta[name="theme-color"]'), themeBase = themeMeta && themeMeta.content;
-    function setTheme(dark) { if (themeMeta) themeMeta.content = dark ? '#241B14' : themeBase; }
     function open() {
       if (menuOpen) return;
       menuOpen = true;
@@ -70,7 +67,6 @@
       mnav.hidden = false;
       size();
       root.classList.add('mnav-open');
-      setTheme(true);
       menuBtn.setAttribute('aria-expanded', 'true');
       if (reduce.matches) { if (raf) { cancelAnimationFrame(raf); raf = 0; } p = 1; draw(); } else run(1, 560);
       // Einträge erst im nächsten Bild auf „offen“, damit ihr Übergang startet
@@ -84,7 +80,6 @@
       mnav.classList.remove('is-open');
       [].slice.call(mnav.querySelectorAll('details[open]')).forEach(function (d) { d.open = false; });   // offene Sprachliste mit zuklappen
       menuBtn.setAttribute('aria-expanded', 'false');
-      setTheme(false);
       root.classList.remove('mnav-open');   // sofort: ein Sprung zu einem Abschnitt soll schon während des Schließens scrollen können
       if (mnav.contains(document.activeElement)) menuBtn.focus({ preventScroll: true });
       if (instant || reduce.matches) { if (raf) { cancelAnimationFrame(raf); raf = 0; } p = 0; draw(); mnav.hidden = true; return; }
