@@ -187,7 +187,13 @@
     }
   }
   if (reduce.addEventListener) reduce.addEventListener('change', setup); else reduce.addListener(setup);
-  window.addEventListener('resize', function () { if (pinned) layout(); });
+  // Die Bühne ist 100svh hoch: Klappt am Handy die Browserleiste ein oder aus, bleibt sie gleich groß. Dann nichts neu aufbauen,
+  // sonst würde der Staub neu gewürfelt und das Canvas neu angelegt (Flackern, Ruckeln beim Scrollen).
+  window.addEventListener('resize', function () {
+    if (!pinned) return;
+    if ((stage.clientWidth || window.innerWidth) === vw && (stage.clientHeight || window.innerHeight) === vh) return;
+    layout();
+  });
   document.addEventListener('visibilitychange', kick);
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (entries) { visible = entries[0].isIntersecting; kick(); }, { rootMargin: '30% 0px' }).observe(sec);
