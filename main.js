@@ -149,6 +149,36 @@
     });
   }
 
+  // ---------- Ablauf am Handy und Tablet ----------
+  // Kopf bleibt stehen, die Schritte wechseln nacheinander (styles.css, „Ablauf am Handy und Tablet“). Hier nur: --pt (Scrollposition,
+  // an der die Bühne oben ankommt) und .on, wenn Breite, Bewegung und Browser passen und die Bühne in die Fensterhöhe passt
+  // (niedrige Bildschirme oder lange Texte in manchen Sprachen: dann bleibt die Liste).
+  var stepsPin = document.querySelector('.steps-pin');
+  if (stepsPin && window.CSS && CSS.supports && CSS.supports('animation-timeline: scroll()')) {
+    var stepsStage = stepsPin.querySelector('.steps-stage');
+    var stepsMq = window.matchMedia('(max-width: 960px) and (prefers-reduced-motion: no-preference)');
+    var stepsRaf = 0;
+    var stepsUpdate = function () {
+      stepsRaf = 0;
+      if (!stepsMq.matches) { stepsPin.classList.remove('on'); return; }
+      stepsPin.classList.add('on');
+      // Höhe aus den Bausteinen statt scrollHeight: Die Einblende-Animation verschiebt den Kopf anfangs nach unten, das zählte sonst mit
+      var cs = getComputedStyle(stepsStage), need = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+      [].forEach.call(stepsStage.children, function (el) { var m = getComputedStyle(el); need += el.offsetHeight + parseFloat(m.marginTop) + parseFloat(m.marginBottom); });
+      if (need > stepsStage.clientHeight + 1) { stepsPin.classList.remove('on'); return; }
+      var pt = Math.round(stepsPin.getBoundingClientRect().top + window.scrollY) + 'px';
+      if (stepsPin.style.getPropertyValue('--pt') !== pt) stepsPin.style.setProperty('--pt', pt);
+    };
+    var stepsRequest = function () { if (!stepsRaf) stepsRaf = requestAnimationFrame(stepsUpdate); };
+    stepsUpdate();
+    window.addEventListener('resize', stepsRequest);
+    window.addEventListener('load', stepsRequest);
+    if (stepsMq.addEventListener) stepsMq.addEventListener('change', stepsRequest);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(stepsRequest);
+    // Ändert sich weiter oben etwas an der Höhe (Schrift geladen, Bilder), verschiebt sich die Bühne: neu messen
+    if ('ResizeObserver' in window) new ResizeObserver(stepsRequest).observe(document.body);
+  }
+
   // ---------- Nach oben ----------
   var toTop = document.querySelector('.to-top');
   if (toTop) {
