@@ -943,6 +943,64 @@ html:not(.hero-boot) .hero:not(.pinned) .h1-a { display: block; color: var(--ink
   }
 }
 @keyframes grow-x { to { transform: scaleX(1); } }
+
+/* Ablauf am Handy und Tablet: Kopf (Kicker, Überschrift, Text) bleibt stehen, darunter immer ein Schritt. Beim Scrollen rollt die Zahl
+   wie ein Zählwerk weiter, Titel und Text gleiten nach oben hinaus und der nächste Schritt von unten herein, die Linie darüber füllt sich.
+   Jeder Schritt hat 65svh Scrollweg (--seg) und steht den größten Teil davon ruhig; gewechselt wird nur in einem kurzen Stück dazwischen
+   (Haltepunkte in den Keyframes: Wechsel um 25 %, 50 % und 75 % des Weges, je 7,5 % breit).
+   Zeitverlauf ist die Scrollposition der Seite (wie im Hero, nicht view()): main.js setzt --pt, die Scrollposition, an der die Bühne
+   oben ankommt, und .on, wenn alles passt (Breite, Bewegung erlaubt, Bühne passt in die Fensterhöhe). Sonst bleibt die Liste. */
+.steps-meter { display: none; }
+@supports (animation-timeline: scroll()) {
+  @media (max-width: 960px) and (prefers-reduced-motion: no-preference) {
+    .js .steps-pin.on { --seg: 65svh; --r0: var(--pt, 0px); --r1: calc(var(--pt, 0px) + 4 * var(--seg)); height: calc(100svh + 4 * var(--seg)); }
+    .js .steps-pin.on .steps-stage { position: sticky; top: 0; height: 100svh; display: flex; flex-direction: column; justify-content: center;
+      padding: calc(max(12px, env(safe-area-inset-top)) + 72px) 0 1.25rem; }   /* oben Platz für die Leiste, die beim Hochscrollen wiederkommt */
+    .js .steps-pin.on .section-head { margin-bottom: clamp(1.4rem, 4.5svh, 2.6rem); }
+    .js .steps-pin.on .steps-meter { display: block; }
+    .js .steps-pin.on .steps { display: grid; grid-template-columns: minmax(0, 1fr); }
+    .js .steps-pin.on .steps li { grid-area: 1 / 1; border-top: 0; padding-top: 0;
+      animation: steps-1 linear both; animation-timeline: scroll(root block); animation-range: var(--r0) var(--r1); }
+    .js .steps-pin.on .steps li:nth-child(2) { animation-name: steps-2; }
+    .js .steps-pin.on .steps li:nth-child(3) { animation-name: steps-3; }
+    .js .steps-pin.on .steps li:nth-child(4) { animation-name: steps-4; }
+    .js .steps-pin.on .steps li::before { display: none; }   /* die Zahl kommt aus dem Zählwerk */
+
+    /* Linie mit vier Punkten */
+    .steps-prog { position: relative; height: 10px; margin-bottom: clamp(1.2rem, 3.5svh, 2rem); }
+    .steps-prog::before, .steps-prog::after { content: ""; position: absolute; left: 5px; right: 5px; top: 4px; height: 2px; }
+    .steps-prog::before { background: var(--line); }
+    .steps-prog::after { background: var(--terra-d); transform-origin: left; animation: steps-fill linear both; animation-timeline: scroll(root block); animation-range: var(--r0) var(--r1); }
+    .steps-prog i { position: absolute; top: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+    .steps-prog i::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--terra-d); }
+    .steps-prog i:nth-child(2) { left: calc((100% - 10px) / 3); }
+    .steps-prog i:nth-child(3) { left: calc((100% - 10px) * 2 / 3); }
+    .steps-prog i:nth-child(4) { left: calc(100% - 10px); }
+    .steps-prog i:nth-child(n+2)::after { transform: scale(0); animation: steps-dot2 linear both; animation-timeline: scroll(root block); animation-range: var(--r0) var(--r1); }
+    .steps-prog i:nth-child(3)::after { animation-name: steps-dot3; }
+    .steps-prog i:nth-child(4)::after { animation-name: steps-dot4; }
+
+    /* Zählwerk: vier Zahlen übereinander, das Fenster zeigt eine; der Streifen fährt je Schritt um eine Zahl nach oben */
+    .steps-num { height: 1.04em; overflow: hidden; margin-bottom: clamp(.8rem, 2.5svh, 1.4rem); font-size: clamp(4rem, 9.5vw, 6rem); font-weight: 800; letter-spacing: -.06em; line-height: 1.04; color: var(--terra-d); }
+    .steps-num > div { animation: steps-roll linear both; animation-timeline: scroll(root block); animation-range: var(--r0) var(--r1); }
+    .steps-num span { display: block; height: 1.04em; }
+  }
+  /* Niedrige Handys (kleine iPhones mit eingeblendeter Safari-Leiste): etwas kompakter, damit die Bühne auch in längeren Sprachen passt */
+  @media (max-width: 960px) and (max-height: 640px) and (prefers-reduced-motion: no-preference) {
+    .js .steps-pin.on .steps-stage { padding: calc(max(12px, env(safe-area-inset-top)) + 64px) 0 .75rem; }
+    .js .steps-pin.on .section-head h2 { margin-bottom: .8rem; font-size: 2.2rem; }
+    .steps-num { font-size: 3.2rem; }
+  }
+}
+@keyframes steps-1 { 0%, 21.25% { opacity: 1; transform: none; } 25%, 100% { opacity: 0; transform: translateY(-22px); } }
+@keyframes steps-2 { 0%, 25% { opacity: 0; transform: translateY(22px); } 28.75%, 46.25% { opacity: 1; transform: none; } 50%, 100% { opacity: 0; transform: translateY(-22px); } }
+@keyframes steps-3 { 0%, 50% { opacity: 0; transform: translateY(22px); } 53.75%, 71.25% { opacity: 1; transform: none; } 75%, 100% { opacity: 0; transform: translateY(-22px); } }
+@keyframes steps-4 { 0%, 75% { opacity: 0; transform: translateY(22px); } 78.75%, 100% { opacity: 1; transform: none; } }
+@keyframes steps-roll { 0%, 21.25% { transform: none; } 28.75%, 46.25% { transform: translateY(-25%); } 53.75%, 71.25% { transform: translateY(-50%); } 78.75%, 100% { transform: translateY(-75%); } }
+@keyframes steps-fill { 0%, 21.25% { transform: scaleX(0); } 28.75%, 46.25% { transform: scaleX(.3333); } 53.75%, 71.25% { transform: scaleX(.6667); } 78.75%, 100% { transform: scaleX(1); } }
+@keyframes steps-dot2 { 0%, 27.5% { transform: scale(0); } 28.75%, 100% { transform: scale(1); } }
+@keyframes steps-dot3 { 0%, 52.5% { transform: scale(0); } 53.75%, 100% { transform: scale(1); } }
+@keyframes steps-dot4 { 0%, 77.5% { transform: scale(0); } 78.75%, 100% { transform: scale(1); } }
 /* Wortweises Aufhellen (Wörter setzt main.js): jedes Wort beginnt leicht versetzt, alle sind nach etwa einem Fünftel des Weges hell */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {

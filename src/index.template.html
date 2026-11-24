@@ -337,17 +337,25 @@
     <section class="steps-sec" id="ablauf">
         {{include:seam-ab}}
       <div class="wrap">
-        <div class="section-head reveal">
-          <p class="kicker dark">{{on_kicker}}</p>
-          <h2>{{on_h2}}</h2>
-          <p class="lead">{{on_lead}}</p>
+        <div class="steps-pin">
+          <div class="steps-stage">
+            <div class="section-head reveal">
+              <p class="kicker dark">{{on_kicker}}</p>
+              <h2>{{on_h2}}</h2>
+              <p class="lead">{{on_lead}}</p>
+            </div>
+            <div class="steps-meter" aria-hidden="true">
+              <div class="steps-prog"><i></i><i></i><i></i><i></i></div>
+              <div class="steps-num"><div><span>01</span><span>02</span><span>03</span><span>04</span></div></div>
+            </div>
+            <ol class="steps">
+              <li class="reveal"><h3>{{s1_h}}</h3><p>{{s1_p}}</p></li>
+              <li class="reveal"><h3>{{s2_h}}</h3><p>{{s2_p}}</p></li>
+              <li class="reveal"><h3>{{s3_h}}</h3><p>{{s3_p}}</p></li>
+              <li class="reveal"><h3>{{s4_h}}</h3><p>{{s4_p}}</p></li>
+            </ol>
+          </div>
         </div>
-        <ol class="steps">
-          <li class="reveal"><h3>{{s1_h}}</h3><p>{{s1_p}}</p></li>
-          <li class="reveal"><h3>{{s2_h}}</h3><p>{{s2_p}}</p></li>
-          <li class="reveal"><h3>{{s3_h}}</h3><p>{{s3_p}}</p></li>
-          <li class="reveal"><h3>{{s4_h}}</h3><p>{{s4_p}}</p></li>
-        </ol>
         <div class="trust-wrap">
           <p class="kicker dark reveal">{{tr_h}}</p>
           <ul class="trust">
